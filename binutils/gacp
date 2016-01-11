@@ -1,0 +1,6 @@
+if [ "X$1X" == "XX" ] ; then
+    echo "Usage: $0 CommitMsg"; exit
+fi
+git add --all .
+git commit -m "$1"
+git push -u --all

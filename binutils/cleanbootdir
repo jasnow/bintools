@@ -1,0 +1,6 @@
+dpkg -l linux-* \
+| awk '/^ii/{ print $2}' \
+| grep -v -e `uname -r | cut -f1,2 -d"-"` \
+| grep 3.13 > /tmp/LINUXES
+
+sudo apt-get -y purge `cat /tmp/LINUXES`

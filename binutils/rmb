@@ -1,0 +1,43 @@
+#!/bin/bash
+
+if [ "X$1X" == 'XX' ] ; then
+    PATHN='.'
+else
+    PATHN="$1"
+fi
+TMPDIR='/tmp'
+
+find ${PATHN} -type f \
+|    grep "\.[a-z]*$" \
+|    egrep -v \
+'fixcane|git/|db/|log/|tmp/|gitignore|coverage|vendor|public|jpg|gif|psd|png' \
+> ${TMPDIR}/$$_FILES_OF
+#wc ${TMPDIR}/$$_FILES_OF
+
+# Get a list of file with trailing blanks.
+grep -l " $" `cat ${TMPDIR}/$$_FILES_OF` > ${TMPDIR}/$$_FILELIST
+#wc ${TMPDIR}/$$_FILELIST
+
+# USAGE: if you give a 2nd arg, then you get
+#    only list of file and not the cleanup.
+#
+if [ "X$2X" == 'XX' ] ; then
+    # Cleanup (Limit Demo to one file)
+    for i in `cat ${TMPDIR}/$$_FILELIST` ; do
+        SPACES=`grep -c "[ ]*$" "$i" |awk '{ print $1 }'`
+        #echo ${SPACES}
+        if [ "X${SPACES}X" == 'X0X' ] ; then
+            : #echo ZERO
+        else
+            echo "*** $i *** ${SPACES}"
+            sed -e "s/ *$//" "$i" > ${TMPDIR}/$$_NEW_FILE
+            mv ${TMPDIR}/$$_NEW_FILE "$i"
+            #SPACES2=`grep -c "[ ]*$" "$i" |awk '{ print $1 }'`
+            #echo "AFTER *** $i *** ${SPACES2}"
+        fi
+    done
+else
+    cat ${TMPDIR}/$$_FILELIST
+fi
+
+rm ${TMPDIR}/$$_*

@@ -1,0 +1,123 @@
+if [ "X`git branch |grep "^\*" |awk '{ print $2 }'`X" == "XmasterX" ] ; then
+    : # okay
+else
+    if [ "X`git branch |grep "^\*" |awk '{ print $2 }'`X" == "XdevelopX" ] ; then
+        : # okay
+    else
+        if [ "X`git branch |grep "^\*" |awk '{ print $2 }'`X" == "Xrails4X" ] ; then
+            : # okay
+        else
+            if [ "X`git branch |grep "^\*" |awk '{ print $2 }'`X" == "Xgh-pagesX" ] ; then
+                : # okay
+            else
+                if [ "X$1X" == "XX" ] ; then
+                    echo "git branch: Not on 'master' branch"
+                    git branch
+                    exit
+                fi
+            fi
+        fi
+    fi
+    # else (skip check)
+fi
+
+if [ "X`type dawn 2> /dev/null |grep '@'`X" == "XX" ] ; then
+    : #echo "DAWN NOT AVAILABLE"
+else
+    : # rundawn
+fi
+
+if [ -f .travis.yml ] ; then
+    if [ "X`egrep -c "^sudo: false|^cache: bundler" .travis.yml`X" == "X2X" ] ; then
+        : # okay
+    else
+        echo "Missing cache: bundler or sudo: false in .travis.yml file"
+    fi
+fi
+
+if [ "X`ls .overcommit.yml 2> /dev/null`X" == "XX" ] ; then
+    echo "Please install overcommit" ; exit
+fi
+
+if [ "X`(ls *LICENSE*  License* 2> /dev/null; grep spec.license *gemspec 2> /dev/null; grep -i license R*) |wc -l |awk '{ print $1 }'`X" == "X0X" ]
+then
+    if [ "X$1X" == "XlX" ] ; then  
+        : # OK
+    else
+        echo "No Licenses"
+        git grep -iI --no-index license \
+        | egrep -v "bootstrap.css|^coverage|vendor/assets/bower_components"
+        exit
+    fi
+fi
+
+sed -e "s,#.*,," Gemfile *gemspec 2> /dev/null | grep "[0-9]" \
+| egrep -v "sqlite3|'rspec-rails', '2.99.0'|gem 'rails'|'rails', '>=" \
+| egrep -v "^  gem|gmaps4rails|homepage|email|authors|^ruby '2.3.0" \
+| egrep -v "rails_12factor|ls-files|Artistic 2.0|version|platform" \
+| egrep -v "cert_chain|win32-file|mysql|pre.6|i18n-tasks|hassle3" \
+| egrep -v "'rest-client', '2.0.0.rc2'|aws-sdk-v1|crack|github: '|>=3.0.0" \
+| egrep -v "'bootstrap-sass', '2.3.2.2'|'mime-types', '2.6.2'|ruby-filemagic" \
+| egrep -v "'will_paginate-bootstrap', '0.2.5'|will_paginate', '2.3.16' " \
+| egrep -v "'sprockets-rails', '2.3.3'|RUBY_VERSION >= '2.0.0'|split" \
+| egrep -v "'omniauth-google-oauth2'"
+
+# NOTE: 'sprockets-rails', '2.3.3'
+# NOTE: "3.0.0.pre.beta2" # for jekyll
+# NOTE: '"mime-types", "~> 1.16"|"rspec", "~> 3.0"|"watir", "~> 5.0"'  for watir-rails
+# NOTE: rails-footnotes-4.1.6 for atlrug5
+# NOTE: bootstrap-sass-2.3.2.2 for sp40
+# NOTE: rest-client', '1.8.0' for ay
+
+# FYI: Change 'git:' to 'github:' lines.
+sed -e "s,#.*,," Gemfile *gemspec 2> /dev/null | egrep "git" \
+| egrep -v "description|homepage|summary|ls-files|omniauth-github|email" \
+| egrep -v "github_api|github: '|github/markup|sqlite3"
+
+rvm list | grep ^= \
+| egrep -v "2.3.0|2.2.4|2.1.8"
+
+egrep "2.2.[0123]|2.1.[0-6]" .travis.yml \
+| egrep -v "repo_token:"
+
+grep "rubygems." Gemfile *gemspec 2> /dev/null \
+| egrep -v "https://rubygems.org|^#|:#"
+
+egrep "4.2.[01234]|4.2.4|4.1.1[0123]|4.1.9|4.2.[12345].rc[1234]|4.1.1[0123].rc[12345]" \
+Gemfile *gemspec 2> /dev/null \
+|egrep -v "^#|'slop', '4.2.0'"
+
+egrep '2.1.4|3.2.19|3.2.2[01]|4.0.1[012]|4.1.[678]|4.2.0.beta[1234]' \
+Gemfile *gemspec 2> /dev/null
+
+git grep "2\.2\.[0123]|2.1.[0-6]"
+
+# Use only gemsets that are equal to ruby versions (a few exceptions).
+rvm list gemsets |grep "=>" \
+|sed -e "s,ruby-2.3.0,,g" -e "s,ruby2.2.[34],,g" -e "s,ruby-2.2.[34],,g" \
+|egrep -v "\[ i686 \]"
+
+git grep preview2
+
+exit
+#STOPHERE ############################################################
+
+#git grep "201[0-9]" |egrep -v "2016|db/schema|public/|Hartl"
+
+#git grep "serve_static_files"
+
+#git grep "http:"
+
+# WHY?
+#grep ffi Gemfile *gemspec 2> /dev/null 
+
+##########brakeman 2> /tmp/stderr_output |grep "Security Warnings" |grep -v "0 (0)"
+##########head /tmp/stderr_output |grep "command"
+##########rm -rf /tmp/stderr_output
+##########
+########## Found 11/5/2014: http://peter.eisentraut.org/blog/
+########## 2014/11/04/checking-whitespace-with-git
+##########git diff-tree --check $(git hash-object -t tree /dev/null) HEAD |egrep -v "*/|jquery"
+
+# http://rails-bestpractices.com/posts/808-use-time-zone-now-instead-of-time-now
+# 4/3/2015: TURNED OFF: git grep "Time\.now" 

@@ -1,0 +1,127 @@
+if [ -f ".overcommit.yml" ] ; then
+    : # do nothing
+else
+    echo "Installing overcommit..."
+    gem install overcommit > /dev/null
+    overcommit --install
+    overcommit --sign
+fi
+
+DIRN=`pwd`
+PROJ=`basename ${DIRN}`
+if [ "X`grep -c parent .git/config`X" == "X0X" ]
+then
+    if [ "X`grep -v "^#" $HOME/Projects/do-pull-request-first.txt |grep -c ${PROJ}$`X" == "X0X" ]
+    then
+        : # echo "No either place, do nothing"
+    else
+        echo "Remove parent because not in do-pull-request-first.txt file" ; exit
+    fi
+else
+    if [ "X`grep -v "^#" $HOME/Projects/do-pull-request-first.txt |grep -c ${PROJ}$`X" == "X0X" ]
+    then
+        echo "Add to do-pull-request-first.txt file, then run git pull." ; exit
+    else
+        echo "Running pre-git-pull..."
+        git pull parent master
+    fi
+fi    
+
+echo "Running chkn..."
+if [ "X`chkn $1 | wc -l |awk '{ print $1 }'`X" == "X0X" ] ; then
+    : # GOOD: echo "FYI: chkn is ZERO"
+else
+    PWDN=`pwd`
+    if [ "X`basename ${PWDN}`X" = "Xwatir-railsX" ] ; then
+        : # EXCEPTION
+    else
+        if [ "X`basename ${PWDN}`X" = "Xrgsoc-teamsX" ] ; then
+            : # EXCEPTION
+        else
+            echo "FYI: chkn IS NOT ZERO; STOPPING"; chkn ; exit
+        fi
+    fi
+fi
+
+if [ "X`bundler -v |grep -c Bundler`X" == "X0X" ] ; then
+    echo "Installing bundler..."
+    gem install bundler
+else
+    : # do nothing
+fi
+
+BOST="`bundle outdated --strict |tail -1`"
+if [ "X${BOST}X" == "XBundle up to date!X" ] ; then
+    echo "No gem update needed; leaving the building..." ; touch . ; exit
+fi
+if [ "X${BOST}X" == "XYour bundle is up to date!X" ] ; then
+    echo "No gem update needed; leaving the building..." ; touch . ; exit
+fi
+
+echo "Running cane..."
+if [ "X`cane 2>&1 |grep "command not found" |wc -l |awk '{ print $1 }'`X" == "X1X" ]
+then
+    gem install cane
+fi
+
+if [ "X$1X" == "XX" ] ; then
+    # 4/15/2015: Commented out since I did not clean up all repos.
+    # 9/13/2015: Added it back but changed output filter.
+    if [ "X`cane |egrep -v ">80|:|^$"| wc -l |awk '{ print $1 }'`X" == "X0X" ] ; then
+        : 
+    else
+        echo "CANE MSGS:"
+        cane |egrep -v ">80|:|^$"
+        exit
+    fi
+else
+    echo "Skipping cane run..."
+fi
+
+echo "Running cleanup..."
+gem cleanup
+
+echo "Running bundle..."
+lu
+bundle install
+
+if [ -d "public/assets" ] ; then
+    echo "YES: public/assets"
+    #rake assets:clean
+    #rake assets:precompile
+else
+    echo "NO: public/assets"
+fi
+
+if [ "X`grep -c "bundle exec rubocop" .travis.yml 2> /dev/null`X" == "X1X" ] ; then
+    echo "RUN rubocop: OK"
+    rubocop -D
+else
+    echo "NO rubocop"
+fi
+
+if [ $? == 0 ] ; then
+    if [ "X${PROJ}X" = "X24pullrequestsX" ] ; then
+        unset GITHUB_KEY
+    fi
+    rake
+    if [ $? == 0 ] ; then
+        echo "rake/rails-cmd EXIT STATUS is ZERO - GREAT"
+        git diff |more
+        if [ "X`git status -s`X" == "X M Gemfile.lockX" ] ; then
+            echo "GOT Gemfile.lock only"
+            overcommit --sign
+            gacp "Upgraded gems by rebuilding Gemfile.lock file"
+        else
+            if [ "X`git status|tail -1`X" == "Xnothing to commit, working directory cleanX" ] ; then
+                echo "NOTHING TO COMMIT - NO-OP" ; git status -s
+            else
+                echo "GOT MORE from GIT STATUS" ; git status -s
+            fi
+        fi
+    else
+        echo "rake/rails-cmd EXIST STATUS IS NOT ZERO (BAD) ******************************"
+    fi
+else
+    echo "bundle install EXIT STATUS != 0 (BAD) ******************************"
+fi

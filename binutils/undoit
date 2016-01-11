@@ -1,0 +1,2 @@
+git status | egrep 'modified|deleted' |awk '{ print "git checkout -- ", $2 }' |bash
+

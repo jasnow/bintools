@@ -1,0 +1,5 @@
+if [ "X$1X" = "XX" ] ; then
+    es ${HOME}/Dropbox/Private/event-people-rails-project-notes.txt 
+else
+    cp ${HOME}/Dropbox/Private/event-people-rails-project-notes.txt $HOME
+fi
