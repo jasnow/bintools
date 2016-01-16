@@ -1,0 +1,8 @@
+# Check that two dirs are sync'ed.
+
+if [ "X$1X" == "XX" ] ; then
+    diff -r ${HOME}/bin/binutils binutils 
+else
+    # Assume changes are done in $HOME/bin 1st.
+    cp -r ${HOME}/bin/binutils/* binutils
+fi

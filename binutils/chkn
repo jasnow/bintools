@@ -60,7 +60,7 @@ sed -e "s,#.*,," Gemfile *gemspec 2> /dev/null | grep "[0-9]" \
 | egrep -v "'bootstrap-sass', '2.3.2.2'|'mime-types', '2.6.2'|ruby-filemagic" \
 | egrep -v "'will_paginate-bootstrap', '0.2.5'|will_paginate', '2.3.16' " \
 | egrep -v "'sprockets-rails', '2.3.3'|RUBY_VERSION >= '2.0.0'|split" \
-| egrep -v "'omniauth-google-oauth2'"
+| egrep -v "'omniauth-google-oauth2'|if RUBY_VERSION"
 
 # NOTE: 'sprockets-rails', '2.3.3'
 # NOTE: "3.0.0.pre.beta2" # for jekyll
