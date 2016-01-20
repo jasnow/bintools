@@ -103,11 +103,13 @@ rvm list gemsets |grep "=>" \
 
 git grep preview2
 
-git grep "Date.today" # Use Time.zone.today
-git grep "Time.now"   # Use Time.zone.now
 exit
 
 #STOPHERE ############################################################
+
+# http://danilenko.org/2012/7/6/rails_timezones
+#git grep "Date.today" # Use Time.zone.today
+#git grep "Time.now"   # Use Time.zone.now
 
 #git grep "201[0-9]" |egrep -v "2016|db/schema|public/|Hartl"
 
