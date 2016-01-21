@@ -63,7 +63,6 @@ sed -e "s,#.*,," Gemfile Gemfile.r* *gemspec 2> /dev/null | grep "[0-9]" \
 | egrep -v "if RUBY_VERSION|0.5.0.beta2"
 #FIXME:| egrep -v "[Oo][Aa]uth}'omniauth-google-oauth2'|platform"
 
-
 # NOTE: 'sprockets-rails', '2.3.3'
 # NOTE: "3.0.0.pre.beta2" # for jekyll
 # NOTE: '"mime-types", "~> 1.16"|"rspec", "~> 3.0"|"watir", "~> 5.0"'  for watir-rails
@@ -74,15 +73,13 @@ sed -e "s,#.*,," Gemfile Gemfile.r* *gemspec 2> /dev/null | grep "[0-9]" \
 # FYI: Change 'git:' to 'github:' lines.
 sed -e "s,#.*,," Gemfile Gemfile.r* *gemspec 2> /dev/null | egrep "git" \
 | egrep -v "description|homepage|summary|ls-files|email" \
-| egrep -v "github_api|github: '|github/markup|sqlite3"
-#FIXME: |omniauth-github
+| egrep -v "github_api|github: '|github/markup|sqlite3|omniauth-github"
 
 rvm list | grep ^= \
 | egrep -v "2.3.0|2.2.4|2.1.8"
 
 egrep "2.2.[0123]|2.1.[0-6]" .travis.yml \
 | egrep -v "repo_token:"
-
 
 grep "rubygems." Gemfile Gemfile.r* *gemspec 2> /dev/null \
 | egrep -v "https://rubygems.org|^#|:#|spec.required_rubygems_version"
