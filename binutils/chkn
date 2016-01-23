@@ -1,3 +1,4 @@
+
 if [ "X`git branch |grep "^\*" |awk '{ print $2 }'`X" == "XmasterX" ] ; then
     : # okay
 else
@@ -51,18 +52,16 @@ then
     fi
 fi
 
-sed -e "s,#.*,," Gemfile Gemfile.r* *gemspec 2> /dev/null | grep "[0-9]" \
+sed -e "s,#.*,," Gemfile *gemspec 2> /dev/null | grep "[0-9]" \
 | egrep -v "sqlite3|'rspec-rails', '2.99.0'|gem 'rails'|'rails', '>=" \
 | egrep -v "^  gem|gmaps4rails|homepage|email|authors|^ruby '2.3.0" \
-| egrep -v "rails_12factor|ls-files|Artistic 2.0|version" \
+| egrep -v "rails_12factor|ls-files|Artistic 2.0|version|platform" \
 | egrep -v "cert_chain|win32-file|mysql|pre.6|i18n-tasks|hassle3" \
 | egrep -v "'rest-client', '2.0.0.rc2'|aws-sdk-v1|crack|github: '|>=3.0.0" \
 | egrep -v "'bootstrap-sass', '2.3.2.2'|'mime-types', '2.6.2'|ruby-filemagic" \
 | egrep -v "'will_paginate-bootstrap', '0.2.5'|will_paginate', '2.3.16' " \
 | egrep -v "'sprockets-rails', '2.3.3'|RUBY_VERSION >= '2.0.0'|split" \
-| egrep -v "if RUBY_VERSION|0.5.0.beta2|platforms :ruby_18 do" \
-| egrep -v "'omniauth-google-oauth2'"
-#FIXME:| egrep -v "[Oo][Aa]uth|platform"
+| egrep -v "'omniauth-google-oauth2'|if RUBY_VERSION"
 
 # NOTE: 'sprockets-rails', '2.3.3'
 # NOTE: "3.0.0.pre.beta2" # for jekyll
@@ -72,42 +71,42 @@ sed -e "s,#.*,," Gemfile Gemfile.r* *gemspec 2> /dev/null | grep "[0-9]" \
 # NOTE: rest-client', '1.8.0' for ay
 
 # FYI: Change 'git:' to 'github:' lines.
-sed -e "s,#.*,," Gemfile Gemfile.r* *gemspec 2> /dev/null | egrep "git" \
-| egrep -v "description|homepage|summary|ls-files|email" \
-| egrep -v "github_api|github: '|github/markup|sqlite3|omniauth-github"
+sed -e "s,#.*,," Gemfile *gemspec 2> /dev/null | egrep "git" \
+| egrep -v "description|homepage|summary|ls-files|omniauth-github|email" \
+| egrep -v "github_api|github: '|github/markup|sqlite3"
 
-rvm list | grep ^= \
-| egrep -v "2.3.0|2.2.4|2.1.8"
+if [ -d $HOME/.rvm ] ; then
+    rvm list | grep ^= | egrep -v "2.3.0|2.2.4|2.1.8"
+else
+    rbenv versions | egrep -v "2.3.0|2.2.4|2.1.8"
+fi
 
 egrep "2.2.[0123]|2.1.[0-6]" .travis.yml \
 | egrep -v "repo_token:"
 
-grep "rubygems." Gemfile Gemfile.r* *gemspec 2> /dev/null \
-| egrep -v "https://rubygems.org|^#|:#|spec.required_rubygems_version"
+grep "rubygems." Gemfile *gemspec 2> /dev/null \
+| egrep -v "https://rubygems.org|^#|:#"
 
 egrep "4.2.[01234]|4.2.4|4.1.1[0123]|4.1.9|4.2.[12345].rc[1234]|4.1.1[0123].rc[12345]" \
-Gemfile Gemfile.r* *gemspec 2> /dev/null \
+Gemfile *gemspec 2> /dev/null \
 |egrep -v "^#|'slop', '4.2.0'"
 
 egrep '2.1.4|3.2.19|3.2.2[01]|4.0.1[012]|4.1.[678]|4.2.0.beta[1234]' \
-Gemfile Gemfile.r* *gemspec 2> /dev/null
+Gemfile *gemspec 2> /dev/null
 
 git grep "2\.2\.[0123]|2.1.[0-6]"
 
-# Use only gemsets that are equal to ruby versions (a few exceptions).
-rvm list gemsets |grep "=>" \
-|sed -e "s,ruby-2.3.0,,g" -e "s,ruby2.2.[34],,g" -e "s,ruby-2.2.[34],,g" \
-|egrep -v "\[ i686 \]"
+if [ -d $HOME/.rvm ] ; then
+    # Use only gemsets that are equal to ruby versions (a few exceptions).
+    rvm list gemsets |grep "=>" \
+    |sed -e "s,ruby-2.3.0,,g" -e "s,ruby2.2.[34],,g" -e "s,ruby-2.2.[34],,g" \
+    |egrep -v "\[ i686 \]|\[ x86_64 \]"
+fi
 
 git grep preview2
 
 exit
-
 #STOPHERE ############################################################
-
-# http://danilenko.org/2012/7/6/rails_timezones
-#git grep "Date.today" # Use Time.zone.today
-#git grep "Time.now"   # Use Time.zone.now
 
 #git grep "201[0-9]" |egrep -v "2016|db/schema|public/|Hartl"
 
@@ -116,7 +115,7 @@ exit
 #git grep "http:"
 
 # WHY?
-#grep ffi Gemfile Gemfile.r* *gemspec 2> /dev/null 
+#grep ffi Gemfile *gemspec 2> /dev/null 
 
 ##########brakeman 2> /tmp/stderr_output |grep "Security Warnings" |grep -v "0 (0)"
 ##########head /tmp/stderr_output |grep "command"
@@ -128,4 +127,3 @@ exit
 
 # http://rails-bestpractices.com/posts/808-use-time-zone-now-instead-of-time-now
 # 4/3/2015: TURNED OFF: git grep "Time\.now" 
-

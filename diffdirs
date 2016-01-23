@@ -6,4 +6,4 @@ else
     # Assume changes are done in $HOME/bin 1st.
     cp -r ${HOME}/bin/binutils/* binutils
 fi
-rm -f /home/jasnow/bin/binutils/*~ binutils/*~
+rm -f $HOME/bin/binutils/*~ binutils/*~
