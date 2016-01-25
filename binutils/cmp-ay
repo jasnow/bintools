@@ -1,0 +1,18 @@
+find /home/jasnow/Projects/atlrug4 -type f \
+|egrep -v "/tmp|git/|/log/|coverage/|schema|Gemfile.lock|db/[a-z]*.sqlite3" |sort > /tmp/$$_ay4
+
+for i in `cat /tmp/$$_ay4` ; do
+    F4=$i
+    F5=`echo $i |sed -e "s,4/,5/,"`
+
+    diff ${F4} ${F5} > /tmp/$$_DIFF
+    if [ "X`wc /tmp/$$_DIFF |awk '{ print $1 }'`X" == "X0X" ] ; then
+        : #echo "${F4} ZERO DIFF"
+    else
+        echo "======================================================="
+        echo "---- ${F4} --"
+        cut -c1-78 /tmp/$$_DIFF
+    fi 
+done
+echo "EOF"
+rm -f /tmp/$$_*

@@ -1,0 +1,13 @@
+IGNOREFILES="chklics|ATTIC|countrepos|do-pull|stats|GENERAL|yml$|cmp-ay"
+for i in `ls -1 /home/jasnow/Projects /home/jasnow/Projects/ATTIC-RAILS5-BROKEN/[0-9a-z]* |egrep -v "${IGNOREFILES}|Bernie"`
+do
+    #(ls *LICENSE* > /dev/null; grep -i license R*)
+    ls $i/*LICENSE* > /dev/null
+
+done 2>&1 |awk '{ print $4 }' |awk -F'/' '{ print $1 }'  > /tmp/$$_MAYBE_NOTS
+
+for i in `cat /tmp/$$_MAYBE_NOTS` ; do
+    grep spec.license $i/*gemspec > /dev/null   
+done 2>&1 |sed -e "s,/, ," |awk '{ print $2 }' 
+
+rm /tmp/$$_MAYBE_NOTS
