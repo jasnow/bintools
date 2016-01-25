@@ -1,4 +1,4 @@
-egrep -v "^#" << EOF > /tmp/$$_UREPOS 
+egrep -v "^#" << EOF |sort > /tmp/$$_UREPOS 
 #......................................................................
 # DIRECTORIES:
 ATTIC-BROKEN-REPOS
@@ -90,6 +90,6 @@ watir-rails
 zonebie
 EOF
 
-for i in `cat /tmp/$$_UREPOS` ; do
-    file $HOME/Projects/$i
-done  
+ls -1 $HOME/Projects/$i |sort > /tmp/$$_MREPOS
+diff /tmp/$$_UREPOS /tmp/$$_MREPOS | egrep "^[<>]" | pr -3 |uniq
+rm /tmp/$$_*
