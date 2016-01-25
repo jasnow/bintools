@@ -1,6 +1,1 @@
-if [ "X`uname -s`X" == "XDarwinX" ] ; then
-    # 1/23/2016: For MacBook Pro
-    /usr/local/bin/emacs -nw --no-splash $*
-else
-    emacs -nw --no-splash $*
-fi
+emacs -nw --no-splash $*
