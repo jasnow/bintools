@@ -3,7 +3,11 @@
 if [ "X$1X" == "XX" ] ; then
     diff -r ${HOME}/bin/binutils binutils 
 else
-    # Assume changes are done in $HOME/bin 1st.
-    cp -r ${HOME}/bin/binutils/* binutils
+    if [ "X$1X" == "XcpX" ] ; then
+        cp binutils/* /Users/macbookpro/bin/binutils
+    else
+        # Assume changes are done in $HOME/bin 1st.
+        cp -r ${HOME}/bin/binutils/* binutils
+    fi
 fi
-rm -f $HOME/bin/binutils/*~ binutils/*~
+rm -f $HOME/bin/binutils/*~ binutils/*~ binutils/\#urepos\#
