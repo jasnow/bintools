@@ -51,7 +51,7 @@ then
     fi
 fi
 
-grep Gemfile.lock .gitignore |sed -e "s,$, - NOTE: Found in .gitignore file,"
+#HID FOR NOW: grep Gemfile.lock .gitignore |sed -e "s,$, - NOTE: Found in .gitignore file,"
 
 sed -e "s,#.*,," Gemfile Gemfile.r* *gemspec 2> /dev/null | grep "[0-9]" \
 | egrep -v "sqlite3|'rspec-rails', '2.99.0'|gem 'rails'|'rails', '>=" \
