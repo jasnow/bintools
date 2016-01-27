@@ -65,7 +65,7 @@ echo "    (Forked) Projects with parent/upstream (in $HOME/Projects/do-pull-requ
 grep -v "^#" $HOME/Projects/do-pull-request-first.txt | wc |sed -e "s,^,    ,"
 
 fgrep -v -f $HOME/Projects/do-pull-request-first.txt /tmp/$$_PARENTS 
-fgrep -v -f /tmp/$$_PARENTS  do-pull-request-first.txt |egrep -v "^#" 
+fgrep -v -f /tmp/$$_PARENTS  $HOME/Projects/do-pull-request-first.txt |egrep -v "^#" 
 diff $HOME/Projects/do-pull-request-first.txt /tmp/$$_PARENTS |egrep -v "#|^[0-9,d]*$"
 
 echo "    NOT-SYNCED-WITH-PARENT"
