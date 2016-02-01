@@ -1,4 +1,4 @@
-for i in countrepos.sh do-pull-request-first.txt chklics cmp-ay ATT* GENERAL ; do
+for i in countrepos.sh do-pull-request-first.txt chklics cmp-ay ATT* GENERAL cpi ; do
     touch $HOME/Projects/$i
 done
 
