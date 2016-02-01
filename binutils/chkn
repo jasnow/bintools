@@ -75,7 +75,7 @@ sed -e "s,#.*,," Gemfile Gemfile.r* *gemspec 2> /dev/null | grep "[0-9]" \
 
 # FYI: Change 'git:' to 'github:' lines.
 sed -e "s,#.*,," Gemfile Gemfile.r* *gemspec 2> /dev/null | egrep "git" \
-| egrep -v "description|homepage|summary|ls-files|email" \
+| egrep -v "description|homepage|summary|ls-files|email|peek-git" \
 | egrep -v "github_api|github: '|github/markup|sqlite3|omniauth-github"
 
 rvm list | grep ^= \
