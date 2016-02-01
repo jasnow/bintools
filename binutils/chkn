@@ -99,7 +99,7 @@ git grep "2\.2\.[0123]|2.1.[0-6]"
 # Use only gemsets that are equal to ruby versions (a few exceptions).
 rvm list gemsets |grep "=>" \
 |sed -e "s,ruby-2.3.0,,g" -e "s,ruby2.2.[34],,g" -e "s,ruby-2.2.[34],,g" \
-|egrep -v "\[ i686 \]"
+|egrep -v "\[ i686 \]|\[ x86_64 \]"
 
 git grep preview2
 

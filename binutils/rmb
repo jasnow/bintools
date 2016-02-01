@@ -10,7 +10,7 @@ TMPDIR='/tmp'
 find ${PATHN} -type f \
 |    grep "\.[a-z]*$" \
 |    egrep -v \
-'fixcane|git/|db/|log/|tmp/|gitignore|coverage|vendor|public|jpg|gif|psd|png' \
+'fixcane|git/|db/|log/|tmp/|gitignore|coverage|vendor|public|jpg|gif|psd|png|ttf|otf|ico' \
 > ${TMPDIR}/$$_FILES_OF
 #wc ${TMPDIR}/$$_FILES_OF
 
