@@ -4,7 +4,7 @@ if [ "X$1X" == "XX" ] ; then
     diff -r ${HOME}/bin/binutils binutils 
 else
     if [ "X$1X" == "XcpX" ] ; then
-        cp binutils/* /Users/macbookpro/bin/binutils
+        cp binutils/* ${HOME}/bin/binutils
     else
         # Assume changes are done in $HOME/bin 1st.
         cp -r ${HOME}/bin/binutils/* binutils
