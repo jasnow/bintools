@@ -63,7 +63,7 @@ sed -e "s,#.*,," Gemfile Gemfile.r* *gemspec 2> /dev/null | grep "[0-9]" \
 | egrep -v "'will_paginate-bootstrap', '0.2.5'|will_paginate', '2.3.16' " \
 | egrep -v "'sprockets-rails', '2.3.3'|RUBY_VERSION >= '2.0.0'|split" \
 | egrep -v "if RUBY_VERSION|0.5.0.beta2|platforms :ruby_18 do" \
-| egrep -v "'omniauth-google-oauth2'|mingw32|0.31"
+| egrep -v "'omniauth-google-oauth2'|mingw32|0.31|5.0.0.beta1"
 #FIXME:| egrep -v "[Oo][Aa]uth|platform"
 
 # NOTE: 'sprockets-rails', '2.3.3'
@@ -104,7 +104,7 @@ rvm list gemsets |grep "=>" \
 git grep preview2
 
 #Need 5.0.0.beta1.1, 4.2.5.1, 4.1.14.1, 3.2.22.1#
-egrep "5.0.0.beta1'|5.0.0.beta1.1'|4.2.5'|4.1.14'|3.2.22'" Gemfile
+egrep "4.2.5'|4.1.14'|3.2.22'" Gemfile
 
 exit
 

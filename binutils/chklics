@@ -1,10 +1,10 @@
-IGNOREFILES="chklics|ATTIC|countrepos|do-pull|stats|GENERAL|yml$|cmp-ay"
-ls -1 /home/jasnow/Projects \
-    /home/jasnow/Projects/ATTIC-RAILS5-BROKEN/[0-9a-z]* 2> /dev/null \
+IGNOREFILES="chklics|ATTIC|countrepos|do-pull|stats|GENERAL|yml$|cmp-ay|PROBLEM|cpi|cpf"
+ls -1 $HOME/Projects \
+    $HOME/Projects/ATTIC-RAILS5-BROKEN/[0-9a-z]* 2> /dev/null \
 |egrep -v "${IGNOREFILES}" > /tmp/$$_REPOS
 
 for i in `cat /tmp/$$_REPOS` ; do
-    grep -il license \
+    egrep -il "license|All rights reserved"  \
         $HOME/Projects/$i/*LICENSE*  \
         $HOME/Projects/$i/README* \
         $HOME/Projects/$i/Readme* \
