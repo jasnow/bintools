@@ -63,7 +63,7 @@ sed -e "s,#.*,," Gemfile Gemfile.r* *gemspec 2> /dev/null | grep "[0-9]" \
 | egrep -v "'will_paginate-bootstrap', '0.2.5'|will_paginate', '2.3.16' " \
 | egrep -v "'sprockets-rails', '2.3.3'|RUBY_VERSION >= '2.0.0'|split" \
 | egrep -v "if RUBY_VERSION|0.5.0.beta2|platforms :ruby_18 do" \
-| egrep -v "'omniauth-google-oauth2'|mingw32|0.31|5.0.0.beta1"
+| egrep -v "'omniauth-google-oauth2'|mingw32|0.31|5.0.0.beta1|sucker_punch"
 #FIXME:| egrep -v "[Oo][Aa]uth|platform"
 
 # NOTE: 'sprockets-rails', '2.3.3'
