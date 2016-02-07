@@ -46,7 +46,8 @@ then
     else
         echo "No Licenses"
         git grep -iI --no-index license \
-        | egrep -v "bootstrap.css|^coverage|vendor/assets/bower_components"
+        | egrep -v "bootstrap.css|^coverage|vendor/assets/bower_components" \
+        | egrep -v "tmp/cache|spec/coverage|config|js"
         exit
     fi
 fi
