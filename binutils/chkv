@@ -3,11 +3,11 @@ if [ "X$1X" == "XX" ] ; then
 fi
 
 if [ "X$2X" == "XX" ] ; then
-    egrep "$1" $HOME/Projects/*/*lock | grep "[0-9]\." | egrep -v ">"
+    egrep "$1" $HOME/Projects/*/*lock | grep "[0-9]\." | egrep -v ">|\(="
 else
     if [ "X$3X" == "XX" ] ; then
-        egrep "$1" $HOME/Projects/*/*lock | grep "[0-9]\." | egrep -v ">|$2"
+        egrep "$1" $HOME/Projects/*/*lock | grep "[0-9]\." | egrep -v ">|$2|\(="
     else
-        egrep "$1" $HOME/Projects/*/Gemfile | grep "[0-9]\." | egrep -v ">|$2"
+        egrep "$1" $HOME/Projects/*/Gemfile | grep "[0-9]\." | egrep -v ">|$2|\(="
     fi
 fi

@@ -88,7 +88,7 @@ egrep "2.2.[0123]|2.1.[0-6]" .travis.yml \
 grep "rubygems." Gemfile Gemfile.r* *gemspec 2> /dev/null \
 | egrep -v "https://rubygems.org|^#|:#|spec.required_rubygems_version"
 
-egrep "4.2.[01234]|4.2.4|4.1.1[0123]|4.1.9|4.2.[12345].rc[1234]|4.1.1[0123].rc[12345]" \
+egrep "4.2.[012345]|4.1.1[0123]|4.1.9|4.2.[12345].rc[12345]4.1.1[0123].rc[12345]" \
 Gemfile Gemfile.r* *gemspec 2> /dev/null \
 |egrep -v "^#|'slop', '4.2.0'"
 
