@@ -79,7 +79,7 @@ else
 fi
 
 echo "Running cleanup..."
-gem cleanup --quiet
+#HID: gem cleanup --quiet
 
 echo "Running bundle..."
 lu
