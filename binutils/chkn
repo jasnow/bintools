@@ -78,12 +78,13 @@ rvm list | grep "^=" | egrep -v "2.3.0|2.2.4|2.1.8"
 
 egrep "2.1.[0-6]|2.2.[0-3]" .travis.yml | egrep -v "repo_token:|2.[12].0$"
 
-grep "rubygems." Gemfile Gemfile.r* *gemspec 2> /dev/null \
-| egrep -v "https://rubygems.org|rails = ENV|required_rubygems_version"
+cat Gemfile Gemfile.r* *gemspec 2> /dev/null \
+| grep "rubygems." \
+| egrep -v "^#|https://rubygems.org|rails = ENV|required_rubygems_version"
 
-egrep "4.2.[0-5]|4.1.1[0123]|4.1.9|4.2.[12345].rc[12345]4.1.1[0123].rc[12345]" \
-Gemfile Gemfile.r* *gemspec 2> /dev/null \
-|egrep -v "^#|'slop', '4.2.0'|rails = ENV"
+cat Gemfile Gemfile.r* *gemspec 2> /dev/null \
+| egrep "4.2.[0-5]|4.1.1[0123]|4.1.9|4.2.[12345].rc[12345]4.1.1[0123].rc[12345]" \
+| egrep -v "^#|'slop', '4.2.0'|rails = ENV"
 
 #Need 5.0.0.beta1.1, 4.2.5.1, 4.1.14.1, 3.2.22.1#
 egrep "2.1.4|3.2.19|3.2.2[012]'|4.0.1[012]|4.1.[45678]|4.2.0.beta[1234]|4.2.[0-5]" \
