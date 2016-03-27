@@ -58,25 +58,27 @@ if [ "X${BOST}X" == "XYour bundle is up to date!X" ] ; then
     echo "No gem update needed; leaving the building..." ; touch . ; exit
 fi
 
-echo "Running cane..."
-if [ "X`cane 2>&1 |grep "command not found" |wc -l |awk '{ print $1 }'`X" == "X1X" ]
-then
-    gem install cane
-fi
-
-if [ "X$1X" == "XX" ] ; then
-    # 4/15/2015: Commented out since I did not clean up all repos.
-    # 9/13/2015: Added it back but changed output filter.
-    if [ "X`cane |egrep -v ">80|:|^$"| wc -l |awk '{ print $1 }'`X" == "X0X" ] ; then
-        : 
-    else
-        echo "CANE MSGS:"
-        cane |egrep -v ">80|:|^$"
-        exit
-    fi
-else
-    echo "Skipping cane run..."
-fi
+# 3/27/2016: rubygem problem so commenting out following code.
+#echo "Running cane..."
+#CANERESULTS=`cane 2>&1 |grep "command not found" |wc -l |awk '{ print $1 }'`
+#if [ "X${CANERESULTS}X" == "X1X" ] ; then
+#    gem install cane
+#fi
+#
+#if [ "X$1X" == "XX" ] ; then
+#    # 4/15/2015: Commented out since I did not clean up all repos.
+#    # 9/13/2015: Added it back but changed output filter.
+#    CANERESULTS=`cane |egrep -v ">80|:|^$"| wc -l |awk '{ print $1 }'`
+#    if [ "X${CANERESULTS}X" == "X0X" ] ; then
+#        :
+#    else
+#        echo "CANE MSGS:"
+#        cane |egrep -v ">80|:|^$"
+#        exit
+#    fi
+#else
+#    echo "Skipping cane run..."
+#fi
 
 echo "Running cleanup..."
 #HID: gem cleanup --quiet
