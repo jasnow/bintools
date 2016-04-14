@@ -1,4 +1,4 @@
-IGNOREFILES="chklics|ATTIC|countrepos|do-pull|stats|GENERAL|yml$|cmp-ay"
+IGNOREFILES="chklics|ATTIC|countrepos|do-pull|stats|GENERAL|yml$|cmp-ay|o_d|cpf|cpi|diffdirs"
 
 echo "Total Active Rails projects"
 ls -1 $HOME/Projects |egrep -v ${IGNOREFILES} > /tmp/$$_OUTPUT
@@ -12,6 +12,7 @@ echo "    Active Rails 5 projects"
 ls -1 $HOME/Projects |egrep -v ${IGNOREFILES} |egrep "5" > /tmp/$$_OUTPUT
 if [ "X$1X" = "XX" ] ; then
     cat /tmp/$$_OUTPUT |wc |sed -e "s,^,    ,"
+    cat /tmp/$$_OUTPUT >> /tmp/$$_TOP_PROJECTS
 else
     cat /tmp/$$_OUTPUT |pr -t2 -e |uniq |sed -e "s,^,    ,"
 fi
@@ -20,6 +21,7 @@ echo "    Active NON-Rails 5 (2,3,4) projects"
 ls -1 $HOME/Projects |egrep -v ${IGNOREFILES} |egrep -v "5" > /tmp/$$_OUTPUT
 if [ "X$1X" = "XX" ] ; then
     cat /tmp/$$_OUTPUT |wc |sed -e "s,^,    ,"
+    cat /tmp/$$_OUTPUT >> /tmp/$$_TOP_PROJECTS
 else
     cat /tmp/$$_OUTPUT |pr -t2 -e |uniq |sed -e "s,^,    ,"
 fi
@@ -29,21 +31,39 @@ echo "Broken Rails 5 and Bootstrap projects (see below)"
 echo
 echo "Both (Github and Bitbucket) projects"
 grep -i github `grep -li bitbucket $HOME/Projects/*/.git/config ` |sed -e "s,.*/,," |wc
+grep -i github `grep -li bitbucket $HOME/Projects/*/.git/config ` \
+|sed -e "s,.*/,," -e "s,.git,," > /tmp/$$_BOTTOM_PROJECTS
 
 echo "Github projects (1st: ok; 2nd: broken - NOTE: Include above BOTH count)"
 echo "    OK:"
 #grep http $HOME/PRojects/*/.git/config |cut -d'/' -f1-6 |sort -u |egrep github |wc |sed -e "s,^,   ,"
 grep -il github $HOME/Projects/*/.git/config | wc |sed -e "s,^,   ,"
+grep -il github $HOME/Projects/*/.git/config |awk -F'/' '{ print $5 }' >> /tmp/$$_BOTTOM_PROJECTS
+
 echo "    BROKEN:"
 grep http $HOME/Projects/*BROK*/*/.git/config |cut -d'/' -f1-10 \
 |sort -u |grep github |wc |sed -e "s,^,   ,"
 
+grep http $HOME/Projects/*BROK*/*/.git/config |cut -d'/' -f1-10 \
+|sort -u |grep github |awk -F'/' '{ print $6 }' >> /tmp/$$_BOTTOM_PROJECTS
+grep http $HOME/Projects/*BROK*/*/.git/config |cut -d'/' -f1-10 \
+|sort -u |grep github |awk -F'/' '{ print $6 }' >> /tmp/$$_TOP_PROJECTS
+
 echo "Bitbucket projects - NOTE: Include above BOTH count)"
 echo "    OK:"
 grep -il bitbucket $HOME/Projects/*/.git/config | wc |sed -e "s,^,   ,"
+grep -il bitbucket $HOME/Projects/*/.git/config |awk -F'/' '{ print $5 }' >> /tmp/$$_BOTTOM_PROJECTS
+
 echo "    BROKEN:"
 grep http $HOME/Projects/*BROK*/*/.git/config \
 | cut -d'/' -f1-10 |sort -u |grep bitbucket |wc |sed -e "s,^,   ,"
+grep http $HOME/Projects/*BROK*/*/.git/config \
+| cut -d'/' -f1-10 |sort -u |grep bitbucket |awk -F'/' '{ print $5 }' >> /tmp/$$_BOTTOM_PROJECTS
+
+echo "DIFF BT/ TOP AND BOTTOM"
+sort -u /tmp/$$_TOP_PROJECTS    > /tmp/$$_SORTED_TOP_PROJECTS
+sort -u /tmp/$$_BOTTOM_PROJECTS > /tmp/$$_SORTED_BOTTOM_PROJECTS
+sdiff -s /tmp/$$_SORTED_TOP_PROJECTS /tmp/$$_SORTED_BOTTOM_PROJECTS
 
 echo
 echo "Active Projects with no Licenses"
