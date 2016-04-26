@@ -54,8 +54,8 @@ fi
 ######################################################################
 
 sed -e "s,#.*,," Gemfile Gemfile.r* *gemspec 2> /dev/null | grep "[0-9]" \
-| egrep -v "sqlite3|gem 'rails'|^ruby '2.3.0|mysql2" \
-| egrep -v "rails_12factor|platforms: \[:mri_21\]|crack|i18n-tasks|  spec\." \
+| egrep -v "sqlite3|gem 'rails'|^ruby '2.3.1|mysql2" \
+| egrep -v "rails_12factor|platforms:[ ]*\[:mri_21\]|crack|i18n-tasks|  spec\." \
 | egrep -v "'bootstrap-sass', '2.3.2.2'|'rspec-rails', '2.99.0'|^  gem\.|^  s\." \
 | egrep -v "'turbolinks', '5.0.0.beta2'|'rake', '10.5.0'|'aruba', '0.9.0.pre'" \
 | egrep -v "gmaps4rails|'sprockets-rails', '2.3.3'|platforms :ruby_18 do" \
@@ -66,7 +66,9 @@ sed -e "s,#.*,," Gemfile Gemfile.r* *gemspec 2> /dev/null | grep "[0-9]" \
 | egrep -v "'shoulda-matchers', '3.0.1', require: false|i18n-spec" \
 | egrep -v "'shoulda-matchers', '~> 2.8.0', require: false" \
 | egrep -v ":platforms => \[:ruby_19, :ruby_20\]|'rspec-rails', '~> 3.0'" \
-| egrep -v '"rspec-rails", "~> 3.2f'
+| egrep -v '"rspec-rails", "~> 3.2f' \
+| egrep -v "'turbolinks' , '5.0.0.beta2'|'binding_of_caller', :platforms=>\[:mri_21\]" \
+| egrep -v "'sucker_punch', '1.6.0'"
 
 # FYI: Change 'git:' to 'github:' lines.
 sed -e "s,#.*,," Gemfile Gemfile.r* *gemspec 2> /dev/null | egrep "git" \
@@ -74,9 +76,9 @@ sed -e "s,#.*,," Gemfile Gemfile.r* *gemspec 2> /dev/null | egrep "git" \
 | egrep -v "'github-markup', require: 'github/markup'|ls-files|^  s\." \
 | egrep -v "sqlite3, git, ruby, heroku, travis, xcode"
 
-rvm list | grep "^=" | egrep -v "2.3.0|2.2.4|2.1.8"
+rvm list | grep "^=" | egrep -v "2.3.1|2.2.5|2.1.8"
 
-egrep "2.1.[0-6]|2.2.[0-3]" .travis.yml | egrep -v "repo_token:|2.[12].0$"
+egrep "2.1.[0-6]|2.2.[0-34]" .travis.yml | egrep -v "repo_token:|2.[12].0$"
 
 cat Gemfile Gemfile.r* *gemspec 2> /dev/null \
 | grep "rubygems." \
@@ -98,6 +100,8 @@ rvm list gemsets |grep "=>" \
 |egrep -v "\[ i686 \]|\[ x86_64 \]"
 
 git grep preview2
+
+git grep -E " 2.3.0| 2.2.4"
 
 exit
 

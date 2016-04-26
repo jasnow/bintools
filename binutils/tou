@@ -1,4 +1,4 @@
-for i in countrepos.sh do-pull-request-first.txt chklics cmp-ay ATT* GENERAL cpi cpf o_d* diff* ; do
+for i in countrepos.sh do-pull-request-first.txt chklics cmp-ay ATT* GENERAL cpi cpf ; do
     touch $HOME/Projects/$i
 done
 mv *~ .*~ \#*\# libpeerconnection.log /Users/macbookpro/X 2> /dev/null

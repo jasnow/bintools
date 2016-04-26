@@ -1,5 +1,5 @@
 if [ "X$1X" == "XX" ] ; then
     ls -lt .. |grep edge | grep -v "`date '+%b %d'`"
 else
-    ls -lt .. |grep edge | grep -v "`date '+%b %d %I'`"
+    ls -lt .. |grep edge |egrep -v "DEFAULT|$1"
 fi
