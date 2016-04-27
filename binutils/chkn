@@ -64,17 +64,18 @@ sed -e "s,#.*,," Gemfile Gemfile.r* *gemspec 2> /dev/null | grep "[0-9]" \
 | egrep -v "if RUBY_VERSION|RUBY_VERSION >= '2.0.0'|gem.add_development_dependency" \
 | egrep -v "'aws-sdk-v1'|if File::ALT_SEPARATOR|'rspec-rails', '3.4.2'" \
 | egrep -v "'shoulda-matchers', '3.0.1', require: false|i18n-spec" \
-| egrep -v "'shoulda-matchers', '~> 2.8.0', require: false" \
+| egrep -v "'shoulda-matchers', '~> 2.8.0', require: false|'rails4_upgrade'" \
 | egrep -v ":platforms => \[:ruby_19, :ruby_20\]|'rspec-rails', '~> 3.0'" \
 | egrep -v '"rspec-rails", "~> 3.2f' \
-| egrep -v "'turbolinks' , '5.0.0.beta2'|'binding_of_caller', :platforms=>\[:mri_21\]" \
-| egrep -v "'sucker_punch', '1.6.0'"
+| egrep -v "'turbolinks' , '5.0.0.beta2'|'will_paginate', '2.3.16'" \
+| egrep -v "'sucker_punch', '1.6.0'|'rest-client', '2.0.0.rc2'|'hassle3'" \
+| egrep -v "'binding_of_caller', :platforms=>\[:mri_21\]"
 
 # FYI: Change 'git:' to 'github:' lines.
 sed -e "s,#.*,," Gemfile Gemfile.r* *gemspec 2> /dev/null | egrep "git" \
 | egrep -v "omniauth-github|^  gem\.|^  spec\.|', [ ]*github: '|github_api" \
 | egrep -v "'github-markup', require: 'github/markup'|ls-files|^  s\." \
-| egrep -v "sqlite3, git, ruby, heroku, travis, xcode"
+| egrep -v "sqlite3, git, ruby, heroku, travis, xcode|twalpole/omniauth"
 
 rvm list | grep "^=" | egrep -v "2.3.1|2.2.5|2.1.8"
 
@@ -101,7 +102,8 @@ rvm list gemsets |grep "=>" \
 
 git grep preview2
 
-git grep -E " 2.3.0| 2.2.4"
+git grep -E "2\.3\.0| 2\.2\.4" |egrep -v "2.3.0.7|activerecord|2.3.0\)" \
+| egrep -v "vendor/assets/"
 
 exit
 
