@@ -105,6 +105,8 @@ git grep preview2
 git grep -E "2\.3\.0| 2\.2\.4" |egrep -v "2.3.0.7|activerecord|2.3.0\)" \
 | egrep -v "vendor/assets/"
 
+git grep "5.0.0.beta[0123]" |egrep -v "turbolinks|lock"
+
 exit
 
 #STOPHERE ############################################################
