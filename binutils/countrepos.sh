@@ -26,7 +26,7 @@ else
     cat /tmp/$$_OUTPUT |pr -t2 -e |uniq |sed -e "s,^,    ,"
 fi
 
-echo "Broken Rails 5 and Bootstrap projects (see below)"
+#echo "Broken Rails 5 and Bootstrap projects (see below)"
 
 echo
 echo "Both (Github and Bitbucket) projects"
@@ -40,25 +40,10 @@ echo "    OK:"
 grep -il github $HOME/Projects/*/.git/config | wc |sed -e "s,^,   ,"
 grep -il github $HOME/Projects/*/.git/config |awk -F'/' '{ print $5 }' >> /tmp/$$_BOTTOM_PROJECTS
 
-echo "    BROKEN:"
-grep http $HOME/Projects/*BROK*/*/.git/config |cut -d'/' -f1-10 \
-|sort -u |grep github |wc |sed -e "s,^,   ,"
-
-grep http $HOME/Projects/*BROK*/*/.git/config |cut -d'/' -f1-10 \
-|sort -u |grep github |awk -F'/' '{ print $6 }' >> /tmp/$$_BOTTOM_PROJECTS
-grep http $HOME/Projects/*BROK*/*/.git/config |cut -d'/' -f1-10 \
-|sort -u |grep github |awk -F'/' '{ print $6 }' >> /tmp/$$_TOP_PROJECTS
-
 echo "Bitbucket projects - NOTE: Include above BOTH count)"
 echo "    OK:"
 grep -il bitbucket $HOME/Projects/*/.git/config | wc |sed -e "s,^,   ,"
 grep -il bitbucket $HOME/Projects/*/.git/config |awk -F'/' '{ print $5 }' >> /tmp/$$_BOTTOM_PROJECTS
-
-echo "    BROKEN:"
-grep http $HOME/Projects/*BROK*/*/.git/config \
-| cut -d'/' -f1-10 |sort -u |grep bitbucket |wc |sed -e "s,^,   ,"
-grep http $HOME/Projects/*BROK*/*/.git/config \
-| cut -d'/' -f1-10 |sort -u |grep bitbucket |awk -F'/' '{ print $5 }' >> /tmp/$$_BOTTOM_PROJECTS
 
 echo "DIFF BT/ TOP AND BOTTOM"
 sort -u /tmp/$$_TOP_PROJECTS    > /tmp/$$_SORTED_TOP_PROJECTS
@@ -83,9 +68,10 @@ grep -l 'remote "parent"' $HOME/Projects/*/.git/config \
 
 echo "    (Forked) Projects with parent/upstream (in $HOME/Projects/do-pull-request-first.txt file)"
 grep -v "^#" $HOME/Projects/do-pull-request-first.txt | wc |sed -e "s,^,    ,"
-
 fgrep -v -f $HOME/Projects/do-pull-request-first.txt /tmp/$$_PARENTS 
-fgrep -v -f /tmp/$$_PARENTS  $HOME/Projects/do-pull-request-first.txt |egrep -v "^#" 
+echo 74
+fgrep -v -f /tmp/$$_PARENTS $HOME/Projects/do-pull-request-first.txt |egrep -v "^#" 
+echo 76
 diff $HOME/Projects/do-pull-request-first.txt /tmp/$$_PARENTS |egrep -v "#|^[0-9,d]*$"
 
 echo "    NOT-SYNCED-WITH-PARENT"
@@ -107,13 +93,8 @@ echo "# of gems in Gemfiles and gemspecs"
 cat $HOME/Projects/*/Gemfile \
 | grep "gem " | sed -e "s,^[ ]*,," -e "s,',,g" -e "s/,//" -e 's,",,g'
 
-cat $HOME/Projects/*BROK*/*/Gemfile \
-| grep "gem " | sed -e "s,^[ ]*,," -e "s,',,g" -e "s/,//" -e 's,",,g'
-
 cat $HOME/Projects/*/*gemspec |egrep "add_dev|add_dep" |sed -e "s,.*<,," -e "s,\[.*,," 
 
-cat $HOME/Projects/*BROK*/*/*gemspec 2> /dev/null \
-| egrep "add_dev|add_dep" |sed -e "s,.*<,," -e "s,\[.*,," 
 ) |awk '{ print $2 }' |sed -e "s,['\",],,g" | egrep -v "3.0.0|gem$|^$" \
 | sort |uniq -c |sort -n |wc
 
