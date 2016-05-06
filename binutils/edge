@@ -1,4 +1,4 @@
-PROJECTS="edge|react-rails-tutorial|atlrug$"
+PROJECTS="edge|react-rails-tutorial|atlrug$|canary"
 if [ "X$1X" == "XX" ] ; then
     ls -lt ${HOME}/Projects |egrep ${PROJECTS} \
     | egrep -v "`date '+%b %d'`|`date '+%b  %-d'`"

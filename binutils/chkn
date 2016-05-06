@@ -69,7 +69,8 @@ sed -e "s,#.*,," Gemfile Gemfile.r* *gemspec 2> /dev/null | grep "[0-9]" \
 | egrep -v '"rspec-rails", "~> 3.2f' \
 | egrep -v "'turbolinks' , '5.0.0.beta2'|'will_paginate', '2.3.16'" \
 | egrep -v "'sucker_punch', '1.6.0'|'rest-client', '2.0.0.rc2'|'hassle3'" \
-| egrep -v "'binding_of_caller', :platforms=>\[:mri_21\]"
+| egrep -v "'binding_of_caller', :platforms=>\[:mri_21\]" \
+| egrep -v "'tzinfo-data', platforms:"
 
 # FYI: Change 'git:' to 'github:' lines.
 sed -e "s,#.*,," Gemfile Gemfile.r* *gemspec 2> /dev/null | egrep "git" \
