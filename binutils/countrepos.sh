@@ -69,10 +69,8 @@ grep -l 'remote "parent"' $HOME/Projects/*/.git/config \
 echo "    (Forked) Projects with parent/upstream (in $HOME/Projects/do-pull-request-first.txt file)"
 grep -v "^#" $HOME/Projects/do-pull-request-first.txt | wc |sed -e "s,^,    ,"
 fgrep -v -f $HOME/Projects/do-pull-request-first.txt /tmp/$$_PARENTS 
-echo 74
 fgrep -v -f /tmp/$$_PARENTS $HOME/Projects/do-pull-request-first.txt |egrep -v "^#" 
-echo 76
-diff $HOME/Projects/do-pull-request-first.txt /tmp/$$_PARENTS |egrep -v "#|^[0-9,d]*$"
+sdiff -s -w80 $HOME/Projects/do-pull-request-first.txt /tmp/$$_PARENTS |egrep -v "#|^[0-9,d]*$"
 
 echo "    NOT-SYNCED-WITH-PARENT"
 egrep -l 'not-synched' $HOME/Projects/*/.git/config \
