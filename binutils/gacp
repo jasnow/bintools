@@ -2,6 +2,11 @@ if [ "X$1X" == "XX" ] ; then
     echo "Usage: $0 CommitMsg"; exit
 fi
 git add --all .
-#git diff |egrep "^[+-] " | git commit #-m "$1" ; git commit --amend
-git commit -m "$1"
+
+if [ "X$2X" == "XX" ] ; then
+    git commit -m "$1"
+else
+    git commit -m "Upgraded $2 gem ; $1"
+    git commit --amend
+fi
 git push -u --all
