@@ -114,7 +114,7 @@ if [ $? == 0 ] ; then
         else
            echo "........................................"
            #echo "'GIT DIFF PLUS/MINUS' is NOT EMPTY"
-           git diff |grep "^[-+] " |awk '{ print $2 }' |uniq \
+           git diff |grep "^[-+] " |awk '{ print $2 }' |sort -u \
            | tr "\012" ", " |sed -e "s/,$//" -e "s,revision:,latest rails," \
            > /tmp/$$_GEMNAMES
            cat /tmp/$$_GEMNAMES
@@ -124,7 +124,6 @@ if [ $? == 0 ] ; then
         if [ "X`git status -s`X" == "X M Gemfile.lockX" ] ; then
             echo "GOT Gemfile.lock only"
             overcommit --sign
-            wc -l /tmp/$$_GEMNAMES | awk '{ print $1 }'
             if [ X"`wc -l /tmp/$$_GEMNAMES | awk '{ print $1 }'`X" == "X1X" ] ; then 
                gacp "Upgraded gem(s): `cat /tmp/$$_GEMNAMES`"
             else
