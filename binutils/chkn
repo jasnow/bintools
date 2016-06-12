@@ -104,7 +104,7 @@ rvm list gemsets |grep "=>" \
 git grep preview2
 
 git grep -E "2\.3\.0| 2\.2\.4" |egrep -v "2.3.0.7|activerecord|2.3.0\)" \
-| egrep -v "vendor/assets/|2.3.0p0|2.3.0.6\)"
+| egrep -v "vendor/assets/|2.3.0p0|2.3.0.6\)" | egrep -v '(>= 2.3.0, < 2.8.0)'
 
 git grep "5.0.0.beta[01234]" |egrep -v "turbolinks|lock"
 
