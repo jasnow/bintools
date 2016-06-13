@@ -1,0 +1,13 @@
+if [ "X$1X" == "XX" ] ; then
+    NBR=""
+else
+    NBR="-$1"
+fi
+
+brakeman ${NBR} -qz > /dev/null 2>&1
+if [ "X`echo $?`X" == "X0X" ] ; then
+    echo "*** No Brakeman Errors ***" `basename $PWD` 
+else
+    echo `brakeman ${NBR} -qz | grep 'Security Warnings'` `basename $PWD`
+    # 2>&1 |tee o_brakeman.txt
+fi
