@@ -4,10 +4,14 @@ else
     NBR="-$1"
 fi
 
-brakeman ${NBR} -qz > /dev/null 2>&1
-if [ "X`echo $?`X" == "X0X" ] ; then
-    echo "*** No Brakeman Errors ***" `basename $PWD` 
+if [ -d app ] ; then
+    brakeman ${NBR} -qz > /dev/null 2>&1
+    if [ "X`echo $?`X" == "X0X" ] ; then
+        echo "*** No Brakeman Errors ***" `basename $PWD` 
+    else
+        echo `brakeman ${NBR} -qz | grep 'Security Warnings'` `basename $PWD`
+        # 2>&1 |tee o_brakeman.txt
+    fi
 else
-    echo `brakeman ${NBR} -qz | grep 'Security Warnings'` `basename $PWD`
-    # 2>&1 |tee o_brakeman.txt
+    echo "NOT RAILS: `basename $PWD`"
 fi

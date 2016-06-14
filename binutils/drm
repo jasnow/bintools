@@ -1,0 +1,3 @@
+dawn -C . 2> /tmp/$$_DC > /dev/null
+echo "`cat /tmp/$$_DC` DawnScanner errors"
+rm /tmp/$$_DC
