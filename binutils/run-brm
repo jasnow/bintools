@@ -1,0 +1,10 @@
+for i in `ls -1F $HOME/Projects |grep /`; do
+    cd $HOME/Projects/$i
+    if [ -d $HOME/Projects/$i/app ] ; then
+        #echo "BEFORE: RAILS PROJECT: $i"
+        brm
+        #echo "AFTER"
+    else
+        echo "NOT RAILS: $i"
+    fi
+done

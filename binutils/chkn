@@ -54,7 +54,7 @@ fi
 ######################################################################
 
 sed -e "s,#.*,," Gemfile Gemfile.r* *gemspec 2> /dev/null | grep "[0-9]" \
-| egrep -v "sqlite3|gem 'rails'|^ruby '2.3.1|mysql2" \
+| egrep -v "sqlite3|gem 'rails'|^ruby '2.3.1|^ruby '2.4.0|mysql2" \
 | egrep -v "rails_12factor|platforms:[ ]*\[:mri_21\]|crack|i18n-tasks|  spec\." \
 | egrep -v "'bootstrap-sass', '2.3.2.2'|'rspec-rails', '2.99.0'|^  gem\.|^  s\." \
 | egrep -v "'turbolinks', '5.0.0.beta2'|'rake', '10.5.0'|'aruba', '0.9.0.pre'" \
@@ -68,7 +68,7 @@ sed -e "s,#.*,," Gemfile Gemfile.r* *gemspec 2> /dev/null | grep "[0-9]" \
 | egrep -v ":platforms => \[:ruby_19, :ruby_20\]|'rspec-rails', '~> 3.0'" \
 | egrep -v '"rspec-rails", "~> 3.2f' \
 | egrep -v "'will_paginate', '2.3.16'|'turbolinks' , '5.0.0.beta2'" \
-| egrep -v "'sucker_punch', '1.6.0'|'rest-client', '2.0.0.rc2'|'hassle3'" \
+| egrep -v "'sucker_punch', '1.6.0'|'rest-client', '2.0.0.rc4'|'hassle3'" \
 | egrep -v "'binding_of_caller', :platforms=>\[:mri_21\]" \
 | egrep -v "'tzinfo-data', platforms:"
 
@@ -76,9 +76,10 @@ sed -e "s,#.*,," Gemfile Gemfile.r* *gemspec 2> /dev/null | grep "[0-9]" \
 sed -e "s,#.*,," Gemfile Gemfile.r* *gemspec 2> /dev/null | egrep "git" \
 | egrep -v "omniauth-github|^  gem\.|^  spec\.|', [ ]*github: '|github_api" \
 | egrep -v "'github-markup', require: 'github/markup'|ls-files|^  s\." \
-| egrep -v "sqlite3, git, ruby, heroku, travis, xcode|twalpole/omniauth"
+| egrep -v "sqlite3, git, ruby, heroku, travis, xcode|twalpole/omniauth" \
+| egrep -v "And: https://github.com"
 
-rvm list | grep "^=" | egrep -v "2.3.1|2.2.5|2.1.8"
+rvm list | grep "^=" | egrep -v "2.3.1|2.2.5|2.1.8|2.4.0"
 
 egrep "2.1.[0-6]|2.2.[0-34]" .travis.yml | egrep -v "repo_token:|2.[12].0$"
 
@@ -107,6 +108,14 @@ git grep -E "2\.3\.0| 2\.2\.4" |egrep -v "2.3.0.7|activerecord|2.3.0\)" \
 | egrep -v "vendor/assets/|2.3.0p0|2.3.0.6\)" | egrep -v '(>= 2.3.0, < 2.8.0)'
 
 git grep "5.0.0.beta[01234]" |egrep -v "turbolinks|lock"
+
+######################################################################@
+# SECURITY CHECKS
+
+# 6/22/2016: Added based on brakeman and SecCast videos.
+if [ -f config/initializers ] ; then
+    grep httponly config/initializers/session_store.rb |egrep -v "Railsgoat"
+fi
 
 exit
 
