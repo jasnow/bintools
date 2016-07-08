@@ -28,7 +28,7 @@ else
 fi    
 
 echo "Running chkn..."
-if [ "X`chkn $1 | wc -l |awk '{ print $1 }'`X" == "X0X" ] ; then
+if [ "X`chkn $1 | egrep -v "^LINE" | wc -l |awk '{ print $1 }'`X" == "X0X" ] ; then
     : # GOOD: echo "FYI: chkn is ZERO"
 else
     PWDN=`pwd`
