@@ -63,7 +63,7 @@ sed -e "s,#.*,," Gemfile Gemfile.r* *gemspec 2> /dev/null | grep "[0-9]" \
 | egrep -v "'binding_of_caller'|'rails4_upgrade'|'hassle3'|<=|>=|\.split" \
 | egrep -v "gem.add_development_dependency|^    s\.|if RUBY_VERSION" \
 | egrep -v ":ruby_19|:ruby_20|gmaps4rails|RAILS_MASTER|, branch: |'RAILS'" \
-| egrep -v "File::ALT_SEPARATOR|Gem::Platform|'win32-file'"
+| egrep -v "File::ALT_SEPARATOR|Gem::Platform|'win32-file'|0.5.0.rc1"
 echo "LINE67"
 
 # FYI: Change 'git:' to 'github:' lines.
@@ -85,7 +85,7 @@ echo "LINE84"
 
 cat Gemfile Gemfile.r* *gemspec 2> /dev/null \
 | egrep \
-  "4.2.[0-6]|4.1.1[0123]|4.1.9|4.2.[123456].rc[12345]|4.1.1[0123].rc[12345]" \
+  "4.2.[0-6]|4.1.1[0123]|4.1.9|4.2.[1234567].rc[12345]|4.1.1[0-6].rc[12345]" \
 | egrep -v "'slop', '4.2.0'"
 echo "LINE90"
 
