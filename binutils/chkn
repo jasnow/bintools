@@ -63,7 +63,8 @@ sed -e "s,#.*,," Gemfile Gemfile.r* *gemspec 2> /dev/null | grep "[0-9]" \
 | egrep -v "'binding_of_caller'|'rails4_upgrade'|'hassle3'|<=|>=|\.split" \
 | egrep -v "gem.add_development_dependency|^    s\.|if RUBY_VERSION" \
 | egrep -v ":ruby_19|:ruby_20|gmaps4rails|RAILS_MASTER|, branch: |'RAILS'" \
-| egrep -v "File::ALT_SEPARATOR|Gem::Platform|'win32-file'|0.5.0.rc1"
+| egrep -v "File::ALT_SEPARATOR|Gem::Platform|'win32-file'|0.5.0.rc1" \
+| egrep -v "'rails_admin', '1.0.0.rc'"
 echo "LINE67"
 
 # FYI: Change 'git:' to 'github:' lines.
