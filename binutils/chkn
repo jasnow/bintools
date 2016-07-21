@@ -64,7 +64,7 @@ sed -e "s,#.*,," Gemfile Gemfile.r* *gemspec 2> /dev/null | grep "[0-9]" \
 | egrep -v "gem.add_development_dependency|^    s\.|if RUBY_VERSION" \
 | egrep -v ":ruby_19|:ruby_20|gmaps4rails|RAILS_MASTER|, branch: |'RAILS'" \
 | egrep -v "File::ALT_SEPARATOR|Gem::Platform|'win32-file'|0.5.0.rc1" \
-| egrep -v "'rails_admin', '1.0.0.rc'"
+| egrep -v "'rails_admin', '1.0.0.rc'|'rails_admin-i18n'"
 echo "LINE67"
 
 # FYI: Change 'git:' to 'github:' lines.
@@ -108,7 +108,8 @@ git grep -E "2\.2\.[0123]|2\.1\.[0-6]|2\.3\.0| 2\.2\.4" \
 | egrep -v "2.[123].0\)|2.[12].[0-5]\)|vendor/|2.2.0.1|v2.2.2|'2.1.2'" \
 | egrep -v "2.2.20|2.2.19|2.[0-2].[02]$|2.2.1$|public/assets|jpg|## " \
 | egrep -v "\(>= 2.2.2, >= 2.2\)|Apache/2.2.16|\(>= 2.3.0, < 2.8.0\)" \
-| egrep -v "\(>= 2.1.2, < 4.0.0\)|jruby|capybara|2.1.4|2.1.1.0|gmaps4rails"
+| egrep -v "\(>= 2.1.2, < 4.0.0\)|jruby|capybara|2.1.4|2.1.1.0|gmaps4rails" \
+| egrep -v "defined\? RAILS_GEM_VERSION"
 echo "LINE111"
 
 git grep "5.0.0.beta[0-9]"
