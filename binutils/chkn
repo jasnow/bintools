@@ -35,8 +35,13 @@ if [ -f .travis.yml ] ; then
     fi
 fi
 
-if [ "X`ls .overcommit.yml 2> /dev/null`X" == "XX" ] ; then
-    echo "Please install overcommit" ; exit
+if [ "X$1X" == "XoX" ] ; then  
+    shift
+    : # OK
+else
+    if [ "X`ls .overcommit.yml 2> /dev/null`X" == "XX" ] ; then
+       echo "Please install overcommit" ; exit
+    fi
 fi
 
 if [ "X`(ls *LICENSE*  License* 2> /dev/null; grep spec.license *gemspec 2> /dev/null; grep -i license R*) |wc -l |awk '{ print $1 }'`X" == "X0X" ]
@@ -64,7 +69,7 @@ sed -e "s,#.*,," Gemfile Gemfile.r* *gemspec 2> /dev/null | grep "[0-9]" \
 | egrep -v "gem.add_development_dependency|^    s\.|if RUBY_VERSION" \
 | egrep -v ":ruby_19|:ruby_20|gmaps4rails|RAILS_MASTER|, branch: |'RAILS'" \
 | egrep -v "File::ALT_SEPARATOR|Gem::Platform|'win32-file'|0.5.0.rc1" \
-| egrep -v "'rails_admin', '1.0.0.rc'|'rails_admin-i18n'"
+| egrep -v "'rails_admin', '1.0.0.rc'|'rails_admin-i18n'|RubyGems 2.0 or newer"
 echo "LINE67"
 
 # FYI: Change 'git:' to 'github:' lines.
