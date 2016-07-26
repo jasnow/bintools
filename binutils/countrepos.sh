@@ -32,6 +32,7 @@ echo
 echo "Both (Github and Bitbucket) projects"
 grep -i github `grep -li bitbucket $HOME/Projects/*/.git/config ` |sed -e "s,.*/,," |wc
 grep -i github `grep -li bitbucket $HOME/Projects/*/.git/config ` \
+|egrep -v "adopt-a-hydrant.git" \
 |sed -e "s,.*/,," -e "s,.git,," > /tmp/$$_BOTTOM_PROJECTS
 
 echo "Github projects (1st: ok; 2nd: broken - NOTE: Include above BOTH count)"
