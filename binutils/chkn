@@ -119,6 +119,10 @@ echo "LINE111"
 
 git grep "5.0.0.beta[0-9]"
 
+# Carry gem numbers in gemspec files.
+grep "[0-9]\.[0-9]" *gemspec 2> /dev/null \
+| egrep -v "raise |>=| = "
+
 ######################################################################@
 # SECURITY CHECKS
 
