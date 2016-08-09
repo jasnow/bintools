@@ -70,7 +70,7 @@ sed -e "s,#.*,," Gemfile Gemfile.r* *gemspec 2> /dev/null | grep "[0-9]" \
 | egrep -v ":ruby_19|:ruby_20|gmaps4rails|RAILS_MASTER|, branch: |'RAILS'" \
 | egrep -v "File::ALT_SEPARATOR|Gem::Platform|'win32-file'|0.5.0.rc1" \
 | egrep -v "'rails_admin', '1.0.0.rc'|'rails_admin-i18n'|oauth2" \
-| egrep -v "RubyGems 2.0 or newer"
+| egrep -v "RubyGems 2.0 or newer|0.10.0.rc4|'aws-sdk', '< 2.0'|'1.24.5'"
 echo "LINE73"
 
 # FYI: Change 'git:' to 'github:' lines.
