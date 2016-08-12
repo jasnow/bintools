@@ -123,9 +123,13 @@ echo "LINE118"
 git grep "5.0.0.beta[0-9]|gems/|rubies/ruby/"
 echo "LINE121"
 
+egrep "'5.0.0'|'4.2.7'|'3.2.22.2'" Gemfile
+echo "LINE127"
+ 
 # Carry gem numbers in gemspec files.
 grep "[0-9]\.[0-9]" *gemspec 2> /dev/null \
 | egrep -v "raise |>=| = "
+echo "LINE132"
 
 ######################################################################@
 # SECURITY CHECKS
