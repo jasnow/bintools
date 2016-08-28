@@ -50,6 +50,13 @@ else
     : # do nothing
 fi
 
+if [ "X`brakeman 2>&1 |grep -c "brakeman: command not found"`X" == "X1X" ] ; then
+    echo "Installing brakeman..."
+    gem install brakeman
+else
+    : # do nothing
+fi
+
 BOST="`bundle outdated --strict |tail -1`"
 if [ "X${BOST}X" == "XBundle up to date!X" ] ; then
     echo "No gem update needed; leaving the building..." ; touch . ; exit
