@@ -1,1 +1,1 @@
-lu ; bundle ; rake; git status
+gem install bundler ; lu ; bundle ; rake; git status
