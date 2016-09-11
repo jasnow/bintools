@@ -1,0 +1,26 @@
+######################################################################
+# REPOS USING JSON 2.0.2
+######################################################################
+head -10 `grep -l " json (2.0.2)" ../*/*lock | sed -e "s,/Gemfile.lock,/.rvmrc,"` \
+| egrep -v "preview2|^$"
+
+echo "************************************************************"
+grep -l " json (1.8.3)" ../*/*lock > /tmp/$$_183FILES
+
+head -10 `ls -1 ../*/Gemfile.lock |fgrep -v -f /tmp/$$_183FILES| egrep -v "setler|railsgoat5|lunchedin_broken" |sed -e "s,/Gemfile.lock,/.rvmrc,"` \
+| egrep -v "preview2|^$"
+
+echo "************************************************************"
+
+sed -e "s,Gemfile.lock,," /tmp/$$_183FILES > /tmp/$$_1
+
+echo "=========="
+
+head -10 `ls -1 ../*/Gemfile.lock |fgrep -v -f /tmp/$$_183FILES| egrep -v "setler|railsgoat5|lunchedin_broken" |sed -e "s,/Gemfile.lock,/.rvmrc,"` \
+| egrep -v "preview2|^$" |sed -e "s,==> ,," -e "s, <==,," -e "s,.rvmrc,," > /tmp/$$_2
+
+echo "=========="
+echo "Repos using neither Json 1.8.3 nor 2.0.2"
+ls -1F .. |sed -e "s,^,../," |fgrep -v -f /tmp/$$_1 |fgrep -v -f /tmp/$$_2
+
+rm -rf /tmp/$$_*

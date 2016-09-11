@@ -108,7 +108,7 @@ rvm list gemsets |grep "=>" \
 | egrep -v "\[ i686 \]|\[ x86_64 \]"
 echo "LINE107"
 
-git grep preview2 |egrep -v "gems/|rubies/ruby/"
+git grep preview2 |egrep -v "gems/|rubies/ruby/|2.4.0-preview2"
 echo "LINE110"
 
 git grep -E "2\.2\.[0123]|2\.1\.[0-6]|2\.3\.0| 2\.2\.4" \
