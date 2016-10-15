@@ -59,7 +59,7 @@ fi
 
 BOST="`bundle outdated --strict |tail -1`"
 if [ "X${BOST}X" == "XBundle up to date!X" ] ; then
-    echo "No gem update needed; leaving the building...1" ; touch . ; exit
+    echo "No gem update needed; leaving the building...1" ; touch . ; lbr ; exit
 fi
 if [ "X${BOST}X" == "XYour bundle is up to date!X" ] ; then
     echo "No gem update needed; leaving the building...2" ; touch . ; exit
