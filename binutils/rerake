@@ -123,18 +123,18 @@ if [ $? == 0 ] ; then
            #echo "'GIT DIFF PLUS/MINUS' is NOT EMPTY"
            git diff |grep "^[-+] " |awk '{ print $2 }' |sort -u \
            | tr "\012" ", " |sed -e "s/,$//" -e "s,revision:,latest rails," \
-           > /tmp/$$_GEMNAMES
-           cat /tmp/$$_GEMNAMES
+           > $HOME/.tmp/$$_GEMNAMES
+           cat $HOME/.tmp/$$_GEMNAMES
            echo "........................................"
         fi
 
         if [ "X`git status -s`X" == "X M Gemfile.lockX" ] ; then
             echo "GOT Gemfile.lock only"
             overcommit --sign
-            if [ X"`wc -l /tmp/$$_GEMNAMES | awk '{ print $1 }'`X" == "X1X" ] ; then 
-               gacp "Upgraded gem(s): `cat /tmp/$$_GEMNAMES`"
+            if [ X"`wc -l $HOME/.tmp/$$_GEMNAMES | awk '{ print $1 }'`X" == "X1X" ] ; then 
+               gacp "Upgraded gem(s): `cat $HOME/.tmp/$$_GEMNAMES`"
             else
-               gacp "Upgraded gems by rebuilding Gemfile.lock file" `cat /tmp/$$_GEMNAMES`
+               gacp "Upgraded gems by rebuilding Gemfile.lock file" `cat $HOME/.tmp/$$_GEMNAMES`
             fi
         else
             if [ "X`git status|tail -1`X" == "Xnothing to commit, working directory cleanX" ] ; then
@@ -151,4 +151,4 @@ else
 fi
 echo "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
 brm # Run brakeman
-rm -f /tmp/$$_GEMNAMES
+rm -f $HOME/.tmp/$$_GEMNAMES
