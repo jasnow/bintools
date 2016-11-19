@@ -59,7 +59,7 @@ fi
 ######################################################################
 echo "LINE60"
 sed -e "s,#.*,," Gemfile Gemfile.r* *gemspec 2> /dev/null | grep "[0-9]" \
-| egrep -v "sqlite3|gem 'rails'|^ruby '2.3.1|^ruby '2.4.0|mysql2|crack" \
+| egrep -v "sqlite3|gem 'rails'|^ruby '2.3.[12]|^ruby '2.4.0|mysql2|crack" \
 | egrep -v "rails_12factor|i18n-tasks|i18n-spec|omniauth-google-oauth2" \
 | egrep -v "'acts_as_paranoid', '0.5.0.beta2'|platforms:[ ]*\[:mri_21\]" \
 | egrep -v "'will_paginate'|'rspec-rails', '2.99.0'|^  spec\.|^  s\." \
@@ -80,7 +80,7 @@ sed -e "s,#.*,," Gemfile Gemfile.r* *gemspec 2> /dev/null | egrep "git" \
 | egrep -v "'github-markup'|git ls-files|codesake_links|^  s\.|'git_hub_bub'" \
 | egrep -v "github-markdown|paranoia|git: 'https://github.com/"
 
-rvm list | grep "^=" | egrep -v "2.3.1|2.2.5|2.1.8|2.4.0"
+rvm list | grep "^=" | egrep -v "2.3.[12]|2.2.5|2.1.8|2.4.0"
 echo "LINE82"
 
 egrep "2.1.[0-6]|2.2.[0-34]" .travis.yml \
@@ -140,6 +140,12 @@ grep "github:" Gemfile
 if [ -f config/initializers ] ; then
     grep httponly config/initializers/session_store.rb | egrep -v "Railsgoat"
 fi
+
+git grep -lE "2.2.5|2.3.1" \
+| egrep -v "app/assets|public/assets|config/initializers|public/docs" \
+| egrep -v "spec/fixtures|vendor/assets|config/secrets.yml|^features" \
+| egrep -v "db/schema.rb|CHANGELOG.md|db/seed_data|public/fonts|^gems/" \
+| egrep -v "libraries/rubygems/"
 
 exit
 
