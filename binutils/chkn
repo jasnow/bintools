@@ -149,7 +149,7 @@ git grep -lE "2.2.5|2.3.[21]" \
 | egrep -v "spec/fixtures|vendor/assets|config/secrets.yml|^features" \
 | egrep -v "db/schema.rb|CHANGELOG.md|db/seed_data|public/fonts|^gems/" \
 | egrep -v "libraries/rubygems/|db/migrate|app/views|Gemfile.lock" \
-| egrep -v "^tmp/cache"
+| egrep -v "^tmp/cache|^design/"
 
 exit
 
