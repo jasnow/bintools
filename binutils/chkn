@@ -144,12 +144,15 @@ if [ -f config/initializers ] ; then
 fi
 echo "LINE144"
 
-git grep -lE "2.2.5|2.3.[21]" \
+git grep -lE "2\.2.5|2\.3.[21]" \
 | egrep -v "app/assets|public/assets|config/initializers|public/docs" \
 | egrep -v "spec/fixtures|vendor/assets|config/secrets.yml|^features" \
 | egrep -v "db/schema.rb|CHANGELOG.md|db/seed_data|public/fonts|^gems/" \
 | egrep -v "libraries/rubygems/|db/migrate|app/views|Gemfile.lock" \
 | egrep -v "^tmp/cache|^design/"
+echo "LINE153"
+
+grep "5.0.1.rc1" Gemfile 2> /dev/null
 
 exit
 
