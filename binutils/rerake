@@ -110,7 +110,7 @@ else
 fi
 
 if [ $? == 0 ] ; then
-    if [ "X${PROJ}X" = "X24pullrequestsX" ] ; then
+    if [ "X${PROJ}X" = "X24pullrequests-2015X" ] ; then
         unset GITHUB_KEY
     fi
     rake
