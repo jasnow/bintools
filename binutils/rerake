@@ -121,7 +121,8 @@ if [ $? == 0 ] ; then
         else
            echo "........................................"
            #echo "'GIT DIFF PLUS/MINUS' is NOT EMPTY"
-           git diff |grep "^[-+] " |awk '{ print $2 }' |sort -u \
+           git diff |grep "^[-+] " |awk '{ print $2 }' \
+           | sed -e "s/1.1[34].[0-9][0-9]*/bundler/" | sort -u \
            | tr "\012" ", " |sed -e "s/,$//" -e "s,revision:,latest rails," \
            > $HOME/.tmp/$$_GEMNAMES
            cat $HOME/.tmp/$$_GEMNAMES
