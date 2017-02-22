@@ -1,3 +1,7 @@
+function linenum {
+echo "LINE" $2 $1
+} 
+
 if [ "X`git branch |grep "^\*" |awk '{ print $2 }'`X" == "XmasterX" ] ; then
     : # okay
 else
@@ -57,61 +61,55 @@ then
     fi
 fi
 ######################################################################
-echo "LINE60"
+linenum ${LINENO} 1
 sed -e "s,#.*,," Gemfile Gemfile.r* *gemspec 2> /dev/null | grep "[0-9]" \
-| egrep -v "sqlite3|gem 'rails'|^ruby '2.3.[123]|^ruby '2.4.0|mysql2|crack" \
-| egrep -v "rails_12factor|i18n-tasks|i18n-spec|omniauth-google-oauth2" \
-| egrep -v "'acts_as_paranoid', '0.5.0.beta2'|platforms:[ ]*\[:mri_21\]" \
-| egrep -v "'will_paginate'|'rspec-rails', '2.99.0'|^  spec\.|^  s\." \
-| egrep -v "'bootstrap-sass', '2.3.2.2'|'tzinfo-data', platforms:|~>" \
-| egrep -v "^  gem\.|platforms :ruby_18 do|'aws-sdk-v1'|'gmaps4rails'" \
-| egrep -v "'binding_of_caller'|'rails4_upgrade'|'hassle3'|<=|>=|\.split" \
-| egrep -v "gem.add_development_dependency|^    s\.|if RUBY_VERSION" \
-| egrep -v ":ruby_19|:ruby_20|gmaps4rails|RAILS_MASTER|, branch: |'RAILS'" \
-| egrep -v "File::ALT_SEPARATOR|Gem::Platform|'win32-file'|0.5.0.rc1" \
-| egrep -v "'rails_admin', '1.0.0.rc'|'rails_admin-i18n'|oauth2" \
-| egrep -v "RubyGems 2.0 or newer|0.10.0.rc4|'aws-sdk', '< 2.0'|'1.24.5'|1.8.1" \
-| egrep -v "gem 'i18n', '0.8.0.beta1'|gem 'sdoc', '1.0.0.beta2', group: :doc" \
-| egrep -v "2.0.2"
-echo "LINE75"
+| egrep -v "'sqlite3'|gem 'rails'|^ruby '2.3.[0-3]|^ruby '2.4.0|'hassle3'" \
+| egrep -v "rails_12factor|'rails4_upgrade'|platforms:[ ]*\[:mri_21\]" \
+| egrep -v "gem.email|mysql2|crack|'bootstrap-sass', '2.3.2.2'|jruby" \
+| egrep -v "mri_21|'gmaps4rails'|'rspec-rails', '2.99.0'|raise " \
+| egrep -v "'will_paginate', '2.3.16'|'will_paginate', '3.1.0'" \
+| egrep -v "gem.add_development_dependency|'>=2.3', '<= 4.1'" \
+| egrep -v "if RUBY_VERSION|.required_ruby_version|.add_dependency" \
+| egrep -v "'draper', '~> 3.0.0.pre1'|'i18n-tasks'|.version" \
+| egrep -v "'rails_admin-i18n'|.name|ruby_[12]|^  spec" \
+| egrep -v "sqlite3, git, ruby, heroku, travis, xcode" \
+| egrep -v "File::ALT_SEPARATOR|mingw32"
+linenum ${LINENO} 2
 
 # FYI: Change 'git:' to 'github:' lines.
 sed -e "s,#.*,," Gemfile Gemfile.r* *gemspec 2> /dev/null | egrep "git" \
-| egrep -v "^  gem\.|', [ ]*github: '|^  spec\.|github_api|omniauth-github" \
-| egrep -v "sqlite3, git, ruby, heroku, travis, xcode|twalpole/omniauth" \
-| egrep -v "'github-markup'|git ls-files|codesake_links|^  s\.|'git_hub_bub'" \
-| egrep -v "github-markdown|paranoia|git: 'https://github.com/"
+| egrep -v "^  gem\.|', [ ]*github: '|omniauth-github|github_api" \
+| egrep -v "'https://github.com/rails/rails'|^  s.|bradphelan/jasminerice" \
+| egrep -v "'github-markup'|3-0-lts|And:" \
+| egrep -v "sqlite3, git, ruby, heroku, travis, xcode"
+linenum ${LINENO} 2b
 
-rvm list | grep "^=" | egrep -v "2.3.[123]|2.2.5|2.1.8|2.4.0"
-echo "LINE82"
+rvm list | grep "^=" | egrep -v "2.3.[0-3]|2.4.0"
+linenum ${LINENO} 3
 
-egrep "2.1.[0-6]|2.2.[0-34]" .travis.yml \
-| egrep -v "2.1.0|2.1.10|2.1.1"
-echo "LINE86"
+egrep "2.1.[0-6]|2.2.[0-4]" .travis.yml | egrep -v "'2.1.1'|phantomjs-2.1.1" \
+| egrep -v 'source "https://rubygems.org"|2.1.0'
+linenum ${LINENO} 4
 
 cat Gemfile Gemfile.r* *gemspec 2> /dev/null | grep "rubygems." \
-| egrep -v "https://rubygems.org|^  s\.|^#"
-echo "LINE90"
+| egrep -v "https://rubygems.org|^#"
+linenum ${LINENO} 5
 
-cat Gemfile Gemfile.r* *gemspec 2> /dev/null \
-| egrep \
-  "4.2.[0-6]|4.1.1[0123]|4.1.9|4.2.[1234567].rc[12345]|4.1.1[0-6].rc[12345]" \
-| egrep -v "'slop', '4.2.0'"
-echo "LINE96"
+cat Gemfile Gemfile.r* *gemspec 2> /dev/null | sed -e "s,#.*,," \
+| egrep "4.[12]" | egrep -v "^#|4.2.8|'>=2.3', '<= 4.1'|'4.1.16'"
+linenum ${LINENO} 6
 
 #Need 5.0.0.beta1.1, 4.2.5.1, 4.1.14.1, 3.2.22.1#
 egrep "2.1.4|3.2.19|3.2.2[012]'|4.0.1[012]|4.1.[45678]|4.2.[0-5]" \
-Gemfile Gemfile.r* *gemspec 2> /dev/null \
-| egrep -v "4.2.0.beta[1234]|'slop', '4.2.0'"
-echo "LINE102"
+Gemfile Gemfile.r* *gemspec 2> /dev/null
+linenum ${LINENO} 7
 
 # Use only gemsets that are equal to ruby versions (a few exceptions).
-rvm list gemsets |grep "=>" \
-| egrep -v "\[ i686 \]|\[ x86_64 \]"
-echo "LINE107"
+rvm list gemsets |grep "=>" | egrep -v "\[ i686 \]|\[ x86_64 \]"
+linenum ${LINENO} 8
 
-git grep preview2 |egrep -v "gems/|rubies/ruby/|2.4.0-preview[23]|5.0.1.rc[12]"
-echo "LINE110"
+git grep preview2 | egrep -v "yml:"
+linenum ${LINENO} 9
 
 git grep -E "2\.2\.[0123]|2\.1\.[0-6]|2\.3\.0| 2\.2\.4" \
 | egrep -v "2.[123].0\)|2.[12].[0-5]\)|vendor/|2.2.0.1|v2.2.2|'2.1.2'" \
@@ -120,42 +118,45 @@ git grep -E "2\.2\.[0123]|2\.1\.[0-6]|2\.3\.0| 2\.2\.4" \
 | egrep -v "\(>= 2.1.2, < 4.0.0\)|jruby|capybara|2.1.4|2.1.1.0|gmaps4rails" \
 | egrep -v "defined\? RAILS_GEM_VERSION|gems/|rubies/ruby/|/ruby_dep/" \
 | egrep -v ".yml: |paranoia|2.1.10|2.1.1"
-echo "LINE118"
+linenum ${LINENO} 10
 
 git grep "5.0.0.beta[0-9]|gems/|rubies/ruby/"
-echo "LINE121"
+linenum ${LINENO} 11
 
 egrep "'5.0.0'|'4.2.7'|'3.2.22.[1234]'" Gemfile
-echo "LINE127"
- 
+linenum ${LINENO} 12
+  
 # Carry gem numbers in gemspec files.
 grep "[0-9]\.[0-9]" *gemspec 2> /dev/null \
-| egrep -v "raise |>=| = "
-echo "LINE132"
+| egrep -v ".add_development_dependency|.version|.license" \
+| egrep -v ".required_ruby_version|.add_dependency|raise " \
+| egrep -v "if RUBY_VERSION"
+linenum ${LINENO} 13
 
 grep "github:" Gemfile 
+linenum ${LINENO} 14
 
 ######################################################################@
 # SECURITY CHECKS
-echo "LINE138"
 
 # 6/22/2016: Added based on brakeman and SecCast videos.
 if [ -f config/initializers ] ; then
     grep httponly config/initializers/session_store.rb | egrep -v "Railsgoat"
 fi
-echo "LINE144"
+linenum ${LINENO} 15
 
 git grep -lE "2\.2.5|2\.3.[21]" \
-| egrep -v "app/assets|public/assets|config/initializers|public/docs" \
-| egrep -v "spec/fixtures|vendor/assets|config/secrets.yml|^features" \
-| egrep -v "db/schema.rb|CHANGELOG.md|db/seed_data|public/fonts|^gems/" \
-| egrep -v "libraries/rubygems/|db/migrate|app/views|Gemfile.lock" \
-| egrep -v "^tmp/cache|^design/"
-echo "LINE153"
+| egrep -v "Gemfile.lock|app/views|app/assets/images/fonts|public/assets/fonts" \
+| egrep -v "public/assets/application|^Gemfile|db/seed_data/|^design/" \
+| egrep -v "^config/Gemfile|^config/environment.rb|yml$|README.md" \
+| egrep -v "app/assets/javascripts|app/assets/stylesheets"
+linenum ${LINENO} 16
 
 grep "5.0.1.rc1" Gemfile 2> /dev/null
+linenum ${LINENO} 17
 
 grep "2.4.0-preview3" .rvmrc
+linenum ${LINENO} 18
 
 exit
 
