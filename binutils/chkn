@@ -71,16 +71,16 @@ sed -e "s,#.*,," Gemfile Gemfile.r* *gemspec 2> /dev/null | grep "[0-9]" \
 | egrep -v "gem.add_development_dependency|'>=2.3', '<= 4.1'" \
 | egrep -v "if RUBY_VERSION|.required_ruby_version|.add_dependency" \
 | egrep -v "'draper', '~> 3.0.0.pre1'|'i18n-tasks'|.version" \
-| egrep -v "'rails_admin-i18n'|.name|ruby_[12]|^  spec" \
-| egrep -v "sqlite3, git, ruby, heroku, travis, xcode" \
-| egrep -v "File::ALT_SEPARATOR|mingw32"
+| egrep -v "'rails_admin-i18n'|.name|ruby_[12]|^  spec|split" \
+| egrep -v "sqlite3, git, ruby, heroku, travis, xcode|s.date" \
+| egrep -v "File::ALT_SEPARATOR|mingw32|s.add_runtime_dependency"
 linenum ${LINENO} 2
 
 # FYI: Change 'git:' to 'github:' lines.
 sed -e "s,#.*,," Gemfile Gemfile.r* *gemspec 2> /dev/null | egrep "git" \
 | egrep -v "^  gem\.|', [ ]*github: '|omniauth-github|github_api" \
 | egrep -v "'https://github.com/rails/rails'|^  s.|bradphelan/jasminerice" \
-| egrep -v "'github-markup'|3-0-lts|And:" \
+| egrep -v "'github-markup'|3-0-lts|And:|git ls-files" \
 | egrep -v "sqlite3, git, ruby, heroku, travis, xcode"
 linenum ${LINENO} 2b
 
@@ -88,7 +88,7 @@ rvm list | grep "^=" | egrep -v "2.3.[0-3]|2.4.0"
 linenum ${LINENO} 3
 
 egrep "2.1.[0-6]|2.2.[0-4]" .travis.yml | egrep -v "'2.1.1'|phantomjs-2.1.1" \
-| egrep -v 'source "https://rubygems.org"|2.1.0'
+| egrep -v 'source "https://rubygems.org"|2.1.0|2.1.10'
 linenum ${LINENO} 4
 
 cat Gemfile Gemfile.r* *gemspec 2> /dev/null | grep "rubygems." \
@@ -96,7 +96,8 @@ cat Gemfile Gemfile.r* *gemspec 2> /dev/null | grep "rubygems." \
 linenum ${LINENO} 5
 
 cat Gemfile Gemfile.r* *gemspec 2> /dev/null | sed -e "s,#.*,," \
-| egrep "4.[12]" | egrep -v "^#|4.2.8|'>=2.3', '<= 4.1'|'4.1.16'"
+| egrep "4.[12]" | egrep -v "^#|4.2.8|'>=2.3', '<= 4.1'|'4.1.16'" \
+| egrep -v "'slop', '4.1.0'"
 linenum ${LINENO} 6
 
 #Need 5.0.0.beta1.1, 4.2.5.1, 4.1.14.1, 3.2.22.1#
@@ -117,7 +118,7 @@ git grep -E "2\.2\.[0123]|2\.1\.[0-6]|2\.3\.0| 2\.2\.4" \
 | egrep -v "\(>= 2.2.2, >= 2.2\)|Apache/2.2.16|\(>= 2.3.0, < 2.8.0\)" \
 | egrep -v "\(>= 2.1.2, < 4.0.0\)|jruby|capybara|2.1.4|2.1.1.0|gmaps4rails" \
 | egrep -v "defined\? RAILS_GEM_VERSION|gems/|rubies/ruby/|/ruby_dep/" \
-| egrep -v ".yml: |paranoia|2.1.10|2.1.1"
+| egrep -v ".yml: |paranoia|2.1.10|2.1.1|Binary|readme.md:"
 linenum ${LINENO} 10
 
 git grep "5.0.0.beta[0-9]|gems/|rubies/ruby/"
@@ -130,7 +131,7 @@ linenum ${LINENO} 12
 grep "[0-9]\.[0-9]" *gemspec 2> /dev/null \
 | egrep -v ".add_development_dependency|.version|.license" \
 | egrep -v ".required_ruby_version|.add_dependency|raise " \
-| egrep -v "if RUBY_VERSION"
+| egrep -v "if RUBY_VERSION|.add_runtime_dependency"
 linenum ${LINENO} 13
 
 grep "github:" Gemfile 
@@ -148,7 +149,7 @@ linenum ${LINENO} 15
 git grep -lE "2\.2.5|2\.3.[21]" \
 | egrep -v "Gemfile.lock|app/views|app/assets/images/fonts|public/assets/fonts" \
 | egrep -v "public/assets/application|^Gemfile|db/seed_data/|^design/" \
-| egrep -v "^config/Gemfile|^config/environment.rb|yml$|README.md" \
+| egrep -v "^config/Gemfile|^config/environment.rb|yml$|README.md|db$" \
 | egrep -v "app/assets/javascripts|app/assets/stylesheets"
 linenum ${LINENO} 16
 
