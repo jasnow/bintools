@@ -73,7 +73,8 @@ sed -e "s,#.*,," Gemfile Gemfile.r* *gemspec 2> /dev/null | grep "[0-9]" \
 | egrep -v "'draper', '~> 3.0.0.pre1'|'i18n-tasks'|.version" \
 | egrep -v "'rails_admin-i18n'|.name|ruby_[12]|^  spec|split" \
 | egrep -v "sqlite3, git, ruby, heroku, travis, xcode|s.date" \
-| egrep -v "File::ALT_SEPARATOR|mingw32|s.add_runtime_dependency"
+| egrep -v "File::ALT_SEPARATOR|mingw32|s.add_runtime_dependency" \
+| egrep -v "'omniauth-google-oauth2'|'jquery-ui-rails'|'i18n-spec'"
 linenum ${LINENO} 2
 
 # FYI: Change 'git:' to 'github:' lines.
@@ -134,7 +135,7 @@ grep "[0-9]\.[0-9]" *gemspec 2> /dev/null \
 | egrep -v "if RUBY_VERSION|.add_runtime_dependency"
 linenum ${LINENO} 13
 
-grep "github:" Gemfile 
+grep "github:" Gemfile |egrep -v "'acts-as-taggable-on'"
 linenum ${LINENO} 14
 
 ######################################################################@
@@ -150,7 +151,9 @@ git grep -lE "2\.2.5|2\.3.[21]" \
 | egrep -v "Gemfile.lock|app/views|app/assets/images/fonts|public/assets/fonts" \
 | egrep -v "public/assets/application|^Gemfile|db/seed_data/|^design/" \
 | egrep -v "^config/Gemfile|^config/environment.rb|yml$|README.md|db$" \
-| egrep -v "app/assets/javascripts|app/assets/stylesheets"
+| egrep -v "app/assets/javascripts|app/assets/stylesheets|.ruby-version" \
+| egrep -v ".rvmrc|db/seeds.rb|test/fixtures/city_hall.json|.ruby-gemset" \
+| egrep -v "lib/ruby_dep/|spec/lib/ruby_dep/"
 linenum ${LINENO} 16
 
 grep "5.0.1.rc1" Gemfile 2> /dev/null
