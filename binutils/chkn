@@ -74,7 +74,8 @@ sed -e "s,#.*,," Gemfile Gemfile.r* *gemspec 2> /dev/null | grep "[0-9]" \
 | egrep -v "'rails_admin-i18n'|.name|ruby_[12]|^  spec|split" \
 | egrep -v "sqlite3, git, ruby, heroku, travis, xcode|s.date" \
 | egrep -v "File::ALT_SEPARATOR|mingw32|s.add_runtime_dependency" \
-| egrep -v "'omniauth-google-oauth2'|'jquery-ui-rails'|'i18n-spec'"
+| egrep -v "'omniauth-google-oauth2'|'jquery-ui-rails'|'i18n-spec'" \
+| egrep -v ".add_development_dependency"
 linenum ${LINENO} 2
 
 # FYI: Change 'git:' to 'github:' lines.
@@ -93,7 +94,7 @@ egrep "2.1.[0-6]|2.2.[0-4]" .travis.yml | egrep -v "'2.1.1'|phantomjs-2.1.1" \
 linenum ${LINENO} 4
 
 cat Gemfile Gemfile.r* *gemspec 2> /dev/null | grep "rubygems." \
-| egrep -v "https://rubygems.org|^#"
+| egrep -v "https://rubygems.org|^#|.required_rubygems_version"
 linenum ${LINENO} 5
 
 cat Gemfile Gemfile.r* *gemspec 2> /dev/null | sed -e "s,#.*,," \
@@ -119,7 +120,9 @@ git grep -E "2\.2\.[0123]|2\.1\.[0-6]|2\.3\.0| 2\.2\.4" \
 | egrep -v "\(>= 2.2.2, >= 2.2\)|Apache/2.2.16|\(>= 2.3.0, < 2.8.0\)" \
 | egrep -v "\(>= 2.1.2, < 4.0.0\)|jruby|capybara|2.1.4|2.1.1.0|gmaps4rails" \
 | egrep -v "defined\? RAILS_GEM_VERSION|gems/|rubies/ruby/|/ruby_dep/" \
-| egrep -v ".yml: |paranoia|2.1.10|2.1.1|Binary|readme.md:"
+| egrep -v ".yml: |paranoia|2.1.10|2.1.1|Binary|readme.md:" \
+| egrep -v "lib/gemsurance/templates/output.html.erb" \
+| egrep -v "test/unit/vulnerability_test.rb"
 linenum ${LINENO} 10
 
 git grep "5.0.0.beta[0-9]|gems/|rubies/ruby/"
@@ -153,6 +156,7 @@ git grep -lE "2\.2.5|2\.3.[21]" \
 | egrep -v "^config/Gemfile|^config/environment.rb|yml$|README.md|db$" \
 | egrep -v "app/assets/javascripts|app/assets/stylesheets|.ruby-version" \
 | egrep -v ".rvmrc|db/seeds.rb|test/fixtures/city_hall.json|.ruby-gemset" \
+| egrep -v "test/helper.rb|test/unit/gem_info_retriever_test.rb" \
 | egrep -v "lib/ruby_dep/|spec/lib/ruby_dep/"
 linenum ${LINENO} 16
 
