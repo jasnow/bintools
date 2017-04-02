@@ -63,7 +63,7 @@ fi
 ######################################################################
 linenum ${LINENO} 1
 sed -e "s,#.*,," Gemfile Gemfile.r* *gemspec 2> /dev/null | grep "[0-9]" \
-| egrep -v "'sqlite3'|gem 'rails'|^ruby '2.3.[0-3]|^ruby '2.4.[01]|'hassle3'" \
+| egrep -v "'sqlite3'|gem 'rails'|^ruby '2.3.[0-4]|^ruby '2.4.[01]|'hassle3'" \
 | egrep -v "rails_12factor|'rails4_upgrade'|platforms:[ ]*\[:mri_21\]" \
 | egrep -v "gem.email|mysql2|crack|'bootstrap-sass', '2.3.2.2'|jruby" \
 | egrep -v "mri_21|'gmaps4rails'|'rspec-rails', '2.99.0'|raise " \
@@ -86,7 +86,7 @@ sed -e "s,#.*,," Gemfile Gemfile.r* *gemspec 2> /dev/null | egrep "git" \
 | egrep -v "sqlite3, git, ruby, heroku, travis, xcode"
 linenum ${LINENO} 2b
 
-rvm list | grep "^=" | egrep -v "2.3.[0-3]|2.4.[01]"
+rvm list | grep "^=" | egrep -v "2.3.[0-4]|2.4.[01]"
 linenum ${LINENO} 3
 
 egrep "2.1.[0-6]|2.2.[0-4]" .travis.yml | egrep -v "'2.1.1'|phantomjs-2.1.1" \
@@ -163,7 +163,9 @@ linenum ${LINENO} 16
 grep "5.0.1.rc1" Gemfile 2> /dev/null
 linenum ${LINENO} 17
 
-grep "2.4.0-preview3" .rvmrc
+egrep "2.4.0-preview3|2.3.3" .rvmrc
+
+egrep "2.2.[0-6]|2.3.3" .ruby-version Dockerfile R* Gemfile .travis.yml 2> /dev/null
 linenum ${LINENO} 18
 
 exit
