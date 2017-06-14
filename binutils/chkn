@@ -98,7 +98,7 @@ cat Gemfile Gemfile.r* *gemspec 2> /dev/null | grep "rubygems." \
 linenum ${LINENO} 5
 
 cat Gemfile Gemfile.r* *gemspec 2> /dev/null | sed -e "s,#.*,," \
-| egrep "4.[12]" | egrep -v "^#|4.2.8|'>=2.3', '<= 4.1'|'4.1.16'" \
+| egrep "4.[12]" | egrep -v "^#|4.2.9.rc1|'>=2.3', '<= 4.1'|'4.1.16'" \
 | egrep -v "'slop', '4.1.0'|ruby '2.4.1'"
 linenum ${LINENO} 6
 
