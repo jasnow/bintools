@@ -157,7 +157,7 @@ git grep -lE "2\.2.5|2\.3.[21]" \
 | egrep -v "app/assets/javascripts|app/assets/stylesheets|.ruby-version" \
 | egrep -v ".rvmrc|db/seeds.rb|test/fixtures/city_hall.json|.ruby-gemset" \
 | egrep -v "test/helper.rb|test/unit/gem_info_retriever_test.rb" \
-| egrep -v "lib/ruby_dep/|spec/lib/ruby_dep/" \
+| egrep -v "lib/ruby_dep/|spec/lib/ruby_dep/|CONTRIBUTING.md" \
 | egrep -v "lib/components/jquery/|public/_components/jquery/"
 linenum ${LINENO} 16
 

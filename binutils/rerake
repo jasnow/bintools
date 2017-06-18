@@ -150,6 +150,8 @@ if [ $? == 0 ] ; then
 else
     echo "bundle install EXIT STATUS != 0 (BAD) ******************************"
 fi
+echo "ggggggggggggggggggggggggggggggggggg"
+git gc
 echo "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
 brm # Run brakeman
 rm -f $HOME/.tmp/$$_GEMNAMES
