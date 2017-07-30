@@ -171,6 +171,8 @@ egrep "2.2.[0-6]|2.3.3" .ruby-version Dockerfile R* Gemfile .travis.yml 2> /dev/
 | egrep -v "railscasts_logo"
 linenum ${LINENO} 19
 
+#git grep '~@' |grep -v Binary
+
 exit
 
 #STOPHERE ############################################################
