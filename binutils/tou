@@ -1,4 +1,4 @@
-for i in do-pull-request-first.txt NO/ATT* GENERAL MAYBE/security_on_rails_code ; do
+for i in do-pull-request-first.txt NO/ATT* GENERAL MAYBE/security_on_rails_code NO MAYBE o_list_of_repos.txt ; do
     touch $HOME/Projects/$i
 done
 mv *~ .*~ \#*\# libpeerconnection.log /Users/macbookpro/X 2> /dev/null
