@@ -2,15 +2,17 @@ if [ "X$1X" == "XX" ] ; then
     echo "Usage: $0 gemname good-gem-numbers" ; exit
 fi
 
+ONLYYES="|MAYBE|NO"
+
 if [ "X$2X" == "XX" ] ; then
     egrep "$1" $HOME/Projects/*/*lock $HOME/Projects/*/*/*lock \
-    | grep "[0-9]\." | egrep -v ">|\(="
+    | grep "[0-9]\." | egrep -v ">|\(=${ONLYYES}"
 else
     if [ "X$3X" == "XX" ] ; then
         egrep "$1" $HOME/Projects/*/*lock $HOME/Projects/*/*/*lock \
-        | grep "[0-9]\." | egrep -v ">|$2|\(="
+        | grep "[0-9]\." | egrep -v ">|$2|\(=${ONLYYES}"
     else
         egrep "$1" $HOME/Projects/*/Gemfile $HOME/Projects/*/*/Gemfile \
-        | grep "[0-9]\." | egrep -v ">|$2|\(="
+        | grep "[0-9]\." | egrep -v ">|$2|\(=${ONLYYES}"
     fi
 fi
