@@ -1,1 +1,1 @@
-gem install bundler ; lu ; bundle ; rake; git diff
+gem install bundler --pre ; lu ; bundle ; rake; git diff
