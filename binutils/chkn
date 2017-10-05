@@ -83,7 +83,8 @@ sed -e "s,#.*,," Gemfile Gemfile.r* *gemspec 2> /dev/null | egrep "git" \
 | egrep -v "^  gem\.|', [ ]*github: '|omniauth-github|github_api" \
 | egrep -v "'https://github.com/rails/rails'|^  s.|bradphelan/jasminerice" \
 | egrep -v "'github-markup'|3-0-lts|And:|git ls-files|'arel'" \
-| egrep -v "sqlite3, git, ruby, heroku, travis, xcode"
+| egrep -v "sqlite3, git, ruby, heroku, travis, xcode" \
+| egrep -v "git_source"
 linenum ${LINENO} 2b
 
 rvm list | grep "^=" | egrep -v "2.3.5|2.4.2"
