@@ -7,6 +7,13 @@ else
     overcommit --sign
 fi
 
+PWDN=`pwd`
+BNAME=`basename ${PWDN}`
+if [ "X${BNAME}" = "Xsetler" ] ; then
+    echo "setler repo: Please use 'dosetler' script"
+    exit
+fi
+
 DIRN=`pwd`
 PROJ=`basename ${DIRN}`
 if [ "X`grep -c parent .git/config`X" == "X0X" ]
