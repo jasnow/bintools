@@ -10,7 +10,7 @@ fi
 PWDN=`pwd`
 BNAME=`basename ${PWDN}`
 if [ "X${BNAME}" = "Xsetler" ] ; then
-    echo "setler repo: Please use 'dosetler' script"
+    dosetler
     exit
 fi
 

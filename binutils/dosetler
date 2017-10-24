@@ -1,4 +1,6 @@
 cd ../setler/
 appraisal clean
 appraisal install
+appraisal update
 rake
+touch .
