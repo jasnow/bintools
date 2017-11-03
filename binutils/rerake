@@ -52,7 +52,7 @@ fi
 
 if [ "X`bundler -v |grep -c Bundler`X" == "X0X" ] ; then
     echo "Installing bundler..."
-    gem install bundler --pre
+    gem install bundler
 else
     : # do nothing
 fi
