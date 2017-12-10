@@ -1,5 +1,5 @@
 for i in do-pull-request-first.txt NO/ATT* GENERAL NO MAYBE o_list_of_repos.txt \
-security_on_rails_code solutions-bwapp ; do
+security_on_rails_code solutions-bwapp FUZZING-TOOLS ; do
     touch $HOME/Projects/$i
 done
 mv *~ .*~ \#*\# libpeerconnection.log /Users/macbookpro/X 2> /dev/null
