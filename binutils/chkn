@@ -162,7 +162,7 @@ git grep -lE "2\.2.5|2\.3.[21]" \
 | egrep -v "lib/components/jquery/|public/_components/jquery/"
 linenum ${LINENO} 16
 
-grep "5.0.1.rc1|5.1.3.rc[12]" Gemfile 2> /dev/null
+grep "5.0.1.rc1|5.1.3.rc[12]|5.1.5.rc1" Gemfile 2> /dev/null
 linenum ${LINENO} 17
 
 egrep "2.4.0-preview3|2.3.3" .rvmrc .ruby-version .travis.yml 2>&1 \
