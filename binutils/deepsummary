@@ -1,0 +1,2 @@
+grep -v "#" /Users/macbookpro/Projects/GENERAL/o* |awk -F'/' '{ print $13 }' \
+| sort |uniq -c |grep "\-[0-9]" |sort -n

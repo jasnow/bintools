@@ -14,6 +14,8 @@ if [ "X${BNAME}" = "Xsetler" ] ; then
     exit
 fi
 
+gem update --system # 2/17/2018: ADDED.
+ 
 DIRN=`pwd`
 PROJ=`basename ${DIRN}`
 if [ "X`grep -c parent .git/config`X" == "X0X" ]
