@@ -1,0 +1,13 @@
+#for i in ./* ; do
+for i in `grep -v s[23] ./*/.rvmrc |cut -f1 -d":" |sort |sed -e "s,/.rvmrc,,"` ; do
+    cd /Users/macbookpro/Projects/$i
+    git grep update_attributes > /tmp/$$_X
+    if [ "X`wc -c /tmp/$$_X | awk '{ print $1 }'`X" == "X0X" ] ; then
+       :
+    else
+       echo "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+       echo "/Users/macbookpro/Projects/$i ===================="
+       cat /tmp/$$_X
+    fi
+done | cut -c1-70
+rm /tmp/$$_X
