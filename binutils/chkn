@@ -129,7 +129,7 @@ linenum ${LINENO} 10
 git grep "5.0.0.beta[0-9]|gems/|rubies/ruby/"
 linenum ${LINENO} 11
 
-egrep "'5.0.0'|'4.2.7'|'3.2.22.[1234]'|5.1.0.rc[12]|5.1.3.rc[12]|5.1.3" Gemfile
+egrep "5.2.0.rc1|'5.0.0'|'4.2.7'|'3.2.22.[1234]'|5.1.0.rc[12]|5.1.3.rc[12]|5.1.3" Gemfile
 linenum ${LINENO} 12
   
 # Carry gem numbers in gemspec files.
