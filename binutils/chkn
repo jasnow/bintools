@@ -75,7 +75,7 @@ sed -e "s,#.*,," Gemfile Gemfile.r* *gemspec 2> /dev/null | grep "[0-9]" \
 | egrep -v "sqlite3, git, ruby, heroku, travis, xcode|s.date" \
 | egrep -v "File::ALT_SEPARATOR|mingw32|s.add_runtime_dependency" \
 | egrep -v "'omniauth-google-oauth2'|'jquery-ui-rails'|'i18n-spec'" \
-| egrep -v ".add_development_dependency|'sdoc', '1.0.0.rc3'|ruby '2.[56].0'"
+| egrep -v ".add_development_dependency|'sdoc', '1.0.0.rc3'|ruby '2.[56].[01]'"
 linenum ${LINENO} 2
 
 # FYI: Change 'git:' to 'github:' lines.
@@ -87,7 +87,7 @@ sed -e "s,#.*,," Gemfile Gemfile.r* *gemspec 2> /dev/null | egrep "git" \
 | egrep -v "git_source"
 linenum ${LINENO} 2b
 
-rvm list | grep "^=" | egrep -v "2.2.9|2.3.6|2.4.3|2.5.0 |2.6.0-"
+rvm list | grep "^=" | egrep -v "2.2.10|2.3.7|2.4.4|2.5.1 |2.6.0-"
 linenum ${LINENO} 3
 
 egrep "2.1.[0-6]|2.2.[0-4]" .travis.yml | egrep -v "'2.1.1'|phantomjs-2.1.1" \
