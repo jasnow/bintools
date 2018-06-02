@@ -112,7 +112,7 @@ linenum ${LINENO} 7
 rvm list gemsets |grep "=>" | egrep -v "\[ i686 \]|\[ x86_64 \]"
 linenum ${LINENO} 8
 
-git grep preview2 | egrep -v "yml:"
+git grep preview1 | egrep -v "yml:"
 linenum ${LINENO} 9
 
 git grep -E "2\.2\.[0123]|2\.1\.[0-6]|2\.3\.0| 2\.2\.4" \
