@@ -1,1 +1,1 @@
-gem install bundler --pre ; lu ; bundle ; rake; git diff
+bundle update --bundler; echo "RESULTS=[$?]" ; lu ; bundle ; rake; git diff
