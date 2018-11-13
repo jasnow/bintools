@@ -1,1 +1,2 @@
-bundle update --bundler; echo "RESULTS=[$?]" ; lu ; bundle ; rake; git diff
+#HID on 11/13/2018: bundle update --bundler; echo "RESULTS=[$?]" ; 
+lu ; bundle ; rake; git diff
