@@ -55,9 +55,9 @@ fi
 if [ "X`bundle -v |grep -c Bundler`X" == "X0X" ] ; then
     echo "Installing bundler..."
     gem install bundler
-    echo "BUNDLER RESULTS CODE=[$?]"
+    echo "BUNDLER RESULTS/1 CODE=[$?]"
     bundle update --bundler
-    echo "BUNDLER UPDATE RESULTS CODE=[$?]"
+    echo "BUNDLER UPDATE RESULTS/2 CODE=[$?]"
 else
     : # do nothing
 fi
