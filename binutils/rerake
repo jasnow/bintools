@@ -134,7 +134,7 @@ if [ $? == 0 ] ; then
            echo "........................................"
            #echo "'GIT DIFF PLUS/MINUS' is NOT EMPTY"
            git diff |grep "^[-+] " |awk '{ print $2 }' \
-           | sed -e "s/1.1[3-7].[0-9][0-9]*/bundler/" -e "s/bundler.pre.2//" \
+           | sed -e "s/1.1[3-7].[0-9][0-9]*/bundler/" -e "s/bundler.pre.[12]//" \
              -e "s/2.0.0.pre.1//" | sort -u | tr "\012" ", " \
            | sed -e "s/,$//" -e "s/^,//" -e "s,revision:,latest rails," \
            > $HOME/.tmp/$$_GEMNAMES
