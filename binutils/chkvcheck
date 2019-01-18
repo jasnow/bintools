@@ -1,0 +1,5 @@
+chkv ' addressable ' 2.6.0 |awk -F':' '{ print $1 }' > /tmp/$$_1
+chkv sawyer |awk -F':' '{ print $1 }' > /tmp/$$_2
+#fgrep -v -f /tmp/$$_2 /tmp/$$_1
+chkv ' addressable | sawyer ' 2.6.0
+rm -rf /tmp/$$[12]

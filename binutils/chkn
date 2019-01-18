@@ -179,6 +179,8 @@ egrep "2.2.8|2.3.5|2.4.2|preview" .travis.yml
 
 #git grep '~@' |grep -v Binary
 
+#if "edge" repo, run: git grep "represent_boolean_as_integer" # 1/18/2019: Always true now.
+
 exit
 
 #STOPHERE ############################################################
@@ -217,4 +219,3 @@ exit
 
 # http://rails-bestpractices.com/posts/808-use-time-zone-now-instead-of-time-now
 # 4/3/2015: TURNED OFF: git grep "Time\.now" 
-
