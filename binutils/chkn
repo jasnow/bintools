@@ -160,7 +160,7 @@ git grep -lE "2\.2.5|2\.3.[21]" \
 | egrep -v ".rvmrc|db/seeds.rb|test/fixtures/city_hall.json|.ruby-gemset" \
 | egrep -v "test/helper.rb|test/unit/gem_info_retriever_test.rb" \
 | egrep -v "lib/ruby_dep/|spec/lib/ruby_dep/|CONTRIBUTING.md" \
-| egrep -v "lib/components/jquery/|public/_components/jquery/"
+| egrep -v "lib/components/jquery/|public/_components/jquery/|data/words.txt"
 linenum ${LINENO} 16
 
 grep "5.0.1.rc1|5.1.3.rc[12]|5.1.5.rc1" Gemfile 2> /dev/null
