@@ -166,7 +166,7 @@ linenum ${LINENO} 16
 grep "5.0.1.rc1|5.1.3.rc[12]|5.1.5.rc1" Gemfile 2> /dev/null
 linenum ${LINENO} 17
 
-egrep "2.4.0-preview3|2.3.3|2.6.0-rc|preview" .rvmrc .ruby-version .travis.yml 2>&1 \
+egrep "5.2|2.4.0-preview3|2.3.3|2.6.0-rc|preview" .rvmrc .ruby-version .travis.yml 2>&1 \
 | egrep -v "railscasts_logo|No such file or directory"
 linenum ${LINENO} 18
 
