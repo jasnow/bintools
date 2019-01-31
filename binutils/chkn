@@ -84,10 +84,10 @@ sed -e "s,#.*,," Gemfile Gemfile.r* *gemspec 2> /dev/null | egrep "git" \
 | egrep -v "'https://github.com/rails/rails'|^  s.|bradphelan/jasminerice" \
 | egrep -v "'github-markup'|3-0-lts|And:|git ls-files|'arel'" \
 | egrep -v "sqlite3, git, ruby, heroku, travis, xcode" \
-| egrep -v "git_source"
+| egrep -v "git_source|plataformatec"
 linenum ${LINENO} 2b
 
-rvm list | grep "^=" | egrep -v "2.2.10|2.3.8|2.4.5|2.5.3 |2.6.0"
+rvm list | grep "^=" | egrep -v "2.2.10|2.3.8|2.4.5|2.5.3 |2.6.1"
 linenum ${LINENO} 3
 
 egrep "2.1.[0-6]|2.2.[0-4]" .travis.yml | egrep -v "'2.1.1'|phantomjs-2.1.1" \
