@@ -1,0 +1,5 @@
+if [ "X$1X" = "XX" ] ; then
+    echo "Usage: $0 gemname" ; exit
+fi
+
+bundle update "$*" ; rake
