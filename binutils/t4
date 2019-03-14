@@ -2,7 +2,8 @@
 #../show-me-the-food5edge/Gemfile:gem 'sqlite3'
 #../tasks5_edge/Gemfile:gem 'sqlite3'
 #../testing-app5edge/Gemfile:gem 'sqlite3'
-touch ../sh*ge ../ta*ge ../te*ge
+touch ../sh*ge ../ta*ge ../te*ge \
+  ../testing-app ../testgithub ../BusRSVP ../show-me-the-food
 
 #OKAY (not locked down)
 #../2100update-01282016
