@@ -5,12 +5,24 @@ else
 fi
 
 if [ -d app ] ; then
-    brakeman -A ${NBR} -qz > /dev/null 2>&1
+    brakeman    -A ${NBR} -qz > /dev/null 2>&1
     if [ "X`echo $?`X" == "X0X" ] ; then
         echo "*** No Brakeman Errors ***" `basename $PWD` 
     else
         echo `brakeman -A ${NBR} -qz | grep 'Security Warnings'` `basename $PWD`
         # 2>&1 |tee o_brakeman.txt
+    fi
+else
+    echo "NOT RAILS: `basename $PWD`"
+fi
+
+if [ -d app ] ; then
+    railsroader -A ${NBR} -qz > /dev/null 2>&1
+    if [ "X`echo $?`X" == "X0X" ] ; then
+        echo "*** No Railsroader Errors ***" `basename $PWD` 
+    else
+        echo `railroader -A ${NBR} -qz | grep 'Security Warnings'` `basename $PWD`
+        # 2>&1 |tee o_roadroader.txt
     fi
 else
     echo "NOT RAILS: `basename $PWD`"
