@@ -3,6 +3,8 @@ if [ "X$1X" == "XX" ] ; then
 fi
 git add --all .
 
+overcommit --sign
+
 if [ "X$2X" == "XX" ] ; then
     git commit -m "$1"
 else

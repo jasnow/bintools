@@ -1,4 +1,9 @@
-PROJECTS="edge|react-rails-tutorial|setler|coffee-rails|password_strength|rails-uptodate|rails-uptodate5edge|testgithub|testing-app|testing-app5edge"
+PROJECTS="edge|react-rails-tutorial|setler|coffee-rails|testgithub"
+PROJECTS="${PROJECTS}|password_strength|rails-uptodate5edge"
+PROJECTS="${PROJECTS}|testing-app|testing-app5edge|rails-uptodate"
+PROJECTS="${PROJECTS}|24pullrequests|BusRSVP|show-me-the-food"
+PROJECTS="${PROJECTS}|show-me-the-food5edge|tasks|tasks5_edge"
+
 if [ "X$1X" == "XX" ] ; then
     ls -lt ${HOME}/Projects |egrep ${PROJECTS} \
     | egrep -v "`date '+%b %d'`|`date '+%b  %-d'`"
