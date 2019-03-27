@@ -83,7 +83,8 @@ sed -e "s,#.*,," Gemfile Gemfile.r* *gemspec 2> /dev/null | egrep "git" \
 | egrep -v "^  gem\.|', [ ]*github: '|omniauth-github|github_api" \
 | egrep -v "'https://github.com/rails/rails'|^  s.|bradphelan/jasminerice" \
 | egrep -v "'github-markup'|3-0-lts|And:|git ls-files|'arel'" \
-| egrep -v "sqlite3, git, ruby, heroku, travis, xcode|git_source"
+| egrep -v "sqlite3, git, ruby, heroku, travis, xcode|git_source" \
+| egrep -v "'coffee-rails', git:|'jbuilder', git:"
 linenum ${LINENO} 2b
 
 rvm list | grep "^=" | egrep -v "2.2.10|2.3.8|2.4.5|2.5.4 |2.6.2"
@@ -182,6 +183,10 @@ egrep "2.2.8|2.3.5|2.4.2|preview" .travis.yml
 #if "edge" repo, run: git grep "represent_boolean_as_integer" # 1/18/2019: Always true now.
 
 grep "'sqlite3', '1.3.13'" Gemfile
+
+# TEMP CHECK
+#egrep "coffee-rails|jbuilder" Gemfile \
+#| egrep -v "'coffee-rails', git:|'jbuilder', git:"
 exit
 
 #STOPHERE ############################################################
