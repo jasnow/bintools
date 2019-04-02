@@ -87,7 +87,7 @@ sed -e "s,#.*,," Gemfile Gemfile.r* *gemspec 2> /dev/null | egrep "git" \
 | egrep -v "'coffee-rails', git:|'jbuilder', git:"
 linenum ${LINENO} 2b
 
-rvm list | grep "^=" | egrep -v "2.2.10|2.3.8|2.4.5|2.5.4 |2.6.2"
+rvm list | grep "^=" | egrep -v "2.2.10|2.3.8|2.4.6|2.5.4 |2.6.2"
 linenum ${LINENO} 3
 
 egrep "2.1.[0-6]|2.2.[0-4]" .travis.yml | egrep -v "'2.1.1'|phantomjs-2.1.1" \
@@ -182,7 +182,8 @@ egrep "2.2.8|2.3.5|2.4.2|preview" .travis.yml
 
 #if "edge" repo, run: git grep "represent_boolean_as_integer" # 1/18/2019: Always true now.
 
-grep "'sqlite3', '1.3.13'" Gemfile
+# 4/1/2019: Old Rails versions will not be fixed so must LOCK DOWN"
+grep "'sqlite3', '1.3.13'" Gemfile |egrep -v "2/7/2019: LOCKED DOWN"
 
 # TEMP CHECK
 #egrep "coffee-rails|jbuilder" Gemfile \
