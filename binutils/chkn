@@ -32,10 +32,10 @@ else
 fi
 
 if [ -f .travis.yml ] ; then
-    if [ "X`egrep -c "^sudo: false|^cache: bundler" .travis.yml`X" == "X2X" ] ; then
+    if [ "X`egrep -c "^cache: bundler" .travis.yml`X" == "X1X" ] ; then
         : # okay
     else
-        echo "Missing cache: bundler or sudo: false in .travis.yml file"
+        echo "Missing cache: bundler in .travis.yml file"
     fi
 fi
 
@@ -190,6 +190,8 @@ sed -e "s,^[ ]*,," .travis.yml \
 | egrep -v "9.1.17.0|9.2.7.0|1.17.2|2.0.0" \
 | egrep -v "phantomjs|DISPLAY" \
 | sort |uniq -c
+
+grep "sudo: false" .travis.yml
 
 exit
 
