@@ -151,6 +151,7 @@ if [ $? == 0 ] ; then
 
         if [ "X`git status -s`X" == "X M Gemfile.lockX" ] ; then
             echo "GOT Gemfile.lock only"
+            overcommit --install
             overcommit --sign
             if [ X"`wc -l $HOME/.tmp/$$_GEMNAMES | awk '{ print $1 }'`X" == "X1X" ] ; then 
                gacp "Upgraded gem(s): `cat $HOME/.tmp/$$_GEMNAMES`"
