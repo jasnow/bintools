@@ -22,7 +22,7 @@ do
             if [ "X$1X" == "XggX" ] ; then
                 git status
             else
-                overcommit --sign
+                overcommit --install
                 git push
             fi
         fi

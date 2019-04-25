@@ -1,9 +1,10 @@
 if [ "X$1X" == "XX" ] ; then
     echo "Usage: $0 CommitMsg"; exit
 fi
+
 git add --all .
 
-overcommit --sign
+overcommit --install
 
 if [ "X$2X" == "XX" ] ; then
     git commit -m "$1"
