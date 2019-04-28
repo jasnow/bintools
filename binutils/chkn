@@ -206,6 +206,10 @@ linenum ${LINENO} 24
 egrep "coffee-rails" Gemfile |grep github
 egrep beta3 Gemfile
 
+linenum ${LINENO} 24
+
+grep "config.autoloader = :classic" ./config/application.rb 2> /dev/null
+
 exit
 
 #STOPHERE ############################################################
