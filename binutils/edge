@@ -4,6 +4,11 @@ PROJECTS="${PROJECTS}|testing-app|testing-app5edge|rails-uptodate"
 PROJECTS="${PROJECTS}|24pullrequests|BusRSVP|show-me-the-food"
 PROJECTS="${PROJECTS}|show-me-the-food5edge|tasks|tasks5_edge"
 
+#ls -lt `grep jbuilder ../*/Gemfile |grep git: |sed -e "s,:gem.*,.lock,"` \
+#|awk -F'/' '{ print $2 }' |tr "\012" "|" | sed "s/|$//" > /tmp/$$_LIST
+#PROJECTS="${PROJECTS}|`cat /tmp/$$_LIST`"
+#rm -rf /tmp/$$_LIST
+
 if [ "X$1X" == "XX" ] ; then
     ls -lt ${HOME}/Projects |egrep ${PROJECTS} \
     | egrep -v "`date '+%b %d'`|`date '+%b  %-d'`"
