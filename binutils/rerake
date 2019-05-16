@@ -131,7 +131,6 @@ if [ $? == 0 ] ; then
     if [ "X${PROJ}X" = "X24pullrequestsX" ] ; then
         unset GITHUB_KEY
     fi
-    rails db:environment:set RAILS_ENV=test
     rake
     if [ $? == 0 ] ; then
         echo "rake/rails-cmd EXIT STATUS is ZERO - GREAT"
