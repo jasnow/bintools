@@ -21,7 +21,8 @@ if [ -d app ] ; then
     if [ "X`echo $?`X" == "X0X" ] ; then
         echo "*** No Railsroader Errors ***" `basename $PWD` 
     else
-        echo "RR:" `railroader -A ${NBR} -qz | grep 'Security Warnings'` `basename $PWD`
+         echo "Fix R/R"
+#        echo "RR:" `railroader -A ${NBR} -qz | grep 'Security Warnings'` `basename $PWD`
         # 2>&1 |tee o_roadroader.txt
     fi
 else
