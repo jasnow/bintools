@@ -132,6 +132,7 @@ if [ $? == 0 ] ; then
         unset GITHUB_KEY
     fi
     rake
+    rails test # 6/15/2019: Added - TODO: Add conditional for older repos.
     if [ $? == 0 ] ; then
         echo "rake/rails-cmd EXIT STATUS is ZERO - GREAT"
         if [ "X`git diff |grep "^[-+] " |wc -l`X" == "XX" ] ; then
