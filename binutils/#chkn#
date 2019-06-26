@@ -31,17 +31,9 @@ else
     : # rundawn
 fi
 
-if [ "X$1X" == "XoX" ] ; then  
-    shift
-    : # OK
-else
-    if [ "X`ls .overcommit.yml 2> /dev/null`X" == "XX" ] ; then
-       echo "Please install overcommit" ; exit
-    fi
-fi
-
 if [ "X$1X" == "XnX" ] ; then  
     # Skip .travis.yml checks.
+    shift
     : # OK
 else
     if [ -f .travis.yml ] ; then
@@ -50,6 +42,14 @@ else
         else
             echo "Missing cache: bundler in .travis.yml file"
         fi
+    fi
+fi
+
+if [ "X$1X" == "XoX" ] ; then  
+    : # OK
+else
+    if [ "X`ls .overcommit.yml 2> /dev/null`X" == "XX" ] ; then
+       echo "Please install overcommit" ; exit
     fi
 fi
 
@@ -97,6 +97,7 @@ linenum ${LINENO} 3
 
 if [ "X$1X" == "XnX" ] ; then  
     # Skip .travis.yml checks.
+    shift
     : # OK
 else
     egrep "2.1.[0-6]|2.2.[0-4]" .travis.yml | egrep -v "'2.1.1'|phantomjs-2.1.1" \
@@ -150,7 +151,7 @@ grep "[0-9]\.[0-9]" *gemspec 2> /dev/null \
 | egrep -v "if RUBY_VERSION|.add_runtime_dependency"
 linenum ${LINENO} 13
 
-grep "github:" Gemfile |egrep -v "'acts-as-taggable-on'|instead"
+grep "github:" Gemfile |egrep -v "'acts-as-taggable-on'"
 linenum ${LINENO} 14
 
 ######################################################################@
@@ -168,8 +169,8 @@ git grep -lE "2\.2.5|2\.3.[21]" \
 | egrep -v "^config/Gemfile|^config/environment.rb|yml$|README.md|db$" \
 | egrep -v "app/assets/javascripts|app/assets/stylesheets|.ruby-version" \
 | egrep -v ".rvmrc|db/seeds.rb|test/fixtures/city_hall.json|.ruby-gemset" \
-| egrep -v "test/helper.rb|test/unit/gem_info_retriever_test.rb|app-visual" \
-| egrep -v "lib/ruby_dep/|spec/lib/ruby_dep/|CONTRIBUTING.md|yarn.lock" \
+| egrep -v "test/helper.rb|test/unit/gem_info_retriever_test.rb" \
+| egrep -v "lib/ruby_dep/|spec/lib/ruby_dep/|CONTRIBUTING.md" \
 | egrep -v "lib/components/jquery/|public/_components/jquery/|data/words.txt" \
 | egrep -v "6.1.0.alpha|5.2.2.1|5.1.6.2|5.0.7.2|4.2.11.1"
 linenum ${LINENO} 16
@@ -182,7 +183,8 @@ egrep "5.2|2.4.0-preview3|2.3.3|2.6.0-rc|preview" .rvmrc .ruby-version 2>&1 \
 | egrep -v "2.7.0-preview1"
 
 if [ "X$1X" == "XnX" ] ; then  
-    # Skip .travis.yml checks.
+    # Skipp .travis.yml checks.
+    shift
     : # OK
 else
     egrep "5.2|2.4.0-preview3|2.3.3|2.6.0-rc|preview" .travis.yml 2>&1 \
@@ -196,7 +198,8 @@ egrep "2.2.[0-6]|2.2.10|2.3.3" .ruby-version Dockerfile R* Gemfile 2> /dev/null 
 | egrep -v "railscasts_logo|temp fix|'5.2.2.1'" | egrep -v '"5.2.2.1"|2.2.10'
 
 if [ "X$1X" == "XnX" ] ; then  
-    # Skip .travis.yml checks.
+    # Skipp .travis.yml checks.
+    shift
     : # OK
 else
     egrep "2.2.[0-6]|2.2.10|2.3.3" .travis.yml 2> /dev/null \
@@ -213,7 +216,8 @@ grep "'sqlite3', '1.3.13'" Gemfile |egrep -v "2/7/2019: LOCKED DOWN"
 linenum ${LINENO} 21
 
 if [ "X$1X" == "XnX" ] ; then  
-    # Skip .travis.yml checks.
+    # Skipp .travis.yml checks.
+    shift
     : # OK
 else
     # OLD ruby or jruby versions
