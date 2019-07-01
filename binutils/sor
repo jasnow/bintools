@@ -1,0 +1,28 @@
+# REPOS
+# -- Offical: sorbet, sorbet-rails, sord
+
+# -1- a2/u24: sample_app_2_3_sorbet
+# -2- a3/u23: sample_app_3_2_sorbet
+#..........
+# -3- a4/u25: sample_app_4_2_rt_255
+# -5- a5/u24: rails_app5_2
+#..........
+# -4- a4/u26: relative_time (extra)
+# -6- a5/u26: VideoGameList
+# -7- a6/u26: toy_app_sorbet
+# -8- aedge/u26: rails_app6edge
+# -9- aedge/u27n: rails_app6n2_7 
+# -10-- ax/uxx: TBD ????????????????????
+
+PROJECTS="sorbet|sorbet-rails"
+PROJECTS="${PROJECTS}|sample_app_3_2_sorbet|sample_app_4_2_rt_255"
+PROJECTS="${PROJECTS}|relative_time|rails_app5_2|VideoGameList"
+PROJECTS="${PROJECTS}|toy_app_sorbet|rails_app6edge|rails_app6n2_7"
+
+if [ "X$1X" == "XX" ] ; then
+    ls -lt ${HOME}/Projects |egrep ${PROJECTS} \
+    | egrep -v "`date '+%b %d'`|`date '+%b  %-d'`"
+else
+    ls -lt ${HOME}/Projects |egrep ${PROJECTS} \
+    | egrep -v "DEFAULT|$1"
+fi

@@ -80,7 +80,8 @@ sed -e "s,#.*,," Gemfile Gemfile.r* *gemspec 2> /dev/null | grep "[0-9]" \
 | egrep -v "sqlite3, git, ruby, heroku, travis, xcode|s.date" \
 | egrep -v "File::ALT_SEPARATOR|mingw32|s.add_runtime_dependency" \
 | egrep -v "'omniauth-google-oauth2'|'jquery-ui-rails'|'i18n-spec'" \
-| egrep -v ".add_development_dependency|'sdoc', '1.0.0.rc3'|ruby '2.[567].[0123]'"
+| egrep -v ".add_development_dependency|'sdoc', '1.0.0.rc3'|ruby '2.[567].[0123]'" \
+| egrep -v "platforms: \[:mri, :mingw, :x64_mingw\]"
 linenum ${LINENO} 2
 
 # FYI: Change 'git:' to 'github:' lines.
