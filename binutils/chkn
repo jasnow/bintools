@@ -172,7 +172,7 @@ git grep -lE "2\.2.5|2\.3.[21]" \
 | egrep -v "test/helper.rb|test/unit/gem_info_retriever_test.rb|app-visual" \
 | egrep -v "lib/ruby_dep/|spec/lib/ruby_dep/|CONTRIBUTING.md|yarn.lock" \
 | egrep -v "lib/components/jquery/|public/_components/jquery/|data/words.txt" \
-| egrep -v "6.1.0.alpha|5.2.2.1|5.1.6.2|5.0.7.2|4.2.11.1"
+| egrep -v "6.1.0.alpha|5.2.2.1|5.1.6.2|5.0.7.2|4.2.11.1|sorbet/rbi/gems"
 linenum ${LINENO} 16
 
 grep "5.0.1.rc1|5.1.3.rc[12]|5.1.5.rc1" Gemfile 2> /dev/null
