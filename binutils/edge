@@ -4,8 +4,7 @@ PROJECTS="${PROJECTS}|testing-app|testing-app5edge|rails-uptodate"
 PROJECTS="${PROJECTS}|24pullrequests|BusRSVP|show-me-the-food"
 PROJECTS="${PROJECTS}|show-me-the-food5edge|tasks|tasks5_edge"
 PROJECTS="${PROJECTS}|Practice-Git-with-Rails5edge|tic-tac-toe-edge"
-PROJECTS="${PROJECTS}|toy_app5edge|sp50rt_edge
-PROJECTS="${PROJECTS}|
+PROJECTS="${PROJECTS}|toy_app5edge|sp50rt_edge"
 #|sorbet"
 
 #ls -lt `grep jbuilder ../*/Gemfile |grep git: |sed -e "s,:gem.*,.lock,"` \

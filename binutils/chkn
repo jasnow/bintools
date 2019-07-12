@@ -245,6 +245,8 @@ linenum ${LINENO} 24
 
 grep "config.autoloader = :classic" ./config/application.rb 2> /dev/null
 
+git grep "Proc.new" # 7/10/2019: Temp'y
+
 exit
 
 #STOPHERE ############################################################

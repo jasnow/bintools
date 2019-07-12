@@ -1,0 +1,2 @@
+chkv "$1" "$2" \
+| egrep -v `sordir |tr "\n" "|" |sed -e 's,|$,,'`
