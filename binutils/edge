@@ -1,4 +1,4 @@
-PROJECTS="react-rails-tutorial|setler|coffee-rails|testgithub"
+PROJECTS="react-rails-tutorial|setler$|coffee-rails|testgithub"
 PROJECTS="${PROJECTS}|password_strength|rails-uptodate5edge"
 PROJECTS="${PROJECTS}|testing-app|testing-app5edge|rails-uptodate"
 PROJECTS="${PROJECTS}|24pullrequests|BusRSVP|show-me-the-food"
