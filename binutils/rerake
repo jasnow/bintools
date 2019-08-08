@@ -1,11 +1,3 @@
-if [ -f ".overcommit.yml" ] ; then
-    : # do nothing
-else
-    echo "Installing overcommit..."
-    gem install overcommit > /dev/null
-    overcommit --install
-fi
-
 PWDN=`pwd`
 BNAME=`basename ${PWDN}`
 if [ "X${BNAME}" = "Xsetler" ] ; then
@@ -51,9 +43,18 @@ else
     fi
 fi
 
+if [ -f ".overcommit.yml" ] ; then
+    : # do nothing
+else
+    echo "Installing overcommit..."
+    gem install overcommit > /dev/null
+    overcommit --install
+fi
+
 if [ "X`bundle -v |grep -c Bundler`X" == "X0X" ] ; then
     echo "Installing bundler..."
-    gem install bundler
+    gem install bundler overcommit
+    overcommit --install
     echo "BUNDLER RESULTS/1 CODE=[$?]"
     bundle update --bundler
     echo "BUNDLER UPDATE RESULTS/2 CODE=[$?]"

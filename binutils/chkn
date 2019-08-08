@@ -61,7 +61,7 @@ then
         echo "No Licenses"
         git grep -iI --no-index license \
         | egrep -v "bootstrap.css|^coverage|vendor/assets/bower_components" \
-        | egrep -v "tmp/cache|spec/coverage|config|js"
+        | egrep -v "tmp/cache|spec/coverage|config|js|sorbet/rbi/hidden-def"
         exit
     fi
 fi
@@ -245,7 +245,9 @@ linenum ${LINENO} 24
 
 grep "config.autoloader = :classic" ./config/application.rb 2> /dev/null
 
-git grep "Proc.new" # 7/10/2019: Temp'y
+# 8/4/2019: MAYBE UNDO IT.
+# REF: https://github.com/rails/rails/commit/7cf445d3bdc466f26b4a1929822ccd34daac19a7
+# HID FOR NOW: git grep "config.action_dispatch.return_only_media_type_on_content_type"
 
 exit
 
