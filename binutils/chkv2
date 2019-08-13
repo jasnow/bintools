@@ -1,6 +1,0 @@
-if [ "X$1X" == "XsX" ] ; then
-    ls -lt `sor 99 |awk '{ print "../" $9 "/.rvmrc" }'` 2> /dev/null
-else
-    chkv "$1" "$2" \
-    | egrep -v `sordir |tr "\n" "|" |sed -e 's,|$,,'`
-fi
