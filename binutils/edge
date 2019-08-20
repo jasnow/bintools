@@ -1,10 +1,15 @@
-PROJECTS="react-rails-tutorial|setler$|coffee-rails|testgithub"
-PROJECTS="${PROJECTS}|password_strength|rails-uptodate5edge"
-PROJECTS="${PROJECTS}|testing-app|testing-app5edge|rails-uptodate"
-PROJECTS="${PROJECTS}|24pullrequests|BusRSVP|show-me-the-food"
-PROJECTS="${PROJECTS}|show-me-the-food5edge|tasks|tasks5_edge"
+# DEFINITI(ON: If it has *edge* in the repo name or :git: in Gemfile.
+# None of the 'sor' repo. Yes/Probably for repo using Appraisal.
+
+PROJECTS="rails-uptodate5edge|testing-app5edge"
+PROJECTS="${PROJECTS}|show-me-the-food5edge|tasks5_edge"
 PROJECTS="${PROJECTS}|Practice-Git-with-Rails5edge|tic-tac-toe-edge"
-PROJECTS="${PROJECTS}|toy_app5edge|sp50rt_edge"
+PROJECTS="${PROJECTS}|toy_app5edge|sp50rt_edge|setler"
+
+# 8/20/2019: Hid these for now.
+#PROJECTS="${PROJECTS}|testing-app|rails-uptodate"
+#PROJECTS="${PROJECTS}|24pullrequests|BusRSVP|show-me-the-food"
+#PROJECTS="${PROJECTS}|react-rails-tutorial|testgithub|password_strength"
 #|sorbet"
 
 #ls -lt `grep jbuilder ../*/Gemfile |grep git: |sed -e "s,:gem.*,.lock,"` \
