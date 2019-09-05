@@ -1,2 +1,3 @@
+git status |grep "deleted:" |awk '{ print "git restore \"" $2 "\"" }' |sh
 git status | egrep 'modified|deleted' |awk '{ print "git checkout -- ", $2 }' |bash
 rm -f `git status |grep / |egrep -v "^Y"`
