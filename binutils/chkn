@@ -249,6 +249,8 @@ grep "config.autoloader = :classic" ./config/application.rb 2> /dev/null
 # REF: https://github.com/rails/rails/commit/7cf445d3bdc466f26b4a1929822ccd34daac19a7
 # HID FOR NOW: git grep "config.action_dispatch.return_only_media_type_on_content_type"
 
+#HID: egrep -i "dalli|minitest|redis" Gemfile # TEMP
+
 exit
 
 #STOPHERE ############################################################
