@@ -15,6 +15,7 @@ if [ -d app ] ; then
 else
     echo "NOT RAILS: `basename $PWD`"
 fi
+exit #BROKEN railsroader
 
 if [ -d app ] ; then
     railsroader -A ${NBR} -qz > /dev/null 2>&1
