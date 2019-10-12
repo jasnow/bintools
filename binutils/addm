@@ -1,0 +1,3 @@
+mkdir app/assets 2> /dev/null
+mkdir app/assets/config 2> /dev/null
+cp $HOME/bin/binutils/manifest.js  app/assets/config

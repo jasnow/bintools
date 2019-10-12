@@ -132,16 +132,17 @@ if [ $? == 0 ] ; then
     if [ "X${PROJ}X" = "X24pullrequestsX" ] ; then
         unset GITHUB_KEY
     fi
+#    addm
     rake
 
-    # TRY "rails test"
-    RAILSVER=`sort -u .rvmrc |sed -e "s,\.[0-9] --create,," -e "s,.*rails,," |grep "[0-9]"`
-    if [ "X${RAILSVER}X" == "X6X" ] || [ "X${RAILSVER}X" == "X5X" ] ; then
-        echo "5 plus"
-        #rails test # 6/15/2019: Added - TODO: Add conditional for older repos.
-    else
-        echo "< 5 so no 'rails test'"
-    fi
+#    # TRY "rails test"
+#    RAILSVER=`sort -u .rvmrc |sed -e "s,\.[0-9] --create,," -e "s,.*rails,," |grep "[0-9]"`
+#    if [ "X${RAILSVER}X" == "X6X" ] || [ "X${RAILSVER}X" == "X5X" ] ; then
+#        echo "5 plus"
+#        #rails test # 6/15/2019: Added - TODO: Add conditional for older repos.
+#    else
+#        echo "< 5 so no 'rails test'"
+#    fi
 
     if [ $? == 0 ] ; then
         echo "rake/rails-cmd EXIT STATUS is ZERO - GREAT"
