@@ -4,7 +4,7 @@ fi
 
 git add --all .
 
-overcommit --install
+#HID: bundle exec overcommit --install
 
 if [ "X$2X" == "XX" ] ; then
     git commit -m "$1"
@@ -12,4 +12,5 @@ else
     git commit -m "Upgraded $2 gem ; $1"
     git commit --amend
 fi
+
 git push -u --all

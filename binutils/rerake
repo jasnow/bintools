@@ -43,18 +43,8 @@ else
     fi
 fi
 
-if [ -f ".overcommit.yml" ] ; then
-    : # do nothing
-else
-    echo "Installing overcommit..."
-    gem install overcommit > /dev/null
-    overcommit --install
-fi
-
 if [ "X`bundle -v |grep -c Bundler`X" == "X0X" ] ; then
     echo "Installing bundler..."
-    gem install bundler overcommit
-    overcommit --install
     echo "BUNDLER RESULTS/1 CODE=[$?]"
     bundle update --bundler
     echo "BUNDLER UPDATE RESULTS/2 CODE=[$?]"
@@ -133,7 +123,7 @@ if [ $? == 0 ] ; then
         unset GITHUB_KEY
     fi
 #    addm
-    rake
+     bundle exec rake
 
 #    # TRY "rails test"
 #    RAILSVER=`sort -u .rvmrc |sed -e "s,\.[0-9] --create,," -e "s,.*rails,," |grep "[0-9]"`
@@ -162,7 +152,6 @@ if [ $? == 0 ] ; then
 
         if [ "X`git status -s`X" == "X M Gemfile.lockX" ] ; then
             echo "GOT Gemfile.lock only"
-            overcommit --install
             if [ X"`wc -l $HOME/.tmp/$$_GEMNAMES | awk '{ print $1 }'`X" == "X1X" ] ; then 
                gt | sh #gacp "Upgraded gem(s): `cat $HOME/.tmp/$$_GEMNAMES`"
             else

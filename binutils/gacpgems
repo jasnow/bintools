@@ -1,2 +1,2 @@
-STRN=`git diff |grep '^+' |egrep -v "\+     |rev|\+\+" |sed -e "s, (.*,," -e "s,^+   ,," |tr "\n" "," |sed -e "s/,$//" -e "s,^ ,,"`
+STRN=`git diff |grep '^+' |egrep -v "\+     |rev|\+\+" |sed -e "s, (.*,," -e "s,^+   ,," |egrep -v "^\+" |tr "\n" "," |sed -e "s/,$//" -e "s,^ ,,"`
 echo "gacp \"Upgraded [${STRN}] gems\""

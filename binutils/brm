@@ -5,11 +5,12 @@ else
 fi
 
 if [ -d app ] ; then
-    brakeman    -A ${NBR} -qz > /dev/null 2>&1
+    bundle exec brakeman -A ${NBR} -qz > /dev/null 2>&1
+
     if [ "X`echo $?`X" == "X0X" ] ; then
         echo "*** No Brakeman Errors ***" `basename $PWD` 
     else
-        echo "B/M:" `brakeman -A ${NBR} -qz | grep 'Security Warnings'` `basename $PWD`
+        echo "B/M:" `bundle exec brakeman -A ${NBR} -qz | grep 'Security Warnings'` `basename $PWD`
         # 2>&1 |tee o_brakeman.txt
     fi
 else
