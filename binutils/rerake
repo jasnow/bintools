@@ -111,7 +111,7 @@ else
     echo "NO: public/assets"
 fi
 
-if [ "X`grep -c "bundle exec rubocop" .travis.yml 2> /dev/null`X" == "X1X" ] ; then
+if [ "X`grep -c "rubocop" .travis.yml 2> /dev/null`X" == "X1X" ] ; then
     echo "RUN rubocop: OK"
     rubocop -D
 else
@@ -123,7 +123,11 @@ if [ $? == 0 ] ; then
         unset GITHUB_KEY
     fi
 #    addm
-     bundle exec rake
+    if [ -f Rakefile ] ; then
+        rake
+    else
+        echo "No Rakefile so no rake"
+    fi
 
 #    # TRY "rails test"
 #    RAILSVER=`sort -u .rvmrc |sed -e "s,\.[0-9] --create,," -e "s,.*rails,," |grep "[0-9]"`

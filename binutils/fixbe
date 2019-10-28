@@ -1,0 +1,3 @@
+chmod +x $rvm_path/hooks/after_cd_bundler
+bundle install -—binstubs
+mkdir -p .git/safe && export PATH=".git/safe/../../bin:$PATH"

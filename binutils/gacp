@@ -4,7 +4,7 @@ fi
 
 git add --all .
 
-#HID: bundle exec overcommit --install
+overcommit --install
 
 if [ "X$2X" == "XX" ] ; then
     git commit -m "$1"

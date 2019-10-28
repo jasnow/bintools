@@ -1,6 +1,6 @@
 #HID on 11/13/2018: bundle update --bundler; echo "RESULTS=[$?]"
 lu ; bundle
 
-DISABLE_DATABASE_ENVIRONMENT_CHECK=1 bundle exec rake
+DISABLE_DATABASE_ENVIRONMENT_CHECK=1 rake
 
 git diff
