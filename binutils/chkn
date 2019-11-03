@@ -124,7 +124,7 @@ linenum ${LINENO} 7
 rvm list gemsets |grep "=>" | egrep -v "\[ i686 \]|\[ x86_64 \]"
 linenum ${LINENO} 8
 
-git grep preview1 | egrep -v "yml:|2.7.0-preview2"
+#git grep preview1 | egrep -v "yml:|2.7.0-preview2"
 linenum ${LINENO} 9
 
 git grep -E "2\.2\.[0123]|2\.1\.[0-6]|2\.3\.0| 2\.2\.4" \
@@ -181,7 +181,7 @@ linenum ${LINENO} 17
 
 egrep "5.2|2.4.0-preview3|2.3.3|2.6.0-rc|preview" .rvmrc .ruby-version 2>&1 \
 | egrep -v "railscasts_logo|No such file or directory|2.7-rails5.2" \
-| egrep -v "2.7.0-preview2|2.4.9|2.5.7|2.6.5"
+| egrep -v "2.7.0-preview1|2.4.9|2.5.7|2.6.5"
 
 if [ "X$1X" == "XnX" ] ; then  
     # Skip .travis.yml checks.
@@ -189,7 +189,7 @@ if [ "X$1X" == "XnX" ] ; then
 else
     egrep "5.2|2.4.0-preview3|2.3.3|2.6.0-rc|preview" .travis.yml 2>&1 \
     | egrep -v "railscasts_logo|No such file or directory|2.7-rails5.2" \
-    | egrep -v "2.7.0-preview2"
+    | egrep -v "2.7.0-preview1"
 fi
 
 linenum ${LINENO} 18
@@ -205,7 +205,7 @@ else
     | egrep -v "railscasts_logo|temp fix|'5.2.2.1'" | egrep -v '"5.2.2.1"|2.2.10'
     linenum ${LINENO} 19
 
-    egrep "2.2.8|2.3.5|2.4.2|preview" .travis.yml | egrep -v "2.7.0-preview2"
+    egrep "2.2.8|2.3.5|2.4.2|preview" .travis.yml | egrep -v "2.7.0-preview1"
 fi
 linenum ${LINENO} 20
 
@@ -254,6 +254,8 @@ grep "config.autoloader = :classic" ./config/application.rb 2> /dev/null
 git grep "# config.force_ssl"
 
 grep "4.0.0.beta3" Gemfile
+
+#HID: grep Gem::Specification Gemfile *gemspec 2> /dev/null
 
 exit
 
