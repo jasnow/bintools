@@ -133,7 +133,7 @@ git grep -E "2\.2\.[0123]|2\.1\.[0-6]|2\.3\.0| 2\.2\.4" \
 | egrep -v "\(>= 2.2.2, >= 2.2\)|Apache/2.2.16|\(>= 2.3.0, < 2.8.0\)" \
 | egrep -v "\(>= 2.1.2, < 4.0.0\)|jruby|capybara|2.1.4|2.1.1.0|gmaps4rails" \
 | egrep -v "defined\? RAILS_GEM_VERSION|gems/|rubies/ruby/|/ruby_dep/" \
-| egrep -v ".yml: |paranoia|2.1.10|2.1.1|Binary|readme.md:|2.1.0.pre.2" \
+| egrep -v ".yml: |paranoia|2.1.10|2.1.1|Binary|readme.md:|2.1.0.pre.3" \
 | egrep -v "lib/gemsurance/templates/output.html.erb|rainbow|yarn.lock" \
 | egrep -v "test/unit/vulnerability_test.rb|add_runtime_dependency" \
 | egrep -v "deprecation_tracker.md|5.2.2.1|2.2.10|zeitwerk \(2.1.6\)"
