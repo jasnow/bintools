@@ -1,6 +1,6 @@
 for i in do-pull-request-first.txt NO/ATT* GENERAL NO MAYBE o_list_of_repos.txt \
 security_on_rails_code solutions-bwapp FUZZING-TOOLS \
-sorbet SOR-RETIRED GEMWORK sorbet-FILES SOR-TAP-RETIRED ; do
+sorbet SOR-RETIRED GEMWORK sorbet-FILES SOR-TAP-RETIRED SOR-REPOS ; do
     touch $HOME/Projects/$i
 done
 mv *~ .*~ \#*\# libpeerconnection.log /Users/macbookpro/X 2> /dev/null
