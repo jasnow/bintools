@@ -1,5 +1,5 @@
 for i in do-pull-request-first.txt NO/ATT* GENERAL NO MAYBE o_list_of_repos.txt \
-security_on_rails_code solutions-bwapp FUZZING-TOOLS \
+security_on_rails_code solutions-bwapp FUZZING-TOOLS travis-rubies \
 sorbet SOR-RETIRED GEMWORK sorbet-FILES SOR-TAP-RETIRED SOR-REPOS ; do
     touch $HOME/Projects/$i
 done

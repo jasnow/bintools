@@ -6,10 +6,8 @@ PROJECTS="${PROJECTS}|show-me-the-food5edge|tasks5_edge"
 PROJECTS="${PROJECTS}|Practice-Git-with-Rails5edge|tic-tac-toe-edge"
 PROJECTS="${PROJECTS}|toy_app5edge|sp50rt_edge|setler"
 
-# 11/20/2019: Added SOR "green" repos.
-PROJECTS="${PROJECTS}|empty26|sorbet-bug-report|rails_6_new"
-PROJECTS="${PROJECTS}|sorbet-issue6|toy_app_sorbet6|rails_app6edge"
-PROJECTS="${PROJECTS}|empty27|rails_app6n2_7|rails_app6n2_7p2"
+# 11/27/2019: Added SOR "green" edge repos.
+PROJECTS="${PROJECTS}|rails_app6n2_7|rails_app6edge|rails_app6n2_7p2"
 
 # 8/20/2019: Hid these for now.
 #PROJECTS="${PROJECTS}|testing-app|rails-uptodate"
