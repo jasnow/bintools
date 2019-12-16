@@ -139,6 +139,7 @@ if [ $? == 0 ] ; then
 #    fi
 
     if [ $? == 0 ] ; then
+        overcommit --sign
         echo "rake/rails-cmd EXIT STATUS is ZERO - GREAT"
         if [ "X`git diff |grep "^[-+] " |wc -l`X" == "XX" ] ; then
            echo "'GIT DIFF PLUS/MINUS' is EMPTY"
@@ -153,7 +154,6 @@ if [ $? == 0 ] ; then
            cat $HOME/.tmp/$$_GEMNAMES
            echo "........................................"
         fi
-
         if [ "X`git status -s`X" == "X M Gemfile.lockX" ] ; then
             echo "GOT Gemfile.lock only"
             if [ X"`wc -l $HOME/.tmp/$$_GEMNAMES | awk '{ print $1 }'`X" == "X1X" ] ; then 
