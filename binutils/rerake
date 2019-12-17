@@ -1,24 +1,28 @@
-PWDN=`pwd`
-BNAME=`basename ${PWDN}`
-if [ "X${BNAME}" = "Xsetler" ] ; then
+APPN=`basename $PWD`
+case ${APPN} in
+    "sample_app_2_3") echo "${APPN} can't use this script." ; exit ;;
+    "sample_app_3_2") echo "${APPN} can't use this script." ; exit ;;
+    "LegisTracker2")  echo "${APPN} can't use this script." ; exit ;;
+    "sample_app_4_1") echo "${APPN} can't use this script." ; exit ;;
+esac
+
+if [ "X${APPN}" = "Xsetler" ] ; then
     dosetler
     exit
 fi
 
 gem update --system # 2/17/2018: ADDED.
  
-DIRN=`pwd`
-PROJ=`basename ${DIRN}`
 if [ "X`grep -c parent .git/config`X" == "X0X" ]
 then
-    if [ "X`grep -v "^#" $HOME/Projects/do-pull-request-first.txt |grep -c ${PROJ}$`X" == "X0X" ]
+    if [ "X`grep -v "^#" $HOME/Projects/do-pull-request-first.txt |grep -c ${APPN}$`X" == "X0X" ]
     then
         : # echo "No either place, do nothing"
     else
         echo "Remove parent because not in do-pull-request-first.txt file" ; exit
     fi
 else
-    if [ "X`grep -v "^#" $HOME/Projects/do-pull-request-first.txt |grep -c ${PROJ}$`X" == "X0X" ]
+    if [ "X`grep -v "^#" $HOME/Projects/do-pull-request-first.txt |grep -c ${APPN}$`X" == "X0X" ]
     then
         echo "Add to do-pull-request-first.txt file, then run git pull." ; exit
     else
@@ -31,11 +35,10 @@ echo "Running chkn..."
 if [ "X`chkn $1 | egrep -v "^LINE" | wc -l |awk '{ print $1 }'`X" == "X0X" ] ; then
     : # GOOD: echo "FYI: chkn is ZERO"
 else
-    PWDN=`pwd`
-    if [ "X`basename ${PWDN}`X" = "Xwatir-railsX" ] ; then
+    if [ "X${APPN}X" = "Xwatir-railsX" ] ; then
         : # EXCEPTION
     else
-        if [ "X`basename ${PWDN}`X" = "Xrgsoc-teamsX" ] ; then
+        if [ "X${APPN}X" = "Xrgsoc-teamsX" ] ; then
             : # EXCEPTION
         else
             echo "FYI: chkn IS NOT ZERO; STOPPING"; chkn ; exit
@@ -119,7 +122,7 @@ else
 fi
 
 if [ $? == 0 ] ; then
-    if [ "X${PROJ}X" = "X24pullrequestsX" ] ; then
+    if [ "X${APPN}X" = "X24pullrequestsX" ] ; then
         unset GITHUB_KEY
     fi
 #    addm

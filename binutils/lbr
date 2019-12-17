@@ -1,3 +1,12 @@
+APPN=`basename $PWD`
+case ${APPN} in
+    "sample_app_2_3") echo "${APPN} can't use this script." ; exit ;;
+    "sample_app_3_2") echo "${APPN} can't use this script." ; exit ;;
+    "LegisTracker2")  echo "${APPN} can't use this script." ; exit ;;
+    "sample_app_4_1") echo "${APPN} can't use this script." ; exit ;;
+esac
+#sp32, sp41, lt2
+ 
 #HID on 11/13/2018: bundle update --bundler; echo "RESULTS=[$?]"
 lu ; bundle
 

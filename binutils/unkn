@@ -1,0 +1,6 @@
+rake 2>&1 |egrep -v "defined here" \
+| egrep -v "keyword parameter$" \
+| egrep -v "Proc.new is deprecated" \
+| egrep -v "TypeError in the next release" \
+| egrep -v "will be removed in Ruby 3.0" \
+| uniq
