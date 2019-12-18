@@ -1,11 +1,7 @@
-APPN=`basename $PWD`
-case ${APPN} in
-    "sample_app_2_3") echo "${APPN} can't use this script." ; exit ;;
-    "sample_app_3_2") echo "${APPN} can't use this script." ; exit ;;
-    "LegisTracker2")  echo "${APPN} can't use this script." ; exit ;;
-    "sample_app_4_1") echo "${APPN} can't use this script." ; exit ;;
-esac
-
+if [ "X`grep "use 2.[34]" .rvmrc|wc -l |awk '{ print $1 }'`X" == "X1X" ] ; then
+    echo "Can't use this script with this repo." ; exit
+fi
+APPN=`basename $PWD |awk '{ print $1 }'`
 if [ "X${APPN}" = "Xsetler" ] ; then
     dosetler
     exit
@@ -19,7 +15,7 @@ then
     then
         : # echo "No either place, do nothing"
     else
-        echo "Remove parent because not in do-pull-request-first.txt file" ; exit
+        echo "Remove parent of [${APPN}] because not in do-pull-request-first.txt file" ; exit
     fi
 else
     if [ "X`grep -v "^#" $HOME/Projects/do-pull-request-first.txt |grep -c ${APPN}$`X" == "X0X" ]
@@ -127,7 +123,7 @@ if [ $? == 0 ] ; then
     fi
 #    addm
     if [ -f Rakefile ] ; then
-        rake
+        unkn # rake
     else
         echo "No Rakefile so no rake"
     fi

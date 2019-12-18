@@ -1,6 +1,25 @@
-rake 2>&1 |egrep -v "defined here" \
-| egrep -v "keyword parameter$" \
-| egrep -v "Proc.new is deprecated" \
-| egrep -v "TypeError in the next release" \
-| egrep -v "will be removed in Ruby 3.0" \
+rake 2>&1 | egrep -v "sqlite3.*will be removed in Ruby 3.0" \
+|egrep -v "faraday.*Proc.new is deprecated" \
+|egrep -v "sprockets.*as the keyword parameter|sprockets.*defined here" \
+|egrep -v "activerecord.*defined here|activerecord.*as the keyword parameter" \
+|egrep -v "actionpack.*as the keyword parameter|actionpack.*defined here" \
+|egrep -v "activemodel.*as the keyword parameter|activemodel.*defined here" \
+|egrep -v "actionview.*as the keyword parameter|actionview.*defined here" \
+|egrep -v "activesupport.*as the keyword parameter|activesupport.*defined here" \
+\
+|egrep -v "capybara.*as the keyword parameter|capybara.*defined here" \
+|egrep -v "tzinfo.*as the keyword parameter|tzinfo.*defined here" \
+|egrep -v "i18n.*as the keyword parameter|i18n.*defined here" \
+|egrep -v "schema_monkey.*as the keyword parameter|schema_monkey.*defined here" \
+|egrep -v "schema_plus_core.*as the keyword parameter|schema_plus_core.*defined here" \
+|egrep -v "faker.*as the keyword parameter|faker.*defined here" \
+|egrep -v "devise.*as the keyword parameter|devise.*defined here" \
+|egrep -v "rails-controller-testing.*as the keyword parameter|rails-controller-testing.*defined here" \
 | uniq
+
+# WHICH GEM:
+#| egrep -v "TypeError in the next release" 
+
+#FYI:
+# "will be removed in Ruby 3.0" (https://github.com/sparklemotion/sqlite3-ruby/issues/276)
+#======================================================================
