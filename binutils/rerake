@@ -1,5 +1,6 @@
-if [ "X`grep "use 2.[34]" .rvmrc|wc -l |awk '{ print $1 }'`X" == "X1X" ] ; then
-    echo "Can't use this script with this repo." ; exit
+if [ "X`grep "use 2.[345]" .rvmrc|wc -l |awk '{ print $1 }'`X" == "X1X" ] ; then
+    bundle ; touch . ; echo "Doing bundle, touch, and exit" ; exit
+    #echo "Can't use this script with this repo." 
 fi
 APPN=`basename $PWD |awk '{ print $1 }'`
 if [ "X${APPN}" = "Xsetler" ] ; then
@@ -146,8 +147,9 @@ if [ $? == 0 ] ; then
            echo "........................................"
            #echo "'GIT DIFF PLUS/MINUS' is NOT EMPTY"
            git diff |grep "^[-+] " |awk '{ print $2 }' \
-           | sed -e "s/1.1[3-7].[0-9][0-9]*/bundler/" -e "s/bundler.pre.[12]//" \
-             -e "s/2.0.0.pre.1//" | sort -u | tr "\012" ", " \
+           | sed -e "s/[12].[0-9][0-9]*.[0-9][0-9]*/bundler/" \
+             -e "s/bundler.pre.[12]//" -e "s/2.0.0.pre.1//" \
+           | sort -u | tr "\012" ", " \
            | sed -e "s/,$//" -e "s/^,//" -e "s,revision:,latest rails," \
            > $HOME/.tmp/$$_GEMNAMES
            cat $HOME/.tmp/$$_GEMNAMES
