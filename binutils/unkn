@@ -17,8 +17,6 @@ rake 2>&1 | egrep -v "sqlite3.*will be removed in Ruby 3.0" \
 |egrep -v "devise.*as the keyword parameter|devise.*defined here" \
 |egrep -v "rails-controller-testing.*as the keyword parameter|rails-controller-testing.*defined here" \
 \
-|egrep -v "mime-types.*reserved for numbered parameter; consider another name" \
-\
 |egrep -v "sprockets.*as keyword parameter|sprockets.*defined here" \
 |egrep -v "activerecord.*defined here|activerecord.*as keyword parameter" \
 |egrep -v "actionpack.*as keyword parameter|actionpack.*defined here" \
@@ -36,11 +34,16 @@ rake 2>&1 | egrep -v "sqlite3.*will be removed in Ruby 3.0" \
 |egrep -v "rails-controller-testing.*as keyword parameter|rails-controller-testing.*defined here" \
 \
 |egrep -v "aruba.*as keyword parameter|aruba.*defined here" \
+\
+|egrep -v "cucumber-core.*calling private without arguments inside a method may not have the intended effect" \
 | uniq
 
-# WHICH GEM:
+# WHICH GEM?
 #| egrep -v "TypeError in the next release" 
 
-#FYI:
+# ALSO
+
 # "will be removed in Ruby 3.0" (https://github.com/sparklemotion/sqlite3-ruby/issues/276)
-#======================================================================
+
+# 12/27/2019: Verify fixed
+# |egrep -v "mime-types.*reserved for numbered parameter; consider another name"
