@@ -1,49 +1,56 @@
-rake 2>&1 | egrep -v "sqlite3.*will be removed in Ruby 3.0" \
+rake 2>&1 \
+|egrep -v "capybara.*as keyword parameter|capybara.*defined here" \
+|egrep -v "devise.*as keyword parameter|devise.*defined here" \
+|egrep -v "i18n.*as keyword parameter|i18n.*defined here" \
+|egrep -v "rails-controller-testing.*as keyword parameter|rails-controller-testing.*defined here" \
+|egrep -v "sprockets.*as keyword parameter|sprockets.*defined here" \
+\
+|egrep -v "actionpack.*as keyword parameter|actionpack.*defined here" \
+|egrep -v "actionview.*as keyword parameter|actionview.*defined here" \
+|egrep -v "activemodel.*as keyword parameter|activemodel.*defined here" \
+|egrep -v "activerecord.*defined here|activerecord.*as keyword parameter" \
+\
+|egrep -v "capybara.*as the keyword parameter|capybara.*defined here" \
+\
+|egrep -v "actionpack.*as the keyword parameter|actionpack.*defined here" \
+|egrep -v "actionview.*as the keyword parameter|actionview.*defined here" \
+|egrep -v "activemodel.*as the keyword parameter|activemodel.*defined here" \
+|egrep -v "activerecord.*defined here|activerecord.*as the keyword parameter" \
+|egrep -v "activesupport.*as keyword parameter|activesupport.*defined here" \
+|uniq
+
+echo 2>&1 | egrep -v "sqlite3.*will be removed in Ruby 3.0" \
 |egrep -v "faraday.*Proc.new is deprecated" \
 \
 |egrep -v "sprockets.*as the keyword parameter|sprockets.*defined here" \
-|egrep -v "activerecord.*defined here|activerecord.*as the keyword parameter" \
-|egrep -v "actionpack.*as the keyword parameter|actionpack.*defined here" \
-|egrep -v "activemodel.*as the keyword parameter|activemodel.*defined here" \
-|egrep -v "actionview.*as the keyword parameter|actionview.*defined here" \
 |egrep -v "activesupport.*as the keyword parameter|activesupport.*defined here" \
 \
-|egrep -v "capybara.*as the keyword parameter|capybara.*defined here" \
-|egrep -v "tzinfo.*as the keyword parameter|tzinfo.*defined here" \
 |egrep -v "i18n.*as the keyword parameter|i18n.*defined here" \
 |egrep -v "schema_monkey.*as the keyword parameter|schema_monkey.*defined here" \
 |egrep -v "schema_plus_core.*as the keyword parameter|schema_plus_core.*defined here" \
-|egrep -v "faker.*as the keyword parameter|faker.*defined here" \
 |egrep -v "devise.*as the keyword parameter|devise.*defined here" \
 |egrep -v "rails-controller-testing.*as the keyword parameter|rails-controller-testing.*defined here" \
 \
-|egrep -v "sprockets.*as keyword parameter|sprockets.*defined here" \
-|egrep -v "activerecord.*defined here|activerecord.*as keyword parameter" \
-|egrep -v "actionpack.*as keyword parameter|actionpack.*defined here" \
-|egrep -v "activemodel.*as keyword parameter|activemodel.*defined here" \
-|egrep -v "actionview.*as keyword parameter|actionview.*defined here" \
-|egrep -v "activesupport.*as keyword parameter|activesupport.*defined here" \
-\
-|egrep -v "capybara.*as keyword parameter|capybara.*defined here" \
-|egrep -v "tzinfo.*as keyword parameter|tzinfo.*defined here" \
 |egrep -v "i18n.*as keyword parameter|i18n.*defined here" \
 |egrep -v "schema_monkey.*as keyword parameter|schema_monkey.*defined here" \
 |egrep -v "schema_plus_core.*as keyword parameter|schema_plus_core.*defined here" \
+\
+|egrep -v "tzinfo.*as keyword parameter|tzinfo.*defined here" \
+|egrep -v "tzinfo.*as the keyword parameter|tzinfo.*defined here" \
+|egrep -v "faker.*as the keyword parameter|faker.*defined here" \
 |egrep -v "faker.*as keyword parameter|faker.*defined here" \
-|egrep -v "devise.*as keyword parameter|devise.*defined here" \
-|egrep -v "rails-controller-testing.*as keyword parameter|rails-controller-testing.*defined here" \
 \
 |egrep -v "aruba.*as keyword parameter|aruba.*defined here" \
 \
 |egrep -v "cucumber-core.*calling private without arguments inside a method may not have the intended effect" \
-| uniq
+> /dev/null
 
 # WHICH GEM?
 #| egrep -v "TypeError in the next release" 
-
-# ALSO
 
 # "will be removed in Ruby 3.0" (https://github.com/sparklemotion/sqlite3-ruby/issues/276)
 
 # 12/27/2019: Verify fixed
 # |egrep -v "mime-types.*reserved for numbered parameter; consider another name"
+
+# 12/31/2019: Status of fixes: https://prathamesh.tech/ruby-2-7-compatible-gems
