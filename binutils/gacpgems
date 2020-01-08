@@ -1,2 +1,2 @@
 STRN=`git diff Gemfile.lock |grep '^+' |egrep -v "\+     |rev|\+\+" |sed -e "s, (.*,," -e "s,^+   ,," |egrep -v "^\+" |tr "\n" "," |sed -e "s/,$//" -e "s,^ ,,"`
-echo "gacp \"Upgraded [${STRN}] gem(s)\""
+echo "gacp \"Upgraded [${STRN}] gem$1\""
