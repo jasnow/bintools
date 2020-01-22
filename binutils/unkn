@@ -1,4 +1,9 @@
-rake 2>&1 \
+if [ "X$1X" == "XX" ] ; then
+    CMDN="rake"
+else
+    CMDN="./bin/rails test"
+fi
+${CMDN} 2>&1 \
 |egrep -v "capybara.*as keyword parameter|capybara.*defined here" \
 |egrep -v "devise.*as keyword parameter|devise.*defined here" \
 |egrep -v "i18n.*as keyword parameter|i18n.*defined here" \

@@ -124,7 +124,7 @@ if [ $? == 0 ] ; then
     fi
 #    addm
     if [ -f Rakefile ] ; then
-        unkn # rake
+        brt # unkn brt # rake
     else
         echo "No Rakefile so no rake"
     fi
