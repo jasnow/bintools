@@ -1,2 +1,3 @@
-STRN=`git diff Gemfile.lock |grep "\+.* (" |awk '{ print $2 }' |tr "\n" ", " |sed -e "s/,$//" -e "s,^ ,," -e "s/,/, /g"`
+STRN=`git diff Gemfile.lock |grep "\+.* (" |awk '{ print $2 }' |sort -u |tr "\n" ", " |sed -e "s/,$//"` 
+#-e "s,^ ,," -e "s/,/, /g"
 echo "gacp \"Upgraded [${STRN}] gem$1\""
