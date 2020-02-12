@@ -6,13 +6,13 @@ ONLYYES="|MAYBE|NO"
 
 if [ "X$2X" == "XX" ] ; then
     egrep "$1" $HOME/Projects/*/G*lock $HOME/Projects/*/*/G*lock 2> /dev/null \
-    | grep "[0-9]\." | egrep -v ">|\(=${ONLYYES}|GEMWORK|SOR"
+    | grep "[0-9]\." | egrep -v ">|\(=${ONLYYES}|GEMWORK|SOR|FINAL-RET"
 else
     if [ "X$3X" == "XX" ] ; then
         egrep "$1" $HOME/Projects/*/G*lock $HOME/Projects/*/*/G*lock 2> /dev/null \
-        | grep "[0-9]\." | egrep -v ">|$2|\(=${ONLYYES}|GEMWORK|SOR"
+        | grep "[0-9]\." | egrep -v ">|$2|\(=${ONLYYES}|GEMWORK|SOR|FINAL-RET"
     else
         egrep "$1" $HOME/Projects/*/Gemfile $HOME/Projects/*/*/Gemfile 2 > /dev/null \
-        | grep "[0-9]\." | egrep -v ">|$2|\(=${ONLYYES}|GEMWORK|SOR"
+        | grep "[0-9]\." | egrep -v ">|$2|\(=${ONLYYES}|GEMWORK|SOR|FINAL-RET"
     fi
 fi
