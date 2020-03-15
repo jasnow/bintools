@@ -1,10 +1,13 @@
 if [ "X$1X" == "XX" ] ; then
     CMDN="rake"
 else
-    CMDN="./bin/rails test"
+#    CMDN="./bin/rails test"
+    CMDN="rake"
 fi
-
+echo "CMND=${CMDN}"
 ${CMDN} 2>&1 \
+|egrep -v "rubocop.*as keyword parameter|rubocop.*defined here" \
+\
 |egrep -v "capybara.*as keyword parameter|capybara.*defined here" \
 |egrep -v "devise.*as keyword parameter|devise.*defined here" \
 |egrep -v "i18n.*as keyword parameter|i18n.*defined here" \
@@ -30,7 +33,7 @@ ${CMDN} 2>&1 \
 |egrep -v "activerecord.*as the keyword parameter|activerecord.*defined here" \
 |egrep -v "activesupport.*as the keyword parameter|activesupport.*defined here" \
 |uniq
-
+echo "line 33"
 ######################################################################
 echo 2>&1 | egrep -v "sqlite3.*will be removed in Ruby 3.0" \
 |egrep -v "faraday.*Proc.new is deprecated" \
@@ -45,6 +48,7 @@ echo 2>&1 | egrep -v "sqlite3.*will be removed in Ruby 3.0" \
 |egrep -v "tzinfo.*as the keyword parameter|tzinfo.*defined here" \
 |egrep -v "faker.*as the keyword parameter|faker.*defined here" \
 |egrep -v "faker.*as keyword parameter|faker.*defined here" \
+|egrep -v "rubocop.*as keyword parameter|rubocop.*defined here" \
 \
 |egrep -v "aruba.*as keyword parameter|aruba.*defined here" \
 \
@@ -60,3 +64,4 @@ echo 2>&1 | egrep -v "sqlite3.*will be removed in Ruby 3.0" \
 # |egrep -v "mime-types.*reserved for numbered parameter; consider another name"
 #
 # 12/31/2019: Status of fixes: https://prathamesh.tech/ruby-2-7-compatible-gems
+

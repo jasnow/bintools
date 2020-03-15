@@ -1,6 +1,10 @@
 # If this "rails test" does not work, try this: 
 if [ -f ./bin/rails ] ; then
-    unkn brt && touch .
+    if [ -d spec ] ; then
+        unkn && touch . # rake
+    else
+        unkn test && touch .
+    fi
 else
     unkn # rake
 fi
