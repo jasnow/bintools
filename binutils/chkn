@@ -259,6 +259,8 @@ grep "4.0.0.beta3" Gemfile
 
 git grep preview[0-9] |grep -v preview3 # TEMP
 
+grep "gem 'rails', '6.0.2.1'" Gemfile
+
 exit
 
 #STOPHERE ############################################################

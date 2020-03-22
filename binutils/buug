@@ -2,4 +2,5 @@ if [ "X$1X" == "XX" ] ; then
     echo "Usage: $0 gemname" ; exit
 fi
 
-bundle update "$1" && unkn && git diff
+bundle update "$1" && unkn && git diff && gacpgems |bash
+#gacp "Upgraded $1 gem"
