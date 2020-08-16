@@ -2,8 +2,8 @@ for i in do-pull-request-first.txt NO/ATT* GENERAL NO MAYBE NO_BEFORE4_2 \
 WhatsMyName OSINT security_on_rails_code solutions-bwapp FUZZING-TOOLS \
 o_list_of_repos.txt bug-hunting-web-security hashcat travis-rubies \
 sorbet SOR-RETIRED GEMWORK sorbet-FILES SOR-TAP-RETIRED SOR-REPOS \
-CTF6 sherlock recon-ng WikiLeaker thelounge OLD-WhatsMyName \
-sample-apps.ods SASSC JOB-RELATED FINAL-RETIRED ; do
+sherlock recon-ng WikiLeaker thelounge OLD-WhatsMyName \
+sample-apps.ods JOB-RELATED FINAL-RETIRED ; do
     touch $HOME/Projects/$i
 done
 mv *~ .*~ \#*\# libpeerconnection.log /Users/macbookpro/X 2> /dev/null
