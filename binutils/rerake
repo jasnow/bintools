@@ -9,7 +9,9 @@ if [ "X${APPN}" = "Xsetler" ] ; then
 fi
 
 gem update --system # 2/17/2018: ADDED.
- 
+
+git config pull.rebase false
+
 if [ "X`grep -c parent .git/config`X" == "X0X" ]
 then
     if [ "X`grep -v "^#" $HOME/Projects/do-pull-request-first.txt |grep -c ${APPN}$`X" == "X0X" ]
