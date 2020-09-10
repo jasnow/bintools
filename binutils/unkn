@@ -55,6 +55,7 @@ echo 2>&1 | egrep -v "sqlite3.*will be removed in Ruby 3.0" \
 |egrep -v "rubocop.*as keyword parameter|rubocop.*defined here" \
 |egrep -v "rchardet.*as keyword parameter|rchardet.*defined here" \
 |egrep -v "test-unit.*as keyword parameter|test-unit.*defined here" \
+|egrep -v "sprockets.*as keyword parameter|sprockets.*defined here" \
 \
 |egrep -v "aruba.*as keyword parameter|aruba.*defined here" \
 \
