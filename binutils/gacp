@@ -2,6 +2,8 @@ if [ "X$1X" == "XX" ] ; then
     echo "Usage: $0 CommitMsg"; exit
 fi
 
+overcommit --sign
+
 git add --all .
 
 if [ "X$2X" == "XX" ] ; then
