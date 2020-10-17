@@ -1,10 +1,17 @@
 # If this "rails test" does not work, try this: 
 if [ -f ./bin/rails ] ; then
     if [ -d spec ] ; then
-        unkn && touch . # rake
+        rake 2>&1 |tee $HOME/o_x # unkn && touch . # rake
     else
-        unkn test && touch .
+        rake 2>&1 |tee $HOME/o_x # unkn test && touch .
     fi
 else
-    unkn # rake
+    rake 2>&1 | tee $HOME/o_x # unkn # rake
+fi
+if [ `grep -c warning $HOME/o_x |awk '{ print $1 }'` -ne 0 ] ; then
+    echo "*********************************************************************************"
+    echo "*********************************************************************************"
+    echo "** Got Warnings *****************************************************************"
+    echo "*********************************************************************************"
+    echo "*********************************************************************************"
 fi
