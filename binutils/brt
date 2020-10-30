@@ -1,17 +1,24 @@
 # If this "rails test" does not work, try this: 
 if [ -f ./bin/rails ] ; then
     if [ -d spec ] ; then
-        rake 2>&1 |tee $HOME/o_x # unkn && touch . # rake
+        rake 2>&1 |tee /tmp/$$_o_x # unkn && touch . # rake
     else
-        rake 2>&1 |tee $HOME/o_x # unkn test && touch .
+        rake 2>&1 |tee /tmp/$$_o_x # unkn test && touch .
     fi
 else
-    rake 2>&1 | tee $HOME/o_x # unkn # rake
+    rake 2>&1 | tee /tmp/$$_o_x # unkn # rake
 fi
-if [ `grep -c warning $HOME/o_x |awk '{ print $1 }'` -ne 0 ] ; then
+ERRS=`grep -c warning /tmp/$$_o_x |awk '{ print $1 }'`
+echo "ERRS=[" ${ERRS} "]"
+if [ ${ERRS} -ne 0 ] ; then
+    BASEREPO=`pwd`
+    echo "==== `basename ${BASEREPO}` ===================================" >> $HOME/o_x
+    cat /tmp/$$_o_x >> $HOME/o_x
+
     echo "*********************************************************************************"
     echo "*********************************************************************************"
     echo "** Got Warnings *****************************************************************"
     echo "*********************************************************************************"
     echo "*********************************************************************************"
 fi
+rm /tmp/$$_*
