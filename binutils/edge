@@ -1,10 +1,10 @@
 # DEFINITI(ON: If it has *edge* in the repo name or :git: in Gemfile.
 # None of the 'sor' repo. Yes/Probably for repo using Appraisal.
 
-PROJECTS="rails-uptodate5edge|testing-app5edge"
-PROJECTS="${PROJECTS}|show-me-the-food5edge|tasks5_edge"
-PROJECTS="${PROJECTS}|Practice-Git-with-Rails5edge|tic-tac-toe-edge"
-PROJECTS="${PROJECTS}|toy_app5edge|sp50rt_edge|setler"
+PROJECTS="rails-uptodateedge|testing-appedge"
+PROJECTS="${PROJECTS}|show-me-the-foodedge|tasks_edge"
+PROJECTS="${PROJECTS}|Practice-Git-with-Railsedge|tic-tac-toe-edge"
+PROJECTS="${PROJECTS}|toy_appedge|sprt_edge|setler"
 
 # 11/27/2019: Added SOR "green" edge repos.
 PROJECTS="${PROJECTS}|rails_app6n2_7|rails_app6edge|rails_app6n2_7p2"

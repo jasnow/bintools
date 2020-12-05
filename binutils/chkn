@@ -62,7 +62,7 @@ then
         git grep -iI --no-index license \
         | egrep -v "bootstrap.css|^coverage|vendor/assets/bower_components" \
         | egrep -v "tmp/cache|spec/coverage|config|js|sorbet/rbi/hidden-def"
-        exit
+#        exit
     fi
 fi
 ######################################################################
@@ -251,17 +251,21 @@ grep "config.autoloader = :classic" ./config/application.rb 2> /dev/null
 # HID FOR NOW: git grep "config.action_dispatch.return_only_media_type_on_content_type"
 
 #HID: egrep -i "dalli|minitest|redis" Gemfile # TEMP
+#HID: grep Gem::Specification Gemfile *gemspec 2> /dev/null
 
 git grep "# config.force_ssl"
 
-grep "4.0.0.beta3" Gemfile
-
-#HID: grep Gem::Specification Gemfile *gemspec 2> /dev/null
-
 git grep preview[0-9] |grep -v preview3 # TEMP
 
-grep "gem 'rails', '6.0.2.1'" Gemfile
+egrep "4.0.0.beta3|gem 'rails', '6.0.2.1'" Gemfile
 
+# 12/4/2020: To upgrade repos to 6.1.x
+if [ "X`git grep -l 6.0.[0-9] |egrep -v "lib/|spec/|config/|sorbet|lock|db/|log/" |wc -l |awk '{ print $1 }'`X" = "X0X" ] ; then
+    :
+else
+    echo "Need to upgrade to Rails 6.1:"
+    git grep -l 6.0.[0-9] |egrep -v "config/|sorbet|lock|db/|log/"
+fi
 exit
 
 #STOPHERE ############################################################
