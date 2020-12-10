@@ -257,14 +257,18 @@ git grep "# config.force_ssl"
 
 git grep preview[0-9] |grep -v preview3 # TEMP
 
-egrep "4.0.0.beta3|gem 'rails', '6.0.2.1'" Gemfile
+egrep "6.1.0.rc2|4.0.0.beta3|gem 'rails', '6.0.2.1'" Gemfile
 
-# 12/4/2020: To upgrade repos to 6.1.x
-if [ "X`git grep -l 6.0.[0-9] |egrep -v "lib/|spec/|config/|sorbet|lock|db/|log/" |wc -l |awk '{ print $1 }'`X" = "X0X" ] ; then
-    :
-else
-    echo "Need to upgrade to Rails 6.1:"
-    git grep -l 6.0.[0-9] |egrep -v "config/|sorbet|lock|db/|log/"
+if [ "X`basename $PWD |grep "_6" |wc -l |awk '{ print $1 }'`X" = "X0X" ]; then
+    # 12/4/2020: To upgrade repos to 6.1.x
+    PATNS="data/|plugins/|lib/|spec/|config/|sorbet|lock|db/|log/|fonts/|public/|app/|demo.gif|example/"
+    if [ "X`git grep -l 6\.0\.3 |egrep -v ${PATNS} |wc -l |awk '{ print $1 }'`X" = "X0X" ]
+    then
+        :
+    else
+        echo "Need to upgrade to Rails 6.1:"
+        git grep -l 6.0.[0-9] |egrep -v ${PATNS}
+    fi
 fi
 exit
 
