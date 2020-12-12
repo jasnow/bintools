@@ -1,4 +1,4 @@
-IGNOREFILES="chklics|ATTIC|countrepos|do-pull|stats|GENERAL|yml$|cmp-ay|o_d|cpf|cpi|diffdirs|MAYBE|NO|o_list_of_repos.txt|FUZZING-TOOLS|sorbet-FILES|SOR-RETIRED|GEMWORK"
+IGNOREFILES="chklics|ATTIC|countrepos|do-pull|stats|GENERAL|yml$|cmp-ay|o_d|cpf|cpi|diffdirs|MAYBE|NO|o_list_of_repos.txt|FUZZING-TOOLS|sorbet-FILES|SOR-RETIRED|GEMWORK|FINAL-RETIRED|NEED-PG-DB|OLD-WhatsMyName|OSINT|SOR-REPOS|SOR-TAP-RETIRED"
 
 echo "Total Active Rails projects"
 ls -1 $HOME/Projects |egrep -v ${IGNOREFILES} > /tmp/$$_OUTPUT

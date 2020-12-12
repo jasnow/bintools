@@ -4,7 +4,7 @@ if [ "X`grep "use 2.[345]" .rvmrc|wc -l |awk '{ print $1 }'`X" == "X1X" ] ; then
 fi
  
 #HID on 11/13/2018: bundle update --bundler; echo "RESULTS=[$?]"
-lu ; bundle
+lu ; bundle 2>&1 |egrep -v "ctags"
 
 DISABLE_DATABASE_ENVIRONMENT_CHECK=1 brt #unkn #rake
 
