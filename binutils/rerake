@@ -72,7 +72,8 @@ BOST="`bundle outdated --strict |tail -1`"
 if [ "X${BOST}X" == "XBundle up to date!X" ] ; then
     echo "No gem update needed; leaving the building...1"
     touch .
-    lbr 2>&1 |egrep -v "ctags" 
+    lbr
+# 2>&1 |egrep -v "ctags" 
     exit
 fi
 if [ "X${BOST}X" == "XYour bundle is up to date!X" ] ; then
@@ -106,7 +107,8 @@ echo "Running cleanup..."
 
 echo "Running bundle..."
 lu
-bundle install 2>&1 |egrep -v "ctags" 
+bundle install
+# 2>&1 |egrep -v "ctags" 
 
 if [ -d "public/assets" ] ; then
     echo "YES: public/assets"
