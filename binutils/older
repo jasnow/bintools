@@ -1,0 +1,20 @@
+# Check for repos older than 2 days
+if [ "X$1X" == "XX" ] ; then
+    MONTHN=`date '+%b'`
+else
+    MONTHN="$1"
+fi
+#DATE/TIME: rails-uptodate
+TODAYNUMN=`date '+%d'`
+TODAYDATE="`date '+%b %d'`"
+YESTERDA1="${MONTHN} `expr ${TODAYNUMN} - 1`"
+YESTERDA2="${MONTHN} `expr ${TODAYNUMN} - 2`"
+YESTERDA3="${MONTHN} `expr ${TODAYNUMN} - 3`"
+YESTERDA4="${MONTHN} `expr ${TODAYNUMN} - 4`"
+#echo "TODAYDATE=[" ${TODAYDATE} "]" ; echo "TODAYNUMN=[" ${TODAYNUMN} "]"
+#echo "YESTERDA1=[" ${YESTERDA1} "]" ; echo "YESTERDA2=[" ${YESTERDA2} "]"
+#echo "YESTERDA3=[" ${YESTERDA3} "]" ; echo "YESTERDA4=[" ${YESTERDA4} "]"
+ls -lt .. |egrep -v "${TODAYDATE}|${YESTERDA1}"
+#|${YESTERDA2}"
+#|${YESTERDA3}"
+#|${YESTERDA4}"
