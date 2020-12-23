@@ -165,6 +165,7 @@ if [ $? == 0 ] ; then
         if [ "X`git status -s`X" == "X M Gemfile.lockX" ] ; then
             echo "GOT Gemfile.lock only"
             if [ X"`wc -l $HOME/.tmp/$$_GEMNAMES | awk '{ print $1 }'`X" == "X1X" ] ; then 
+               bundle lock --add-platform x86_64-linux # 12/22/2020: Added.
                gt | sh #gacp "Upgraded gem(s): `cat $HOME/.tmp/$$_GEMNAMES`"
             else
                gacp "Upgraded gems by rebuilding Gemfile.lock file" `cat $HOME/.tmp/$$_GEMNAMES`
