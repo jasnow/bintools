@@ -8,5 +8,6 @@ lu ; bundle
 # 2>&1 |egrep -v "ctags"
 
 DISABLE_DATABASE_ENVIRONMENT_CHECK=1 brt #unkn #rake
+bl
 
 git diff

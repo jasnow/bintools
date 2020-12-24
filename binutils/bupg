@@ -1,0 +1,1 @@
+ls -lt `egrep -A 1 BUNDLED ../*/*lock 2> /dev/null |sort -u |egrep -v "BUNDLED|2.2.3|2.1.4|^$" |sed -e "s,\- .*,," |grep lock`
