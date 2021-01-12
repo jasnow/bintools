@@ -151,8 +151,8 @@ if [ $? == 0 ] ; then
         if [ "X`git diff |grep "^[-+] " |wc -l`X" == "XX" ] ; then
            echo "'GIT DIFF PLUS/MINUS' is EMPTY"
         else
-           echo "........................................"
            #echo "'GIT DIFF PLUS/MINUS' is NOT EMPTY"
+           bundle lock --add-platform x86_64-linux # 1/12/2021: Added.
            git diff |grep "^[-+] " |awk '{ print $2 }' \
            | egrep -v "gem" \
            | sed -e "s/[12].[0-9][0-9]*.[0-9][0-9]*/bundler/" \
@@ -160,6 +160,7 @@ if [ $? == 0 ] ; then
            | sort -u | tr "\012" ", " \
            | sed -e "s/,$//" -e "s/^,//" -e "s,revision:,latest rails," \
            > $HOME/.tmp/$$_GEMNAMES
+           echo "........................................"
            cat $HOME/.tmp/$$_GEMNAMES
            echo "........................................"
         fi
