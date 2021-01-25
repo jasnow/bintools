@@ -154,7 +154,7 @@ if [ $? == 0 ] ; then
            #echo "'GIT DIFF PLUS/MINUS' is NOT EMPTY"
            bundle lock --add-platform x86_64-linux # 1/12/2021: Added.
            git diff |grep "^[-+] " |awk '{ print $2 }' \
-           | egrep -v "gem" \
+           | egrep -v "gem|branch" \
            | sed -e "s/[12].[0-9][0-9]*.[0-9][0-9]*/bundler/" \
              -e "s/bundler.pre.[12]//" -e "s/2.0.0.pre.1//" \
            | sort -u | tr "\012" ", " \
