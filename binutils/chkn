@@ -101,7 +101,7 @@ if [ "X$1X" == "XnX" ] ; then
     : # OK
 else
     egrep "2.1.[0-6]|2.2.[0-4]" .travis.yml | egrep -v "'2.1.1'|phantomjs-2.1.1" \
-    | egrep -v 'source "https://rubygems.org"|2.1.0|2.1.10|2.2.10'
+    | egrep -v 'source "https://rubygems.org"|2.1.0|2.1.10|2.2.1[01]'
 fi
 linenum ${LINENO} 4
 
@@ -137,7 +137,7 @@ git grep -E "2\.2\.[012]|2\.1\.[0-6]|2\.3\.0| 2\.2\.4" \
 | egrep -v "lib/gemsurance/templates/output.html.erb|rainbow|yarn.lock" \
 | egrep -v "test/unit/vulnerability_test.rb|add_runtime_dependency" \
 | egrep -v "deprecation_tracker.md|5.2.2.1|2.2.10|zeitwerk \(2.1.6\)" \
-| egrep -v "rdiscount|2.2.4|2.2.11"
+| egrep -v "rdiscount|2.2.4|2.2.11|2.2.12"
 linenum ${LINENO} 10
 
 git grep "[65].0.0.beta[0-9]|gems/|rubies/ruby/"
