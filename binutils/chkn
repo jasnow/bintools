@@ -172,7 +172,7 @@ git grep -lE "2\.2.5|2\.3.[21]" \
 | egrep -v "app/assets/javascripts|app/assets/stylesheets|.ruby-version" \
 | egrep -v ".rvmrc|db/seeds.rb|test/fixtures/city_hall.json|.ruby-gemset" \
 | egrep -v "test/helper.rb|test/unit/gem_info_retriever_test.rb|app-visual" \
-| egrep -v "lib/ruby_dep/|spec/lib/ruby_dep/|CONTRIBUTING.md|yarn.lock" \
+| egrep -v "lib/ruby_dep/|spec/lib/ruby_dep/|CONTRIBUTING.md|yarn.lock|6.1.3.1" \
 | egrep -v "lib/components/jquery/|public/_components/jquery/|data/words.txt" \
 | egrep -v "6.1.0.alpha|5.2.2.1|5.1.6.2|5.0.7.2|4.2.11.1|sorbet/rbi/gems|rails.svg"
 linenum ${LINENO} 16
