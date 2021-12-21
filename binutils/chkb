@@ -1,0 +1,5 @@
+if [ "X$1X" == "XX" ] ; then
+    echo "Usage: $0 oldversion"
+    exit
+fi
+egrep -A 1 BUNDLE ../*/*lock 2> /dev/null |egrep -v "BUNDLED|$1|\-\-" |sort -u
