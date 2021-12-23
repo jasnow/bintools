@@ -1,5 +1,10 @@
 if [ "X$1X" == "XX" ] ; then
-    echo "Usage: $0 oldversion"
+    echo "Usage: `basename $0` oldversion"
     exit
+else
+    if [ "X$2X" == "XX" ] ; then
+        egrep -A 1 BUNDLE ../*/*lock 2> /dev/null |egrep -v "BUNDLED|$1|\-\-" |sort -u
+    else
+        ls -lt `egrep -A 1 BUNDLE ../*/*lock 2> /dev/null |egrep -v "BUNDLED|$1|\-\-" |sort -u |sed -e "s,lock.*,lock,"`
+    fi
 fi
-egrep -A 1 BUNDLE ../*/*lock 2> /dev/null |egrep -v "BUNDLED|$1|\-\-" |sort -u
