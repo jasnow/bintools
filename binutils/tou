@@ -3,7 +3,7 @@ WhatsMyName OSINT security_on_rails_code solutions-bwapp FUZZING-TOOLS \
 o_list_of_repos.txt bug-hunting-web-security hashcat travis-rubies \
 SOR-RETIRED GEMWORK sorbet-FILES SOR-TAP-RETIRED SOR-REPOS \
 sherlock recon-ng WikiLeaker thelounge OLD-WhatsMyName presentations \
-sample-apps.ods JOB-RELATED FINAL-RETIRED NEED-PG-DB rails-uptodate ; do
+sample-apps.ods JOB-RELATED FINAL-RETIRED NEED-PG-DB ; do
     touch $HOME/Projects/$i
 done
 mv *~ .*~ \#*\# libpeerconnection.log /Users/macbookpro/X 2> /dev/null
