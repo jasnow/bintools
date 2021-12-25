@@ -2,12 +2,15 @@
 # None of the 'sor' repo. Yes/Probably for repo using Appraisal.
 
 PROJECTS="rails-uptodateedge|testing-appedge"
-PROJECTS="${PROJECTS}|show-me-the-foodedge|tasks_edge"
-PROJECTS="${PROJECTS}|Practice-Git-with-Railsedge|tic-tac-toe-edge"
-PROJECTS="${PROJECTS}|toy_appedge|sprt_edge|setler"
+PROJECTS="${PROJECTS}|show-me-the-foodedge"
+PROJECTS="${PROJECTS}|Practice-Git-with-Railsedge"
+PROJECTS="${PROJECTS}|toy_appedge|sprt_edge"
 
 # 11/27/2019: Added SOR "green" edge repos.
-PROJECTS="${PROJECTS}|rails_app6n2_7|rails_app6edge|rails_app6n2_7p2"
+PROJECTS="${PROJECTS}|rails_app6n2_7|rails_app6edge|rails_app6n2_7px"
+
+# 12/25/2021: Retire these.
+#PROJECTS="${PROJECTS}|tic-tac-toe-edge|tasks_edge|setler"
 
 # 8/20/2019: Hid these for now.
 #PROJECTS="${PROJECTS}|testing-app|rails-uptodate"
