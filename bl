@@ -1,2 +1,0 @@
-bundle lock --add-platform x86_64-linux
-bundle lock --add-platform x86_64-darwin-16
