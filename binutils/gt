@@ -3,3 +3,5 @@ git diff |grep "^[-+] " |awk '{ print $2 }' |egrep -v "gem|branch" \
   -e "s/2.0.0.pre.1//" | sort -u | tr "\012" ", " \
 | sed -e "s/,$//" -e "s/^,//" -e "s,revision:,latest rails," \
   -e 's,$,]",' -e 's,^,gacp "Upgraded gem(s): [,'
+echo
+
