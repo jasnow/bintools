@@ -143,6 +143,14 @@
 #sed -e "s/6.1.4.1/6.1.4.2/g" Gemfile > /tmp/g && mv /tmp/g Gemfile
 #sed -e "s/6.1.4.2/6.1.4.3/g" Gemfile > /tmp/g && mv /tmp/g Gemfile
 
-sed -e "s/6.1.4.3/6.1.4.4/g" Gemfile > /tmp/g && mv /tmp/g Gemfile
+#sed -e "s/6.1.4.3/6.1.4.4/g" Gemfile > /tmp/g && mv /tmp/g Gemfile
+
+#sed -e "s/3.0.3/3.1.0/g" Gemfile > /tmp/g && mv /tmp/g Gemfile
+#sed -e "s/3.0.3/3.1.0/" -e "s,ruby3.0,ruby3.1," .rvmrc > /tmp/g && mv /tmp/g 
+#sed -e "s/3.0.3/3.1.0/" .travis.yml > /tmp/g 2> /dev/null && mv /tmp/g .travis.yml
+#sed -e "s/3.0.3/3.1.0/" .ruby-version > /tmp/g 2> /dev/null && mv /tmp/g .ruby-version
+
+sed -e "s/6.1.4.[34]/7.0.0/g" Gemfile > /tmp/g && mv /tmp/g Gemfile
+sed -e "s/rails6.1/rails7.0/" .rvmrc > /tmp/g && mv /tmp/g .rvmrc
 git diff
 cd ..

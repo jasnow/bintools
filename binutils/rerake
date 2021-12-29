@@ -72,8 +72,7 @@ BOST="`bundle outdated --strict |tail -1`"
 if [ "X${BOST}X" == "XBundle up to date!X" ] ; then
     echo "No gem update needed; leaving the building...1"
     touch .
-    lbr
-# 2>&1 |egrep -v "ctags" 
+    lbr 2>&1 |egrep -v "ctags" 
     exit
 fi
 if [ "X${BOST}X" == "XYour bundle is up to date!X" ] ; then
@@ -107,8 +106,7 @@ echo "Running cleanup..."
 
 echo "Running bundle..."
 lu
-bundle install
-# 2>&1 |egrep -v "ctags" 
+bundle install 2>&1 |egrep -v "ctags" 
 
 if [ -d "public/assets" ] ; then
     echo "YES: public/assets"
@@ -151,29 +149,29 @@ if [ $? == 0 ] ; then
         if [ "X`git diff |grep "^[-+] " |wc -l`X" == "XX" ] ; then
            echo "'GIT DIFF PLUS/MINUS' is EMPTY"
         else
+           echo "........................................"
            #echo "'GIT DIFF PLUS/MINUS' is NOT EMPTY"
-           bundle lock --add-platform x86_64-linux # 1/12/2021: Added.
            git diff |grep "^[-+] " |awk '{ print $2 }' \
-           | egrep -v "gem|branch" \
            | sed -e "s/[12].[0-9][0-9]*.[0-9][0-9]*/bundler/" \
              -e "s/bundler.pre.[12]//" -e "s/2.0.0.pre.1//" \
            | sort -u | tr "\012" ", " \
            | sed -e "s/,$//" -e "s/^,//" -e "s,revision:,latest rails," \
            > $HOME/.tmp/$$_GEMNAMES
-           echo "........................................"
            cat $HOME/.tmp/$$_GEMNAMES
+           echo
            echo "........................................"
         fi
         if [ "X`git status -s`X" == "X M Gemfile.lockX" ] ; then
             echo "GOT Gemfile.lock only"
-            if [ X"`wc -l $HOME/.tmp/$$_GEMNAMES | awk '{ print $1 }'`X" == "X1X" ] ; then 
-               bundle lock --add-platform x86_64-linux # 12/22/2020: Added.
-               gt | sh #gacp "Upgraded gem(s): `cat $HOME/.tmp/$$_GEMNAMES`"
-            else
-               gacp "Upgraded gems by rebuilding Gemfile.lock file" `cat $HOME/.tmp/$$_GEMNAMES`
-            fi
+#            if [ X"`wc -l $HOME/.tmp/$$_GEMNAMES | awk '{ print $1 }'`X" == "X1X" ] ; then 
+               gacp "Upgraded gem(s): [`cat $HOME/.tmp/$$_GEMNAMES`]"
+#            else
+#               gacp "Upgraded gems by rebuilding Gemfile.lock file"
+#               echo "DEBUG:[`cat $HOME/.tmp/$$_GEMNAMES`"
+#            fi
         else
-            if [ "X`git status|tail -1`X" == "Xnothing to commit, working directory cleanX" ] ; then
+            if [ "X`git status|tail -1`X" == "Xnothing to commit, working directory cleanX" ]
+            then
                 echo "NOTHING TO COMMIT - NO-OP" ; git status -s
             else
                 echo "GOT MORE from GIT STATUS" ; git status -s
