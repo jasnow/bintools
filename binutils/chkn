@@ -79,7 +79,7 @@ sed -e "s,#.*,," Gemfile Gemfile.r* *gemspec 2> /dev/null | grep "[0-9]" \
 | egrep -v "'rails_admin-i18n'|.name|ruby_[12]|^  spec|split" \
 | egrep -v "sqlite3, git, ruby, heroku, travis, xcode|s.date|gem\(" \
 | egrep -v "File::ALT_SEPARATOR|mingw32|s.add_runtime_dependency" \
-| egrep -v "'omniauth-google-oauth2'|'jquery-ui-rails'|'i18n-spec'" \
+| egrep -v "'omniauth-google-oauth2'|'jquery-ui-rails'|'i18n-spec'|stable" \
 | egrep -v ".add_development_dependency|'sdoc', '1.0.0.rc3'|ruby '2.[567].[0123]'" \
 | egrep -v "2.3.8|2.4.10|2.5.8|2.6.6|2.7.2|3.1.0|3.0.3|platforms: \[:mri, :mingw, :x64_mingw\]"
 linenum ${LINENO} 2
@@ -90,7 +90,7 @@ sed -e "s,#.*,," Gemfile Gemfile.r* *gemspec 2> /dev/null | egrep "git" \
 | egrep -v "'https://github.com/rails/rails'|^  s.|bradphelan/jasminerice" \
 | egrep -v "'github-markup'|3-0-lts|And:|git ls-files|'arel'" \
 | egrep -v "sqlite3, git, ruby, heroku, travis, xcode|git_source" \
-| egrep -v "'coffee-rails', git:|'jbuilder', git:"
+| egrep -v "'coffee-rails', git:|'jbuilder', git:|stable"
 linenum ${LINENO} 2b
 
 rvm list | grep "^=" | egrep -v "2.2.10|2.3.8|2.4.10|2.5.8 |2.6.6|2.7.2|3.0.3|3.1.0"
@@ -153,7 +153,7 @@ grep "[0-9]\.[0-9]" *gemspec 2> /dev/null \
 | egrep -v "if RUBY_VERSION|.add_runtime_dependency"
 linenum ${LINENO} 13
 
-grep "github:" Gemfile |egrep -v "'acts-as-taggable-on'|instead"
+grep "github:" Gemfile |egrep -v "'acts-as-taggable-on'|instead|stable"
 linenum ${LINENO} 14
 
 ######################################################################@

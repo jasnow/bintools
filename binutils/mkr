@@ -1,0 +1,5 @@
+if [ "X$1X" == "XbX" ] ; then
+    git remote set-url origin git@bitbucket.org:jasnow/$(basename `pwd`)
+else
+    git remote set-url origin git@github.com:jasnow/$(basename `pwd`)
+fi
