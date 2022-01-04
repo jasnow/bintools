@@ -2,7 +2,7 @@ if [ "X$1X" == "XX" ] ; then
     echo "Usage: $0 CommitMsg"; exit
 fi
 
-bl
+bl 2> /dev/null
 overcommit --sign
 
 git add --all .
