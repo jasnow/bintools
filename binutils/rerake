@@ -149,6 +149,7 @@ if [ $? == 0 ] ; then
         if [ "X`git diff |grep "^[-+] " |wc -l`X" == "XX" ] ; then
            echo "'GIT DIFF PLUS/MINUS' is EMPTY"
         else
+           bl
            echo "........................................"
            #echo "'GIT DIFF PLUS/MINUS' is NOT EMPTY"
            git diff |grep "^[-+] " |awk '{ print $2 }' \
