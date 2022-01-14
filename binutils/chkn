@@ -81,7 +81,7 @@ sed -e "s,#.*,," Gemfile Gemfile.r* *gemspec 2> /dev/null | grep "[0-9]" \
 | egrep -v "File::ALT_SEPARATOR|mingw32|s.add_runtime_dependency" \
 | egrep -v "'omniauth-google-oauth2'|'jquery-ui-rails'|'i18n-spec'" \
 | egrep -v ".add_development_dependency|'sdoc', '1.0.0.rc3'|ruby '2.[567].[0123]'" \
-| egrep -v "2.3.8|2.4.10|2.5.8|2.6.6|2.7.2|3.1.0|3.0.3|platforms: \[:mri, :mingw, :x64_mingw\]"
+| egrep -v "2.3.8|2.4.10|2.5.8|2.6.6|2.7.2|3.1.0|3.0.3|platforms:"
 linenum ${LINENO} 2
 
 # FYI: Change 'git:' to 'github:' lines.
@@ -137,7 +137,7 @@ git grep -E "2\.2\.[012]|2\.1\.[0-6]|2\.3\.0| 2\.2\.4" \
 | egrep -v "lib/gemsurance/templates/output.html.erb|rainbow|yarn.lock" \
 | egrep -v "test/unit/vulnerability_test.rb|add_runtime_dependency" \
 | egrep -v "deprecation_tracker.md|5.2.2.1|2.2.10|zeitwerk \(2.1.6\)" \
-| egrep -v "rdiscount|2.2.4"
+| egrep -v "rdiscount|2.2.4|package-lock.json"
 linenum ${LINENO} 10
 
 git grep "[65].0.0.beta[0-9]|gems/|rubies/ruby/"
@@ -174,7 +174,8 @@ git grep -lE "2\.2.5|2\.3.[21]" \
 | egrep -v "test/helper.rb|test/unit/gem_info_retriever_test.rb|app-visual" \
 | egrep -v "lib/ruby_dep/|spec/lib/ruby_dep/|CONTRIBUTING.md|yarn.lock" \
 | egrep -v "lib/components/jquery/|public/_components/jquery/|data/words.txt" \
-| egrep -v "6.1.0.alpha|5.2.2.1|5.1.6.2|5.0.7.2|4.2.11.1|sorbet/rbi/gems|rails.svg"
+| egrep -v "6.1.0.alpha|5.2.2.1|5.1.6.2|5.0.7.2|4.2.11.1|sorbet/rbi/gems|rails.svg" \
+| egrep -v "package-lock.json"
 linenum ${LINENO} 16
 
 grep "5.0.1.rc1|5.1.3.rc[12]|5.1.5.rc1" Gemfile 2> /dev/null
