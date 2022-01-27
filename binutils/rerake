@@ -8,7 +8,7 @@ if [ "X${APPN}" = "Xsetler" ] ; then
     exit
 fi
 
-gem update --system # 2/17/2018: ADDED.
+gem update --system --no-document # 2/17/2018: ADDED.
 
 git config pull.rebase false
 
@@ -48,7 +48,7 @@ fi
 if [ "X`bundle -v |grep -c Bundler`X" == "X0X" ] ; then
     echo "Installing bundler..."
     echo "BUNDLER RESULTS/1 CODE=[$?]"
-    bundle update --bundler
+    bundle update --bundler --no-document
     echo "BUNDLER UPDATE RESULTS/2 CODE=[$?]"
 else
     : # do nothing
