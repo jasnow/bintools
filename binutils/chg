@@ -153,6 +153,8 @@
 #sed -e "s/6.1.4.[34]/7.0.0/g" Gemfile > /tmp/g && mv /tmp/g Gemfile
 #sed -e "s/rails6.1/rails7.0/" .rvmrc > /tmp/g && mv /tmp/g .rvmrc
 
-sed -e "s/byebug/debug/g" Gemfile > /tmp/g && mv /tmp/g Gemfile
+#sed -e "s/byebug/debug/g" Gemfile > /tmp/g && mv /tmp/g Gemfile
+
+sed -e "s/7.0.1/7.0.2/g" Gemfile > /tmp/g && mv /tmp/g Gemfile
 git diff
 cd ..
