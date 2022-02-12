@@ -254,11 +254,21 @@ grep "config.autoloader = :classic" ./config/application.rb 2> /dev/null
 #HID: egrep -i "dalli|minitest|redis" Gemfile # TEMP
 #HID: grep Gem::Specification Gemfile *gemspec 2> /dev/null
 
+linenum ${LINENO} 25
+
 git grep "# config.force_ssl"
+
+linenum ${LINENO} 26
 
 git grep preview[0-9] |grep -v preview3 # TEMP
 
+linenum ${LINENO} 27
+
 egrep "6.1.0.rc2|4.0.0.beta3|gem 'rails', '6.0.2.1'|net-smtp" Gemfile
+
+linenum ${LINENO} 28
+
+egrep "7.0.2|6.1.4" Gemfile |egrep -v "7.0.2.2|6.1.4.6"
 
 if [ "X`basename $PWD |grep "_6" |wc -l |awk '{ print $1 }'`X" = "X0X" ]; then
     # 12/4/2020: To upgrade repos to 6.1.x

@@ -155,6 +155,8 @@
 
 #sed -e "s/byebug/debug/g" Gemfile > /tmp/g && mv /tmp/g Gemfile
 
-sed -e "s/7.0.1/7.0.2/g" Gemfile > /tmp/g && mv /tmp/g Gemfile
+#sed -e "s/7.0.1/7.0.2/g" Gemfile > /tmp/g && mv /tmp/g Gemfile
+
+sed -e "s/7.0.2/7.0.2.2/g" Gemfile > /tmp/g && mv /tmp/g Gemfile
 git diff
 cd ..
