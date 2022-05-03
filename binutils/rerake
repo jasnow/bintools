@@ -157,9 +157,9 @@ if [ $? == 0 ] ; then
              -e "s/bundler.pre.[12]//" -e "s/2.0.0.pre.1//" \
            | sort -u | tr "\012" ", " \
            | sed -e "s/,$//" -e "s/^,//" -e "s,revision:,latest rails," \
+           | grep -v "^$" \
            > $HOME/.tmp/$$_GEMNAMES
            cat $HOME/.tmp/$$_GEMNAMES
-           echo
            echo "........................................"
         fi
         if [ "X`git status -s`X" == "X M Gemfile.lockX" ] ; then
