@@ -171,7 +171,9 @@
 #sed -e "s/3.1.1/3.1.2/g" .travis.yml > /tmp/g 2> /dev/null && mv /tmp/g .travis.yml
 #sed -e "s/3.1.1/3.1.2/g" .ruby-version > /tmp/g 2> /dev/null && mv /tmp/g .ruby-version
 
-sed -e "s/7.0.2.3/7.0.2.4/g" Gemfile > /tmp/g && mv /tmp/g Gemfile
+#sed -e "s/7.0.2.3/7.0.2.4/g" Gemfile > /tmp/g && mv /tmp/g Gemfile
+
+sed -e "s/7.0.2.4/7.0.3/g" Gemfile > /tmp/g && mv /tmp/g Gemfile
 
 git diff
 cd ..
