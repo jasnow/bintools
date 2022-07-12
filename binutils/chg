@@ -173,7 +173,9 @@
 
 #sed -e "s/7.0.2.3/7.0.2.4/g" Gemfile > /tmp/g && mv /tmp/g Gemfile
 
-sed -e "s/7.0.2.4/7.0.3/g" Gemfile > /tmp/g && mv /tmp/g Gemfile
+#sed -e "s/7.0.2.4/7.0.3/g" Gemfile > /tmp/g && mv /tmp/g Gemfile
+
+sed -e "s/7.0.3/7.0.3.1/g" Gemfile > /tmp/g && mv /tmp/g Gemfile
 
 git diff
 cd ..
