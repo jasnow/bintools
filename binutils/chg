@@ -179,5 +179,6 @@
 
 sed -e "s/haml/haml, '6.0.0.beta.1'/g" Gemfile > /tmp/g && mv /tmp/g Gemfile
 
+sed -e "s/7.0.3.1/7.0.4/g" Gemfile > /tmp/g && mv /tmp/g Gemfile
 git diff
 cd ..

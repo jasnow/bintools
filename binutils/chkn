@@ -268,7 +268,7 @@ egrep "6.1.0.rc2|4.0.0.beta3|gem 'rails', '6.0.2.1'|net-smtp" Gemfile
 
 linenum ${LINENO} 28
 
-egrep "7.0.2|6.1.4" Gemfile |egrep -v "7.0.2.4|6.1.5.1"
+egrep "7.0.3|6.1.7" Gemfile |egrep -v "7.0.2.4|6.1.5.1"
 
 if [ "X`basename $PWD |grep "_6" |wc -l |awk '{ print $1 }'`X" = "X0X" ]; then
     # 12/4/2020: To upgrade repos to 6.1.x
