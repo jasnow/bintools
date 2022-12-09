@@ -4,11 +4,10 @@
 curl -s \
   -H 'Content-Type: application/json' \
   -H 'authorization: d76f089b9427438845a45ee4ac2665882b7838df555292f0bb70746a6695efc1' \
-  'https://discord.com/api/v9/users/@me/guilds'
-
+  'https://discord.com/api/v9/users/@me/guilds' \
+| jq 
 exit
-echo \
-| jq |grep '"name":' > /tmp/$$_1 
+#|grep '"name":' > /tmp/$$_1 
 #|sort -n > /tmp/$$_1
 
 if [ "X$1X" == "XX" ] ; then
