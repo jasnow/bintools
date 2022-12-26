@@ -191,7 +191,6 @@
 
 sed -e "s/3.2.0-preview3/3.2.0/g" -e "s,ruby3.1,ruby3.2," .rvmrc > /tmp/g && mv /tmp/g .rvmrc
 sed -e "s/3.2.0.preview3/3.2.0/g" Gemfile > /tmp/g && mv /tmp/g Gemfile
-git grep "3.[2]"
 
 git diff
 cd ..
