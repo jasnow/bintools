@@ -90,7 +90,7 @@ sed -e "s,#.*,," Gemfile Gemfile.r* *gemspec 2> /dev/null | egrep "git" \
 | egrep -v "'https://github.com/rails/rails'|^  s.|bradphelan/jasminerice" \
 | egrep -v "'github-markup'|3-0-lts|And:|git ls-files|'arel'" \
 | egrep -v "sqlite3, git, ruby, heroku, travis, xcode|git_source" \
-| egrep -v "'coffee-rails', git:|'jbuilder', git:"
+| egrep -v "'coffee-rails', git:|'jbuilder', git:|rubocop-github"
 linenum ${LINENO} 2b
 
 rvm list | grep "^=" | egrep -v "2.2.10|2.3.8|2.4.10|2.5.8 |2.6.6|2.7.2|3.0.3|3.2.0"
