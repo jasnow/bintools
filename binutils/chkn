@@ -260,7 +260,7 @@ git grep "# config.force_ssl"
 
 linenum ${LINENO} 26
 
-git grep preview[0-9] |grep -v preview3 # TEMP
+git grep preview[0-9] |egrep -v "gems/|rubies/|preview3" # TEMP
 
 linenum ${LINENO} 27
 
@@ -268,11 +268,13 @@ egrep "6.1.0.rc2|4.0.0.beta3|gem 'rails', '6.0.2.1'|net-smtp" Gemfile
 
 linenum ${LINENO} 28
 
-egrep "7.0.3|6.1.7" Gemfile |egrep -v "7.0.2.4|6.1.5.1"
+egrep "7.0.3|6.1.7" Gemfile |egrep -v "7.0.2.4|6.1.5.1|rubies/|gems/"
+
+linenum ${LINENO} 29
 
 if [ "X`basename $PWD |grep "_6" |wc -l |awk '{ print $1 }'`X" = "X0X" ]; then
     # 12/4/2020: To upgrade repos to 6.1.x
-    PATNS="data/|plugins/|lib/|spec/|config/|sorbet|lock|db/|log/|fonts/|public/|app/|demo.gif|example/"
+    PATNS="data/|rubies/|gems/|plugins/|lib/|spec/|config/|sorbet|lock|db/|log/|fonts/|public/|app/|demo.gif|example/"
     if [ "X`git grep -l 6\.0\.3 |egrep -v ${PATNS} |wc -l |awk '{ print $1 }'`X" = "X0X" ]
     then
         :
