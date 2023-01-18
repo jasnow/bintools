@@ -1,0 +1,9 @@
+#cd /home/t530-dev/Projects
+#for i in `ls */Gemfile */*gemspec |sed -e "s,/Gemfile,," -e "s,/.*gemspec,,"` ; do
+#    cd $HOME/Projects/$i
+#    echo "- $i ---------------------------------------------------------------------"
+
+    bundle outdated \
+    | egrep -v "Fetching gem metadata|Resolving dependencies|Requested|^$"
+
+#done
