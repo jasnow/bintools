@@ -88,6 +88,7 @@ linenum ${LINENO} 2
 sed -e "s,#.*,," Gemfile Gemfile.r* *gemspec 2> /dev/null | egrep "git" \
 | egrep -v "^  gem\.|', [ ]*github: '|omniauth-github|github_api" \
 | egrep -v "'https://github.com/rails/rails'|^  s.|bradphelan/jasminerice" \
+| egrep -v '"https://github.com/rails/rails"' \
 | egrep -v "'github-markup'|3-0-lts|And:|git ls-files|'arel'" \
 | egrep -v "sqlite3, git, ruby, heroku, travis, xcode|git_source" \
 | egrep -v "'coffee-rails', git:|'jbuilder', git:|rubocop-github"
@@ -137,7 +138,8 @@ git grep -E "2\.2\.[012]|2\.1\.[0-6]|2\.3\.0| 2\.2\.4" \
 | egrep -v "lib/gemsurance/templates/output.html.erb|rainbow|yarn.lock" \
 | egrep -v "test/unit/vulnerability_test.rb|add_runtime_dependency" \
 | egrep -v "deprecation_tracker.md|5.2.2.1|2.2.10|zeitwerk \(2.1.6\)" \
-| egrep -v "rdiscount|2.2.4|package-lock.json|with_model"
+| egrep -v "rdiscount|2.2.4|package-lock.json|with_model" \
+| egrep -v "|^data/|^modules/|^spec/lib|^external/source|^lib/"
 linenum ${LINENO} 10
 
 git grep "[65].0.0.beta[0-9]|gems/|rubies/ruby/"
@@ -175,7 +177,7 @@ git grep -lE "2\.2.5|2\.3.[21]" \
 | egrep -v "lib/ruby_dep/|spec/lib/ruby_dep/|CONTRIBUTING.md|yarn.lock" \
 | egrep -v "lib/components/jquery/|public/_components/jquery/|data/words.txt" \
 | egrep -v "6.1.0.alpha|5.2.2.1|5.1.6.2|5.0.7.2|4.2.11.1|sorbet/rbi/gems|rails.svg" \
-| egrep -v "package-lock.json"
+| egrep -v "package-lock.json|data/snmp/|documentation/|modules/|data/|spec/"
 linenum ${LINENO} 16
 
 grep "5.0.1.rc1|5.1.3.rc[12]|5.1.5.rc1" Gemfile 2> /dev/null
@@ -274,7 +276,8 @@ linenum ${LINENO} 29
 
 if [ "X`basename $PWD |grep "_6" |wc -l |awk '{ print $1 }'`X" = "X0X" ]; then
     # 12/4/2020: To upgrade repos to 6.1.x
-    PATNS="data/|rubies/|gems/|plugins/|lib/|spec/|config/|sorbet|lock|db/|log/|fonts/|public/|app/|demo.gif|example/"
+    PATNS="data/|rubies/|gems/|plugins/|lib/|spec/|config/|sorbet|lock|db/|log/|fonts/|public/|app/|demo.gif|example/|modules/|scripts|tools/|external/source|documentation/"
+
     if [ "X`git grep -l 6\.0\.3 |egrep -v ${PATNS} |wc -l |awk '{ print $1 }'`X" = "X0X" ]
     then
         :
@@ -334,3 +337,4 @@ exit
 
 # http://rails-bestpractices.com/posts/808-use-time-zone-now-instead-of-time-now
 # 4/3/2015: TURNED OFF: git grep "Time\.now" 
+

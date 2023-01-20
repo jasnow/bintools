@@ -1,0 +1,12 @@
+if [ "X`grep standard Gemfile |wc -l |awk '{ print $1 }'`X" == "X0X" ]; then
+    if [ "X$1X" == "XokX" ] ; then  
+        : # OK
+    else
+        echo "No 'standard' gem in Gemfile file."
+        echo "> Add this to Gemfile:" 
+        echo '>    gem "standard", group: [:development, :test]'
+        echo "> Run 'bundle exec standardrb'"
+        echo "> Maybe run this: 'bundle exec standardrb --fix'"
+        exit
+    fi
+fi
