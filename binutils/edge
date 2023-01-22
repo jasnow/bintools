@@ -7,7 +7,7 @@ PROJECTS="${PROJECTS}|Practice-Git-with-Railsedge|tic-tac-toe-edge"
 PROJECTS="${PROJECTS}|toy_appedge|sprt_edge|setler"
 
 # 11/27/2019: Added SOR "green" edge repos.
-PROJECTS="${PROJECTS}|rails_app6n2_7|rails_app6edge|rails_app6n2_7p2"
+PROJECTS="${PROJECTS}|rails_app_n|rails_app_edge|rails_app_n_p2"
 
 # 8/20/2019: Hid these for now.
 #PROJECTS="${PROJECTS}|testing-app|rails-uptodate"
