@@ -26,7 +26,7 @@ else
         echo "Add to do-pull-request-first.txt file, then run git pull." ; exit
     else
         echo "Running pre-git-pull..."
-        git pull parent master
+        git pull parent main
     fi
 fi    
 

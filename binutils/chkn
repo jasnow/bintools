@@ -14,10 +14,14 @@ else
             if [ "X`git branch |grep "^\*" |awk '{ print $2 }'`X" == "Xgh-pagesX" ] ; then
                 : # okay
             else
-                if [ "X$1X" == "XX" ] ; then
-                    echo "git branch: Not on 'master' branch"
-                    git branch
-                    exit
+                if [ "X`git branch |grep "^\*" |awk '{ print $2 }'`X" == "XmainX" ] ; then
+                    : # okay
+                else
+                    if [ "X$1X" == "XX" ] ; then
+                        echo "git branch: Not on 'main' branch"
+                        git branch
+                        exit
+                    fi
                 fi
             fi
         fi
@@ -61,7 +65,7 @@ then
         echo "No Licenses"
         git grep -iI --no-index license \
         | egrep -v "bootstrap.css|^coverage|vendor/assets/bower_components" \
-        | egrep -v "tmp/cache|spec/coverage|config|js|sorbet/rbi/hidden-def"
+        | egrep -v "tmp/cache|spec/coverage|config|js|sorbet/rbi/hidden-def|pnpm-lock.yaml"
 #        exit
     fi
 fi
@@ -79,7 +83,7 @@ sed -e "s,#.*,," Gemfile Gemfile.r* *gemspec 2> /dev/null | grep "[0-9]" \
 | egrep -v "'rails_admin-i18n'|.name|ruby_[12]|^  spec|split" \
 | egrep -v "sqlite3, git, ruby, heroku, travis, xcode|s.date|gem\(" \
 | egrep -v "File::ALT_SEPARATOR|mingw32|s.add_runtime_dependency" \
-| egrep -v "'omniauth-google-oauth2'|'jquery-ui-rails'|'i18n-spec'" \
+| egrep -v "'omniauth-google-oauth2'|'jquery-ui-rails'|'i18n-spec'|oauth2" \
 | egrep -v ".add_development_dependency|'sdoc', '1.0.0.rc3'|ruby '2.[567].[0123]'" \
 | egrep -v "2.3.8|2.4.10|2.5.8|2.6.6|2.7.7|3.2.0|3.0.3|7.0.4.1|sqlite3|platforms:"
 linenum ${LINENO} 2
@@ -177,7 +181,8 @@ git grep -lE "2\.2.5|2\.3.[21]" \
 | egrep -v "lib/ruby_dep/|spec/lib/ruby_dep/|CONTRIBUTING.md|yarn.lock" \
 | egrep -v "lib/components/jquery/|public/_components/jquery/|data/words.txt" \
 | egrep -v "6.1.0.alpha|5.2.2.1|5.1.6.2|5.0.7.2|4.2.11.1|sorbet/rbi/gems|rails.svg" \
-| egrep -v "package-lock.json|data/snmp/|documentation/|modules/|data/|spec/"
+| egrep -v "package-lock.json|data/snmp/|documentation/|modules/|data/|spec/|spektr" \
+| egrep -v "pnpm-lock.yaml"
 linenum ${LINENO} 16
 
 grep "5.0.1.rc1|5.1.3.rc[12]|5.1.5.rc1" Gemfile 2> /dev/null
