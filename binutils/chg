@@ -192,6 +192,8 @@
 #sed -e "s/3.2.0-preview3/3.2.0/g" -e "s,ruby3.1,ruby3.2," .rvmrc > /tmp/g && mv /tmp/g .rvmrc
 #sed -e "s/3.2.0.preview3/3.2.0/g" Gemfile > /tmp/g && mv /tmp/g Gemfile
 
-sed -e "s/7.0.4/7.0.4.1/g" Gemfile > /tmp/g && mv /tmp/g Gemfile
+#sed -e "s/7.0.4/7.0.4.1/g" Gemfile > /tmp/g && mv /tmp/g Gemfile
+
+sed -e "s/7.0.4.1/7.0.4.2/g" Gemfile > /tmp/g && mv /tmp/g Gemfile
 git diff
 cd ..
