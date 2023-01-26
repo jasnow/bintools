@@ -85,7 +85,7 @@ sed -e "s,#.*,," Gemfile Gemfile.r* *gemspec 2> /dev/null | grep "[0-9]" \
 | egrep -v "File::ALT_SEPARATOR|mingw32|s.add_runtime_dependency" \
 | egrep -v "'omniauth-google-oauth2'|'jquery-ui-rails'|'i18n-spec'|oauth2" \
 | egrep -v ".add_development_dependency|'sdoc', '1.0.0.rc3'|ruby '2.[567].[0123]'" \
-| egrep -v "2.3.8|2.4.10|2.5.8|2.6.6|2.7.7|3.2.0|3.0.3|7.0.4.2|sqlite3|platforms:"
+| egrep -v "2.3.8|2.4.10|2.5.8|2.6.6|2.7.7|3.2.0|3.0.3|7.0.4.2|sqlite3|platforms:|6.1.7.2"
 linenum ${LINENO} 2
 
 # FYI: Change 'git:' to 'github:' lines.
@@ -276,7 +276,7 @@ egrep "6.1.0.rc2|4.0.0.beta3|gem 'rails', '6.0.2.1'" Gemfile
 
 linenum ${LINENO} 28
 
-egrep "7.0.3|6.1.7" Gemfile |egrep -v "7.0.3.1|6.1.7.1|rubies/|gems/"
+egrep "7.0.3|6.1.7" Gemfile |egrep -v "7.0.3.1|6.1.7.2|rubies/|gems/"
 
 linenum ${LINENO} 29
 
