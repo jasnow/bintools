@@ -15,6 +15,10 @@ for i in `ls -1 */Gemfile */*gemspec |fgrep -v -f /tmp/$$_IGNORED` ; do
     if [ "X"${COUNT}"X" == "X0X" ] ; then
         echo "- $i ------------------------------"
         echo "No Standard gem: ${COUNT}"
+    else
+        echo "- $i ------------------------------"
+        cd $HOME/Projects/`dirname $i`
+        rake standard
     fi
 done
 

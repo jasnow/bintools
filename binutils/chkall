@@ -1,0 +1,24 @@
+cd /home/t530-dev/Projects
+
+awk '{ print $1 }' << EOF > /tmp/$$_IGNORED 
+empty32 NoGems/OK
+password_strength/password_strength.gemspec ExtraGemfile/OK
+DVGM NotMineRepo/OK
+metasploit-framework NotMineRepo/OK
+ruby-advisory-db NotMineRepo/OK
+show-me-the-food Problem/PROBLEM
+rails-uptodate/Gemfile Problem/PROBLEM
+EOF
+
+DIRS=`ls -1 $HOME/Projects/*/Gemfile $HOME/Projects/*/*gemspec |fgrep -v -f /tmp/$$_IGNORED`
+
+for i in ${DIRS} ; do
+    cd `dirname $i`
+    echo "- $i -standardrb-----------------------------"
+#    standardrb
+    rubocop
+done
+rm -rf /tmp/$$_IGNORED 
+######################################################################
+#for i in 
+#    COUNT=`grep standard $i 2> /dev/null |wc -l |awk '{ print $1 }'`
