@@ -306,8 +306,20 @@ else
     echo "Add ruby_audit to Gemfile"
 fi
 
+linenum ${LINENO} 32
+if [ "X`grep spektr Gemfile |wc -l |awk '{ print $1 }'`X" = "X1X" ]; then
+    CNT=`bundle exec spektr 2>&1 |egrep -c "Name"`
+    if [ "X${CNT}X" == "X0X" ] ; then
+        :
+    else
+        echo "spektr: ${CNT}"
+    fi
+else
+    echo "Add spektr to Gemfile"
+fi
+
 # 1/17/2023: Commented out - too noisy
-#linenum ${LINENO} 32
+#linenum ${LINENO} 33
 #Check with "bundle outdated"
 
 exit

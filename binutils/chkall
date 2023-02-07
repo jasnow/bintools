@@ -14,9 +14,14 @@ DIRS=`ls -1 $HOME/Projects/*/Gemfile $HOME/Projects/*/*gemspec |fgrep -v -f /tmp
 
 for i in ${DIRS} ; do
     cd `dirname $i`
-    echo "- $i -standardrb-----------------------------"
+    CMDN="spektr" 
+    echo "- $i -${CNDM}-----------------------------"
 #    standardrb
-    rubocop
+#    rubocop
+    gem install ${CMDN} -no-ri -no-rdoc
+
+    bundle exec ${CMDN}
+exit
 done
 rm -rf /tmp/$$_IGNORED 
 ######################################################################
