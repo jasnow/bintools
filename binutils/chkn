@@ -82,10 +82,10 @@ sed -e "s,#.*,," Gemfile Gemfile.r* *gemspec 2> /dev/null | grep "[0-9]" \
 | egrep -v "'draper', '~> 3.0.0.pre1'|'i18n-tasks'|.version|aws-sdk-s3" \
 | egrep -v "'rails_admin-i18n'|.name|ruby_[12]|^  spec|split" \
 | egrep -v "sqlite3, git, ruby, heroku, travis, xcode|s.date|gem\(" \
-| egrep -v "File::ALT_SEPARATOR|mingw32|s.add_runtime_dependency" \
+| egrep -v "File::ALT_SEPARATOR|mingw32|s.add_runtime_dependency|gmaps4rails" \
 | egrep -v "'omniauth-google-oauth2'|'jquery-ui-rails'|'i18n-spec'|oauth2" \
 | egrep -v ".add_development_dependency|'sdoc', '1.0.0.rc3'|ruby '2.[567].[0123]'" \
-| egrep -v "2.3.8|2.4.10|2.5.8|2.6.6|2.7.7|3.2.0|3.0.3|7.0.4.2|sqlite3|platforms:|6.1.7.2"
+| egrep -v "2.3.8|2.4.10|2.5.8|2.6.6|2.7.7|3.2.1|3.0.3|7.0.4.2|sqlite3|platforms:|6.1.7.2"
 linenum ${LINENO} 2
 
 # FYI: Change 'git:' to 'github:' lines.
@@ -100,7 +100,7 @@ sed -e "s,#.*,," Gemfile Gemfile.r* *gemspec 2> /dev/null | egrep "git" \
 
 linenum ${LINENO} 2b
 
-rvm list | grep "^=" | egrep -v "2.2.10|2.3.8|2.4.10|2.5.8 |2.6.6|2.7.7|3.0.3|3.2.0"
+rvm list | grep "^=" | egrep -v "2.2.10|2.3.8|2.4.10|2.5.8 |2.6.6|2.7.7|3.0.3|3.2.1"
 linenum ${LINENO} 3
 
 if [ "X$1X" == "XnX" ] ; then  
@@ -192,7 +192,7 @@ linenum ${LINENO} 17
 
 egrep "5.2|2.4.0-preview3|2.3.3|2.6.0-rc|preview" .rvmrc .ruby-version 2>&1 \
 | egrep -v "railscasts_logo|No such file or directory|2.7-rails5.2" \
-| egrep -v "2.7.0-preview3|2.4.10|2.5.8|2.6.6|3.2.0"
+| egrep -v "2.7.0-preview3|2.4.10|2.5.8|2.6.6|3.2.1"
 
 if [ "X$1X" == "XnX" ] ; then  
     # Skip .travis.yml checks.
@@ -238,7 +238,7 @@ else
     sed -e "s,^[ ]*,," .travis.yml \
     | grep "[0-9]\.[0-9]\.[0-9]" \
     | egrep -v "2.3.8|2.2.10|2.1.10|1.9.3|1.8.7|2.7.2|2.5.8|2.4.10|2.6.6" \
-    | egrep -v "9.1.17.0|9.2.7.1|1.17.2|2.0.0|2.7.7|3.0.3|3.2.0" \
+    | egrep -v "9.1.17.0|9.2.7.1|1.17.2|2.0.0|2.7.7|3.0.3|3.2.1" \
     | egrep -v "phantomjs|DISPLAY" \
     | sort |uniq -c
 
@@ -296,9 +296,6 @@ if [ "X`basename $PWD |grep "_6" |wc -l |awk '{ print $1 }'`X" = "X0X" ]; then
 fi
 
 linenum ${LINENO} 30
-bundle exec standardrb
-
-linenum ${LINENO} 31
 if [ "X`grep ruby_audit Gemfile |wc -l |awk '{ print $1 }'`X" = "X1X" ]; then
 
     bundle exec ruby-audit -n 2>&1 |grep -v "No vulnerabilities found"
@@ -306,7 +303,7 @@ else
     echo "Add ruby_audit to Gemfile"
 fi
 
-linenum ${LINENO} 32
+linenum ${LINENO} 31
 if [ "X`grep spektr Gemfile |wc -l |awk '{ print $1 }'`X" = "X1X" ]; then
     CNT=`bundle exec spektr 2>&1 |egrep -c "Name"`
     if [ "X${CNT}X" == "X0X" ] ; then
@@ -318,8 +315,18 @@ else
     echo "Add spektr to Gemfile"
 fi
 
+if [ "X$1X" == "XoX" ] ; then  
+    :
+else
+    linenum ${LINENO} 32 " " $1
+    $HOME/Projects/gocode/bin/osv-scanner -r . |egrep -v "Scanned|Scanning"
+fi
+
+#linenum ${LINENO} 3x
+#bundle exec standardrb (2/8/2023: Dropped
+
 # 1/17/2023: Commented out - too noisy
-#linenum ${LINENO} 33
+#linenum ${LINENO} 3x
 #Check with "bundle outdated"
 
 exit

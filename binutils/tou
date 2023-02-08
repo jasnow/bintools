@@ -1,4 +1,4 @@
-for i in do-pull-request-first.txt NO NEW VERY-OLD GENERAL gocode ; do
+for i in do-pull-request-first.txt NO NEW VERY-OLD GENERAL gocode adrenaline ; do
     touch $HOME/Projects/$i
 done
 mv *~ .*~ \#*\# libpeerconnection.log /Users/macbookpro/X 2> /dev/null
