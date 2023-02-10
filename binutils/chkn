@@ -1,5 +1,5 @@
 function linenum {
-echo "LINE" $2 $1
+    echo "LINE" $2 $1 $3
 } 
 
 if [ "X`git branch |grep "^\*" |awk '{ print $2 }'`X" == "XmasterX" ] ; then
@@ -66,11 +66,12 @@ then
         git grep -iI --no-index license \
         | egrep -v "bootstrap.css|^coverage|vendor/assets/bower_components|public/|app/assets" \
         | egrep -v "tmp/cache|spec/coverage|config|js|sorbet/rbi/hidden-def|pnpm-lock.yaml"
-#        exit
+#       exit
     fi
 fi
 ######################################################################
-linenum ${LINENO} 1
+
+linenum ${LINENO} 1a "Gemfile's"
 sed -e "s,#.*,," Gemfile Gemfile.r* *gemspec 2> /dev/null | grep "[0-9]" \
 | egrep -v "'sqlite3'|gem 'rails'|^ruby '2.3.5|^ruby '2.4.3'|'hassle3'" \
 | egrep -v "rails_12factor|'rails4_upgrade'|platforms:[ ]*\[:mri_21\]" \
@@ -86,9 +87,9 @@ sed -e "s,#.*,," Gemfile Gemfile.r* *gemspec 2> /dev/null | grep "[0-9]" \
 | egrep -v "'omniauth-google-oauth2'|'jquery-ui-rails'|'i18n-spec'|oauth2" \
 | egrep -v ".add_development_dependency|'sdoc', '1.0.0.rc3'|ruby '2.[567].[0123]'" \
 | egrep -v "2.3.8|2.4.10|2.5.8|2.6.6|2.7.7|3.2.1|3.0.3|7.0.4.2|sqlite3|platforms:|6.1.7.2"
-linenum ${LINENO} 2
 
-# FYI: Change 'git:' to 'github:' lines.
+linenum ${LINENO} 1b "Gemfile's"
+# FYI: Changed 'git:' to 'github:' lines.
 sed -e "s,#.*,," Gemfile Gemfile.r* *gemspec 2> /dev/null | egrep "git" \
 | egrep -v "^  gem\.|', [ ]*github: '|omniauth-github|github_api" \
 | egrep -v "'https://github.com/rails/rails'|^  s.|bradphelan/jasminerice" \
@@ -98,11 +99,71 @@ sed -e "s,#.*,," Gemfile Gemfile.r* *gemspec 2> /dev/null | egrep "git" \
 | egrep -v "'coffee-rails', git:|'jbuilder', git:|rubocop-github" \
 | egrep -v '^  "https://github.com/'
 
-linenum ${LINENO} 2b
+linenum ${LINENO} 1c "Gemfile's"
+cat Gemfile Gemfile.r* *gemspec 2> /dev/null | grep "rubygems." \
+| egrep -v "https://rubygems.org|^#|.required_rubygems_version"
 
+linenum ${LINENO} 1d "Gemfile's"
+cat Gemfile Gemfile.r* *gemspec 2> /dev/null | sed -e "s,#.*,," \
+| egrep "4.[12]" | egrep -v "^#|4.2.11|'>=2.3', '<= 4.1'|'4.1.16'" \
+| egrep -v "'slop', '4.1.0'|ruby '2.4.2'|gem.version|add_dependency" \
+| egrep -v "add_development_dependency|5.2.4.2|7.0.4.2"
+
+linenum ${LINENO} 1e "Gemfile's"
+#Need 5.0.0.beta1.1, 4.2.5.1, 4.1.14.1, 3.2.22.1#
+egrep "2.1.4|3.2.19|3.2.2[012]'|4.0.1[012]|4.1.[45678]|4.2.[0-5]|5.1.0.rc1|5.2.3|5.2.1.rc1" \
+Gemfile Gemfile.r* *gemspec 2> /dev/null |egrep -v "4.2.11|5.2.2.1"
+
+linenum ${LINENO} 1f "Gemfile's"
+egrep "5.2.1.1|5.2.0|5.2.0.rc1|'5.0.0'|'4.2.7'|'3.2.22.[1234]'|5.1.0.rc[12]|5.1.3.rc[12]|5.1.3|5.2.2" Gemfile |egrep -v "5.2.2.1" 
+
+linenum ${LINENO} 1g "Gemfile's"
+grep "github:" Gemfile |egrep -v "'acts-as-taggable-on'|instead"
+
+linenum ${LINENO} 1h "Gemfile's"
+grep "5.0.1.rc1|5.1.3.rc[12]|5.1.5.rc1" Gemfile 2> /dev/null
+
+linenum ${LINENO} 1i "Gemfile's"
+# 4/1/2019: Old Rails versions will not be fixed so must LOCK DOWN"
+grep "'sqlite3', '1.3.13'" Gemfile |egrep -v "2/7/2019: LOCKED DOWN"
+
+linenum ${LINENO} 1j "Gemfile's"
+egrep "coffee-rails" Gemfile |grep github
+#WHY?: egrep beta3 Gemfile
+
+linenum ${LINENO} 1k "Gemfile's"
+# 1/25/2023: Removed "net-smtp". 
+egrep "6.1.0.rc2|4.0.0.beta3|gem 'rails', '6.0.2.1'" Gemfile
+
+linenum ${LINENO} 1l "Gemfile's"
+egrep "7.0.3|6.1.7" Gemfile |egrep -v "7.0.3.1|6.1.7.2|rubies/|gems/"
+
+######################################################################
+
+linenum ${LINENO} 99a "gemspec's"
+# Carry gem numbers in gemspec files.
+grep "[0-9]\.[0-9]" *gemspec 2> /dev/null \
+| egrep -v ".add_development_dependency|.version|.license" \
+| egrep -v ".required_ruby_version|.add_dependency|raise " \
+| egrep -v "if RUBY_VERSION|.add_runtime_dependency"
+
+linenum ${LINENO} 99b "gemset's"
+# Use only gemsets that are equal to ruby versions (a few exceptions).
+rvm list gemsets |grep "=>" | egrep -v "\[ i686 \]|\[ x86_64 \]"
+
+######################################################################
+
+linenum ${LINENO} 2a "rvm list"
 rvm list | grep "^=" | egrep -v "2.2.10|2.3.8|2.4.10|2.5.8 |2.6.6|2.7.7|3.0.3|3.2.1"
-linenum ${LINENO} 3
 
+linenum ${LINENO} 2b ".rvmrc's, .ruby-version's"
+egrep "5.2|2.4.0-preview3|2.3.3|2.6.0-rc|preview" .rvmrc .ruby-version 2>&1 \
+| egrep -v "railscasts_logo|No such file or directory|2.7-rails5.2" \
+| egrep -v "2.7.0-preview3|2.4.10|2.5.8|2.6.6|3.2.1"
+
+######################################################################
+
+linenum ${LINENO} 3a ".travis.yml's"
 if [ "X$1X" == "XnX" ] ; then  
     # Skip .travis.yml checks.
     : # OK
@@ -110,30 +171,53 @@ else
     egrep "2.1.[0-6]|2.2.[0-4]" .travis.yml | egrep -v "'2.1.1'|phantomjs-2.1.1" \
     | egrep -v 'source "https://rubygems.org"|2.1.0|2.1.10|2.2.10'
 fi
-linenum ${LINENO} 4
 
-cat Gemfile Gemfile.r* *gemspec 2> /dev/null | grep "rubygems." \
-| egrep -v "https://rubygems.org|^#|.required_rubygems_version"
-linenum ${LINENO} 5
+linenum ${LINENO} 3b ".travis.yml's"
+if [ "X$1X" == "XnX" ] ; then  
+    # Skip .travis.yml checks.
+    : # OK
+else
+    egrep "5.2|2.4.0-preview3|2.3.3|2.6.0-rc|preview" .travis.yml 2>&1 \
+    | egrep -v "railscasts_logo|No such file or directory|2.7-rails5.2" \
+    | egrep -v "2.7.0-preview3"
+fi
 
-cat Gemfile Gemfile.r* *gemspec 2> /dev/null | sed -e "s,#.*,," \
-| egrep "4.[12]" | egrep -v "^#|4.2.11|'>=2.3', '<= 4.1'|'4.1.16'" \
-| egrep -v "'slop', '4.1.0'|ruby '2.4.2'|gem.version|add_dependency" \
-| egrep -v "add_development_dependency|5.2.4.2|7.0.4.2"
-linenum ${LINENO} 6
+if [ "X$1X" == "XnX" ] ; then  
+    # Skip .travis.yml checks.
+    : # OK
+else
+    linenum ${LINENO} 3c ".travis.yml's"
+    egrep "2.2.[0-6]|2.2.10|2.3.3" .travis.yml 2> /dev/null \
+    | egrep -v "railscasts_logo|temp fix|'5.2.2.1'" | egrep -v '"5.2.2.1"|2.2.10'
 
-#Need 5.0.0.beta1.1, 4.2.5.1, 4.1.14.1, 3.2.22.1#
-egrep "2.1.4|3.2.19|3.2.2[012]'|4.0.1[012]|4.1.[45678]|4.2.[0-5]|5.1.0.rc1|5.2.3|5.2.1.rc1" \
-Gemfile Gemfile.r* *gemspec 2> /dev/null |egrep -v "4.2.11|5.2.2.1"
-linenum ${LINENO} 7
+    linenum ${LINENO} 3d ".travis.yml's"
+    egrep "2.2.8|2.3.5|2.4.2|preview" .travis.yml | egrep -v "2.7.0-preview3"
+fi
 
-# Use only gemsets that are equal to ruby versions (a few exceptions).
-rvm list gemsets |grep "=>" | egrep -v "\[ i686 \]|\[ x86_64 \]"
-linenum ${LINENO} 8
+linenum ${LINENO} 3e ".travis.yml's"
+if [ "X$1X" == "XnX" ] ; then  
+    # Skip .travis.yml checks.
+    : # OK
+else
+    # OLD ruby or jruby versions
+    grep "1.15.3|2.0.0|9.2.6.0|1.9.2|2.2.9|2.3.[67]|2.4.[3456]" .travis.yml
+    grep "2.5.[0-6]|2.6.[0-4]|2.7.2"  .travis.yml
 
-#git grep preview2 | egrep -v "yml:|2.7.0-preview1"
-linenum ${LINENO} 9
+    linenum ${LINENO} 3f ".travis.yml's"
+    sed -e "s,^[ ]*,," .travis.yml \
+    | grep "[0-9]\.[0-9]\.[0-9]" \
+    | egrep -v "2.3.8|2.2.10|2.1.10|1.9.3|1.8.7|2.7.2|2.5.8|2.4.10|2.6.6" \
+    | egrep -v "9.1.17.0|9.2.7.1|1.17.2|2.0.0|2.7.7|3.0.3|3.2.1" \
+    | egrep -v "phantomjs|DISPLAY" \
+    | sort |uniq -c
 
+    linenum ${LINENO} 3g ".travis.yml's"
+    grep "sudo: false" .travis.yml
+fi
+
+######################################################################
+
+linenum ${LINENO} 4 "Hard-coded numbers"
 git grep -E "2\.2\.[012]|2\.1\.[0-6]|2\.3\.0| 2\.2\.4" \
 | egrep -v "2.[123].0\)|2.[12].[0-5]\)|vendor/|2.2.0.1|v2.2.2|'2.1.2'" \
 | egrep -v "2.2.20|2.2.19|2.[0-2].[02]$|2.2.1$|public/assets|jpg|## " \
@@ -146,33 +230,28 @@ git grep -E "2\.2\.[012]|2\.1\.[0-6]|2\.3\.0| 2\.2\.4" \
 | egrep -v "deprecation_tracker.md|5.2.2.1|2.2.10|zeitwerk \(2.1.6\)" \
 | egrep -v "rdiscount|2.2.4|package-lock.json|with_model" \
 | egrep -v "|^data/|^modules/|^spec/lib|^external/source|^lib/"
-linenum ${LINENO} 10
-
-git grep "[65].0.0.beta[0-9]|gems/|rubies/ruby/"
-linenum ${LINENO} 11
-
-egrep "5.2.1.1|5.2.0|5.2.0.rc1|'5.0.0'|'4.2.7'|'3.2.22.[1234]'|5.1.0.rc[12]|5.1.3.rc[12]|5.1.3|5.2.2" Gemfile |egrep -v "5.2.2.1" 
-linenum ${LINENO} 12
-  
-# Carry gem numbers in gemspec files.
-grep "[0-9]\.[0-9]" *gemspec 2> /dev/null \
-| egrep -v ".add_development_dependency|.version|.license" \
-| egrep -v ".required_ruby_version|.add_dependency|raise " \
-| egrep -v "if RUBY_VERSION|.add_runtime_dependency"
-linenum ${LINENO} 13
-
-grep "github:" Gemfile |egrep -v "'acts-as-taggable-on'|instead"
-linenum ${LINENO} 14
 
 ######################################################################@
 # SECURITY CHECKS
 
+linenum ${LINENO} 5a "security config"
 # 6/22/2016: Added based on brakeman and SecCast videos.
 if [ -f config/initializers ] ; then
     grep httponly config/initializers/session_store.rb | egrep -v "Railsgoat"
 fi
-linenum ${LINENO} 15
 
+linenum ${LINENO} 5b "ssl check"
+git grep "# config.force_ssl"
+
+linenum ${LINENO} 5c "config/app'n.rb"
+grep "config.autoloader = :classic" ./config/application.rb 2> /dev/null
+
+######################################################################
+
+linenum ${LINENO} 6a "number, gems, rubies"
+git grep "[65].0.0.beta[0-9]|gems/|rubies/ruby/"
+
+linenum ${LINENO} 6b "numbers"
 git grep -lE "2\.2.5|2\.3.[21]" \
 | egrep -v "Gemfile.lock|app/views|app/assets/images/fonts|public/assets/fonts" \
 | egrep -v "public/assets/application|^Gemfile|db/seed_data/|^design/" \
@@ -185,106 +264,22 @@ git grep -lE "2\.2.5|2\.3.[21]" \
 | egrep -v "6.1.0.alpha|5.2.2.1|5.1.6.2|5.0.7.2|4.2.11.1|sorbet/rbi/gems|rails.svg" \
 | egrep -v "package-lock.json|data/snmp/|documentation/|modules/|data/|spec/|spektr" \
 | egrep -v "pnpm-lock.yaml|public/"
-linenum ${LINENO} 16
 
-grep "5.0.1.rc1|5.1.3.rc[12]|5.1.5.rc1" Gemfile 2> /dev/null
-linenum ${LINENO} 17
+######################################################################
 
-egrep "5.2|2.4.0-preview3|2.3.3|2.6.0-rc|preview" .rvmrc .ruby-version 2>&1 \
-| egrep -v "railscasts_logo|No such file or directory|2.7-rails5.2" \
-| egrep -v "2.7.0-preview3|2.4.10|2.5.8|2.6.6|3.2.1"
+linenum ${LINENO} 7a "preview's"
+git grep preview[0-9] |egrep -v "gems/|rubies/|preview3|yml:|2.7.0-preview1" # TEMP
 
-if [ "X$1X" == "XnX" ] ; then  
-    # Skip .travis.yml checks.
-    : # OK
-else
-    egrep "5.2|2.4.0-preview3|2.3.3|2.6.0-rc|preview" .travis.yml 2>&1 \
-    | egrep -v "railscasts_logo|No such file or directory|2.7-rails5.2" \
-    | egrep -v "2.7.0-preview3"
-fi
-
-linenum ${LINENO} 18
-
+linenum ${LINENO} 7b ".ruby-version's, Dockerfile, Gemfile's" 
 egrep "2.2.[0-6]|2.2.10|2.3.3" .ruby-version Dockerfile R* Gemfile 2> /dev/null \
 | egrep -v "railscasts_logo|temp fix|'5.2.2.1'" | egrep -v '"5.2.2.1"|2.2.10'
 
-if [ "X$1X" == "XnX" ] ; then  
-    # Skip .travis.yml checks.
-    : # OK
-else
-    egrep "2.2.[0-6]|2.2.10|2.3.3" .travis.yml 2> /dev/null \
-    | egrep -v "railscasts_logo|temp fix|'5.2.2.1'" | egrep -v '"5.2.2.1"|2.2.10'
-    linenum ${LINENO} 19
+######################################################################
 
-    egrep "2.2.8|2.3.5|2.4.2|preview" .travis.yml | egrep -v "2.7.0-preview3"
-fi
-linenum ${LINENO} 20
-
-# 4/1/2019: Old Rails versions will not be fixed so must LOCK DOWN"
-grep "'sqlite3', '1.3.13'" Gemfile |egrep -v "2/7/2019: LOCKED DOWN"
-
-linenum ${LINENO} 21
-
-if [ "X$1X" == "XnX" ] ; then  
-    # Skip .travis.yml checks.
-    : # OK
-else
-    # OLD ruby or jruby versions
-    grep "1.15.3|2.0.0|9.2.6.0|1.9.2|2.2.9|2.3.[67]|2.4.[3456]" .travis.yml
-    grep "2.5.[0-6]|2.6.[0-4]|2.7.2"  .travis.yml
-
-    linenum ${LINENO} 22
-
-    sed -e "s,^[ ]*,," .travis.yml \
-    | grep "[0-9]\.[0-9]\.[0-9]" \
-    | egrep -v "2.3.8|2.2.10|2.1.10|1.9.3|1.8.7|2.7.2|2.5.8|2.4.10|2.6.6" \
-    | egrep -v "9.1.17.0|9.2.7.1|1.17.2|2.0.0|2.7.7|3.0.3|3.2.1" \
-    | egrep -v "phantomjs|DISPLAY" \
-    | sort |uniq -c
-
-    linenum ${LINENO} 23
-
-    grep "sudo: false" .travis.yml
-fi
-
-linenum ${LINENO} 24
-
-egrep "coffee-rails" Gemfile |grep github
-#WHY?: egrep beta3 Gemfile
-
-linenum ${LINENO} 24
-
-grep "config.autoloader = :classic" ./config/application.rb 2> /dev/null
-
-# 8/4/2019: MAYBE UNDO IT.
-# REF: https://github.com/rails/rails/commit/7cf445d3bdc466f26b4a1929822ccd34daac19a7
-# HID FOR NOW: git grep "config.action_dispatch.return_only_media_type_on_content_type"
-
-#HID: egrep -i "dalli|minitest|redis" Gemfile # TEMP
-#HID: grep Gem::Specification Gemfile *gemspec 2> /dev/null
-
-linenum ${LINENO} 25
-
-git grep "# config.force_ssl"
-
-linenum ${LINENO} 26
-
-git grep preview[0-9] |egrep -v "gems/|rubies/|preview3" # TEMP
-
-linenum ${LINENO} 27
-
-# 1/25/2023: Removed "net-smtp". 
-egrep "6.1.0.rc2|4.0.0.beta3|gem 'rails', '6.0.2.1'" Gemfile
-
-linenum ${LINENO} 28
-
-egrep "7.0.3|6.1.7" Gemfile |egrep -v "7.0.3.1|6.1.7.2|rubies/|gems/"
-
-linenum ${LINENO} 29
-
+linenum ${LINENO} 8a "Upgrading"
 if [ "X`basename $PWD |grep "_6" |wc -l |awk '{ print $1 }'`X" = "X0X" ]; then
     # 12/4/2020: To upgrade repos to 6.1.x
-    PATNS="data/|rubies/|gems/|plugins/|lib/|spec/|config/|sorbet|lock|db/|log/|fonts/|public/|app/|demo.gif|example/|modules/|scripts|tools/|external/source|documentation/"
+    PATNS="data/|rubies/|gems/|plugins/|lib/|spec/|config/|sorbet|lock|db/|log/|fonts/|public/|app/|demo.gif|example/|modules/|scripts|tools/|external/source|documentation/|docs/"
 
     if [ "X`git grep -l 6\.0\.3 |egrep -v ${PATNS} |wc -l |awk '{ print $1 }'`X" = "X0X" ]
     then
@@ -295,7 +290,9 @@ if [ "X`basename $PWD |grep "_6" |wc -l |awk '{ print $1 }'`X" = "X0X" ]; then
     fi
 fi
 
-linenum ${LINENO} 30
+######################################################################
+
+linenum ${LINENO} 9a "ruby_audit"
 if [ "X`grep ruby_audit Gemfile |wc -l |awk '{ print $1 }'`X" = "X1X" ]; then
 
     bundle exec ruby-audit -n 2>&1 |grep -v "No vulnerabilities found"
@@ -303,7 +300,9 @@ else
     echo "Add ruby_audit to Gemfile"
 fi
 
-linenum ${LINENO} 31
+######################################################################
+
+linenum ${LINENO} 10a "spektr"
 if [ "X`grep spektr Gemfile |wc -l |awk '{ print $1 }'`X" = "X1X" ]; then
     CNT=`bundle exec spektr 2>&1 |egrep -c "Name"`
     if [ "X${CNT}X" == "X0X" ] ; then
@@ -315,24 +314,35 @@ else
     echo "Add spektr to Gemfile"
 fi
 
+######################################################################
+
 if [ "X$1X" == "XoX" ] ; then  
     :
 else
-    linenum ${LINENO} 32 " " $1
+    linenum ${LINENO} 11a "osv-scanner"
     $HOME/Projects/gocode/bin/osv-scanner -r . |egrep -v "Scanned|Scanning"
 fi
 
-#linenum ${LINENO} 3x
+######################################################################
+
+#linenum ${LINENO} xa "standardrb"
 #bundle exec standardrb (2/8/2023: Dropped
 
 # 1/17/2023: Commented out - too noisy
-#linenum ${LINENO} 3x
+#linenum ${LINENO} xb "bundle outdated"
 #Check with "bundle outdated"
 
 exit
 
 #STOPHERE ############################################################
 ######################################################################
+
+# 8/4/2019: MAYBE UNDO IT.
+# REF: https://github.com/rails/rails/commit/7cf445d3bdc466f26b4a1929822ccd34daac19a7
+# HID FOR NOW: git grep "config.action_dispatch.return_only_media_type_on_content_type"
+
+#HID: egrep -i "dalli|minitest|redis" Gemfile # TEMP
+#HID: grep Gem::Specification Gemfile *gemspec 2> /dev/null
 
 # TEMP CHECK
 #egrep "coffee-rails|jbuilder" Gemfile \
