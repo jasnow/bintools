@@ -1,4 +1,4 @@
-for i in do-pull-request-first.txt NO BROKEN NEW VERY-OLD GENERAL gocode UNKNOWN ; do
+for i in do-pull-request-first.txt NO BROKEN NEW VERY-OLD NOT-HELPFUL GENERAL gocode UNKNOWN ; do
     touch $HOME/Projects/$i
 done
 mv *~ .*~ \#*\# libpeerconnection.log /Users/macbookpro/X 2> /dev/null
