@@ -1,0 +1,60 @@
+function linenum {
+    echo "LINE" $2 $1 $3
+} 
+######################################################################
+linenum ${LINENO} 8a "brakeman"
+# BRAKEMAN, RAILROADER
+if [ "X`brakeman 2>&1 |grep -c "brakeman: command not found"`X" == "X1X" ] ; then
+    echo "Installing brakeman..."
+    gem install brakeman
+else
+    : # do nothing
+fi
+
+#if [ "X`railroader -A 2>&1 |grep -c "railroader: command not found"`X" == "X1X" ] ; then
+#    echo "Installing railroader..."
+#    gem install railroader
+#else
+#    : # do nothing
+#fi
+
+brm # Run brakeman and railroader tools.
+
+######################################################################
+# RUBY_AUDIT 
+linenum ${LINENO} 9a "ruby_audit"
+if [ "X`grep ruby_audit Gemfile |wc -l |awk '{ print $1 }'`X" = "X1X" ]; then
+
+    bundle exec ruby-audit -n 2>&1 |grep -v "No vulnerabilities found"
+else
+    echo "Add ruby_audit to Gemfile"
+fi
+
+######################################################################
+#SPEKTR
+linenum ${LINENO} 10a "spektr"
+if [ "X`grep spektr Gemfile |wc -l |awk '{ print $1 }'`X" = "X1X" ]; then
+    CNT=`bundle exec spektr 2>&1 |egrep -c "Name"`
+    if [ "X${CNT}X" == "X0X" ] ; then
+        :
+    else
+        echo "spektr: ${CNT}"
+    fi
+else
+    echo "Add spektr to Gemfile"
+fi
+
+######################################################################
+#OSV-SCANNER
+if [ "X$1X" == "XoX" ] ; then  
+    :
+else
+    linenum ${LINENO} 11a "osv-scanner"
+    $HOME/Projects/gocode/bin/osv-scanner -r . |egrep -v "Scanned|Scanning"
+fi
+
+######################################################################
+#STANDARDRB
+
+#linenum ${LINENO} xa "standardrb"
+#bundle exec standardrb (2/8/2023: Dropped

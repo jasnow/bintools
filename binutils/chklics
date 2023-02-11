@@ -1,5 +1,5 @@
-IGNOREFILES="chklics|ATTIC|countrepos|do-pull|stats|GENERAL|yml$|cmp-ay|PROBLEM|cpi|cpf|diff-4-5|o_d*"
-ls -1 $HOME/Projects \
+IGNOREFILES="chklics|ATTIC|countrepos|do-pull|stats|GENERAL|yml$|cmp-ay|PROBLEM|cpi|cpf|diff-4-5|o_d*|NO|BROKEN|NOT-HELPFUL|VERY-OLD|gocode|NEW"
+ls -1 $HOME/Projects $HOME/Projects/NEW \
     $HOME/Projects/ATTIC-RAILS5-BROKEN/[0-9a-z]* 2> /dev/null \
 |egrep -v "${IGNOREFILES}" > /tmp/$$_REPOS
 

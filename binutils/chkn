@@ -65,7 +65,8 @@ then
         echo "No Licenses"
         git grep -iI --no-index license \
         | egrep -v "bootstrap.css|^coverage|vendor/assets/bower_components|public/|app/assets" \
-        | egrep -v "tmp/cache|spec/coverage|config|js|sorbet/rbi/hidden-def|pnpm-lock.yaml"
+        | egrep -v "tmp/cache|spec/coverage|config|js|sorbet/rbi/hidden-def|pnpm-lock.yaml" \
+        | egrep -v "node_modules/|yarn.lock"
 #       exit
     fi
 fi
@@ -289,48 +290,6 @@ if [ "X`basename $PWD |grep "_6" |wc -l |awk '{ print $1 }'`X" = "X0X" ]; then
         git grep -l 6.0.[0-9] |egrep -v ${PATNS}
     fi
 fi
-
-######################################################################
-
-linenum ${LINENO} 9a "ruby_audit"
-if [ "X`grep ruby_audit Gemfile |wc -l |awk '{ print $1 }'`X" = "X1X" ]; then
-
-    bundle exec ruby-audit -n 2>&1 |grep -v "No vulnerabilities found"
-else
-    echo "Add ruby_audit to Gemfile"
-fi
-
-######################################################################
-
-linenum ${LINENO} 10a "spektr"
-if [ "X`grep spektr Gemfile |wc -l |awk '{ print $1 }'`X" = "X1X" ]; then
-    CNT=`bundle exec spektr 2>&1 |egrep -c "Name"`
-    if [ "X${CNT}X" == "X0X" ] ; then
-        :
-    else
-        echo "spektr: ${CNT}"
-    fi
-else
-    echo "Add spektr to Gemfile"
-fi
-
-######################################################################
-
-if [ "X$1X" == "XoX" ] ; then  
-    :
-else
-    linenum ${LINENO} 11a "osv-scanner"
-    $HOME/Projects/gocode/bin/osv-scanner -r . |egrep -v "Scanned|Scanning"
-fi
-
-######################################################################
-
-#linenum ${LINENO} xa "standardrb"
-#bundle exec standardrb (2/8/2023: Dropped
-
-# 1/17/2023: Commented out - too noisy
-#linenum ${LINENO} xb "bundle outdated"
-#Check with "bundle outdated"
 
 exit
 

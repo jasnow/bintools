@@ -54,19 +54,21 @@ else
     : # do nothing
 fi
 
-if [ "X`brakeman 2>&1 |grep -c "brakeman: command not found"`X" == "X1X" ] ; then
-    echo "Installing brakeman..."
-    gem install brakeman
-else
-    : # do nothing
-fi
-
-if [ "X`railroader -A 2>&1 |grep -c "railroader: command not found"`X" == "X1X" ] ; then
-    echo "Installing railroader..."
-    gem install railroader
-else
-    : # do nothing
-fi
+# 2/10/2023: Moved to "runsat" script.
+#if [ "X`brakeman 2>&1 |grep -c "brakeman: command not found"`X" == "X1X" ] ; then
+#    echo "Installing brakeman..."
+#    gem install brakeman
+#else
+#    : # do nothing
+#fi
+#
+# 2/10/2023: Moved to "runsat" script.
+#if [ "X`railroader -A 2>&1 |grep -c "railroader: command not found"`X" == "X1X" ] ; then
+#    echo "Installing railroader..."
+#    gem install railroader
+#else
+#    : # do nothing
+#fi
 
 BOST="`bundle outdated --strict |tail -1`"
 if [ "X${BOST}X" == "XBundle up to date!X" ] ; then
@@ -184,8 +186,12 @@ if [ $? == 0 ] ; then
 else
     echo "bundle install EXIT STATUS != 0 (BAD) ******************************"
 fi
+
 echo "ggggggggggggggggggggggggggggggggggg"
 git gc
-echo "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
-brm # Run brakeman and railroader tools.
+
+# 2/10/2023: Moved to "runsat" script.
+#echo "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+#brm # Run brakeman and railroader tools.
+
 rm -f $HOME/.tmp/$$_GEMNAMES
