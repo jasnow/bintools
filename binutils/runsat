@@ -2,6 +2,10 @@ function linenum {
     echo "LINE" $2 $1 $3
 } 
 ######################################################################
+linenum ${LINENO} 5b "ssl check"
+git grep "# config.force_ssl"
+
+######################################################################
 linenum ${LINENO} 8a "brakeman"
 # BRAKEMAN, RAILROADER
 if [ "X`brakeman 2>&1 |grep -c "brakeman: command not found"`X" == "X1X" ] ; then

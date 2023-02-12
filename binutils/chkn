@@ -1,5 +1,9 @@
+VERBOSE=$1
+shift
 function linenum {
-    echo "LINE" $2 $1 $3
+    if [ "X${VERBOSE}X" == "X-vX" ] ; then
+       echo "LINE" $2 $1 $3
+    fi
 } 
 
 if [ "X`git branch |grep "^\*" |awk '{ print $2 }'`X" == "XmasterX" ] ; then
@@ -57,7 +61,7 @@ else
     fi
 fi
 
-if [ "X`(ls *LICENSE*  License* 2> /dev/null; grep spec.license *gemspec 2> /dev/null; grep -i license R*) |wc -l |awk '{ print $1 }'`X" == "X0X" ]
+if [ "X`(ls *LICENSE* license.txt License* 2> /dev/null; grep spec.license *gemspec 2> /dev/null; grep -i license R*) |wc -l |awk '{ print $1 }'`X" == "X0X" ]
 then
     if [ "X$1X" == "XlX" ] ; then  
         : # OK
@@ -240,9 +244,6 @@ linenum ${LINENO} 5a "security config"
 if [ -f config/initializers ] ; then
     grep httponly config/initializers/session_store.rb | egrep -v "Railsgoat"
 fi
-
-linenum ${LINENO} 5b "ssl check"
-git grep "# config.force_ssl"
 
 linenum ${LINENO} 5c "config/app'n.rb"
 grep "config.autoloader = :classic" ./config/application.rb 2> /dev/null
