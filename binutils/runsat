@@ -25,6 +25,12 @@ fi
 brm # Run brakeman and railroader tools.
 
 ######################################################################
+# BUNDLE-AUDIT
+linenum ${LINENO} 8z "bundle_audit"
+
+bundle-audit
+
+######################################################################
 # RUBY_AUDIT 
 linenum ${LINENO} 9a "ruby_audit"
 if [ "X`grep ruby_audit Gemfile |wc -l |awk '{ print $1 }'`X" = "X1X" ]; then

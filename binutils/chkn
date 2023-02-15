@@ -265,7 +265,7 @@ git grep -lE "2\.2.5|2\.3.[21]" \
 | egrep -v "lib/components/jquery/|public/_components/jquery/|data/words.txt" \
 | egrep -v "6.1.0.alpha|5.2.2.1|5.1.6.2|5.0.7.2|4.2.11.1|sorbet/rbi/gems|rails.svg" \
 | egrep -v "package-lock.json|data/snmp/|documentation/|modules/|data/|spec/|spektr" \
-| egrep -v "pnpm-lock.yaml|public/"
+| egrep -v "pnpm-lock.yaml|public/|content/images/|source/_posts/|content/docs/"
 
 ######################################################################
 
@@ -281,7 +281,7 @@ egrep "2.2.[0-6]|2.2.10|2.3.3" .ruby-version Dockerfile R* Gemfile 2> /dev/null 
 linenum ${LINENO} 8a "Upgrading"
 if [ "X`basename $PWD |grep "_6" |wc -l |awk '{ print $1 }'`X" = "X0X" ]; then
     # 12/4/2020: To upgrade repos to 6.1.x
-    PATNS="data/|rubies/|gems/|plugins/|lib/|spec/|config/|sorbet|lock|db/|log/|fonts/|public/|app/|demo.gif|example/|modules/|scripts|tools/|external/source|documentation/|docs/"
+    PATNS="data/|rubies/|gems/|plugins/|lib/|spec/|config/|sorbet|lock|db/|log/|fonts/|public/|app/|demo.gif|example/|modules/|scripts|tools/|external/source|documentation/|docs/|content/images/|content/images/|source/_posts/"
 
     if [ "X`git grep -l 6\.0\.3 |egrep -v ${PATNS} |wc -l |awk '{ print $1 }'`X" = "X0X" ]
     then
