@@ -67,10 +67,10 @@ then
         : # OK
     else
         echo "No Licenses"
-        git grep -iI --no-index license \
-        | egrep -v "bootstrap.css|^coverage|vendor/assets/bower_components|public/|app/assets" \
-        | egrep -v "tmp/cache|spec/coverage|config|js|sorbet/rbi/hidden-def|pnpm-lock.yaml" \
-        | egrep -v "node_modules/|yarn.lock"
+#        git grep -iI --no-index license \
+#        | egrep -v "bootstrap.css|^coverage|vendor/assets/bower_components|public/" \
+#        | egrep -v "tmp/cache|spec/coverage|config|js|sorbet/rbi/hidden-def|pnpm-lock.yaml" \
+#        | egrep -v "node_modules/|yarn.lock|app/assets" \"
 #       exit
     fi
 fi
