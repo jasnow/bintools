@@ -1,0 +1,15 @@
+# TO CREATE DATA: ${HOME}/bin/binutils/zapscan http://127.0.0.1:3000
+
+if [ "X$1X" == "XX" ] ; then
+    echo "Usage: $0 file"
+    exit
+fi
+
+egrep "<alert>|<count>" $1 |sed -e "s,^\t*,," \
+  -e "s,count>,," |awk -d"<" '{ print $0 }' |tee /tmp/$$_ALERTS
+echo
+
+echo "Number of alerts:" `cat $1 | grep  "<instance>" |sort |uniq -c |awk '{ print $1 }'`
+echo "Number of alert types:" `grep alert /tmp/$$_ALERTS |wc -l `
+
+rm /tmp/$$_ALERTS

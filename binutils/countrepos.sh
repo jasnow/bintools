@@ -1,4 +1,4 @@
-IGNOREFILES="chklics|ATTIC|countrepos|do-pull|stats|GENERAL|yml$|cmp-ay|o_d|cpf|cpi|diffdirs|MAYBE|NO|o_list_of_repos.txt|FUZZING-TOOLS|sorbet-FILES|SOR-RETIRED|GEMWORK|FINAL-RETIRED|NEED-PG-DB|OLD-WhatsMyName|OSINT|SOR-REPOS|SOR-TAP-RETIRED"
+IGNOREFILES="chklics|ATTIC|countrepos|do-pull|stats|GENERAL|yml$|cmp-ay|o_d|cpf|cpi|diffdirs|MAYBE|NO|o_list_of_repos.txt|FUZZING-TOOLS|sorbet-FILES|SOR-RETIRED|GEMWORK|FINAL-RETIRED|NEED-PG-DB|OLD-WhatsMyName|OSINT|SOR-REPOS|SOR-TAP-RETIRED|BROKEN|gocode|NEW|VERY-OLD"
 
 echo "Total Active Rails projects"
 ls -1 $HOME/Projects |egrep -v ${IGNOREFILES} > /tmp/$$_OUTPUT
@@ -8,7 +8,7 @@ else
     cat /tmp/$$_OUTPUT |pr -t2 -e |uniq |sed -e "s,^,    ,"
 fi
 
-echo "    Active Rails 5 projects"
+echo "    Active Rails projects"
 ls -1 $HOME/Projects |egrep -v ${IGNOREFILES} |egrep "5" > /tmp/$$_OUTPUT
 if [ "X$1X" = "XX" ] ; then
     cat /tmp/$$_OUTPUT |wc |sed -e "s,^,    ,"
@@ -17,7 +17,7 @@ else
     cat /tmp/$$_OUTPUT |pr -t2 -e |uniq |sed -e "s,^,    ,"
 fi
 
-echo "    Active NON-Rails 5 (2,3,4) projects"
+echo "    Active NON-Rails projects"
 ls -1 $HOME/Projects |egrep -v ${IGNOREFILES} |egrep -v "5" > /tmp/$$_OUTPUT
 if [ "X$1X" = "XX" ] ; then
     cat /tmp/$$_OUTPUT |wc |sed -e "s,^,    ,"
@@ -26,7 +26,7 @@ else
     cat /tmp/$$_OUTPUT |pr -t2 -e |uniq |sed -e "s,^,    ,"
 fi
 
-#echo "Broken Rails 5 and Bootstrap projects (see below)"
+#echo "Broken Rails and Bootstrap projects (see below)"
 
 echo
 echo "Both (Github and Bitbucket) projects"

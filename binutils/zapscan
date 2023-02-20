@@ -1,0 +1,9 @@
+if [ "X$1X" == "XX" ] ; then
+    echo "Usage: zapscan URL" 
+    URLN="http://127.0.0.1:3000"
+else
+    URLN="$1"
+fi
+
+$HOME/bin/binutils/zap -cmd -quickurl ${URLN} -quickprogress \
+  -quickout ${HOME}/o_zapscan_`basename $PWD`_out.xml

@@ -1,0 +1,1 @@
+npm install 2> /dev/null ; npm audit

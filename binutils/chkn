@@ -48,30 +48,19 @@ else
     fi
 fi
 
-if [ "X$1X" == "XnX" ] ; then  
-    # Skip .travis.yml checks.
-    : # OK
-else
-    if [ -f .travis.yml ] ; then
-        if [ "X`egrep -c "^cache: bundler" .travis.yml`X" == "X1X" ] ; then
-            : # okay
-        else
-            echo "Missing cache: bundler in .travis.yml file"
-        fi
-    fi
-fi
-
 if [ "X`(ls *LICENSE* license.txt License* 2> /dev/null; grep spec.license *gemspec 2> /dev/null; grep -i license R*) |wc -l |awk '{ print $1 }'`X" == "X0X" ]
 then
     if [ "X$1X" == "XlX" ] ; then  
         : # OK
     else
         echo "No Licenses"
-#        git grep -iI --no-index license \
-#        | egrep -v "bootstrap.css|^coverage|vendor/assets/bower_components|public/" \
-#        | egrep -v "tmp/cache|spec/coverage|config|js|sorbet/rbi/hidden-def|pnpm-lock.yaml" \
-#        | egrep -v "node_modules/|yarn.lock|app/assets" \"
-#       exit
+        if [ "X${VERBOSE}X" == "X-vX" ] ; then
+            git grep -iI --no-index license \
+            | egrep -v "bootstrap.css|^coverage|vendor/assets/bower_components|public/" \
+            | egrep -v "tmp/cache|spec/coverage|config|js|sorbet/rbi/hidden-def" \
+            | egrep -v "node_modules/|yarn.lock|app/assets|pnpm-lock.yaml" \"
+        fi
+        exit
     fi
 fi
 ######################################################################
@@ -143,6 +132,9 @@ egrep "6.1.0.rc2|4.0.0.beta3|gem 'rails', '6.0.2.1'" Gemfile
 linenum ${LINENO} 1l "Gemfile's"
 egrep "7.0.3|6.1.7" Gemfile |egrep -v "7.0.3.1|6.1.7.2|rubies/|gems/"
 
+# GH-A do not like "debug" gem.
+egrep 'gem "debug"' Gemfile 
+
 ######################################################################
 
 linenum ${LINENO} 99a "gemspec's"
@@ -167,57 +159,35 @@ egrep "5.2|2.4.0-preview3|2.3.3|2.6.0-rc|preview" .rvmrc .ruby-version 2>&1 \
 | egrep -v "2.7.0-preview3|2.4.10|2.5.8|2.6.6|3.2.1"
 
 ######################################################################
+# .travis.yml checks
 
-linenum ${LINENO} 3a ".travis.yml's"
-if [ "X$1X" == "XnX" ] ; then  
-    # Skip .travis.yml checks.
-    : # OK
+# .github/workflows/* checks
+if [ -f .github/workflows/rubyonrails.yml ] ; then
+
+# 2/20/2023: Wait on this code.
+#    if [ "X`grep -c "badge.svg" README*`X" == "X0X" ] ; then
+#        echo "Time to add badge.svg"
+#    fi
+
+    if [ -f .travis.yml ] ; then
+        echo "Time to remove .travis.yml"
+    fi
 else
-    egrep "2.1.[0-6]|2.2.[0-4]" .travis.yml | egrep -v "'2.1.1'|phantomjs-2.1.1" \
-    | egrep -v 'source "https://rubygems.org"|2.1.0|2.1.10|2.2.10'
+    # If not .github/workflows CI, then run .travisCI check
+    if [ -f .travis.yml ] ; then
+        chkt $*
+    else
+        echo "no GH-A or TravisCI"
+        ls .github/workflows
+        exit
+    fi
 fi
 
-linenum ${LINENO} 3b ".travis.yml's"
-if [ "X$1X" == "XnX" ] ; then  
-    # Skip .travis.yml checks.
-    : # OK
+if [ -f .ruby-version ] ; then
+    : 
 else
-    egrep "5.2|2.4.0-preview3|2.3.3|2.6.0-rc|preview" .travis.yml 2>&1 \
-    | egrep -v "railscasts_logo|No such file or directory|2.7-rails5.2" \
-    | egrep -v "2.7.0-preview3"
-fi
-
-if [ "X$1X" == "XnX" ] ; then  
-    # Skip .travis.yml checks.
-    : # OK
-else
-    linenum ${LINENO} 3c ".travis.yml's"
-    egrep "2.2.[0-6]|2.2.10|2.3.3" .travis.yml 2> /dev/null \
-    | egrep -v "railscasts_logo|temp fix|'5.2.2.1'" | egrep -v '"5.2.2.1"|2.2.10'
-
-    linenum ${LINENO} 3d ".travis.yml's"
-    egrep "2.2.8|2.3.5|2.4.2|preview" .travis.yml | egrep -v "2.7.0-preview3"
-fi
-
-linenum ${LINENO} 3e ".travis.yml's"
-if [ "X$1X" == "XnX" ] ; then  
-    # Skip .travis.yml checks.
-    : # OK
-else
-    # OLD ruby or jruby versions
-    grep "1.15.3|2.0.0|9.2.6.0|1.9.2|2.2.9|2.3.[67]|2.4.[3456]" .travis.yml
-    grep "2.5.[0-6]|2.6.[0-4]|2.7.2"  .travis.yml
-
-    linenum ${LINENO} 3f ".travis.yml's"
-    sed -e "s,^[ ]*,," .travis.yml \
-    | grep "[0-9]\.[0-9]\.[0-9]" \
-    | egrep -v "2.3.8|2.2.10|2.1.10|1.9.3|1.8.7|2.7.2|2.5.8|2.4.10|2.6.6" \
-    | egrep -v "9.1.17.0|9.2.7.1|1.17.2|2.0.0|2.7.7|3.0.3|3.2.1" \
-    | egrep -v "phantomjs|DISPLAY" \
-    | sort |uniq -c
-
-    linenum ${LINENO} 3g ".travis.yml's"
-    grep "sudo: false" .travis.yml
+    echo "Need to add .ruby-version file"
+    exit
 fi
 
 ######################################################################
