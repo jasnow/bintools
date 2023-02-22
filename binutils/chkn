@@ -161,6 +161,24 @@ egrep "5.2|2.4.0-preview3|2.3.3|2.6.0-rc|preview" .rvmrc .ruby-version 2>&1 \
 ######################################################################
 # .travis.yml checks
 
+cat << EOFCAT > /tmp/$$_EOFCAT
+hello_app
+railscanaryapps
+rails-uptodate
+sprt_edge
+spxxrt_2_3
+toy_app
+EOFCAT
+
+BNM=`basename $PWD`
+if [ "X`grep -c ${BNM} /tmp/$$_EOFCAT`X" == "X0X" ] ; then
+    : #echo "not bb"
+else
+    echo "Bitbucket REPOs are not currently supported."
+    exit
+fi
+rm -f /tmp/$$_EOFCAT
+
 # .github/workflows/* checks
 if [ -f .github/workflows/rubyonrails.yml ] ; then
 
@@ -315,4 +333,3 @@ exit
 
 # http://rails-bestpractices.com/posts/808-use-time-zone-now-instead-of-time-now
 # 4/3/2015: TURNED OFF: git grep "Time\.now" 
-

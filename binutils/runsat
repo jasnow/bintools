@@ -3,7 +3,7 @@ function linenum {
 } 
 ######################################################################
 linenum ${LINENO} 5b "ssl check"
-git grep "# config.force_ssl"
+git grep "# config.force_ssl" |sed "s,^,   ,"
 
 ######################################################################
 linenum ${LINENO} 8a "brakeman"
@@ -22,20 +22,20 @@ fi
 #    : # do nothing
 #fi
 
-brm # Run brakeman and railroader tools.
+brm |sed "s,^,   ," # Run brakeman and railroader tools.
 
 ######################################################################
 # BUNDLE-AUDIT
 linenum ${LINENO} 8z "bundle_audit"
 
-bundle-audit
+bundle-audit |sed "s,^,   ,"
 
 ######################################################################
 # RUBY_AUDIT 
 linenum ${LINENO} 9a "ruby_audit"
 if [ "X`grep ruby_audit Gemfile |wc -l |awk '{ print $1 }'`X" = "X1X" ]; then
 
-    bundle exec ruby-audit -n 2>&1 |grep -v "No vulnerabilities found"
+    bundle exec ruby-audit -n |sed "s,^,   ," 2>&1 |grep -v "No vulnerabilities found"
 else
     echo "Add ruby_audit to Gemfile"
 fi
@@ -48,7 +48,7 @@ if [ "X`grep spektr Gemfile |wc -l |awk '{ print $1 }'`X" = "X1X" ]; then
     if [ "X${CNT}X" == "X0X" ] ; then
         :
     else
-        echo "spektr: ${CNT}"
+        echo "spektr: ${CNT}" |sed "s,^,   ,"
     fi
 else
     echo "Add spektr to Gemfile"
@@ -60,7 +60,7 @@ if [ "X$1X" == "XoX" ] ; then
     :
 else
     linenum ${LINENO} 11a "osv-scanner"
-    $HOME/Projects/gocode/bin/osv-scanner -r . |egrep -v "Scanned|Scanning"
+    $HOME/Projects/gocode/bin/osv-scanner -r . |egrep -v "Scanned|Scanning" |sed "s,^,   ,"
 fi
 
 ######################################################################
