@@ -8,9 +8,9 @@ overcommit --sign
 git add --all .
 
 if [ "X$2X" == "XX" ] ; then
-    git commit -m "$1"
+    git commit -m "$*"
 else
-    git commit -m "Upgraded $2 gem ; $1"
+    git commit -m "Upgraded $2 gem ; $*"
     git commit --amend
 fi
 

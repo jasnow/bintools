@@ -1,1 +1,2 @@
-pr -o 3 -F -l 64 -h "$*" $* | lpr
+pr -o 3 -F -l 64 -h "$*" $* | lpr -o sides=two-sided-long-edge
+

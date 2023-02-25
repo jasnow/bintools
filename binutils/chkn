@@ -162,12 +162,8 @@ egrep "5.2|2.4.0-preview3|2.3.3|2.6.0-rc|preview" .rvmrc .ruby-version 2>&1 \
 # .travis.yml checks
 
 cat << EOFCAT > /tmp/$$_EOFCAT
-hello_app
 railscanaryapps
 rails-uptodate
-sprt_edge
-spxxrt_2_3
-toy_app
 EOFCAT
 
 BNM=`basename $PWD`
@@ -185,6 +181,13 @@ if [ -f .github/workflows/rubyonrails.yml ] ; then
 # 2/20/2023: Wait on this code.
 #    if [ "X`grep -c "badge.svg" README*`X" == "X0X" ] ; then
 #        echo "Time to add badge.svg"
+#    fi
+#
+# 2/24/2023: Wait
+#    if [ "X`grep -c 'ruby -w' .github/workflows/rubyonrails.yml`X" == "X0X" ] ; then
+#        echo "No 'ruby -w'"
+#    else
+#        echo "YES 'ruby -w'"
 #    fi
 
     if [ -f .travis.yml ] ; then
@@ -207,6 +210,9 @@ else
     echo "Need to add .ruby-version file"
     exit
 fi
+
+# Check ruby syntax
+ruby -wc **/*.rb |egrep -v "Syntax OK"
 
 ######################################################################
 
