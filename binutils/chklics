@@ -6,6 +6,7 @@ ls -1 $HOME/Projects $HOME/Projects/NEW \
 for i in `cat /tmp/$$_REPOS` ; do
     egrep -il "license|All rights reserved"  \
         $HOME/Projects/$i/*LICENSE*  \
+        $HOME/Projects/$i/*COPYING*  \
         $HOME/Projects/$i/README* \
         $HOME/Projects/$i/Readme* \
         $HOME/Projects/$i/*.gemspec 2> /dev/null

@@ -118,13 +118,6 @@ else
     echo "NO: public/assets"
 fi
 
-if [ "X`grep -c "rubocop" .travis.yml 2> /dev/null`X" == "X1X" ] ; then
-    echo "RUN rubocop: OK"
-    rubocop -D
-else
-    echo "NO rubocop"
-fi
-
 if [ $? == 0 ] ; then
     if [ "X${APPN}X" = "X24pullrequestsX" ] ; then
         unset GITHUB_KEY

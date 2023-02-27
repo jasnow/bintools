@@ -1,0 +1,11 @@
+if [ "X`grep -c "rubocop" Gemfile 2> /dev/null`X" == "X0X" ] ; then
+    echo "NO rubocop"
+else
+    echo "RUN rubocop: OK"
+    rubocop -D
+fi
+
+######################################################################
+#STANDARDRB
+#
+#bundle exec standardrb (2/8/2023: Dropped)

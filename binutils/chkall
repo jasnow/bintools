@@ -18,9 +18,10 @@ for i in ${DIRS} ; do
     echo "- $i -${CNDM}-----------------------------"
 #    standardrb
 #    rubocop
-    gem install ${CMDN} -no-ri -no-rdoc
-
-    bundle exec ${CMDN}
+#
+#    gem install ${CMDN} -no-ri -no-rdoc
+#    bundle exec ${CMDN}
+     rundc
 exit
 done
 rm -rf /tmp/$$_IGNORED 

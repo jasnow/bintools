@@ -62,9 +62,3 @@ else
     linenum ${LINENO} 11a "osv-scanner"
     $HOME/Projects/gocode/bin/osv-scanner -r . |egrep -v "Scanned|Scanning" |sed "s,^,   ,"
 fi
-
-######################################################################
-#STANDARDRB
-
-#linenum ${LINENO} xa "standardrb"
-#bundle exec standardrb (2/8/2023: Dropped
