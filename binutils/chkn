@@ -286,6 +286,17 @@ if [ "X`basename $PWD |grep "_6" |wc -l |awk '{ print $1 }'`X" = "X0X" ]; then
     fi
 fi
 
+######################################################################
+
+linenum ${LINENO} 9a "Yarn/Npm Checks"
+
+if [ -f yarn.lock ] ; then
+    : # Assume "runyn" was run.
+else
+    echo "Need to run 'runyn' script before going forward."
+    exit
+fi
+
 exit
 
 #STOPHERE ############################################################

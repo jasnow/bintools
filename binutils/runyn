@@ -1,0 +1,38 @@
+function linenum {
+    echo "LINE" $2 $1 $3
+} 
+
+if [ "X$1X" == "XvX" ] ; then
+    VERIFYF="yes"
+    shift
+fi
+if [ "X$1X" == "XfX" ] ; then
+    FORCEF="yes"
+    shift
+fi
+######################################################################
+if [ "X${VERIFYF}X" == "XyesX" ] ; then
+    echo "///////////////////////////////////////////////////////////////"
+    linenum ${LINENO} 12a "yarn audit"
+fi
+yarn install --ignore-engines > /dev/null
+yarn audit |egrep -v "^yarn audit |vulnerabilities found - Packages audited:|^Done in "
+
+######################################################################
+if [ "X${VERIFYF}X" == "XyesX" ] ; then
+    echo "///////////////////////////////////////////////////////////////"
+    linenum ${LINENO} 12a "yarn outdated"
+fi
+yarn outdated |egrep -v "^yarn outdated |^Done in "
+
+######################################################################
+if [ "X${FORCEF}X" == "XyesX" ] ; then
+    npm i --package-lock-only
+    npm audit fix
+    npm audit fix --force
+fi
+
+######################################################################
+if [ "X${VERIFYF}X" == "XyesX" ] ; then
+    echo "///////////////////////////////////////////////////////////////"
+fi

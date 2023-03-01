@@ -2,6 +2,8 @@ if [ "X`grep "use 2.[345]" .rvmrc|wc -l |awk '{ print $1 }'`X" == "X1X" ] ; then
     bundle ; touch . ; echo "******************** Doing bundle, touch, and exit" ; exit
     #echo "Can't use this script with this repo." ; exit
 fi
+
+runyn
  
 #HID on 11/13/2018: bundle update --bundler; echo "RESULTS=[$?]"
 lu ; bundle

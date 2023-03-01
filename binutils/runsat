@@ -55,6 +55,11 @@ else
 fi
 
 ######################################################################
+
+linenum ${LINENO} 12a "runyn"
+runyn
+
+######################################################################
 #OSV-SCANNER
 if [ "X$1X" == "XoX" ] ; then  
     :
@@ -62,3 +67,4 @@ else
     linenum ${LINENO} 11a "osv-scanner"
     $HOME/Projects/gocode/bin/osv-scanner -r . |egrep -v "Scanned|Scanning" |sed "s,^,   ,"
 fi
+
