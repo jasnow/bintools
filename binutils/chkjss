@@ -1,0 +1,33 @@
+function oneofthem() {
+    cat << EOF > /tmp/$$_PATTERNS
+.gitignore
+sorbet/
+db/seed_data
+.txt
+EOF
+    echo $3 `git grep -Ei "${3}" |fgrep -v -f /tmp/$$_PATTERNS |wc -l` |egrep -v 0$
+    rm /tmp/$$_PATTERNS
+}
+
+function allofthem() {
+    oneofthem $1 $2 browserify
+    oneofthem $1 $2 Grunt
+    oneofthem $1 $2 Bower
+    oneofthem $1 $2 Gulp
+    oneofthem $1 $2 Babel
+    oneofthem $1 $2 Webpack
+    oneofthem $1 $2 Rollup
+    oneofthem $1 $2 Parcel
+    oneofthem $1 $2 SWC
+    oneofthem $1 $2 Vite
+    oneofthem $1 $2 ESBuild
+    oneofthem $1 $2 Turbopack
+    oneofthem $1 $2 tailwind
+    oneofthem $1 $2 stimulus
+    oneofthem $1 $2 brunch
+    oneofthem $1 $2 jetpack
+}
+
+allofthem a b |sort -n +1 -2
+
+rm -rf /tmp/$$_IGNORED 

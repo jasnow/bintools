@@ -21,11 +21,13 @@ else
                 if [ "X`git branch |grep "^\*" |awk '{ print $2 }'`X" == "XmainX" ] ; then
                     : # okay
                 else
-                    if [ "X$1X" == "XX" ] ; then
+                  
+# 3/1/2023: Commented out to support non-main branches if possible.
+#                    if [ "X$1X" == "XX" ] ; then
                         echo "git branch: Not on 'main' branch"
-                        git branch
-                        exit
-                    fi
+#                        git branch
+#                        exit
+#                    fi
                 fi
             fi
         fi
@@ -87,7 +89,7 @@ linenum ${LINENO} 1b "Gemfile's"
 sed -e "s,#.*,," Gemfile Gemfile.r* *gemspec 2> /dev/null | egrep "git" \
 | egrep -v "^  gem\.|', [ ]*github: '|omniauth-github|github_api" \
 | egrep -v "'https://github.com/rails/rails'|^  s.|bradphelan/jasminerice" \
-| egrep -v '"https://github.com/rails/rails"' \
+| egrep -v '"https://github.com/rails/rails"|__FILE__' \
 | egrep -v "'github-markup'|3-0-lts|And:|git ls-files|'arel'" \
 | egrep -v "sqlite3, git, ruby, heroku, travis, xcode|git_source" \
 | egrep -v "'coffee-rails', git:|'jbuilder', git:|rubocop-github" \
@@ -95,7 +97,7 @@ sed -e "s,#.*,," Gemfile Gemfile.r* *gemspec 2> /dev/null | egrep "git" \
 
 linenum ${LINENO} 1c "Gemfile's"
 cat Gemfile Gemfile.r* *gemspec 2> /dev/null | grep "rubygems." \
-| egrep -v "https://rubygems.org|^#|.required_rubygems_version"
+| egrep -v "https://rubygems.org|^#|.required_rubygems_version|spec.metadata"
 
 linenum ${LINENO} 1d "Gemfile's"
 cat Gemfile Gemfile.r* *gemspec 2> /dev/null | sed -e "s,#.*,," \
@@ -176,7 +178,12 @@ fi
 rm -f /tmp/$$_EOFCAT
 
 # .github/workflows/* checks
-if [ -f .github/workflows/rubyonrails.yml ] ; then
+if [ -f .github/workflows ] ; then
+    echo ".github/workflows does not exist so stopping."
+    exit
+fi
+
+if [ -f .github/workflows/rubyonrails.yml ] || [ -f .github/workflows/ruby.yml ] ; then
 
 # 2/20/2023: Wait on this code.
 #    if [ "X`grep -c "badge.svg" README*`X" == "X0X" ] ; then
@@ -198,9 +205,12 @@ else
     if [ -f .travis.yml ] ; then
         chkt $*
     else
-        echo "no GH-A or TravisCI"
-        ls .github/workflows
-        exit
+        if [ -f .circleci/config.yml ] ; then
+            :
+        else
+            echo "no [GH-A, TravisCI, CircleCI]"
+            exit
+        fi
     fi
 fi
 
@@ -296,6 +306,12 @@ else
     echo "Need to run 'runyn' script before going forward."
     exit
 fi
+
+######################################################################
+
+linenum ${LINENO} 9a "Diff JS Pkg Mgrs"
+
+chkjss
 
 exit
 

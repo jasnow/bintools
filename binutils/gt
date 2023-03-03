@@ -1,7 +1,7 @@
 git diff |grep "^[-+] " |awk '{ print $2 }' |egrep -v "gem|branch" \
+| egrep -v "integrity|resolved|version" \
 | sed -e "s/[12].[1-9].[0-9][0-9]*/bundler/" -e "s/bundler.pre.[12]//" \
-  -e "s/2.0.0.pre.1//" | sort -u | tr "\012" ", " \
+  -e "s/2.0.0.pre.1//" -e 's/[":]//g' | sort -u | tr "\012" ", " \
 | sed -e "s/,$//" -e "s/^,//" -e "s,revision:,latest rails," \
   -e 's,$,]",' -e 's,^,gacp "Upgraded gem(s): [,'
 echo
-

@@ -26,7 +26,13 @@ else
         echo "Add to do-pull-request-first.txt file, then run git pull." ; exit
     else
         echo "Running pre-git-pull..."
-        git pull parent main
+        git pull parent main 2> /dev/null
+        # 3/1/2023: Support parent repo's default branch as "master" if in .git/config file.
+        if [ "X$?X" == "X0X" ] ; then
+            : # ok
+        else
+            git pull parent master #--allow-unrelated-histories
+        fi
     fi
 fi    
 
@@ -109,6 +115,10 @@ echo "Running cleanup..."
 echo "Running bundle..."
 lu
 bundle install 2>&1 |egrep -v "ctags" 
+# 3/2/2023: For "newproj" repo.
+if [ -f vite.config.ts ] ; then
+    bundle exec vite upgrade
+fi
 
 if [ -d "public/assets" ] ; then
     echo "YES: public/assets"

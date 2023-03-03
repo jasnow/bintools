@@ -10,19 +10,43 @@ show-me-the-food Problem/PROBLEM
 rails-uptodate/Gemfile Problem/PROBLEM
 EOF
 
-DIRS=`ls -1 $HOME/Projects/*/Gemfile $HOME/Projects/*/*gemspec |fgrep -v -f /tmp/$$_IGNORED`
+JSpm=("browserify Grunt Bower Gulp Babel Webpack Rollup Parcel SWC Vite ESBuild Turbopack brunch jetpack")
+function oneofthem() {
+        echo "- $1 - $2 ----[" `git grep -Ei \"${3}\" |wc -l` "]-------------------------"
+        echo "- $1 - $2 ----[" `git grep -Ei \"${3}\"` "]-------------------------"
+}
+
+function allofthem() {
+    oneofthem $1 $2 browserify
+    oneofthem $1 $2 Grunt
+    oneofthem $1 $2 Bower
+    oneofthem $1 $2 Gulp
+    oneofthem $1 $2 Babel
+    oneofthem $1 $2 Webpack
+    oneofthem $1 $2 Rollup
+    oneofthem $1 $2 Parcel
+    oneofthem $1 $2 SWC
+    oneofthem $1 $2 Vite
+    oneofthem $1 $2 ESBuild
+    oneofthem $1 $2 Turbopack
+    oneofthem $1 $2 brunch
+    oneofthem $1 $2 jetpack
+}
+ 
+DIRS=`ls -1 $HOME/Projects/*/Gemfile $HOME/Projects/*/*gemspec 2> /dev/null |fgrep -v -f /tmp/$$_IGNORED`
 
 for i in ${DIRS} ; do
     cd `dirname $i`
     CMDN="spektr" 
-    echo "- $i -${CNDM}-----------------------------"
+    echo '############################################################"'
+    allofthem "$i" "${CNDM}" |egrep -v " 0 "
+
 #    standardrb
 #    rubocop
 #
 #    gem install ${CMDN} -no-ri -no-rdoc
 #    bundle exec ${CMDN}
-     rundc
-exit
+#     rundc
 done
 rm -rf /tmp/$$_IGNORED 
 ######################################################################
