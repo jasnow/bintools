@@ -37,7 +37,7 @@ else
 fi    
 
 echo "Running chkn..."
-if [ "X`chkn $1 | egrep -v "^LINE" | wc -l |awk '{ print $1 }'`X" == "X0X" ] ; then
+if [ "X`chkn $1 $2 | egrep -v "^LINE" | wc -l |awk '{ print $1 }'`X" == "X0X" ] ; then
     : # GOOD: echo "FYI: chkn is ZERO"
 else
     if [ "X${APPN}X" = "Xwatir-railsX" ] ; then
@@ -46,7 +46,7 @@ else
         if [ "X${APPN}X" = "Xrgsoc-teamsX" ] ; then
             : # EXCEPTION
         else
-            echo "FYI: chkn IS NOT ZERO; STOPPING"; chkn ; exit
+            echo "FYI: chkn IS NOT ZERO; STOPPING"; chkn $1 $2 ; exit
         fi
     fi
 fi

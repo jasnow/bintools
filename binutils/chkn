@@ -41,7 +41,8 @@ else
     : # rundawn
 fi
 
-if [ "X$1X" == "XoX" ] ; then  
+# if $1, shift overcommit check.
+ if [ "X$1X" == "XoX" ] ; then  
     shift
     : # OK
 else
@@ -53,6 +54,7 @@ fi
 if [ "X`(ls *LICENSE* license.txt License* *COPYING* 2> /dev/null; grep spec.license *gemspec 2> /dev/null; grep -i license R*) |wc -l |awk '{ print $1 }'`X" == "X0X" ]
 then
     if [ "X$1X" == "XlX" ] ; then  
+        shift
         : # OK
     else
         echo "No Licenses"
@@ -60,7 +62,7 @@ then
             git grep -iI --no-index license \
             | egrep -v "bootstrap.css|^coverage|vendor/assets/bower_components|public/" \
             | egrep -v "tmp/cache|spec/coverage|config|js|sorbet/rbi/hidden-def" \
-            | egrep -v "node_modules/|yarn.lock|app/assets|pnpm-lock.yaml" \"
+            | egrep -v "node_modules/|yarn.lock|app/assets|pnpm-lock.yaml"
         fi
         exit
     fi
@@ -108,7 +110,7 @@ cat Gemfile Gemfile.r* *gemspec 2> /dev/null | sed -e "s,#.*,," \
 linenum ${LINENO} 1e "Gemfile's"
 #Need 5.0.0.beta1.1, 4.2.5.1, 4.1.14.1, 3.2.22.1#
 egrep "2.1.4|3.2.19|3.2.2[012]'|4.0.1[012]|4.1.[45678]|4.2.[0-5]|5.1.0.rc1|5.2.3|5.2.1.rc1" \
-Gemfile Gemfile.r* *gemspec 2> /dev/null |egrep -v "4.2.11|5.2.2.1"
+Gemfile Gemfile.r* *gemspec 2> /dev/null |egrep -v "4.2.11|5.2.2.1|#"
 
 linenum ${LINENO} 1f "Gemfile's"
 egrep "5.2.1.1|5.2.0|5.2.0.rc1|'5.0.0'|'4.2.7'|'3.2.22.[1234]'|5.1.0.rc[12]|5.1.3.rc[12]|5.1.3|5.2.2" Gemfile |egrep -v "5.2.2.1" 
@@ -311,8 +313,12 @@ fi
 
 linenum ${LINENO} 9a "Diff JS Pkg Mgrs"
 
-chkjss
-
+# If $1 is "j", skip chkjss check
+if [ "X$1X" == "XjX" ] ; then  
+    : # OK
+else
+    chkjss
+fi
 exit
 
 #STOPHERE ############################################################
