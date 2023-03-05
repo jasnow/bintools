@@ -33,13 +33,16 @@ function allofthem() {
     oneofthem $1 $2 jetpack
 }
  
-DIRS=`ls -1 $HOME/Projects/*/Gemfile $HOME/Projects/*/*gemspec 2> /dev/null |fgrep -v -f /tmp/$$_IGNORED`
+DIRS=`ls -1 $HOME/Projects/*/Gemfile $HOME/Projects/*/*gemspec 2> /dev/null `
+#|fgrep -v -f /tmp/$$_IGNORED
 
 for i in ${DIRS} ; do
     cd `dirname $i`
     CMDN="spektr" 
-    echo '############################################################"'
-    allofthem "$i" "${CNDM}" |egrep -v " 0 "
+#    echo "### $i ###########################################################"
+#    allofthem "$i" "${CNDM}" |egrep -v " 0 "
+#    echo "`dirname $i`: `auditjs ossi --json -q |egrep -v "^\[\]$" | jq length` ##"
+    echo "`dirname $i`: `sandworm-audit  -p . -s 2> /dev/null | grep Identified` ##"
 
 #    standardrb
 #    rubocop

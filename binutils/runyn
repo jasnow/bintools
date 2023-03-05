@@ -13,7 +13,7 @@ fi
 ######################################################################
 if [ "X${VERIFYF}X" == "XyesX" ] ; then
     echo "///////////////////////////////////////////////////////////////"
-    linenum ${LINENO} 12a "yarn audit"
+    linenum ${LINENO} 16 "yarn audit"
 fi
 yarn install --ignore-engines > /dev/null
 yarn audit |egrep -v "^yarn audit |vulnerabilities found - Packages audited:|^Done in "
@@ -21,9 +21,33 @@ yarn audit |egrep -v "^yarn audit |vulnerabilities found - Packages audited:|^Do
 ######################################################################
 if [ "X${VERIFYF}X" == "XyesX" ] ; then
     echo "///////////////////////////////////////////////////////////////"
-    linenum ${LINENO} 12a "yarn outdated"
+    linenum ${LINENO} 24 "yarn outdated"
 fi
 yarn outdated |egrep -v "^yarn outdated |^Done in "
+
+######################################################################
+if [ "X${VERIFYF}X" == "XyesX" ] ; then
+    echo "///////////////////////////////////////////////////////////////"
+    linenum ${LINENO} 31 "auditjs"
+    auditjs ossi --json -q
+else
+    auditjs ossi --json -q |egrep -v "^\[\]$" |jq length
+fi
+
+######################################################################
+if [ "X${VERIFYF}X" == "XyesX" ] ; then
+    echo "///////////////////////////////////////////////////////////////"
+    linenum ${LINENO} 40 "sandworm-audit"
+    sandworm-audit  -p . -s 2> /dev/null
+else
+    sandworm-audit  -p . -s 2> /dev/null | grep Identified
+fi
+# -p (path to app)
+# -s (
+# -d (include deve dep's too)
+# -v (show pkg versions)
+# 
+# --license-policy '{"critical": ["MIT"]}'
 
 ######################################################################
 if [ "X${FORCEF}X" == "XyesX" ] ; then

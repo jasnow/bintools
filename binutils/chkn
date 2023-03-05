@@ -319,6 +319,18 @@ if [ "X$1X" == "XjX" ] ; then
 else
     chkjss
 fi
+
+######################################################################
+
+linenum ${LINENO} 9a "Simplecov"
+
+# If $1 is "c", skip chkjss check
+if [ "X$1X" == "XcX" ] ; then  
+    : # OK
+else
+    chkbcov
+fi
+
 exit
 
 #STOPHERE ############################################################
