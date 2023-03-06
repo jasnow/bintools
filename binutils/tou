@@ -1,4 +1,5 @@
-for i in do-pull-request-first.txt BROKEN NEW VERY-OLD NOT-HELPFUL GENERAL RONIN gocode ; do
+for i in do-pull-request-first.txt BROKEN NEW VERY-OLD \
+  NOT-HELPFUL GENERAL RONIN gocode enola ; do
     touch $HOME/Projects/$i
 done
 mv *~ .*~ \#*\# libpeerconnection.log /Users/macbookpro/X 2> /dev/null

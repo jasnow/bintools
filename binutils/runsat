@@ -33,7 +33,7 @@ bundle-audit |sed "s,^,   ,"
 ######################################################################
 # RUBY_AUDIT 
 linenum ${LINENO} 9a "ruby_audit"
-if [ "X`grep ruby_audit Gemfile |wc -l |awk '{ print $1 }'`X" = "X1X" ]; then
+if [ "X`grep ruby_audit Gemfile |wc -l |awk '{ print $1 }'`X" == "X1X" ]; then
 
     bundle exec ruby-audit -n |sed "s,^,   ," 2>&1 |grep -v "No vulnerabilities found"
 else
@@ -43,7 +43,7 @@ fi
 ######################################################################
 #SPEKTR
 linenum ${LINENO} 10a "spektr"
-if [ "X`grep spektr Gemfile |wc -l |awk '{ print $1 }'`X" = "X1X" ]; then
+if [ "X`grep spektr Gemfile |wc -l |awk '{ print $1 }'`X" == "X1X" ]; then
     CNT=`bundle exec spektr 2>&1 |egrep -c "Name"`
     if [ "X${CNT}X" == "X0X" ] ; then
         :
@@ -61,7 +61,7 @@ runyn
 
 ######################################################################
 #OSV-SCANNER
-if [ "X$1X" == "XoX" ] ; then  
+if [ "X$1X" == "XosX" ] ; then  
     :
 else
     linenum ${LINENO} 11a "osv-scanner"

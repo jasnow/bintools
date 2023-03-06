@@ -2,37 +2,21 @@ cat << EOF > /tmp/$$_EXPECTED
 require 'simplecov'
 if ENV["COVERAGE"]
   SimpleCov.start 'rails' do
+    puts "Adding simplecov"
     enable_coverage :branch
     primary_coverage :branch
   end
 end
 EOF
 
-cat */*helper.rb | head -7 > /tmp/$$_ACTUAL
+# 3/5/2023: Ignore rails_helper.rb.
+# 3/6/2023: Should only have 1 section per repo.
+cat */[rst]*helper.rb | head -8 > /tmp/$$_ACTUAL
 
 if [ "X$1X" == "XdX" ] ; then
     sdiff /tmp/$$_EXPECTED /tmp/$$_ACTUAL
 else
     diff /tmp/$$_EXPECTED /tmp/$$_ACTUAL
-fi
-
-if [ "X$1X" = "XvX" ] ; then
-    cat << EOF 
-    1st: gem 'simplecov', require: false, group: :test
-
-    2nd: 
-require 'simplecov'
-if ENV["COVERAGE"]
-  SimpleCov.start 'rails' do
-    enable_coverage :branch
-    primary_coverage :branch
-  end
-end
-
-    3rd:
-    echo coverage >> .gitignore
-EOF
-
 fi
 
 rm -f /tmp/$$_EXPECTED /tmp/$$_ACTUAL

@@ -2,7 +2,7 @@ IGNOREFILES="chklics|ATTIC|countrepos|do-pull|stats|GENERAL|yml$|cmp-ay|o_d|cpf|
 
 echo "Total Active Rails projects"
 ls -1 $HOME/Projects |egrep -v ${IGNOREFILES} > /tmp/$$_OUTPUT
-if [ "X$1X" = "XX" ] ; then
+if [ "X$1X" == "XX" ] ; then
     cat /tmp/$$_OUTPUT |wc
 else
     cat /tmp/$$_OUTPUT |pr -t2 -e |uniq |sed -e "s,^,    ,"
@@ -10,7 +10,7 @@ fi
 
 echo "    Active Rails projects"
 ls -1 $HOME/Projects |egrep -v ${IGNOREFILES} |egrep "5" > /tmp/$$_OUTPUT
-if [ "X$1X" = "XX" ] ; then
+if [ "X$1X" == "XX" ] ; then
     cat /tmp/$$_OUTPUT |wc |sed -e "s,^,    ,"
     cat /tmp/$$_OUTPUT >> /tmp/$$_TOP_PROJECTS
 else
@@ -19,7 +19,7 @@ fi
 
 echo "    Active NON-Rails projects"
 ls -1 $HOME/Projects |egrep -v ${IGNOREFILES} |egrep -v "5" > /tmp/$$_OUTPUT
-if [ "X$1X" = "XX" ] ; then
+if [ "X$1X" == "XX" ] ; then
     cat /tmp/$$_OUTPUT |wc |sed -e "s,^,    ,"
     cat /tmp/$$_OUTPUT >> /tmp/$$_TOP_PROJECTS
 else
@@ -57,7 +57,7 @@ chklics |egrep -v "~$" |wc
 
 echo "Total Active Rails projects"
 ls -1 $HOME/Projects |egrep -v ${IGNOREFILES} > /tmp/$$_OUTPUT
-if [ "X$1X" = "XX" ] ; then
+if [ "X$1X" == "XX" ] ; then
     cat /tmp/$$_OUTPUT |wc
 else
     cat /tmp/$$_OUTPUT |pr -t2 -e |uniq |sed -e "s,^,    ,"
@@ -76,7 +76,7 @@ sdiff -s -w80 $HOME/Projects/do-pull-request-first.txt /tmp/$$_PARENTS |egrep -v
 echo "    NOT-SYNCED-WITH-PARENT"
 egrep -l 'not-synched' $HOME/Projects/*/.git/config \
 | awk -F'/' '{ print $5 }' |tee /tmp/$$_NOTSYNCED | wc |sed -e "s,^,    ,"
-if [ "X$1X" = "XX" ] ; then
+if [ "X$1X" == "XX" ] ; then
     :
 else
     cat /tmp/$$_NOTSYNCED |pr -t2 -e |uniq |sed -e "s,^,    ,"

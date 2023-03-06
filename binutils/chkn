@@ -285,11 +285,11 @@ egrep "2.2.[0-6]|2.2.10|2.3.3" .ruby-version Dockerfile R* Gemfile 2> /dev/null 
 ######################################################################
 
 linenum ${LINENO} 8a "Upgrading"
-if [ "X`basename $PWD |grep "_6" |wc -l |awk '{ print $1 }'`X" = "X0X" ]; then
+if [ "X`basename $PWD |grep "_6" |wc -l |awk '{ print $1 }'`X" == "X0X" ]; then
     # 12/4/2020: To upgrade repos to 6.1.x
     PATNS="data/|rubies/|gems/|plugins/|lib/|spec/|config/|sorbet|lock|db/|log/|fonts/|public/|app/|demo.gif|example/|modules/|scripts|tools/|external/source|documentation/|docs/|content/images/|content/images/|source/_posts/"
 
-    if [ "X`git grep -l 6\.0\.3 |egrep -v ${PATNS} |wc -l |awk '{ print $1 }'`X" = "X0X" ]
+    if [ "X`git grep -l 6\.0\.3 |egrep -v ${PATNS} |wc -l |awk '{ print $1 }'`X" == "X0X" ]
     then
         :
     else
@@ -324,11 +324,11 @@ fi
 
 linenum ${LINENO} 9a "Simplecov"
 
-# If $1 is "c", skip chkjss check
-if [ "X$1X" == "XcX" ] ; then  
-    : # OK
-else
+# If $1 is "j", skip chkjss check
+if [ "X$1X" == "XjX" ] ; then  
     chkbcov
+else
+    : # OK
 fi
 
 exit

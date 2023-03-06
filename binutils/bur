@@ -1,4 +1,4 @@
-if [ "X$1X" = "XX" ] ; then
+if [ "X$1X" == "XX" ] ; then
     echo "Usage: $0 gemname" ; exit
 fi
 

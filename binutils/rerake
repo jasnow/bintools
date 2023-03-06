@@ -1,9 +1,25 @@
+if [ "X$1X" == "XhX" ] ; then
+    cat << EOFHELP
+Usge: $0
+ * j (skip chkjss script; chkn)
+ * l (skip license check; chkn)
+ * o (skip overcommit check; chkn)
+ * -v (verbose mode for chkn)
+..........
+ * os (skip osv-scanner run/it's slow; runsat)
+..........
+ * v (verbose mode for runyn)
+ * f (force mode for runyn)
+EOFHELP
+    exit
+fi
+
 if [ "X`grep "use 2.[345]" .rvmrc|wc -l |awk '{ print $1 }'`X" == "X1X" ] ; then
     bundle ; touch . ; echo "******************** Doing bundle, touch, and exit" ; exit
     #echo "Can't use this script with this repo." 
 fi
 APPN=`basename $PWD |awk '{ print $1 }'`
-if [ "X${APPN}" = "Xsetler" ] ; then
+if [ "X${APPN}" == "Xsetler" ] ; then
     dosetler
     exit
 fi
@@ -40,10 +56,10 @@ echo "Running chkn..."
 if [ "X`chkn $1 $2 | egrep -v "^LINE" | wc -l |awk '{ print $1 }'`X" == "X0X" ] ; then
     : # GOOD: echo "FYI: chkn is ZERO"
 else
-    if [ "X${APPN}X" = "Xwatir-railsX" ] ; then
+    if [ "X${APPN}X" == "Xwatir-railsX" ] ; then
         : # EXCEPTION
     else
-        if [ "X${APPN}X" = "Xrgsoc-teamsX" ] ; then
+        if [ "X${APPN}X" == "Xrgsoc-teamsX" ] ; then
             : # EXCEPTION
         else
             echo "FYI: chkn IS NOT ZERO; STOPPING"; chkn $1 $2 ; exit
@@ -129,7 +145,7 @@ else
 fi
 
 if [ $? == 0 ] ; then
-    if [ "X${APPN}X" = "X24pullrequestsX" ] ; then
+    if [ "X${APPN}X" == "X24pullrequestsX" ] ; then
         unset GITHUB_KEY
     fi
 #    addm

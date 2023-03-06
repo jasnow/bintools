@@ -45,7 +45,7 @@ if [ "X$1X" == "XnX" ] ; then
 else
     linenum ${LINENO} 3c ".travis.yml's"
     egrep "2.2.[0-6]|2.2.10|2.3.3" .travis.yml 2> /dev/null \
-    | egrep -v "railscasts_logo|temp fix|'5.2.2.1'" | egrep -v '"5.2.2.1"|2.2.10'
+x   | egrep -v "railscasts_logo|temp fix|'5.2.2.1'" | egrep -v '"5.2.2.1"|2.2.10'
 
     linenum ${LINENO} 3d ".travis.yml's"
     egrep "2.2.8|2.3.5|2.4.2|preview" .travis.yml | egrep -v "2.7.0-preview3"

@@ -5,12 +5,12 @@ else
     # If this "rails test" does not work, try this: 
     if [ -f ./bin/rails ] ; then
         if [ -d spec ] ; then
-            rake 2>&1 |tee /tmp/$$_o_x # unkn && touch . # rake
+            COVERAGE="yes" rake 2>&1 |tee /tmp/$$_o_x # unkn && touch . # rake
         else
-            rake 2>&1 |tee /tmp/$$_o_x # unkn test && touch .
+            COVERAGE="yes" rake 2>&1 |tee /tmp/$$_o_x # unkn test && touch .
         fi
     else
-        rake 2>&1 | tee /tmp/$$_o_x # unkn # rake
+        COVERAGE="yes" rake 2>&1 | tee /tmp/$$_o_x # unkn # rake
     fi
     ERRS=`grep -c warning /tmp/$$_o_x |awk '{ print $1 }'`
     echo "ERRS=[" ${ERRS} "]"
