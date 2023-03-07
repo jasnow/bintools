@@ -2,14 +2,20 @@ function linenum {
     echo "LINE" $2 $1 $3
 } 
 
+function shiftargs {
+    shift; echo "ARGS: $*"
+}
+
 if [ "X$1X" == "XvX" ] ; then
     VERIFYF="yes"
-    shift
+    shiftargs
 fi
+
 if [ "X$1X" == "XfX" ] ; then
     FORCEF="yes"
-    shift
+    shiftargs
 fi
+
 ######################################################################
 if [ "X${VERIFYF}X" == "XyesX" ] ; then
     echo "///////////////////////////////////////////////////////////////"

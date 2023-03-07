@@ -3,6 +3,7 @@ if [ "X$1X" == "XhX" ] ; then
 Usge: $0
  * j (skip chkjss script; chkn)
  * l (skip license check; chkn)
+ * k (skip chkbcov check; chkn)
  * o (skip overcommit check; chkn)
  * -v (verbose mode for chkn)
 ..........
@@ -53,7 +54,7 @@ else
 fi    
 
 echo "Running chkn..."
-if [ "X`chkn $1 $2 | egrep -v "^LINE" | wc -l |awk '{ print $1 }'`X" == "X0X" ] ; then
+if [ "X`chkn $* | egrep -v "^LINE" | wc -l |awk '{ print $1 }'`X" == "X0X" ] ; then
     : # GOOD: echo "FYI: chkn is ZERO"
 else
     if [ "X${APPN}X" == "Xwatir-railsX" ] ; then
@@ -62,7 +63,7 @@ else
         if [ "X${APPN}X" == "Xrgsoc-teamsX" ] ; then
             : # EXCEPTION
         else
-            echo "FYI: chkn IS NOT ZERO; STOPPING"; chkn $1 $2 ; exit
+            echo "FYI: chkn IS NOT ZERO; STOPPING"; chkn $* ; exit
         fi
     fi
 fi

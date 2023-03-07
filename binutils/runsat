@@ -62,7 +62,7 @@ runyn
 ######################################################################
 #OSV-SCANNER
 if [ "X$1X" == "XosX" ] ; then  
-    :
+    shift; echo "ARGS: $*"
 else
     linenum ${LINENO} 11a "osv-scanner"
     $HOME/Projects/gocode/bin/osv-scanner -r . |egrep -v "Scanned|Scanning" |sed "s,^,   ,"

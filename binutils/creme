@@ -1,0 +1,31 @@
+ls -1 $HOME/Projects/*/Gemfile |sed -e "s,$HOME/Projects/,," -e "s,/Gemfile,," > /tmp/$$_ALL
+
+# Unclear about : NEW/hammer
+# sorted by ABC's
+cat << EOFCREME > /tmp/$$_CREME
+damn_vulnerable_rails_app
+DVGM
+Hacme-Casino
+hottable
+hotwired_ats_code
+MarshalBank
+myapp
+rails7-datatables2
+rails-uptodate
+rails_new
+rails_sql_injection
+railsconf00
+railsgoat7
+ruby-goof
+ruby-vulnerable-gem-in-app
+sample_app_6th_ed
+test-hakiri-app
+vulnerableApp
+webrtc
+EOFCREME
+
+edge 99 |awk '{ print $9 }' > /tmp/$$_EDGE
+
+fgrep -v -f /tmp/$$_CREME /tmp/$$_ALL |fgrep -v -f /tmp/$$_EDGE
+
+rm -rf /tmp/$$_CREME /tmp/$$_ALL /tmp/$$_EDGE

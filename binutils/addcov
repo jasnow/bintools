@@ -1,7 +1,7 @@
 function addsection() {
 
 if [ -f $1 ] ; then
-    echo "Adding section"
+    echo "Adding $1 section"
     cat << EOF > /tmp/$$_SECTION
 require 'simplecov'
 if ENV["COVERAGE"]
@@ -23,7 +23,7 @@ fi
 
 ######################################################################
 # 1. Add 1 line to Gemfile.
-echo "gem 'simplecov', require: false, group: :test" >> Gemfile
+(echo ; echo "gem 'simplecov', require: false, group: :test") >> Gemfile
 
 # 2. Add 1 line to .gitignore file.
 echo coverage >> .gitignore

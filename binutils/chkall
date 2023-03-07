@@ -42,7 +42,10 @@ for i in ${DIRS} ; do
 #    echo "### $i ###########################################################"
 #    allofthem "$i" "${CNDM}" |egrep -v " 0 "
 #    echo "`dirname $i`: `auditjs ossi --json -q |egrep -v "^\[\]$" | jq length` ##"
-    echo "`dirname $i`: `sandworm-audit  -p . -s 2> /dev/null | grep Identified` ##"
+#    echo "`dirname $i`: `sandworm-audit  -p . -s 2> /dev/null | grep Identified` ##"
+
+     echo "`dirname $i`:"
+     chkbcov
 
 #    standardrb
 #    rubocop

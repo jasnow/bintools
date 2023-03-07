@@ -1,5 +1,4 @@
 VERBOSE=$1
-shift
 function linenum {
     if [ "X${VERBOSE}X" == "X-vX" ] ; then
        echo "LINE" $2 $1 $3
