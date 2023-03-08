@@ -3,6 +3,7 @@ ls -1 $HOME/Projects/*/Gemfile |sed -e "s,$HOME/Projects/,," -e "s,/Gemfile,," >
 # Unclear about : NEW/hammer
 # sorted by ABC's
 cat << EOFCREME > /tmp/$$_CREME
+bear-publishing
 damn_vulnerable_rails_app
 DVGM
 Hacme-Casino

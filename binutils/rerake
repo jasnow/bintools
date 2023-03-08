@@ -123,7 +123,7 @@ fi
 #        exit
 #    fi
 #else
-#    echo "Skipping cane run..."
+#    echo "Skipping cane run..." > /dev/tty
 #fi
 
 echo "Running cleanup..."

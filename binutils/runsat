@@ -28,7 +28,7 @@ brm |sed "s,^,   ," # Run brakeman and railroader tools.
 # BUNDLE-AUDIT
 linenum ${LINENO} 8z "bundle_audit"
 
-bundle-audit |sed "s,^,   ,"
+bundle-audit |sed "s,^,   ," |grep Title |nl -ba
 
 ######################################################################
 # RUBY_AUDIT 
@@ -55,16 +55,20 @@ else
 fi
 
 ######################################################################
-
 linenum ${LINENO} 12a "runyn"
 runyn
 
 ######################################################################
+linenum ${LINENO} 12a "bearer"
+bearer scan . 2> /dev/null | tail -10
+
+######################################################################
 #OSV-SCANNER
 if [ "X$1X" == "XosX" ] ; then  
-    shift; echo "ARGS: $*"
+    "Skipping osv-scanner scan" > /dev/tty
 else
     linenum ${LINENO} 11a "osv-scanner"
-    $HOME/Projects/gocode/bin/osv-scanner -r . |egrep -v "Scanned|Scanning" |sed "s,^,   ,"
+    $HOME/Projects/gocode/bin/osv-scanner -r . |egrep -v "Scanned|Scanning" \
+    |  sed "s,^,   ," |nl -ba
 fi
 

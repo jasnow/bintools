@@ -5,10 +5,6 @@ function linenum {
     fi
 } 
 
-function shiftargs {
-    shift #; echo "ARGS: $*" echo "ARGS/AT: $@"
-}
-
 if [ "X`git branch |grep "^\*" |awk '{ print $2 }'`X" == "XmasterX" ] ; then
     : # okay
 else
@@ -44,9 +40,9 @@ else
     : # rundawn
 fi
 
-# if $1, shift overcommit check.
+# if $1, Shift overcommit check.
  if [ "X$1X" == "XoX" ] ; then  
-    shiftargs $*
+    echo "Skipping overcommit check" > /dev/tty
 else
     if [ "X`ls .overcommit.yml 2> /dev/null`X" == "XX" ] ; then
        echo "Please install overcommit" ; exit
@@ -56,7 +52,8 @@ fi
 if [ "X`(ls *LICENSE* license.txt License* *COPYING* 2> /dev/null; grep spec.license *gemspec 2> /dev/null; grep -i license R*) |wc -l |awk '{ print $1 }'`X" == "X0X" ]
 then
     if [ "X$1X" == "XlX" ] ; then  
-        shiftargs $*
+        echo "Skipping license check" > /dev/tty
+        shift 1
     else
         echo "No Licenses"
         if [ "X${VERBOSE}X" == "X-vX" ] ; then
@@ -316,7 +313,8 @@ linenum ${LINENO} 9a "Diff JS Pkg Mgrs"
 
 # If $1 is "j", skip chkjss check
 if [ "X$1X" == "XjX" ] ; then
-    shiftargs $*
+    echo "Skipping chkjss check" > /dev/tty
+    shift 1
 else
     chkjss
 fi
@@ -326,13 +324,11 @@ fi
 linenum ${LINENO} 9a "Simplecov"
 
 # If $1 is "k", skip chkbcov check
-if [ "X$1X" == "XjX" ] ; then  
-    shiftargs $*
-
+if [ "X$1X" == "XkX" ] ; then  
+    echo "Skipping chkbcov check" > /dev/tty
 else
     chkbcov
 fi
-
 exit
 
 #STOPHERE ############################################################
