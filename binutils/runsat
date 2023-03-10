@@ -31,6 +31,13 @@ linenum ${LINENO} 8z "bundle_audit"
 bundle-audit |sed "s,^,   ," |grep Title |nl -ba
 
 ######################################################################
+# BUNDLE OUTDATES
+
+linenum ${LINENO} 8z2 "bundle outdated"
+
+bundle outdated
+
+######################################################################
 # RUBY_AUDIT 
 linenum ${LINENO} 9a "ruby_audit"
 if [ "X`grep ruby_audit Gemfile |wc -l |awk '{ print $1 }'`X" == "X1X" ]; then

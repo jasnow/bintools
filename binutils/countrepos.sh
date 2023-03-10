@@ -1,4 +1,4 @@
-IGNOREFILES="chklics|ATTIC|countrepos|do-pull|stats|GENERAL|yml$|cmp-ay|o_d|cpf|cpi|diffdirs|MAYBE|NO|o_list_of_repos.txt|FUZZING-TOOLS|sorbet-FILES|SOR-RETIRED|GEMWORK|FINAL-RETIRED|NEED-PG-DB|OLD-WhatsMyName|OSINT|SOR-REPOS|SOR-TAP-RETIRED|BROKEN|gocode|NEW|VERY-OLD"
+IGNOREFILES="chklics|ATTIC|countrepos|do-pull|stats|GENERAL|yml$|cmp-ay|o_d|cpf|cpi|diffdirs|MAYBE|NO|o_list_of_repos.txt|FUZZING-TOOLS|sorbet-FILES|SOR-RETIRED|GEMWORK|FINAL-RETIRED|NEED-PG-DB|OLD-WhatsMyName|OSINT|SOR-REPOS|SOR-TAP-RETIRED|BROKEN|gocode|NEW|VERY-OLD|RONIN"
 
 echo "Total Active Rails projects"
 ls -1 $HOME/Projects |egrep -v ${IGNOREFILES} > /tmp/$$_OUTPUT
@@ -35,7 +35,7 @@ grep -i github `grep -li bitbucket $HOME/Projects/*/.git/config ` \
 |egrep -v "adopt-a-hydrant.git" \
 |sed -e "s,.*/,," -e "s,.git,," > /tmp/$$_BOTTOM_PROJECTS
 
-echo "Github projects (1st: ok; 2nd: broken - NOTE: Include above BOTH count)"
+echo "GitHub projects (1st: ok; 2nd: broken - NOTE: Include above BOTH count)"
 echo "    OK:"
 #grep http $HOME/PRojects/*/.git/config |cut -d'/' -f1-6 |sort -u |egrep github |wc |sed -e "s,^,   ,"
 grep -il github $HOME/Projects/*/.git/config | wc |sed -e "s,^,   ,"
@@ -92,7 +92,8 @@ echo "# of gems in Gemfiles and gemspecs"
 cat $HOME/Projects/*/Gemfile \
 | grep "gem " | sed -e "s,^[ ]*,," -e "s,',,g" -e "s/,//" -e 's,",,g'
 
-cat $HOME/Projects/*/*gemspec |egrep "add_dev|add_dep" |sed -e "s,.*<,," -e "s,\[.*,," 
+cat $HOME/Projects/*/*gemspec 2> /dev/null |egrep "add_dev|add_dep" \
+| sed -e "s,.*<,," -e "s,\[.*,," 
 
 ) |awk '{ print $2 }' |sed -e "s,['\",],,g" | egrep -v "3.0.0|gem$|^$" \
 | sort |uniq -c |sort -n |wc

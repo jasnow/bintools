@@ -3,7 +3,7 @@
 #OLD KEY: MzY2OTcxODM1MDc1Nzg4ODEy.Xzvp9w.rSrALX91wuPZsnBxvaOpxhxwIeM
 curl -s \
   -H 'Content-Type: application/json' \
-  -H 'authorization: d76f089b9427438845a45ee4ac2665882b7838df555292f0bb70746a6695efc1' \
+  -H 'authorization: ${DISCORD_AUTH} \
   'https://discord.com/api/v9/users/@me/guilds' \
 | jq 
 exit

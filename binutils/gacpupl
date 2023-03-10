@@ -1,0 +1,3 @@
+STRN=$(git status |grep binutils |sed -e "s,.*/,," |tr "\n" "," |sed -e "s/,$//" ; echo)
+
+echo gacp \"Uploading new versions of [${STRN}]\"
