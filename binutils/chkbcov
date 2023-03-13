@@ -16,7 +16,8 @@ cat */[rst]*helper.rb | head -8 > /tmp/$$_ACTUAL
 if [ "X$1X" == "XdX" ] ; then
     sdiff /tmp/$$_EXPECTED /tmp/$$_ACTUAL
 else
+#    sed -e "s/'rails' //" /tmp/$$_EXPECTED > /tmp/$$_EXPECTED2
     diff /tmp/$$_EXPECTED /tmp/$$_ACTUAL
 fi
 
-rm -f /tmp/$$_EXPECTED /tmp/$$_ACTUAL
+rm -f /tmp/$$_EXPECTED /tmp/$$_ACTUAL /tmp/$$_EXPECTED2

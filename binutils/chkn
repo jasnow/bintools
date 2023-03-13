@@ -224,6 +224,11 @@ fi
 # Check ruby syntax
 ruby -wc **/*.rb |egrep -v "Syntax OK"
 
+# Check for "Path Traversal Attacks" CVE-2014-125033.
+git grep "file.name.split" 
+#REFERENCE: https://github.com/bertrand-caron/rails-cv-app/
+#blob/master/app/controllers/uploaded_files_controller.rb
+
 ######################################################################
 
 linenum ${LINENO} 4 "Hard-coded numbers"
@@ -329,6 +334,18 @@ if [ "X$1X" == "XkX" ] ; then
 else
     chkbcov
 fi
+
+######################################################################
+# Run "runsat" for non-creme REPOs.
+
+linenum ${LINENO} 10a "runsat"
+
+if [ "X$(creme | grep -c "`echo ${PWD} | sed -e 's,.*/,,'`")X" == "X1X" ]
+then
+    echo "------------------------------------------------------------"
+    runsat
+fi
+
 exit
 
 #STOPHERE ############################################################

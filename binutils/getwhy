@@ -1,0 +1,1 @@
+grep TBD $HOME/bin/bin*/creme |awk '{ print "/home/t530-dev/Projects/"$1 }'

@@ -1,0 +1,5 @@
+bearer scan . --force --report dataflow | jq --color-output . |tee /tmp/$$_OUTPUT
+echo "============================================================"
+egrep '"name"' /tmp/$$_OUTPUT
+echo "============================================================"
+rm -f /tmp/$$_OUTPUT

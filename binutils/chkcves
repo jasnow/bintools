@@ -1,0 +1,40 @@
+grep -v "^#" << ENDLIVE-HACK-CVE | awk -F'/' '{ print $5 }' |sed -e "s, (.*,," > /tmp/$$_CVSs 
+#2021(2)
+    -R04- https://github.com/Live-Hack-CVE/CVE-2021-39880 (1 json file: apollo_upload_server gem)
+#2014(1)
+        -24- https://github.com/Live-Hack-CVE/CVE-2014-125033 (1 json file; not gem-related)
+#2020(1)
+         -75- https://github.com/Live-Hack-CVE/CVE-2022-3704 (1 json file; DISPUTED)
+######################################################################
+#2022(10)
+#DONE       -R21- https://github.com/Live-Hack-CVE/CVE-2022-47318 (1 json file)
+#DONE       -R22- https://github.com/Live-Hack-CVE/CVE-2022-46648 (1 json file)
+#DONE       -R24- https://github.com/Live-Hack-CVE/CVE-2022-45442 (1 json file)
+#DONE       -R02- https://github.com/Live-Hack-CVE/CVE-2022-39224 (1 json file)
+#DONE       -R23- https://github.com/Live-Hack-CVE/CVE-2022-31163 (1 json file)
+#DONE        -68- https://github.com/Live-Hack-CVE/CVE-2022-23520 (1 json file)
+#DONE        -69- https://github.com/Live-Hack-CVE/CVE-2022-23519 (1 json file)
+#DONE        -71- https://github.com/Live-Hack-CVE/CVE-2022-23518 (1 json file)
+ENDLIVE-HACK-CVE
+
+######################################################################
+#2022
+#DONE        -63- https://github.com/Live-Hack-CVE/CVE-2022-32209 (2 files)
+#2023(2)
+#DONE         -73- https://github.com/Live-Hack-CVE/CVE-2023-22797 (1 json file)
+#DONE        -R03- https://github.com/Live-Hack-CVE/CVE-2023-22795 (1 json file)
+#2021(1)
+#DONE        -R18- https://github.com/Live-Hack-CVE/CVE-2021-33473 (1 json file)
+#2020(1)
+#DONE        -R25- https://github.com/Live-Hack-CVE/CVE-2020-26298 (1 json file)
+#2019(1)
+#DONE        -R20- https://github.com/Live-Hack-CVE/CVE-2019-5477 (1 json file)
+
+while read line ; do
+    subline=`echo $line |sed -e "s,CVE-,,"`
+    cd ${HOME}/Projects/ruby-advisory-db
+    echo "--- ${line} ----------------------------------------"
+    git grep ${subline}
+done < /tmp/$$_CVSs
+
+rm -f /tmp/$$_CVSs 

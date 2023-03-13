@@ -1,33 +1,66 @@
+# Unclear about : NEW/hammer
+
 ls -1 $HOME/Projects/*/Gemfile |sed -e "s,$HOME/Projects/,," -e "s,/Gemfile,," > /tmp/$$_ALL
 
-# Unclear about : NEW/hammer
+# Need more details to mark these as "COMPLETELY OK".
+awk '{ print $1 }' << EOFMAYBE > /tmp/$$_PROBABLY_OK
+empty32	     	      	       "PII but OK"
+feb27			       "ASSUME OK"
+feb5			       "ASSUME OK"
+hello_app		       "ASSUME OK"
+mailgun-rails-example	       "PII but OK"
+newproj			       "ASSUME OK"
+Practice-Git-with-Rails	       "ASSUME OK"
+Practice-Git-with-Railsedge    "ASSUME OK"
+rails_app_edget		       "ASSUME OK"
+rails-visitor-counter	       "ASSUME OK"
+railscanaryapps		       "ASSUME OK"
+rt_demo_app		       "ASSUME OK"
+rt_first_app		       "ASSUME OK"
+ruby-advisory-db	       "ASSUME OK"
+show-me-the-food	       "ASSUME OK"
+show-me-the-foodedge	       "ASSUME OK"
+SocialButtonExample	       "ASSUME OK"
+spxxrt_2_3		       "ASSUME OK"
+toy_app			       "PII but OK"
+trail			       "PII but OK"
+webrtc-hotwire-rails	       "PII but OK"
+sprt_edge		       "ASSUME OK"
+EOFMAYBE
+
 # sorted by ABC's
-cat << EOFCREME > /tmp/$$_CREME
-bear-publishing
-damn_vulnerable_rails_app
-DVGM
-Hacme-Casino
-hottable
-hotwired_ats_code
-MarshalBank
-myapp
-rails7-datatables2
-rails-uptodate
-rails_new
-rails_sql_injection
-railsconf00
-railsgoat7
-ready4rails
-ruby-goof
-ruby-vulnerable-gem-in-app
-sample_app_6th_ed
-test-hakiri-app
-vulnerableApp
-webrtc
-EOFCREME
+awk '{ print $1 }' << EOFCREMEWHY > /tmp/$$_CREME_AND_WHY
+bear-publishing			spektr: 7; bearer: LOTS; osv-scanner: LOTS
+BusRSVP				CWE-312 - Cleartext Storage of Sensitive Information
+damn_vulnerable_rails_app	CWE-521, CWE-312, SQL Injection, ssl config
+DVGM				brm: 17; spektr: 16, CWE-326, CWE-331, osv-scanner: LOTS
+Hacme-Casino			spektr: 8, outdated gems, CWE-315, osv-scanner
+hottable			brm: 7; spektr: 14; (3 high sev, 2 low sev) (2: CWE-601)
+hotwired_ats_code		3 high sev, 2 low sev
+MarshalBank			CWE-502, CWE-312, brm: 2, spektr: 4, [runy, osv-scanner]: LOTS
+myapp				10+3 critical sev
+rails				19 CWE (Hi,Med) failures
+rails7-datatables2		runyn: "1 high severity issue"
+rails_app_edge	      	      	2 (CWE-312) - Cleartext Storage of Sensitive Information
+rails_app_n_px			2 (CWE-312) - Cleartext Storage of Sensitive Information
+rails_app_n			2 (CWE-312) - Cleartext Storage of Sensitive Information
+rails_new			[14 high sev, 2 mod sev, 24 low sev] + more
+rails_sql_injection		brm: 4; CWE-798 - Use of Hard-coded Credentials
+rails-uptodate			CWE-312, CWE-601, CWE-625
+railsconf00			spektr: 3; 9ofCWE-312- Cleartext Storage of Sensitive Information
+railsgoat7			brm: 22; spektr: 30, bearer: LOTS
+ruby-goof			brm: 2; CWE-798 - Use of Hard-coded Credentials
+ruby-vulnerable-gem-in-app	ssl config; missing forgery config
+sample_app_6th_ed		 brm: 5; spektr: 9; 17 high sev, 2 mod sev, 23 low sev; MORE
+tasks				CWE-601 - URL Redirection to Untrusted Site ('Open Redirect')
+tasks_edge			osv-scanner: 14 alerts
+test-hakiri-app			brm: 2; spektr 1
+testing-app			CWE-312, CWE-319
+testing-appedge			CWE-319, CWE-312
+vulnerableApp			brm: 3 (Dynamic Render Path/2; Missing ssl config)
+EOFCREMEWHY
 
-edge 99 |awk '{ print $9 }' > /tmp/$$_EDGE
+fgrep -v -f /tmp/$$_CREME_AND_WHY /tmp/$$_ALL |fgrep -v -f /tmp/$$_PROBABLY_OK
+#| fgrep -v -f /tmp/$$_EDGE
 
-fgrep -v -f /tmp/$$_CREME /tmp/$$_ALL |fgrep -v -f /tmp/$$_EDGE
-
-rm -rf /tmp/$$_CREME /tmp/$$_ALL /tmp/$$_EDGE
+rm -rf /tmp/$$_CREME /tmp/$$_ALL /tmp/$$_EDGE /tmp/$$_PROBABLY_OK

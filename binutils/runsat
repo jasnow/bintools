@@ -33,9 +33,9 @@ bundle-audit |sed "s,^,   ," |grep Title |nl -ba
 ######################################################################
 # BUNDLE OUTDATES
 
-linenum ${LINENO} 8z2 "bundle outdated"
+linenum ${LINENO} 8z2 "bundle outdated --strict"
 
-bundle outdated
+bundle outdated --strict
 
 ######################################################################
 # RUBY_AUDIT 
