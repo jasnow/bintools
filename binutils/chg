@@ -196,11 +196,12 @@
 
 #sed -e "s/7.0.4.1/7.0.4.2/g" Gemfile > /tmp/g && mv /tmp/g Gemfile
 
-sed -e "s/3.2.0/3.2.1/g" -e "s,ruby3.0,ruby3.1," .rvmrc > /tmp/g && mv /tmp/g .rvmrc
-sed -e "s/3.2.0/3.2.1/g" Gemfile > /tmp/g && mv /tmp/g Gemfile
-sed -e "s/3.2.0/3.2.1/" -e "s,3.1,3.2," .travis.yml   > /tmp/g 2> /dev/null && \
-  mv /tmp/g .travis.yml
-sed -e "s/3.2.0/3.2.1/" .ruby-version > /tmp/g 2> /dev/null && mv /tmp/g .ruby-version
+#sed -e "s/3.2.0/3.2.1/g" -e "s,ruby3.0,ruby3.1," .rvmrc > /tmp/g && mv /tmp/g .rvmrc
+#sed -e "s/3.2.0/3.2.1/g" Gemfile > /tmp/g && mv /tmp/g Gemfile
+#sed -e "s/3.2.0/3.2.1/" -e "s,3.1,3.2," .travis.yml   > /tmp/g 2> /dev/null && \
+#  mv /tmp/g .travis.yml
+#sed -e "s/3.2.0/3.2.1/" .ruby-version > /tmp/g 2> /dev/null && mv /tmp/g .ruby-version
 
+sed -e "s/7.0.4.2/7.0.4.3/g" Gemfile > /tmp/g && mv /tmp/g Gemfile
 git diff
 cd ..

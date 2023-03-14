@@ -28,10 +28,7 @@ fi
 # 2. Add 1 line to .gitignore file.
 echo coverage >> .gitignore
 
-# 2. Add this section to *helper.rb files.
-#    -- 3/5/2023: Ignore rails_helper.rb.
-
-# Pick only one, not both.
+# 2. Add "addsection" code to one of the helper.rb files.
 if [ -f spec/rails_helper.rb ] ; then
     addsection spec/rails_helper.rb
 else

@@ -1,5 +1,5 @@
-for i in do-pull-request-first.txt BROKEN NEW VERY-OLD \
-  NOT-HELPFUL GENERAL RONIN gocode enola bug-bounty-programs ; do
+for i in do-pull-request-first.txt BROKEN NEW VERY-OLD NOT-HELPFUL \
+  GENERAL RONIN gocode enola bug-bounty-programs bearer rails example-ruby ; do
     touch $HOME/Projects/$i
 done
 mv *~ .*~ \#*\# libpeerconnection.log /Users/macbookpro/X 2> /dev/null
