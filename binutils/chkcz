@@ -1,0 +1,9 @@
+for i in `git grep -Ei "^cve:|^osvdb:|^ghsa:" |egrep "gems/|rubies/" |sed -e "s,:.*,," |sort -u`; do
+    echo $i "~" `egrep "^cve:|^osvdb:|^ghsa:" $i`
+done |awk -F'~' '{ print $2, "~", $1 }' > /tmp/$$_OUTP
+
+echo "yml file with no cve:"
+grep -v "cve:" /tmp/$$_OUTP |sort -n |nl -ba
+
+rm -f /tmp/$$_OUTP
+

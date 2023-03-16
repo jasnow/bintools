@@ -20,13 +20,16 @@ else
                 if [ "X`git branch |grep "^\*" |awk '{ print $2 }'`X" == "XmainX" ] ; then
                     : # okay
                 else
-                  
+                    if [ "X`git branch |grep '^*' |awk '{ print $2 }'`X" == "XsnowifyX" ] ; then
+                        : # okay
+                    else
 # 3/1/2023: Commented out to support non-main branches if possible.
-#                    if [ "X$1X" == "XX" ] ; then
-                        echo "git branch: Not on 'main' branch"
-#                        git branch
-#                        exit
-#                    fi
+#                       if [ "X$1X" == "XX" ] ; then
+                            echo "git branch: On 'snowify' branch"
+                            git branch
+#                           exit
+#                       fi
+                    fi
                 fi
             fi
         fi
@@ -220,9 +223,6 @@ else
     exit
 fi
 
-# Check ruby syntax
-ruby -wc **/*.rb |egrep -v "Syntax OK"
-
 # Check for "Path Traversal Attacks" CVE-2014-125033.
 git grep "file.name.split" 
 #REFERENCE: https://github.com/bertrand-caron/rails-cv-app/
@@ -331,7 +331,18 @@ linenum ${LINENO} 9a "Simplecov"
 if [ "X$1X" == "XkX" ] ; then  
     echo "Skipping chkbcov check" > /dev/tty
 else
-    chkbcov
+    if [ "X`basename ${PWD}`X" == "Xruby-advisory-dbX" ] ; then
+        echo "Skipping chkbcov check for ruby-advisory-db repo" > /dev/tty
+    else
+        if [ "X`basename ${PWD}`X" == "Xempty32X" ] ; then
+            echo "Skipping chkbcov check for empty32 repo" > /dev/tty
+        else
+           # Check ruby syntax
+           ruby -wc **/*.rb |egrep -v "Syntax OK"
+
+           chkbcov
+        fi
+    fi
 fi
 
 ######################################################################

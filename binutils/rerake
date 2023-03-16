@@ -43,7 +43,7 @@ else
         echo "Add to do-pull-request-first.txt file, then run git pull." ; exit
     else
         echo "Running pre-git-pull..."
-        git pull parent main 2> /dev/null
+        git pull parent 2> /dev/null
         # 3/1/2023: Support parent repo's default branch as "master" if in .git/config file.
         if [ "X$?X" == "X0X" ] ; then
             : # ok

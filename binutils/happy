@@ -1,4 +1,6 @@
-git branch -m master main
+#MYBRANCH="main"
+MYBRANCH="snowify"
+git branch -m master ${MYBRANCH}
 git fetch origin
-git branch -u origin/main main
+git branch -u origin/${MYBRANCH} ${MYBRANCH}
 git remote set-head origin -a
