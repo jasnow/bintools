@@ -1,0 +1,12 @@
+if [ "X`grep '"parent"' .git/config`X" == 'X[remote "parent"]X' ] ; then
+    PARENT=`git remote show parent | sed -n '/HEAD branch/s/.*: //p'`
+    echo "yes parent and it's: ${PARENT}"    
+else
+    echo "no parent"
+fi
+#for i in `grep -l '"parent"' ../*/.git/config |awk -F'/' '{ print $2 }'` ; do
+    #ls -CF /home/t530-dev/Projects/$i
+#    cd /home/t530-dev/Projects/$i
+#    echo "... $i: .........."
+#    git remote show parent | sed -n '/HEAD branch/s/.*: //p'
+#done
