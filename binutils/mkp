@@ -1,0 +1,72 @@
+cat << EOFTEMPLATE > /tmp/$$_TEMPLATE1 
+######################################################################
+---
+gem: ??? => ECOSYSTEM
+library: ??? => ECOSYSTEM
+framework: ??? => ECOSYSTEM
+platform: ??? => ECOSYSTEM
+cve: ???
+osvdb: ???
+ghsa: ???
+url: ???
+title: ???
+date: ???
+description: |
+  ???
+
+  NOTE: Used "nvd_published_at" as "date:"
+cvss_v2: ???
+cvss_v3: ???
+unaffected_versions:
+ - '???'
+patched_versions:
+ - '???'
+related:
+ cve:
+  - ???
+ url:
+  - ???
+# ####################################################################
+# * REASON: More research.
+# * SEVERITY: ???
+# * PACKAGE NAME: ???
+# * SOURCE CODE LOCATION: ???
+# * AFFECTED VERSIONS: ???
+# * CWE: ???
+# ####################################################################
+EOFTEMPLATE
+
+######################################################################
+cat << NOTPATTERNS > /tmp/$$_NOTPATTERNS
+     },
+    {
+  }
+  ],
+}
+"type": "ADVISORY",
+      "type": "WEB",
+schema_version
+modified
+github_reviewed
+references
+ "published":
+  "aliases": [
+  "database_specific": {
+NOTPATTERNS
+
+######################################################################
+
+cat /tmp/$$_TEMPLATE1
+
+cat ${HOME}/Projects/advisory-database/advisories/unreviewed/$1 \
+| egrep -v "^$|^{$" | fgrep -v -f /tmp/$$_NOTPATTERNS \
+| sed \
+  -e 's,      "url": ",  - ,' \
+  -e 's,  "id": "GHSA-,ghsa: ,' \
+  -e 's,    "nvd_published_at": ",date: ,' \
+  -e 's,    "CVE-,cve: ,' \
+  -e 's/",$//' -e 's/"$//'
+
+echo "  - https://github.com/advisories/GHSA-qf67-vmxx-gp4j"`echo $1 |sed -e "s,.*/,,"`
+
+rm -fr /tmp/$$_NOTPATTERNS
