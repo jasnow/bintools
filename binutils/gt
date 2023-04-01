@@ -9,9 +9,9 @@ if [ "X$1X" == "XjX" ] ; then
     cat /tmp/$$_LINEX
 else
     if [ "X$1X" == "XgX" ] ; then
-        cat /tmp/$$_LINEX | sed -e 's,$,]",' -e 's,^,gacp "Upgraded gem(s): [,'
-    else
         cat /tmp/$$_LINEX | sed -e 's,$,] + GH-A file",' -e 's,^,gacp "Upgraded gem(s): [,'
+    else
+        cat /tmp/$$_LINEX | sed -e 's,$,]",' -e 's,^,gacp "Upgraded gem(s): [,'
     fi
 fi
 echo
