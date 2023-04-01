@@ -1,0 +1,8 @@
+#STRN=`git diff Gemfile.lock |grep "\+.* (" |awk '{ print $2 }' |egrep -v "~>|>=" |sort -u |tr "\n" ", " |sed -e "s/,$//"` 
+#-e "s,^ ,," -e "s/,/, /g"
+#echo "gacp \"Upgraded [${STRN}] gem$1\""
+if [ "XX" == "XgX" ] 
+    echo `gt` 
+else
+    echo `gt`
+fi

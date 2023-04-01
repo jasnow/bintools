@@ -8,6 +8,10 @@ git diff |grep "^[-+] " |awk '{ print $2 }' |egrep -v "gem|branch" \
 if [ "X$1X" == "XjX" ] ; then
     cat /tmp/$$_LINEX
 else
-    cat /tmp/$$_LINEX | sed -e 's,$,]",' -e 's,^,gacp "Upgraded gem(s): [,'
+    if [ "X$1X" == "XgX" ] ; then
+        cat /tmp/$$_LINEX | sed -e 's,$,]",' -e 's,^,gacp "Upgraded gem(s): [,'
+    else
+        cat /tmp/$$_LINEX | sed -e 's,$,] + GH-A file",' -e 's,^,gacp "Upgraded gem(s): [,'
+    fi
 fi
 echo
