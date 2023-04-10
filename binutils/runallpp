@@ -1,0 +1,14 @@
+egrep -v "^#" << EOFDUPS > /tmp/$$_DUPS
+gems/spree_auth_devise/GHSA-6mqr-q86q-6gwr.yml
+gems/spree_auth_devise/GHSA-8xfw-5q82-3652.yml
+gems/spree_auth_devise/GHSA-gpqc-4pp7-5954.yml
+gems/user_agent_parser/GHSA-pcqq-5962-hvcw.yml
+EOFDUPS
+
+for i in `git status 2>&1  |grep 'gems/' |fgrep -v -f /tmp/$$_DUPS` ; do
+    echo $i
+done
+
+echo "Remember to later delete DUPs in this script."
+
+rm -f /tmp/$$_DUPS

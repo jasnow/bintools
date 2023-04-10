@@ -1,0 +1,13 @@
+if [ "X$1X" == "XX" ] ; then
+    echo "Usage: pp file"; exit
+else
+    INPUTF="$1"
+fi
+######################################################################
+sed  -e "s,  related:,related:," -e "s,^  ,~  ," ${INPUTF} \
+| sed -e "s,^: ,  ," -e "s,- url: ,  - ," -e "s,\\\n, ,g" \
+  -e "s/description:/description:% /" -e "s/- package:/  - package:/" \
+| tr "%" "\012" | sed -e "s,^~,," \
+| egrep -v "? \|-|unaffected_versions:|OPTIONAL: FILL IN SEE BELOW" \
+| egrep -v "apache.org$|3E"
+rm -rf /tmp/$$_LINES
