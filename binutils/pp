@@ -3,11 +3,17 @@ if [ "X$1X" == "XX" ] ; then
 else
     INPUTF="$1"
 fi
+cat ${INPUTF} > /tmp/$$_FILEF
+echo "END OF FILE MARKER" >> /tmp/$$_FILEF
 ######################################################################
-sed  -e "s,  related:,related:," -e "s,^  ,~  ," ${INPUTF} \
-| sed -e "s,^: ,  ," -e "s,- url: ,  - ," -e "s,\\\n, ,g" \
-  -e "s/description:/description:% /" -e "s/- package:/  - package:/" \
-| tr "%" "\012" | sed -e "s,^~,," \
-| egrep -v "? \|-|unaffected_versions:|OPTIONAL: FILL IN SEE BELOW" \
-| egrep -v "apache.org$|3E"
-rm -rf /tmp/$$_LINES
+#HID: unaffected_versions:
+#======================================================================
+egrep -v "OPTIONAL: FILL IN SEE BELOW|FILL IN IF AVAILABLE" /tmp/$$_FILEF \
+| sed \
+  -e "/GitHub advisory data below/,/END OF FILE MARKER/d" \
+  -e "s,- url: ,  - ," \
+  -e "s/description:/description:% |/" \
+| tr "%" "\012" \
+| egrep -v "^$|^[ ][ ]*$|END OF FILE MARKER"
+
+rm -rf /tmp/$$_FILEF

@@ -1,0 +1,18 @@
+if [ "X$1X" == "XX" ] ; then
+    echo "Usage: pp file"; exit
+else
+    INPUTF="$1"
+fi
+cat ${INPUTF} > /tmp/$$_FILEF
+echo "END OF FILE MARKER" >> /tmp/$$_FILEF
+######################################################################
+sed  -e "s,  related:,related:," -e "s,^  ,~  ," /tmp/$$_FILEF \
+| sed -e "s,^: ,  ," -e "s,- url: ,  - ," -e "s,\\\n, ,g" \
+  -e "s/description:/description:% /" -e "s/- package:/  - package:/" \
+| tr "%" "\012" | sed -e "s,^~,," \
+| egrep -v "? \|-|unaffected_versions:|OPTIONAL: FILL IN SEE BELOW" \
+| egrep -v "apache.org$|3E" \
+| sed -e "/GitHub advisory data below/,/END OF FILE MARKER/d" \
+| egrep -v "^$"
+
+rm -rf /tmp/$$_FILEF
