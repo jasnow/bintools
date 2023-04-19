@@ -6,13 +6,15 @@ fi
 cat ${INPUTF} > /tmp/$$_FILEF
 echo "END OF FILE MARKER" >> /tmp/$$_FILEF
 ######################################################################
+#HID: |unaffected_versions:
+
 egrep -v "OPTIONAL: FILL IN SEE BELOW|FILL IN IF AVAILABLE" /tmp/$$_FILEF \
 | sed \
   -e "/GitHub advisory data below/,/END OF FILE MARKER/d" \
+  -e "/description: [a-zA-Z]/s,:,: |% ," \
   -e "s,- url: ,  - ," \
-  -e "s/description:/description:% |/" \
 | tr "%" "\012" \
-| egrep -v "^$|^[ ][ ]*$|END OF FILE MARKER|unaffected_versions:" \
+| egrep -v "^$|^[ ][ ]*$|END OF FILE MARKER" \
 |sed -e "s,[ ]*$,,"
 
 rm -rf /tmp/$$_FILEF
