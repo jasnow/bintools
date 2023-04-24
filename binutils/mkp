@@ -67,6 +67,10 @@ cat ${HOME}/Projects/advisory-database/advisories/unreviewed/$1 \
   -e 's,    "CVE-,cve: ,' \
   -e 's/",$//' -e 's/"$//'
 
-echo "  - https://github.com/advisories/GHSA-qf67-vmxx-gp4j"`echo $1 |sed -e "s,.*/,,"`
+echo "==============================================================="
+cd ${HOME}/Projects/ruby-advisory-db
+git grep $2
+
+#echo "  - https://github.com/advisories/GHSA-qf67-vmxx-gp4j"`echo $1 |sed -e "s,.*/,,"`
 
 rm -fr /tmp/$$_NOTPATTERNS
