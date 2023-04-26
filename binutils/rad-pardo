@@ -1,0 +1,7 @@
+cat $HOME/Projects/ru*db/rubies/*/*.yml | grep ": " |sed \
+  -e "s,url: .*,url:," -e "s,title: .*,title:," \
+  -e "s,date: .*,date:," -e "s,cve:.*,cve:," \
+  -e "s,engine:.*,engine:," -e "s,osvdb:.*,osvdb:," \
+  -e "s,cvss_v2:.*,cvss_v2:," -e "s,cvss_v3:.*,cvss_v3:," \
+  -e "s,description:.*,description:," \
+|sort |uniq -c |sort -n 
