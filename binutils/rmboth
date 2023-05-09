@@ -1,1 +1,5 @@
-rm `git status |grep GHSA` `find . -name "*~"`
+rm -f `git status |grep GHSA` `find . -name "*~"`
+rm -f ${HOME}/Projects/ruby-advisory-db/gems/rwiki/CVE-2006-2582.yml
+rm -f ${HOME}/Projects/ruby-advisory-db/gems/webrick/CVE-2009-4492.yml
+
+

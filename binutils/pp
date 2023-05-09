@@ -14,7 +14,7 @@ egrep -v "OPTIONAL: FILL IN SEE BELOW|FILL IN IF AVAILABLE" /tmp/$$_FILEF \
   -e "/description: [a-zA-Z]/s,:,: |% ," \
   -e "s,- url: ,  - ," \
 | tr "%" "\012" \
-| egrep -v "^$|^[ ][ ]*$|END OF FILE MARKER" \
-|sed -e "s,[ ]*$,,"
+| egrep -v "^$|^[ ][ ]*$|END OF FILE MARKER|name: |ecosystem: " \
+| sed -e "s,[ ]*$,," -e "s/^[ ]*- http/    - http/"
 
 rm -rf /tmp/$$_FILEF
