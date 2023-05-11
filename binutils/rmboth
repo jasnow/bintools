@@ -2,4 +2,8 @@ rm -f `git status |grep GHSA` `find . -name "*~"`
 rm -f ${HOME}/Projects/ruby-advisory-db/gems/rwiki/CVE-2006-2582.yml
 rm -f ${HOME}/Projects/ruby-advisory-db/gems/webrick/CVE-2009-4492.yml
 
-
+# 5/9/2023: Moved "rails" gem into different gem.
+rm -f ${HOME}/Projects/ruby-advisory-db/gems/rails/CVE-2008-4094.yml
+rm -f ${HOME}/Projects/ruby-advisory-db/gems/rails/CVE-2008-7248.yml
+rm -f ${HOME}/Projects/ruby-advisory-db/gems/rails/CVE-2009-3009.yml
+rm -f ${HOME}/Projects/ruby-advisory-db/gems/rails/CVE-2009-3086.yml
