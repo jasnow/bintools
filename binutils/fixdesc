@@ -1,0 +1,27 @@
+function fixone() {
+    if [ "X$1X" == "XX" ] ; then
+        echo "Usage: $) file"; exit
+    else
+        INPUTF="$1"
+    fi
+
+    sed -e "/description: [a-zA-Z('\"]/s,:,: |\o001\ ," \
+        -e 's,description:$,description: |,'   \
+        -e 's,description: >-,description: |,' \
+        -e 's,description: |+,description: |,' \
+        -e 's,description: |-,description: |,' \
+        -e 's,description: |2-,description: |,' \
+        -e 's,description: |2,description: |,' \
+        ${INPUTF} \
+    | tr "\001" "\012"
+}
+
+egrep -v "^#" << EOFDUPS > /tmp/$$_DUPS
+NONE YET
+EOFDUPS
+
+for i in `find gems rubies -type f` ; do
+    fixone $i > /tmp/$$_F1 ; cp /tmp/$$_F1 $i
+done
+
+rm -f /tmp/$$_DUPS /tmp/$$_F1

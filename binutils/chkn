@@ -85,7 +85,8 @@ sed -e "s,#.*,," Gemfile Gemfile.r* *gemspec 2> /dev/null | grep "[0-9]" \
 | egrep -v "File::ALT_SEPARATOR|mingw32|s.add_runtime_dependency|gmaps4rails" \
 | egrep -v "'omniauth-google-oauth2'|'jquery-ui-rails'|'i18n-spec'|oauth2" \
 | egrep -v ".add_development_dependency|'sdoc', '1.0.0.rc3'|ruby '2.[567].[0123]'" \
-| egrep -v "2.3.8|2.4.10|2.5.8|2.6.6|2.7.7|3.2.2|3.0.3|7.0.4.3|sqlite3|platforms:|6.1.7.3"
+| egrep -v "2.3.8|2.4.10|2.5.8|2.6.6|2.7.7|3.2.2|3.0.3|7.0.4.3|sqlite3" \
+| egrep -v "platforms:|6.1.7.3|3.3.0.preview1"
 
 linenum ${LINENO} 1b "Gemfile's"
 # FYI: Changed 'git:' to 'github:' lines.
@@ -156,12 +157,12 @@ rvm list gemsets |grep "=>" | egrep -v "\[ i686 \]|\[ x86_64 \]"
 ######################################################################
 
 linenum ${LINENO} 2a "rvm list"
-rvm list | grep "^=" | egrep -v "2.2.10|2.3.8|2.4.10|2.5.8 |2.6.6|2.7.7|3.0.3|3.2.2"
+rvm list | grep "^=" | egrep -v "2.2.10|2.3.8|2.4.10|2.5.8 |2.6.6|2.7.7|3.0.3|3.2.2|3.3.0"
 
 linenum ${LINENO} 2b ".rvmrc's, .ruby-version's"
 egrep "5.2|2.4.0-preview3|2.3.3|2.6.0-rc|preview" .rvmrc .ruby-version 2>&1 \
 | egrep -v "railscasts_logo|No such file or directory|2.7-rails5.2" \
-| egrep -v "2.7.0-preview3|2.4.10|2.5.8|2.6.6|3.2.2"
+| egrep -v "2.7.0-preview3|2.4.10|2.5.8|2.6.6|3.2.2|3.3.0-preview1"
 
 ######################################################################
 # .travis.yml checks
@@ -278,7 +279,7 @@ git grep -lE "2\.2.5|2\.3.[21]" \
 ######################################################################
 
 linenum ${LINENO} 7a "preview's"
-git grep preview[0-9] |egrep -v "gems/|rubies/|preview3|yml:|2.7.0-preview1" # TEMP
+git grep preview[0-9] |egrep -v "gems/|rubies/|preview3|yml:|2.7.0-preview1|3.3.0" # TEMP
 
 linenum ${LINENO} 7b ".ruby-version's, Dockerfile, Gemfile's" 
 egrep "2.2.[0-6]|2.2.10|2.3.3" .ruby-version Dockerfile R* Gemfile 2> /dev/null \
