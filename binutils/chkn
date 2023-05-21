@@ -370,7 +370,7 @@ egrep "@d3" .github/workflows/rubyonrails.yml
 
 linenum ${LINENO} 11 "bitbucket-pipelines.yml Check"
 
-egrep "image: ruby:" bitbucket-pipelines.yml 2> /dev/null | egrep -v "3.2.2"
+egrep "image: ruby:" bitbucket-pipelines.yml 2> /dev/null | egrep -v "3.3.0"
 
 exit
 
