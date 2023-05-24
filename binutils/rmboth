@@ -25,4 +25,6 @@ rm -f ${HOME}/Projects/ruby-advisory-db/gems/rails/CVE-2011-4319.yml
 # 5/13/2023: Duplicate of "RedCloth" advisory.
 rm -f ${HOME}/Projects/ruby-advisory-db/gems/redcloth/CVE-2012-6684.yml
 
+rmdir gems/arabic-prawn gems/redcloth 2> /dev/null # empty dirs
+
 git checkout -- lib/github_advisory_sync.rb
