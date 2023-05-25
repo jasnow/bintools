@@ -210,8 +210,9 @@
 #sed -e "s/@d3.*/@v1/" .github/workflows/rubyonrails.yml > /tmp/r
 #  mv /tmp/r .github/workflows/rubyonrails.yml
 
-sed -e "s/3.2.2/3.3.0-preview1/g" -e "s,ruby3.2,ruby3.3," .rvmrc > /tmp/g && mv /tmp/g .rvmrc
-sed -e "s/3\.2\.2/3.3.0.preview1/g" Gemfile > /tmp/g && mv /tmp/g Gemfile
-sed -e "s/3.2.2/3.3.0-preview1/" .ruby-version > /tmp/g 2> /dev/null && mv /tmp/g .ruby-version
+#sed -e "s/3.2.2/3.3.0-preview1/g" -e "s,ruby3.2,ruby3.3," .rvmrc > /tmp/g && mv /tmp/g .rvmrc
+#sed -e "s/3\.2\.2/3.3.0.preview1/g" Gemfile > /tmp/g && mv /tmp/g Gemfile
+#sed -e "s/3.2.2/3.3.0-preview1/" .ruby-version > /tmp/g 2> /dev/null && mv /tmp/g .ruby-version
 
+sed -e "s/7.0.4.3/7.0.5/g" Gemfile > /tmp/g && mv /tmp/g Gemfile
 git diff
