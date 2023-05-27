@@ -1,0 +1,3 @@
+for i in `git status |grep gems` ; do
+    runpp $i
+done
