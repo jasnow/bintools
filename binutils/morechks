@@ -1,0 +1,15 @@
+# Check for single quotes in 'git status' RAD files
+grep "'" $(git status |grep gems |sed -e "s,modified:,,") |grep "=" |egrep -v "=[a=]"
+
+# Check for osvdb URL in main "url:" field. 
+grep "^url:" $(git status |grep gems |sed -e "s,modified:,,") |grep osvdb
+
+# Check for PRs and commit URLs with ">" lines.
+egrep -l "/pull|/commit" $(git status |grep gems |sed -e "s,modified:,,") > /tmp/$$_YES
+grep -l ">=" `cat /tmp/$$_YES` > /tmp/$$_RELEASED
+fgrep -v -f /tmp/$$_RELEASED /tmp/$$_YES > /tmp/$$_NOTs
+grep -l "Not patched" `cat /tmp/$$_NOTs`
+rm -rf /tmp/$$_RELEASED /tmp/$$_YES /tmp/$$_NOTs
+
+# Check for files with ovvdb URLs in "url:" field.
+grep "^url:" $(find gems rubies -type f) |egrep osvdb |grep CVE |sort -n |sed -e "s,:.*,,"
