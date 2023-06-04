@@ -13,3 +13,6 @@ rm -rf /tmp/$$_RELEASED /tmp/$$_YES /tmp/$$_NOTs
 
 # Check for files with ovvdb URLs in "url:" field.
 grep "^url:" $(find gems rubies -type f) |egrep osvdb |grep CVE |sort -n |sed -e "s,:.*,,"
+
+# Check for non-CVE-* files  with "ghsa:"
+#grep "^ghsa" `git status |grep yml |sed -e "s,modified:,,"` |grep -v "/CVE"

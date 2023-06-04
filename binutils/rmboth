@@ -66,6 +66,12 @@ rm -f ${HOME}/Projects/ruby-advisory-db/gems/user_agent_parser/GHSA-pcqq-5962-hv
 # is gems/user_agent_parser/CVE-2020-5243.yml
 
 ######################################################################
+# 6/3/2023: Two new files.
+
+rm -f ${HOME}/Projects/ruby-advisory-db/gems/actionpack/CVE-2011-0446.yml    # AV (not AP)
+rm -f ${HOME}/Projects/ruby-advisory-db/gems/activesupport/CVE-2009-3086.yml # AP (not AS)
+
+######################################################################
 #MISC
 
 # NOT A GEM: (OK AS-IS)

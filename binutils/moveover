@@ -1,0 +1,5 @@
+for i in `git status |grep yml |egrep -v "schemas" |sed -e "s,modified:,,"` ; do
+    FROMDIR=$HOME/Projects/ruby-advisory-db-2023-05-29-13_11
+    TODIR=$HOME/Projects/ruby-advisory-db
+    cp ${FROMDIR}/$i ${TODIR}/$i
+done
