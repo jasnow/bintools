@@ -58,7 +58,7 @@ then
         echo "Skipping license check" > /dev/tty
         shift 1
     else
-        echo "No Licenses"
+        echo "No Licenses" > /dev/tty
         if [ "X${VERBOSE}X" == "X-vX" ] ; then
             git grep -iI --no-index license \
             | egrep -v "bootstrap.css|^coverage|vendor/assets/bower_components|public/" \

@@ -1,0 +1,5 @@
+if [ "X$1X" == "XX" ] ; then
+    echo "Usage: $0 branch"
+    exit
+fi
+git checkout -b $1
