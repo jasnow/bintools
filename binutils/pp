@@ -12,9 +12,11 @@ egrep -v "OPTIONAL: FILL IN SEE BELOW|FILL IN IF AVAILABLE" /tmp/$$_FILEF \
 | sed \
   -e "/GitHub advisory data below/,/END OF FILE MARKER/d" \
   -e "/description: [a-zA-Z]/s,:,: |% ," \
-  -e "s,- url: ,  - ," -e "/>/s,^,  ," \
+  -e "s,- url: ,  - ," \
 | tr "%" "\012" \
-| egrep -v "^$|^[ ][ ]*$|END OF FILE MARKER|name: |ecosystem: " \
-| sed -e "s,[ ]*$,," -e "s/^[ ]*- http/    - http/"
-
+| egrep -v "END OF FILE MARKER|name: |ecosystem: " \
+| sed -e "s/^[ ]*- http/    - http/" -e 's,^- ",  - ",'
 rm -rf /tmp/$$_FILEF
+#HID: -e "/>/s,^,  ,"
+#HID: ^$|^[ ][ ]*$|
+#HID: -e "s,[ ]*$,," 
