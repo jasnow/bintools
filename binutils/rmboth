@@ -29,8 +29,9 @@ rm -f ${HOME}/Projects/ruby-advisory-db/gems/user_agent_parser/GHSA-pcqq-5962-hv
 # D. UNDER RUBY (OK AS-IS)
 rm -f ${HOME}/Projects/ruby-advisory-db/gems/webrick/CVE-2009-4492.yml
 #......................................................................
+#(FIXED GHSA/PR#2400)
 # E. DUP of gitlab-grit
-rm -f ${HOME}/Projects/ruby-advisory-db/gems/grit/CVE-2013-4489.yml
+#rm -f ${HOME}/Projects/ruby-advisory-db/gems/grit/CVE-2013-4489.yml
 #......................................................................
 # Z. REMOVE SPECIAL VERIONS OF SYNC SCRIPT.
 git checkout -- lib/github_advisory_sync.rb

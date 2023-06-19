@@ -1,0 +1,1178 @@
+cat << EOF1 > /tmp/$$_ONEONE
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0<html>
+<title>Vapid Labs</title>
+<head> <style type="text/css">
+<!-- A {text-decoration:none} -->
+</style></head><body alink="#EE0000" link="#0000EE" bgcolor="#333333" text="#000000" vlink="#551A8B"><center><font color="#ffFFFF"><i>[192] Advisories</i></font><br>
+<a href="/cvss.php"><font color="#ffFFFF">Show only with CVSS score</font></a><br>
+<form method="get"> <font color="#ffFFFF">Search: % <br>Search <select name="t"><option>vdbid</option><option>title</option><option>vulndate </option><option>download</option><option>vendor</option><option>notified</option><option>vcontact</option><option>description</option><option>vulnerability</option><option>cveids</option><option>osvdbid</option><option>exploit</option><option>url</option><option>media</option></select> for </font><input type="text" name="s"><input type="submit" value="Search"></center><center><table border="0"><tr><td style="background-color: rgb(104, 220, 220);"><b>Date</b></td><td style="background-color: rgb(104, 220, 220);"><b>Title</b></td><td style="background-color: rgb(104, 220, 220);"><b>CVE/DWF ID</b></td></tr>
+<td style="background-color: rgb(200,200,200);">
+2022-09-08</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=216">CreativeDream software arbitrary file upload</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2022-40721">2022-40721</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2020-10-20</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=214">Solaris 11 x86 nsdb-update-nci utility can reveal password in temporary file</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2020-14758">2020-14758</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2020-10-20</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=215">The Solaris 11 utility nsdb-convert  and other fedfs scripts use temporary files insecurely</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2020-14759">2020-14759</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2020-05-19</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=213">SQL Injection in search field of phpzag live add edit delete data tables records with ajax php mysql</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2020-8519">2020-8519</a><br><a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=	
+2020-8520">	
+2020-8520</a><br><a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=	
+2020-8521">	
+2020-8521</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2020-02-02</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=212">Insecure /tmp file use in Oracle Solaris 11 Device Driver Utility v1.3.1 leads to root</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2020-14724">2020-14724</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2019-12-16</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=211">Arbitrary file upload vulnerability in upload-image-with-ajax</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2019-8293">2019-8293</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2019-09-18</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=210">Multiple vulnerabilities in Online store system v1.0 Stored XSS and unauthenticated product deletions.</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2019-8288">2019-8288</a><br><a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2019-8289">2019-8289</a><br><a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2019-8290">2019-8290</a><br><a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2019-8291">2019-8291</a><br><a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2019-8292">2019-8292</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2018-11-15</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=208">Arbitrary File Upload File Upload Vulnerability in php-traditional-server v1.2.2</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2018-9209">2018-9209</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2018-11-02</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=206">Arbitrary file upload vulnerability in jQuery Upload File v4.0.2</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2018-9207">2018-9207</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2018-11-02</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=207">Arbitrary file upload vulnerability in jQuery-Picture-Cut v1.1beta</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2018-9208">2018-9208</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2018-10-15</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=205">Arbitrary file upload vulnerabiity in WordPress Plugin tajer v1.05</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2018-9206">2018-9206</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2018-10-09</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=204">jQuery-File-Upload <= v9.22.0 unauthenticated arbitrary file upload vulnerability</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2018-9206">2018-9206</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2018-08-22</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=203">Blind SQL injection and multiple reflected XSS vulnerabilities in Wordpress Plugin Arigato Autoresponder and Newsletter v2.5.1.8</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2018-1002000">2018-1002000</a><br><a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2018-1002001">2018-1002001</a><br><a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2018-1002002">2018-1002002</a><br><a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2018-1002003">2018-1002003</a><br><a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2018-1002004">2018-1002004</a><br><a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2018-1002005">2018-1002005</a><br><a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2018-1002006">2018-1002006</a><br><a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2018-1002007">2018-1002007</a><br><a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2018-1002008">2018-1002008</a><br><a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2018-1002009">2018-1002009</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2018-03-30</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=202">Arbitrary file download vulnerability in Drupal module avatar_uploader v7.x-1.0-beta8 </a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2018-9205">2018-9205</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2017-09-08</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=201">Vulnerability in Wordpress Plugin backwpup v3.4.1 possible brute forcing of backup file download</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2017-2551">2017-2551</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2017-09-07</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=200">Joomla extension Easy Joomla Backup v3.2.4 database backup exposure</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2017-2550">2017-2550</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2017-07-22</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=199">Blind SQL Injection in Wordpress plugin wordpress-gallery-transformation v1.0</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2017-1002028">2017-1002028</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2017-07-04</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=197">Blind SQL injection in wordpress plugin event-espresso-free v3.1.37.11.L</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2017-1002026">2017-1002026</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2017-07-01</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=198">Blind SQL Injection vulnerability in Wordpress plugin rk-responsive-contact-form v1.0 </a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2017-1002027">2017-1002027</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2017-06-21</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=196">Authenticated blind SQL injection in add-edit-delete-listing-for-member-module v1.0</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2017-1002025">2017-1002025</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2017-06-14</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=195">File upload vulnerability in Kindeditor <= 4.1.12</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2017-1002024">2017-1002024</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2017-05-24</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=194">Blind SQL Injection in Wordpress Plugin Easy Team Manager v1.3.2</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2017-1002023">2017-1002023</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2017-05-21</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=192">Blind SQL Injection in Wordpress plugin eventr v1.02.2</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2017-1002018">2017-1002018</a><br><a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2017-1002019">2017-1002019</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2017-05-21</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=193">SQL Injection in Wordpress plugin surveys v1.01.8</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2017-1002020">2017-1002020</a><br><a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2017-1002021">2017-1002021</a><br><a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2017-1002022">2017-1002022</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2017-05-15</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=191">Unauthenticated Stored XSS Vulnerability in Wordpress plugin gift-certificate-creator v1.0</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2017-1002017">2017-1002017</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2017-04-26</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=190">Arbitrary file upload vulnerability in Wordpress plugin flickr-picture-backup v0.7</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2017-1002016">2017-1002016</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2017-04-01</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=189">Blind SQL Injection and persistent XSS in Wordpress plugin image-gallery-with-slideshow v1.5.2</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2017-1002011">2017-1002011</a><br><a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2017-1002012">2017-1002012</a><br><a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2017-1002013">2017-1002013</a><br><a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2017-1002014">2017-1002014</a><br><a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2017-1002015">2017-1002015</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2017-03-17</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=188">Multiple Unauthenticated blind SQL injections in Wordpress Plugin Membership Simplified v1.58</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2017-1002009">2017-1002009</a><br><a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2017-1002010">2017-1002010</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2017-03-13</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=187">Arbitrary file download vulnerability in Wordpress Plugin Membership Simplified v1.58</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2017-1002008">2017-1002008</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2017-03-08</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=183">Multiple Blind SQL injection vulnerability in Wordpress Plugin DTracker v1.5</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2017-1002004">2017-1002004</a><br><a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2017-1002005">2017-1002005</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2017-03-08</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=186">Two Content Injection vulnerabilities in Wordpress Plugin DTracker v1.5 </a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2017-1002006">2017-1002006</a><br><a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2017-1002007">2017-1002007</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2017-03-01</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=179">Unrestricted File Upload vulnerability in Wordpress Plugin mobile-friendly-app-builder-by-easytouch v3.0</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2017-1002000">2017-1002000</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2017-03-01</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=180">Unrestricted File Upload vulnerability in Wordpress Plugin mobile-app-builder-by-wappress v1.05</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2017-1002001">2017-1002001</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2017-03-01</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=181">Unrestricted File Upload vulnerability in Wordpress Plugin webapp-builder v2.0</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2017-1002002">2017-1002002</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2017-03-01</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=182">Unrestricted File Upload vulnerability in Wordpress Plugin wp2android-turn-wp-site-into-android-app v1.1.4</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2017-1002003">2017-1002003</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2017-02-27</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=178">Unrestricted File Upload vulnerability in Wordpress Plugin Mobile App Native 3.0</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2017-6104">2017-6104</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2017-02-21</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=177">Persistent XSS Vulnerability in Wordpress plugin AnyVar v0.1.1</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2017-6103">2017-6103</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2017-02-20</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=176">Persistent XSS in wordpress plugin rockhoist-badges v1.2.2</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2017-6102">2017-6102</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2016-11-01</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=175">Mailcwp remote file upload vulnerability incomplete fix v1.100</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2016-1000156">2016-1000156</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2016-10-03</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=174">/tmp race condition in Teradata Studio Express v15.12.00.00  studioexpressinstall </a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2016-7490">2016-7490</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2016-10-01</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=172">Teradata Virtual Machine Community Edition v15.10 has insecure file permission</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2016-7488">2016-7488</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2016-10-01</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=173">Teradata Virtual Machine Community Edition v15.10 Insecure creation of files in /tmp</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2016-7489">2016-7489</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2016-09-16</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=170"> Unauthenticated SQL Injection in Huge-IT Portfolio Gallery Plugin v1.0.6</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2016-1000124">2016-1000124</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2016-09-16</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=171"> Unauthenticated SQL Injection in Huge-IT Catalog v1.0.7 for Joomla</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2016-1000125">2016-1000125</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2016-09-15</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=169">Unauthenticated SQL Injection in Huge-IT Video Gallery v1.0.9 for Joomla</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2016-1000123">2016-1000123</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2016-07-22</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=168">XSS and SQLi in Huge IT Joomla Slider v1.0.9 extension</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2016-1000121">2016-1000121</a><br><a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2016-1000122">2016-1000122</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2016-07-17</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=166">XSS & SQLi in HugeIT slideshow v1.0.4</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2016-1000117">2016-1000117</a><br><a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2016-1000118">2016-1000118</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2016-07-17</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=167">SQLi and XSS in Huge IT catalog extension v1.0.4 for Joomla</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2016-1000119">2016-1000119</a><br><a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2016-1000120">2016-1000120</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2016-07-15</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=165">Huge-IT Portfolio Gallery manager v1.1.0 SQL Injection and XSS</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2016-1000115">2016-1000115</a><br><a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2016-1000116">2016-1000116</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2016-07-14</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=164">XSS and SQLi in huge IT gallery v1.1.5 for Joomla</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2016-1000113">2016-1000113</a><br><a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2016-1000114">2016-1000114</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2016-06-15</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=163">Unauthenticated remote .jpg file upload in contus-video-comments v1.0 wordpress plugin</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2016-1000112">2016-1000112</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2016-02-01</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=162">Open Proxy & Authentication by pass for wordpress plugin wp-miniaudioplayer v1.7.6</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2016-0796">2016-0796</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2016-01-27</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=160">Reflected XSS & Blind SQLi in wordpress plugin eshop v6.3.14</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2016-0765">2016-0765</a><br><a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2016-0769">2016-0769</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2016-01-26</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=161">Wordpress plugin Reflected XSS in connections v8.5.8 </a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2016-0770">2016-0770</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2015-12-17</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=159">Local root vulnerability in DeleGate v9.9.13</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2015-7556">2015-7556</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2015-11-29</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=158">Command Injection in cool-video-gallery v1.9 Wordpress plugin</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2015-7527">2015-7527</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2015-11-24</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=157">SQL injection in wordpress plugin double-opt-in-for-download v2.0.8</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2015-7517">2015-7517</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2015-10-29</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=156">/tmp race condition in IBM Installation Manager v1.8.1 install script</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2015-7442">2015-7442</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2015-10-22</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=155">Blind SQL injection in wp-championship wordpress plugin v5.8</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2015-5308">2015-5308</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2015-09-15</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=154">Local File Inclusion Vulnerability in mypixs v0.3 wordpress plugin</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2015-1000012">2015-1000012</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2015-09-11</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=153">Remote file upload Vulnerability in Wordpress plugin csv2wpec-coupon v1.1</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2015-1000013">2015-1000013</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2015-08-15</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=151">Open proxy in Wordpress plugin google-adsense-and-hotel-booking v1.05</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2015-1000009">2015-1000009</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2015-08-04</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=152">Blind SQL Injection in wordpress plugin dukapress v2.5.9</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2015-1000011">2015-1000011</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2015-07-17</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=148">Arbitrary file download vulnerability in wptf-image-gallery v1.03</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2015-1000007">2015-1000007</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2015-07-16</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=147">Arbitrary file download in simple-image-manipulator v1.0 wordpress plugin</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2015-1000010">2015-1000010</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2015-07-13</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=144">Arbitrary file download vulnerability in recent-backups v0.7 wordpress plugin</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2015-1000006">2015-1000006</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2015-07-13</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=145">Remote file upload vulnerability in wpe-indoshipping v2.5.0 wordpress plugin [Previously Discovered]</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=none">none</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2015-07-12</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=141">Remote file upload vulnerability in wp-front-end-repository v1.1 Wordpress plugin [Previously Discovered]</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=none">none</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2015-07-12</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=142">Arbitrary file download vulnerability in candidate-application-form v1.0 wordpress plugin</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2015-1000005">2015-1000005</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2015-07-12</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=149">Path Disclosure Vulnerability in wordpress plugin MP3-jPlayer v2.3.2</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2015-1000008">2015-1000008</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2015-07-11</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=140">Open Proxy in filedownload v1.4 wordpress plugin</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2015-1000002">2015-1000002</a><br><a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2015-1000003">2015-1000003</a><br><a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2015-1000004">2015-1000004</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2015-07-10</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=139">Remote file upload vulnerability in fast-image-adder v1.1 Wordpress plugin</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2015-1000001">2015-1000001</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2015-07-09</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=138">Remote file upload vulnerability in mailcwp v1.99 wordpress plugin</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2015-1000000">2015-1000000</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2015-07-08</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=137">Arbitrary file download vulnerability in ibs-Mappro v0.6 Wordpress plugin</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2015-5472">2015-5472</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2015-07-05</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=136">Arbitrary file download vulnerability in wordpress plugin wp-ecommerce-shop-styling v2.5</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2015-5468">2015-5468</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2015-07-02</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=134">Arbitrary file download vulnerability in Wordpress Plugin wp-swimteam v1.44.10777</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2015-5471">2015-5471</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2015-07-01</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=133">Arbitrary file download vulnerability in Wordpress Plugin mdc-youtube-downloader v2.1.0</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2015-5469">2015-5469</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2015-07-01</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=135">Arbitrary file download vulnerability in Wordpress Plugin image-export v1.1</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2015-5609">2015-5609</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2015-06-27</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=132">Remote file upload vulnerability & Blind SQLi in wordpress plugin wp-powerplaygallery v3.3</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2015-5599">2015-5599</a><br><a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2015-5681">2015-5681</a><br><a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2015-5682">2015-5682</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2015-06-12</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=127">Arbitrary File download in wordpress plugin wp-instance-rename v1.0</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2015-4703">2015-4703</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2015-06-10</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=126">zip-attachments v1.1.4 wordpress plugin arbitrary file download vulnerability</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2015-4694">2015-4694</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2015-06-10</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=129">Arbitrary file download vulnerability in download-zip-attachments v1.0</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2015-4704">2015-4704</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2015-06-08</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=130">SQL Injection in easy2map-photos wordpress plugin v1.09</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2015-4615">2015-4615</a><br><a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2015-4617">2015-4617</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2015-06-08</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=131">SQL Injection in easy2map wordpress plugin v1.24</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2015-4614">2015-4614</a><br><a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2015-4616">2015-4616</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2015-06-07</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=125">Remote file upload vulnerability in aviary-image-editor-add-on-for-gravity-forms v3.0beta Wordpress plugin</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2015-4455">2015-4455</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2015-06-06</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=124">Path Traversal vulnerability in Wordpress plugin se-html5-album-audio-player v1.1.0</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2015-4414">2015-4414</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2015-06-01</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=122">Grand Media v1.6.4 Wordpress Plugin open proxy [previous discovery by Chad Seaman]</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2015-4339">2015-4339</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2015-05-11</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=119">Reflected XSS in Phpwhois component of adsense-click-fraud-monitoring wordpress plugin v1.7.5</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2015-3998">2015-3998</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2015-05-10</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=120">wow-moodboard-lite v1.1.1.1 Wordpress plugin has an open redirect</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2015-4070">2015-4070</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2015-05-10</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=121">Xcloner v3.1.2 wordpress plugin authenticated command execution and XSS</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2015-4336">2015-4336</a><br><a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2015-4337">2015-4337</a><br><a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2015-4338">2015-4338</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2015-03-29</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=116">Remote file upload vulnerability in videowhisper-video-conference-integration wordpress plugin v4.91.8</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2015-9271">2015-9271</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2015-03-29</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=117">Remote file upload vulnerability in wordpress plugin videowhisper-video-presentation v3.31.17 </a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2015-9272">2015-9272</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2015-02-17</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=115">xaviershay-dm-rails v0.10.3.8 mysql credential exposure</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2015-2179">2015-2179</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2015-01-25</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=114">SEANux Linux v1.0 Remote Web Shell Access Vulnerability </a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=none">none</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2014-11-11</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=79">Command injection in Ruby Gem Webbynode 1.0.5.3</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2013-7086">2013-7086</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2014-11-02</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=81">Wordpress WP-DB-Backup v2.2.4 Plugin Remote Database Backup Download Vulnerability</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2014-10076">2014-10076</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2014-10-17</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=110">XCloner Backup Plugin v3.1.1 (Wordpress) v3.5.1 (Joomla!) Vulnerabilities</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2014-8603">2014-8603</a><br><a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2014-8604">2014-8604</a><br><a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2014-8605">2014-8605</a><br><a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2014-8606">2014-8606</a><br><a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2014-8607">2014-8607</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2014-10-13</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=113">Vulnerabilities in WordPress Database Manager v2.7.1</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2014-8334">2014-8334</a><br><a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2014-8335">2014-8335</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2014-09-25</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=17">Ruby Gem as-1.0 Password exposure</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=none">none</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2014-09-02</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=96">Rooted SSH/SFTP Daemon Default Login Credentials</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=none">none</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2014-07-01</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=25">Remote command injection and SQLi in Ruby Gem brbackup-0.1.1</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2014-5004">2014-5004</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2014-06-07</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=99">Remote command injection in Screen Capture v0.0.0</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=none">none</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2014-06-01</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=15">Vulnerability Report for Ruby Gem VladTheEnterprising-0.2</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=none">none</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2014-06-01</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=20">Vulnerability Report for Ruby Gem backup-agoddard-3.0.28</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2014-4993">2014-4993</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2014-06-01</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=21">Ruby Gem backup_checksum-3.0.23 exposes password to the process table</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2014-4993">2014-4993</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2014-06-01</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=27">Command Injection for for Ruby Gem cap-strap-0.1.5</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=none">none</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2014-06-01</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=30">Vulnerability Report for Ruby Gem ciborg-3.0.0</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2014-5003">2014-5003</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2014-06-01</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=31">Vulnerability Report for Ruby Gem codders-dataset-1.3.2.1</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2014-4991">2014-4991</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2014-06-01</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=32">codders-dataset Gem for Ruby Process Table Local Plaintext Credential Disclosure</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2014-4991">2014-4991</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2014-06-01</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=55">Vulnerability Report for Ruby Gem gnms-2.1.1</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=none">none</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2014-06-01</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=56">Vulnerability Report for Ruby Gem gyazo-1.0.0</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2014-4994">2014-4994</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2014-06-01</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=62">Report for Ruby Gem kajam-1.0.3.rc2</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2014-4999">2014-4999</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2014-06-01</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=63">Vulnerability Report for Ruby Gem karo-2.3.8</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2014-10075">2014-10075</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2014-06-01</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=65">Vulnerability Report for Ruby Gem kcapifony-2.1.6</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2014-5001">2014-5001</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2014-06-01</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=67">Vulnerability Report for Ruby Gem kompanee-recipes-0.1.4</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=none">none</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2014-06-01</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=68">Vulnerability Report for Ruby Gem lawn-login-0.0.7</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2014-5000">2014-5000</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2014-06-01</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=70">Vulnerability Report for Ruby Gem lean-ruport-0.3.8</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2014-4998">2014-4998</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2014-06-01</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=71">Vulnerability Report for Ruby Gem lingq-0.3.1</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=none">none</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2014-06-01</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=73">Vulnerability Report for Ruby Gem lynx-0.2.0</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2014-5002">2014-5002</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2014-06-01</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=91">Vulnerability Report for Ruby Gem point-cli-0.0.1</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2014-4997">2014-4997</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2014-05-14</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=94">Vulnerabilities in YingZhi Python Programming Language for iOS</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2013-5655">2013-5655</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2014-04-15</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=104">Square Hoptoad Notifier v2.4.8 Ruby Gem API Key exposure</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=none">none</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2014-04-14</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=102">Remote Command Injection in Ruby Gem sfpagent 0.4.14</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2014-2888">2014-2888</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2014-03-20</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=111">Persistent XSS in NextCellent Gallery 1.9.13 WordPress plugin</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2014-3123">2014-3123</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2014-02-09</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=53">Command Injection flickrcaptionr v1.1.0 ruby gem</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=none">none</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2014-02-01</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=82">Persistent XSS in Wordpress 3.3.1+dfsg-1 (Packaged with Ubuntu 12.04.4)</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=none">none</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2014-01-31</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=109">Persistent XSS in Media File Renamer v1.7.0</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2014-2040">2014-2040</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2014-01-08</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=86">Paratrooper-newrelic 1.0.1 Ruby Gem exposes API key</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2014-1234">2014-1234</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2014-01-01</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=61">jspec-steventux 3.3.2.1 /tmp vulnerability</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=none">none</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2013-12-26</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=85">paratrooper-pingdom-1.0.0 ruby gem exposes API login credentials</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2014-1233">2014-1233</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2013-12-17</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=16">Remote Command Injection in Arabic Prawn 0.0.1 Ruby Gem</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2014-2322">2014-2322</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2013-11-15</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=22">Bio Basespace SDK 0.1.7 Ruby Gem exposes API Key via command line</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2013-7111">2013-7111</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2013-11-10</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=103">Command Injection in Ruby Gem Sprout 0.7.246</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2013-6421">2013-6421</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2013-09-17</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=35">Remote access to Android ftp server 1.2 configuration file allows login as admin</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=none">none</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2013-09-08</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=108">Multiple vulnerabilities in Ice Cold Apps Servers Ulitmate Version 6.0.2(12) for Android</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2013-7465">2013-7465</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2013-09-01</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=50">Features 0.3.0 Ruby gem file injection vulnerability</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2013-4318">2013-4318</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2013-09-01</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=54">Remote Command Injection in fog-dragonfly-0.8.2 Ruby Gem</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2013-5671">2013-5671</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2013-08-10</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=101">Command Injection in Ruby Gem Sounder 1.0.1 </a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2013-5647">2013-5647</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2013-08-01</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=89">Unauthenticated Remote File Upload via HTTP for perl-Programming language 1.6 on iOS</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=none">none</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2013-08-01</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=90">Unauthenticated Remote File Upload via HTTP for Personal Address Book 2.0 on iOS</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=none">none</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2013-08-01</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=97">Unauthenticated Remote File Upload via HTTP for ruby-Programming language 1.7 on iOS</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=none">none</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2013-07-31</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=95">Rgpg 0.2.2 Ruby Gem Remote Command Injection</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2013-4203">2013-4203</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2013-07-03</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=38">Solaris Recommended Patch Cluster 6/19 local root on x86</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2010-1183">2010-1183</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2013-06-03</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=72">Remote command Injection in Ruby Gem lipsiadmin 5.1.9</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=none">none</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2013-05-23</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=100">Show In Browser 0.0.3 Ruby Gem /tmp file injection vulnerability</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2013-2105">2013-2105</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2013-05-14</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=48">Remote command Injection in Creme Fraiche 0.6 Ruby Gem</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2013-2090">2013-2090</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2013-04-04</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=66">Remote command injection in Ruby Gem kelredd-pruview 0.3.8</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2013-1947">2013-1947</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2013-04-01</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=64">Remote Command Injection Karteek Docsplit 0.5.4</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2013-1933">2013-1933</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2013-03-28</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=69">Remote command execution ldoce 0.0.2</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2013-1911">2013-1911</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2013-03-27</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=40">File clobbering vulnerability in latest Solaris 10 patch cluster</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2010-1183">2010-1183</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2013-03-25</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=107">Thumbshooter 0.1.5 remote code execution</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2013-1898">2013-1898</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2013-03-16</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=58">OpenFabrics ibutils 1.5.7 /tmp clobbering vulnerability</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2013-2561">2013-2561</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2013-03-15</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=33">Remote command execution in Ruby Gem Command Wrap</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2013-1875">2013-1875</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2013-03-12</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=49">Curl Ruby Gem Remote command execution</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2013-1878">2013-1878</a><br><a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2013-2617">2013-2617</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2013-03-12</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=76">MiniMagic ruby gem remote code execution</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2013-2616">2013-2616</a><br><a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2013-1877	">2013-1877	</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2013-03-01</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=52">Flash Tool 0.6.0 Remote code execution vulnerability</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2013-2513">2013-2513</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2013-02-24</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=36">Fileutils 0.7 Ruby Gem remote command execution and insecure file handling in /tmp</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2013-2516">2013-2516</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2013-02-19</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=18">Oracle Auto Service Request /tmp file clobbering vulnerability</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2013-1495">2013-1495</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2013-02-18</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=34">Remote command execution for Ruby Gem ftpd-0.2.1</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2013-2512">2013-2512</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2013-01-31</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=11">SUNWswasr RPM post install /tmp race condition</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=none">none</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2013-01-15</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=14">Insecure /tmp file use  solaris 10 patch cluster for sparc</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2013-0415">2013-0415</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2013-01-14</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=41">Oracle Solaris Bind/Postinstall script for Bind package local root</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2013-0415">2013-0415</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2012-12-07</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=29">Centrify Deployment Manager v2.1.0.283 local root</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2012-6348">2012-6348</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2012-12-03</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=28">Centrify Deployment Manager v2.1.0.283 /tmp file clobbering vulnerability</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=none">none</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2012-03-14</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=84">Oracle Exadata InfiniBand Vulnerabilities</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=none">none</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2012-01-02</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=75">Mambo CMS vulnerabilities</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2013-2562">2013-2562</a><br><a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2013-2565">2013-2565</a><br><a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2013-2563">2013-2563</a><br><a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2013-2564">2013-2564</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2009-09-02</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=83">OpenOffice 1.0.1 Race condition during installation</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2002-2210">2002-2210</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2008-01-17</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=87">PatchLink Update Unix Client File clobbering vulnerability</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2008-0525">2008-0525</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2008-01-17</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=88">Patchlink local root for HP-UX Shutdown and reboot</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2008-0525">2008-0525</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2006-10-01</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=57">IBM Informix File Clobbering during Install</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2006-5163">2006-5163</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2006-03-24</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=46">Open tftpserver path traversal vulnerability</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=none">none</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2006-03-04</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=106">thttpd-2.25b htpasswd Vulnerabilities</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2002-2389">2002-2389</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2003-11-26</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=24">Borland's InterBase 7.1 poor Password Data File Permissions and Password Hash</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2004-1833">2004-1833</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2003-10-20</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=92">PrimeBase Database Poor File Permissions and Crypt() Hash</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=none">none</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2003-09-01</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=51">PrimeBase Database 4.2 poor file permissions</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=none">none</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2003-03-11</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=26">Cache Database Poor File Permissions Lead To Local Root</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2003-0498">2003-0498</a><br><a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2003-0497">2003-0497</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2002-12-20</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=59">/tmp Symlink Vulnerability with ZeroG's InstallAnywhere5</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=none">none</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2002-12-10</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=98">SAP Database Local Root Vulnerability During Installation</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2003-0265">2003-0265</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2002-10-14</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=105">Fastlink Software's TheServer http server clear text password</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2002-2389">2002-2389</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2002-08-16</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=93">Remote Buffer Overflow in pServ 2.0 Alpha 11</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=none">none</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2002-01-14</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=44">local root during installation of Tarantella Enterprise 3</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2002-0211">2002-0211</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2002-01-14</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=45">Another local root during installation of Tarantella Enterprise 3</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2002-0296">2002-0296</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2001-12-27</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=74">Format String Vulnerablity in Lynx</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=none">none</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2001-11-23</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=80">Xitami Webserver clear text password storage Vulnerability</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2001-1481">2001-1481</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2001-10-01</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=77">insecure temp file creation during installation of Netscape 6</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2001-1066">2001-1066</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2000-12-18</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=39">Solaris 2.7/2.8 catman Temp File Vulnerability</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2001-0095">2001-0095</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2000-11-30</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=43">Voyant Sonata doroot command vulnerability</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2001-0176">2001-0176</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2000-10-31</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=42">Vulnerability Report For Voyant Technologies Sonata Conferencing product</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=none">none</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+2000-06-27</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=37">Arbitrary file read & weak password encryption flower fire sawmill v5.0.21</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2000-0588">2000-0588</a><br><a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=2000-0589">2000-0589</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+1999-08-01</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=78">OCE plotter anonymous proxy</a></td><td style="ba100 74549  100 74549    0     0   121k      0 --:--:-- --:--:-- --:--:--  121k
+ckground-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=none">none</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+1999-05-19</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=60">Irix Midikeys local root Vulnerability </a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=1999-0765">1999-0765</a><br></td>
+</tr>
+<td style="background-color: rgb(200,200,200);">
+1999-02-17</td>
+<td style="background-color: rgb(200,200,200);">
+<a href="advisory.php?v=9">AIX Snap command password vulnerability</a></td><td style="background-color: rgb(200,200,200);">
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=1999-1405">1999-1405</a><br></td>
+</tr>
+</table></center>
+</body></html>
+EOF1
+
+grep advisory /tmp/$$_ONEONE \
+| sed -e "s,</a>.*,," \
+      -e 's,<a href=",http://www.vapidlabs.com/,' \
+      -e 's,">, -- ,' \
+| grep -i ruby | egrep -i "$*"
+
+rm -f /tmp/$$_ONEONE
