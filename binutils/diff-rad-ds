@@ -1,0 +1,18 @@
+# RAD: Not GHSA, not OSVDB
+#......................................................................
+cd $HOME/Projects/ruby-advisory-db
+find gems rubies -type f | egrep -v "GHSA|OSVDB" \
+|sed -e "s,.*/,," -e "s,.yml,," |sort -u > $HOME/o_r
+
+cd $HOME/dawnscanner/kb/bulletin
+ls -1 |sed -e "s,.yml,," -e "s,_,-,g" |sort -u > $HOME/o_d
+
+#echo "RAD not DS" ; fgrep -x -v -f $HOME/o_d $HOME/o_r | pr -3 -t | uniq 
+#echo "RAD vs DS"  ; sdiff -s $HOME/o_r $HOME/o_d
+
+#sort $HOME/o_r $HOME/o_d |uniq -c |sort -n |awk '$1 == 1 { print $2 }'
+#| fgrep -v $HOME/o_r | pr -3 -t |uniq 
+
+#echo "#################################################################"
+echo "Only DS: DS not RAD" ; fgrep -x -v -f $HOME/o_r $HOME/o_d |sed -e "s,-,_,g"
+# | pr -3 -t | uniq 
