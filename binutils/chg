@@ -214,5 +214,7 @@
 #sed -e "s/3\.2\.2/3.3.0.preview1/g" Gemfile > /tmp/g && mv /tmp/g Gemfile
 #sed -e "s/3.2.2/3.3.0-preview1/" .ruby-version > /tmp/g 2> /dev/null && mv /tmp/g .ruby-version
 
-sed -e "s/7.0.4.3/7.0.5/g" Gemfile > /tmp/g && mv /tmp/g Gemfile
+#sed -e "s/7.0.4.3/7.0.5/g" Gemfile > /tmp/g && mv /tmp/g Gemfile
+
+sed -e "s/7.0.5/7.0.5.1/g" Gemfile > /tmp/g && mv /tmp/g Gemfile
 git diff

@@ -1,0 +1,10 @@
+echo "GHSA:"
+for i in $(cat gems/*/* rubies/*/* |egrep "ghsa:" |uniq -d |awk '{ print $2}') ; do
+    git grep $i
+done |egrep -v "http"
+
+echo "CVE:"
+for i in $(cat gems/*/* rubies/*/* |egrep "cve:" |uniq -d |awk '{ print $2}') ; do
+    git grep $i
+done |egrep -v "http"
+
