@@ -13,4 +13,6 @@ do
 
 dups1dir "cve" |uniq
 echo
+echo "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+echo
 dups1dir "ghsa" |uniq
