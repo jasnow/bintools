@@ -11,7 +11,7 @@ egrep -v "OPTIONAL: FILL IN SEE BELOW|FILL IN IF AVAILABLE" /tmp/$$_FILEF \
 | sed -e "/GitHub advisory data below/,/withdrawnAt/d" \
       -e "/description: [a-zA-Z\"'-]/s,:,: |% ," -e "s,|-$,|," \
 | tr "%" "\012" \
-| egrep -v "name: |ecosystem: |END OF FILE MARKER|vectorString:|withdrawnAt:" \
+| egrep -v "END OF FILE MARKER|vectorString:|withdrawnAt:" \
 | sed -e "s/^[ ]*- http/    - http/" \
       -e "s,^- ,  - ," \
       -e "s,- url: ,  - ," \

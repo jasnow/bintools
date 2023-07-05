@@ -1,0 +1,6 @@
+grep -l "^cve:" `find . -name "OSVDB*"` > /tmp/$$_FILES
+
+for i in `cat /tmp/$$_FILES` ; do
+    AFTER=`grep "^cve:" $i |sed -e "s,: ,-," |sed -e "s,cve,CVE,"`
+    git mv $i `echo ${i} |sed -e "s,OSVDB.*,,"`"${AFTER}.yml"
+done

@@ -63,4 +63,4 @@ EOFCREMEWHY
 fgrep -v -f /tmp/$$_CREME_AND_WHY /tmp/$$_ALL |fgrep -v -f /tmp/$$_PROBABLY_OK
 #| fgrep -v -f /tmp/$$_EDGE
 
-rm -rf /tmp/$$_CREME /tmp/$$_ALL /tmp/$$_EDGE /tmp/$$_PROBABLY_OK
+rm -rf /tmp/$$_CREME /tmp/$$_ALL /tmp/$$_EDGE /tmp/$$_PROBABLY_OK /tmp/$$_CREME_AND_WHY
