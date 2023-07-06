@@ -1,5 +1,0 @@
-if [ "X$1X" == "XX" ] ; then
-    echo "Usage: pp file" ; exit
-fi
-pp $1 > /tmp/$$_pp ; cp /tmp/$$_pp $1
-rm -f /tmp/$$_pp
