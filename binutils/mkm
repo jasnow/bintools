@@ -57,27 +57,19 @@ cve: ??
 osvdb: ??
 ghsa: ??
 url: ??
-title: [x]??
-date: yyyy-mm-dd    # nvd_published_at [4]
-description: | [4]
+title: ??
+date: yyyy-mm-dd
+description: |
   ??
-cvss_v2: #.#    # MEDIUM - (AV:L/AC:L/Au:N/C:P/I:P/A:P) [1]
-cvss_v3: #.#    # HIGH - CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H [1]
+cvss_v2: #.#
+cvss_v3: #.#
 unaffected_versions:
   - ??
 patched_versions:
   - ??
-  - ??
 related:
-  cve:
-    - ??
   url:
     - ??
-# ####################################################################
-# * REASON: More research.
-# * SOURCE CODE LOCATION: [x] ??
-# * CWE: [x] ??
-# ####################################################################
 EOFTEMPLATE
 
 cat /tmp/$$_TEMPLATE1
