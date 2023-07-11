@@ -4,6 +4,7 @@ fi
 
 bl 2> /dev/null
 overcommit --sign
+bundle lock --add-platform ruby
 
 git add --all .
 

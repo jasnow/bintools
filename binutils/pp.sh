@@ -7,16 +7,23 @@ cat ${INPUTF} > /tmp/$$_FILEF
 echo "END OF FILE MARKER" >> /tmp/$$_FILEF
 ######################################################################
 
+(
 egrep -v "OPTIONAL: FILL IN SEE BELOW|FILL IN IF AVAILABLE" /tmp/$$_FILEF \
-| sed -e "/GitHub advisory data below/,/withdrawnAt/d" \
-      -e "/description: [a-zA-Z\"'-]/s,:,: |% ," -e "s,|-$,|," \
+| sed -e "/description: [a-zA-Z\"'-]/s,:,: |% ," -e "s,|-$,|," \
 | tr "%" "\012" \
-| egrep -v "END OF FILE MARKER|vectorString:|withdrawnAt:" \
 | sed -e "s/^[ ]*- http/    - http/" \
       -e "s,^- ,  - ," \
       -e "s,- url: ,  - ," \
-      -e "/^vulnerabilities:/,/identifier/s/^/#  /" \
-  > /tmp/$$_pp
+      -e "/^vulnerabilities:/,/END OF FILE MARKER/s/^/#  /" \
+      -e "/GitHub advisory data below/,/withdrawnAt/d" \
+| egrep -v "END OF FILE MARKER|package:|firstPatchedVersion:" \
+| egrep -v "apache.org$|^3[CE]$"
+  
+#egrep -v "END OF FILE MARKER|vectorString:|withdrawnAt:"
+
+echo "#UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU"
+pickurl ${INPUTF}
+) > /tmp/$$_pp
 
 cp /tmp/$$_pp ${INPUTF}
 

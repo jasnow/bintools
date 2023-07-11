@@ -1,0 +1,8 @@
+runallpp.sh
+for i in $(find $(git status |grep gems |sed -e "s,modified:,,") -type f) ; do
+    echo "========== $i ========"
+    sed -n "/unaffected/,/END OF/p"  $i
+#    echo "------------------------------------------------------------"
+#    git diff $i | sed -n "/cvss_/,/identifier/p"
+#"/unaffected/,/identifier/p"
+done |grep -v http

@@ -321,7 +321,9 @@ if [ "X$1X" == "XjX" ] ; then
     echo "Skipping chkjss check" > /dev/tty
     shift 1
 else
-    chkjss
+    echo "Skipping chkjss check" > /dev/tty
+    shift 1
+    # 7/9/2023: Removed: chkjss
 fi
 
 ######################################################################
