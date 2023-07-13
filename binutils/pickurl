@@ -3,6 +3,7 @@ if [ "X$1X" == "XX" ] ; then
 else
     GEMNAME=`echo $1 |awk -F'/' '{ print $2 }'`
     grep " http" $1 |sed -e "s,url: ,," -e "s,^[ ]*\- ,," \
-    | sort -u | egrep "ruby|${GEMNAME}" |egrep -v "rubysec|/commit|/pull" \
+    | sort -u | egrep "ruby|${GEMNAME}" \
+    | egrep -v "rubysec|/commit|/pull|github.com/advisories" \
     | sort -u |sed -e "s,^,url: ,"
 fi

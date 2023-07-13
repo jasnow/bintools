@@ -1,1 +1,2 @@
-rm -fr gems/redcloth/ gems/arabic-prawn/ gems/testdir/ gems/grpc/
+rm -fr gems/redcloth/ gems/arabic-prawn/ gems/testdir/ 
+#gems/grpc/
