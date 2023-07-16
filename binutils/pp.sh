@@ -8,6 +8,9 @@ echo "END OF FILE MARKER" >> /tmp/$$_FILEF
 ######################################################################
 
 (
+#pickurl ${INPUTF}
+#echo "#UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU"
+
 egrep -v "OPTIONAL: FILL IN SEE BELOW|FILL IN IF AVAILABLE" /tmp/$$_FILEF \
 | sed -e "/description: [a-zA-Z\"'-]/s,:,: |% ," -e "s,|-$,|," \
 | tr "%" "\012" \
@@ -15,18 +18,13 @@ egrep -v "OPTIONAL: FILL IN SEE BELOW|FILL IN IF AVAILABLE" /tmp/$$_FILEF \
       -e "s,^- ,  - ," \
       -e "s,- url: ,  - ," \
       -e "/^vulnerabilities:/,/END OF FILE MARKER/s/^/#  /" \
-      -e "/GitHub advisory data below/,/withdrawnAt/d" \
-| egrep -v "END OF FILE MARKER|package:|firstPatchedVersion:" \
-| egrep -v "apache.org$|^3[CE]$"
-  
-#egrep -v "END OF FILE MARKER|vectorString:|withdrawnAt:"
-
-echo "#UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU"
-pickurl ${INPUTF}
+      -e "s/package:/package: --------------------------------------------------/" \
+      -e "/GitHub advisory data below/,/END OF FILE MARKER/d" \
+| egrep -v "END OF FILE MARKER|apache.org$|^3[CE]$"
 ) > /tmp/$$_pp
 
 cp /tmp/$$_pp ${INPUTF}
 
 rm -rf /tmp/$$_FILEF /tmp/$$_pp
-# To keep debug vuly field: 
+# To keep debug vuly field: -e "/GitHub advisory data below/,/withdrawnAt/d"
 # delete more: "/GitHub advisory data below/,/END OF FILE MARKER/d"
