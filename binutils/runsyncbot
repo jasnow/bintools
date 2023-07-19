@@ -1,0 +1,3 @@
+PATH=$$HOME/bin/binutils:${PATH}
+
+syncbot.sh 2>&1 |tee $HOME/o_s

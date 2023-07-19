@@ -7,4 +7,4 @@
     git grep -E "^cve:|^ghsa:" | grep yml
 ) \
 | egrep "CVE-|GHSA" |sed -e "s,/CVE-.*.yml:, ," -e "s,/GHSA-.*.yml:, ," \
-| sort |uniq -d |awk '{ print "echo; grep", $3, $1"/*" }' |bash |grep -v "http"
+| sort |uniq -d |awk '{ print "echo; grep", $3, $1"/*" }' |bash |grep -v "http" |sed -e "/^$/d"

@@ -1,0 +1,5 @@
+if [ "X$(git status |tail -1 |awk '{ print $1 }')X" == "XnothingX" ] ; then
+    echo "NOTHING FOUND"
+else
+    find $(git status |grep "gems/" | sed -e "s,modified:,,") -type f
+fi

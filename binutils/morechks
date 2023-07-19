@@ -1,18 +1,52 @@
-# Check for single quotes in 'git status' RAD files
-grep "'" $(git status |grep gems |sed -e "s,modified:,,") |grep "=" |egrep -v "=[a=]"
+PATH=$HOME/bin/binutils:$PATH
 
-# Check for osvdb URL in main "url:" field. 
-grep "^url:" $(git status |grep gems |sed -e "s,modified:,,") |grep osvdb
+function echop () {
+    echo "------------------------------------------------------------"
+    echo $*
+}
 
-# Check for PRs and commit URLs with ">" lines.
-egrep -l "/pull|/commit" $(git status |grep gems |sed -e "s,modified:,,") > /tmp/$$_YES
-grep -l ">=" `cat /tmp/$$_YES` > /tmp/$$_RELEASED
-fgrep -v -f /tmp/$$_RELEASED /tmp/$$_YES > /tmp/$$_NOTs
-grep -l "Not patched" `cat /tmp/$$_NOTs`
-rm -rf /tmp/$$_RELEASED /tmp/$$_YES /tmp/$$_NOTs
+if [ "X`ggf`X" == "XNOTHING FOUNDX" ] ; then
+    echo "Skipping the GGF stuff"
+else
+    echop 'Check for single quotes in 'git status' RAD files'
+#    grep "'" $(ggf) |grep "=" |egrep -v "=[a=]"
 
-# Check for files with ovvdb URLs in "url:" field.
+    echop 'Check for osvdb URL in main "url:" field.'
+#    grep "^url:" $(ggf) |grep osvdb
+
+    echop 'Check for PRs and commit URLs with ">" lines.'
+#    egrep -l "/pull|/commit" $(ggf) > /tmp/$$_YES
+#    grep -l ">=" `cat /tmp/$$_YES`  > /tmp/$$_RELEASED
+#    fgrep -v -f /tmp/$$_RELEASED /tmp/$$_YES > /tmp/$$_NOTs
+#    grep -l "Not patched" `cat /tmp/$$_NOTs`
+    rm -rf /tmp/$$_RELEASED /tmp/$$_YES /tmp/$$_NOTs
+
+    echop 'Check for non-CVE-* files  with "ghsa:"'
+#    grep "^ghsa" $(ggf) |grep -v "/CVE"
+fi
+
+echop "Check for PRs as main url: (count)"
+git grep "^url:.*/pull" |wc
+
+echop "Check for commit as main url: (count)"
+git grep "^url:.*/commit" |wc
+
+echop 'Check for multiple-cve-1-ghsa-in-1-dir (iss#662)'
+git grep "^ghsa:" |sed -e "s,CVE-.*ghsa:,," |sort |uniq -d |sed -e "s,^,  ," > /tmp/$$_662
+git grep $(cat /tmp/$$_662 |awk '{print $2}') |sed -e "s,^,  ,"
+rm -f /tmp/$$_662
+
+echop "Check iss661chk.sh:" 
+iss661chk.sh |sed -e "s,^,  ,"
+
+echop 'Check for files with ovvdb URLs in "url:" field.'
 grep "^url:" $(find gems rubies -type f) |egrep osvdb |grep CVE |sort -n |sed -e "s,:.*,,"
 
-# Check for non-CVE-* files  with "ghsa:"
-#grep "^ghsa" `git status |grep yml |sed -e "s,modified:,,"` |grep -v "/CVE"
+echop 'Check for correct "description: |" format'
+git grep "^description:" |grep -v "|$" |sed -e "s,^,  ,"
+
+echop "Check for ghsa: with non-[CVE,GHSA] filename"
+grep "^ghsa:" $(find . -name "*.yml" |egrep -v "/CVE|/GHSA")
+
+echop "Check for related-advs.sh: (count)"
+related-advs.sh  |wc

@@ -1,0 +1,1 @@
+fold -75 /home/t530-dev/o_s |uniq |more
