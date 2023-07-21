@@ -1,16 +1,26 @@
 GHITSCRIPT=$HOME/bin/github_advisory_sync.rb
-
 cd /home/t530-dev/Projects/ruby-advisory-db
 
-echo "SYNCIT.SH #####################################################"
-syncit.sh
+function syncit() {
+    echo "SYNCIT.SH #####################################################"
+    git fetch parent
+    git checkout master
+    git merge parent/master
+    git push
+}
 
-if [ "X$1X" == "XX"  ] ; then
-    echo "AUTOGITB.SH ###############################################"
-    autogitb.sh "`date '+%T' |sed -e 's,:,_,g'`"
-else
-    echo "NO *** AUTOGITB.SH ########################################"
-fi
+function autogitb() {
+    if [ "X$1X" == "XX" ] ; then
+        echo "AUTOGITB.SH ###############################################"
+        git checkout -b "ghsa-sync-`date '+20%y-%m-%d'`-`date '+%T' |sed -e 's,:,_,g'`"
+    else
+        echo "NO *** AUTOGITB.SH ########################################"
+    fi
+}
+
+syncit
+
+autogitb $1
 
 sed -e "s,\['FIX ME'\],vulnerabilities," ${GHITSCRIPT} \
   > $HOME/Projects/ruby-advisory-db/lib/github_advisory_sync.rb 
