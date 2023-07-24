@@ -1,0 +1,23 @@
+cat << EOF> /tmp/$$_FIELDS
+title:
+cve:
+date:
+gem:
+related:
+url:
+ghsa:
+description:
+osvdb:
+framework:
+library:
+notes:
+engine:
+platform:
+EOF
+
+grep "^[a-z]*:" $(find rubies gems -type f) \
+| sed -e "s,.*yml:,," -e "s,/.*,," |awk '{ print $1 }' | sort |uniq -c |sort -n
+
+#fgrep -v -f /tmp/$$_FIELDS
+
+rm -rf /tmp/$$_FIELDS

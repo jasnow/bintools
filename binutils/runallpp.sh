@@ -28,10 +28,11 @@ function pp() {
     # delete more: "/GitHub advisory data below/,/END OF FILE MARKER/d"
 }
 
-for i in `find $(git status 2>&1  |grep 'gems/' |sed -e "s,modified:,," -e "s,deleted:,,") -type f` ; do
-    pp $i
-done
-
-echo "Remember to later delete DUPs in this script."
-
-rm -f /tmp/$$_DUPS
+if [ "X`git status |grep "/" |wc -l |awk '{ print $1 }'`X" == "X0X" ] ; then
+    echo "Nothing to post-process so exiting."
+else
+    for i in `find $(git status 2>&1  |grep 'gems/' |sed \
+    -e "s,modified:,," -e "s,deleted:,,") -type f` ; do
+        pp $i
+    done
+fi

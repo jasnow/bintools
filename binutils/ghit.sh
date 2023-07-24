@@ -1,4 +1,3 @@
-GHITSCRIPT=$HOME/bin/github_advisory_sync.rb
 cd /home/t530-dev/Projects/ruby-advisory-db
 
 function syncit() {
@@ -22,8 +21,10 @@ syncit
 
 autogitb $1
 
-sed -e "s,\['FIX ME'\],vulnerabilities," ${GHITSCRIPT} \
-  > $HOME/Projects/ruby-advisory-db/lib/github_advisory_sync.rb 
+# 7/21/2023: Use official version now.
+#GHITSCRIPT=$HOME/bin/github_advisory_sync.rb
+#sed -e "s,\['FIX ME'\],vulnerabilities," ${GHITSCRIPT} \
+#  > $HOME/Projects/ruby-advisory-db/lib/github_advisory_sync.rb
 
 git diff
 
@@ -31,3 +32,7 @@ rm -f Gemfile.lock # was "lu" cmd
 bundle
 
 GH_API_TOKEN=${GH_TOK} bundle exec rake sync_github_advisories
+
+runallpp.sh
+
+rmboth.sh

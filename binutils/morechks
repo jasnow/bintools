@@ -5,6 +5,42 @@ function echop () {
     echo $*
 }
 
+function iss661chk() {
+    (
+        if [ "X$(git status |tail -1 |awk '{print $1}')X" == "XnothingX" ] ; then
+            :
+        else
+            egrep "^cve:|^ghsa:" $(find $(git status |grep gems) -type f) |grep yml
+        fi
+        git grep -E "^cve:|^ghsa:" | grep yml
+    ) \
+    | egrep "CVE-|GHSA" |sed -e "s,/CVE-.*.yml:, ," \
+      -e "s,/GHSA-.*.yml:, ," \
+    | sort |uniq -d |awk '{ print "echo; grep", $3, $1"/*" }' \
+    | bash |grep -v "http" |sed -e "/^$/d" |sed -e "s,^,  ,"
+}
+ 
+function dups1dir() {
+    echo "Check for duplicate" ${1} "values in same dir"
+
+    for i in $(find gems rubies -type d |grep "/") ; do
+        echo "----------------------------------------"
+        for a in `cat $i/* | egrep -A 1 "${1}:" |sed -e "s,^    - ,," \
+        -e "s,$1: ,," |egrep -v ":$|url:|^\-\-|osvdb:|github" |sort |uniq -d |grep -v ":"`
+        do
+            git grep $a |egrep "$1:| - " |egrep -v "http"
+        done |sort
+    done
+}
+
+function related-advs() {
+    dups1dir "cve" |uniq
+    echo
+    echo "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+    echo
+    dups1dir "ghsa" |uniq
+}
+
 if [ "X`ggf`X" == "XNOTHING FOUNDX" ] ; then
     echo "Skipping the GGF stuff"
 else
@@ -36,8 +72,8 @@ git grep "^ghsa:" |sed -e "s,CVE-.*ghsa:,," |sort |uniq -d |sed -e "s,^,  ," > /
 git grep $(cat /tmp/$$_662 |awk '{print $2}') |sed -e "s,^,  ,"
 rm -f /tmp/$$_662
 
-echop "Check iss661chk.sh:" 
-iss661chk.sh |sed -e "s,^,  ,"
+echop "Check iss661chk:"
+iss661chk
 
 echop 'Check for files with ovvdb URLs in "url:" field.'
 grep "^url:" $(find gems rubies -type f) |egrep osvdb |grep CVE |sort -n |sed -e "s,:.*,,"
@@ -48,5 +84,5 @@ git grep "^description:" |grep -v "|$" |sed -e "s,^,  ,"
 echop "Check for ghsa: with non-[CVE,GHSA] filename"
 grep "^ghsa:" $(find . -name "*.yml" |egrep -v "/CVE|/GHSA")
 
-echop "Check for related-advs.sh: (count)"
-related-advs.sh  |wc
+echop "Check for related-advs: (count)"
+related-advs |wc

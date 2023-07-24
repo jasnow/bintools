@@ -3,7 +3,10 @@ rmdups() {
     rm -f \
         ./gems/arabic-prawn/CVE-2014-2322.yml \
         ./gems/redcloth/CVE-2012-6684.yml
-    rmdir gems/arabic-prawn gems/redcloth 2> /dev/null # empty dirs (rake doesn't like them)
+
+    # empty dirs (rake doesn't like them)
+    rmdir gems/arabic-prawn gems/redcloth gems/testdir 2> /dev/null
+    #gems/grpc/
 
     # Under rubies/ruby instead of "gems" (OK AS-IS) (GHSA#2437)
     rm -f ./gems/webrick/CVE-2009-4492.yml

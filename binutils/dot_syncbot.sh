@@ -6,27 +6,30 @@ digraph D {
   node [shape="box"]
   size="11,8"
 
-  "syncbot.sh" -> 
-    "1. ghit.sh"          -> "check/1 - git diff" ->
-      "2. rmboth.sh"      -> "check/2 - git diff" -> 
-        "3. runallpp.sh"  -> "check/3 - git diff + yamllint" -> 
-          "4. rake"       -> "check/4 - review stdout/stderr" ->
-            "5. morechks" -> 
-              "6. git add" -> "7. ggf" -> "8. git commit -m msg" -> "9. gpso"
-
-  "1. ghit.sh" -> "cd ruby-advisory-db" -> "syncit()" -> "autogitb()" ->
-      "git diff" -> "rm Gemfile.lock" ->  "bundle install" -> "github_advisory_sync.rb"
+  "syncbot.sh" -> "1. ghit.sh" -> "cd ruby-advisory-db" ->
+    "syncit()" -> "autogitb()" ->
+      "git diff" -> "rm Gemfile.loc\nbundle install" ->
+        "github_advisory_sync.rb" ->
+          "rmboth.sh" ->
+            "runallpp.sh"
 
       "syncit()" -> "4 git cmds (fetch,\ncheckout, merge, push)"
 
-      "autogitb()" -> "git checkout/1"
+      "autogitb()"
 
-  "2. rmboth.sh" -> "rmdups()" -> "git checkout/2" -> "rm -f, rmdir"
+  "runallpp.sh" -> "pp()" -> "cat, echo, egrep,\nsed, tr, cp, rm"
 
-  "3. runallpp.sh" -> "pp()" -> "cat, echo, egrep,\nsed, tr, cp, rm"
+  "rmboth.sh" -> "rmdups()" -> "git checkout/2" -> "rm -f, rmdir"
+    -> "check/1 - git diff + yamllint" ->
+          "4. rake"       -> "check/4 - review stdout/stderr" ->
+            "5. morechks" ->
+              "6. git add" -> "7. ggf" -> "8. git commit -m msg" -> "9. gpso"
+
 
   "5. morechks" -> "echop(), git grep,\ngrep, egrep fgrep, sed,\nawk, wc, sort, uniq" ->
-      "iss661chk.sh" -> "related-advs.sh"
+      "iss661chk()" -> "related-advs()"
+
+      "related-advs()" -> "dups1dir()"
 
   "7. ggf" -> "find, git status, grep, sed"
 
