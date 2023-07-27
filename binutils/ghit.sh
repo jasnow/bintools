@@ -25,6 +25,10 @@ autogitb $1
 #GHITSCRIPT=$HOME/bin/github_advisory_sync.rb
 #sed -e "s,\['FIX ME'\],vulnerabilities," ${GHITSCRIPT} \
 #  > $HOME/Projects/ruby-advisory-db/lib/github_advisory_sync.rb
+#
+#cp $HOME/bin/binutils/Rakefile .
+#cp $HOME/bin/binutils/runallpp.sh lib
+#cp $HOME/bin/binutils/rmboth.sh   lib
 
 git diff
 
@@ -33,6 +37,10 @@ bundle
 
 GH_API_TOKEN=${GH_TOK} bundle exec rake sync_github_advisories
 
-runallpp.sh
+if [ "X$1X" == "XrawX" ] ; then
+    :
+else
+    runallpp.sh
 
-rmboth.sh
+    rmboth.sh
+fi

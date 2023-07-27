@@ -3,6 +3,6 @@ cd ../ruby-advisory-db  ; git fetch --all
 cd ../gsd-tools         ; git fetch --all
 cd ../osv-schema        ; git fetch --all
 cd ../gsd-database      ; git fetch --all
-cd ../advisory-database ; git fetch --all
 cd ../vuln-list-update  ; git fetch --all
 cd ../vulnerablecode    ; git fetch --all
+cd ../advisory-database ; git fetch --all
