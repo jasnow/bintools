@@ -41,6 +41,11 @@ function related-advs() {
     dups1dir "ghsa" |uniq
 }
 
+function both-rubies-and-gems() {
+    find rubies -name "CVE*yml" |sed -e "s,rubies/[a-z]*/,gems/*/," \
+    -e "s,^,ls ," |bash 2> /dev/null |sed -e "s,^,  ,"
+}
+
 if [ "X`ggf`X" == "XNOTHING FOUNDX" ] ; then
     echo "Skipping the GGF stuff"
 else
@@ -83,6 +88,9 @@ git grep "^description:" |grep -v "|$" |sed -e "s,^,  ,"
 
 echop "Check for ghsa: with non-[CVE,GHSA] filename"
 grep "^ghsa:" $(find . -name "*.yml" |egrep -v "/CVE|/GHSA")
+
+echop "Check for advisories in both rubies and gems"
+both-rubies-and-gems
 
 echop "Check for related-advs: (count)"
 related-advs |wc
