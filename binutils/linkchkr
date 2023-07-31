@@ -1,0 +1,7 @@
+for i in $(egrep "http:|https:" $(find gems rubies -name "*.yml") \
+|sed -e "s,.*http,http," | egrep -v "http://osvdb.org|http://www.osvdb.org" | sort -u ); do
+    echo "$i: `curl -c 5 -Is -m 2 $i |head -1`"
+done
+
+#| egrep " http|url: http" | grep "https:/" | sort -u |grep "/"
+#| sed -e "s,.*http:,https:," -e "s,.*https:,https:," 
