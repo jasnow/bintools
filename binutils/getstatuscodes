@@ -1,0 +1,34 @@
+egrep -v "^#" << EOF |egrep -v "[45][02][0-9]" |cut -d'|' -f2- >> /tmp/$$_PATTERNS
+good | 200 OK
+good  | 200 
+okay  | 301 
+okay  | 301 Moved Permanently
+okay  | 302 
+okay  | 302 Found
+okay  | 302 Moved Temporarily
+okay  | 308 Permanent Redirect
+#
+bad   | 400 
+unauth| 401 
+forbid| 403 
+bad   | 404 
+bad   | 404 Not Found
+notallowed | 405 
+notallowed | 405 Not Allowed
+not accepted | 406 
+semanti err  | 422 Unprocessable Entity
+srv not avail| 503 Service Unavailable
+EOF
+
+if [ "X$1X" == "XX" ] ; then
+    :
+else
+    cat -ev /tmp/$$_PATTERNS ; rm -f /tmp/$$_PATTERNS ; exit
+fi
+
+#fgrep -v -f /tmp/$$_PATTERNS 
+cat o_lr*c \
+| egrep -v ": $" \
+| sed -e "s,.*HTTP/1.[01],," -e "s,.*HTTP/2,," |sort |uniq -c 
+
+rm -f /tmp/$$_PATTERNS
