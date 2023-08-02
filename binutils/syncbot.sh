@@ -1,15 +1,48 @@
-cd /home/t530-dev/Projects/ruby-advisory-db
+#!/usr/bin/env bash
 
-echo "GHIT.SH #####################################################" 
-ghit.sh $1
+# USAGE: Either 
+#    "syncnot.sh"   (default: yes, create new branch)
+#    "syncbot.sh ." (skip creating new branch)
 
-echo "RMBOTH.SH ##################################################"
-rmboth.sh
+ cd "${HOME}"/Projects/ruby-advisory-db || exit
 
-echo "RUNALLPP.SH ##################################################"
-runallpp.sh
+function syncit() {
+    echo "SYNCIT ########################################################"
+    git fetch parent
+    git checkout master
+    git merge parent/master
+    git push
+}
 
-echo "RAKE ######################################################"
-rake
+function autogitb() {
+    if [ "X$1X" == "XX" ] ; then
+        echo "AUTOGITB ##################################################"
+        git checkout -b "ghsa-syncbot-$(date '+20%y-%m-%d')-$(date '+%T' |sed -e 's,:,_,g')"
+    else
+        echo "NO *** AUTOGITB.SH ########################################"
+    fi
+}
 
-# git add `ggf` ; git commit -m "msg" ; gpso
+syncit
+
+autogitb "$1"
+
+# 7/21/2023: Use official version now.
+#GHITSCRIPT=$HOME/bin/github_advisory_sync.rb
+#sed -e "s,\['FIX ME'\],vulnerabilities," ${GHITSCRIPT} \
+#  > $HOME/Projects/ruby-advisory-db/lib/github_advisory_sync.rb
+
+git diff
+
+rm -f Gemfile.lock
+bundle
+
+GH_API_TOKEN=${GH_TOK} bundle exec rake sync_github_advisories
+
+if [ "X$1X" == "XrawX" ] ; then
+    :
+else
+    scripts/post-processing.sh
+
+    scripts/ignore-dup-advs.sh
+fi
