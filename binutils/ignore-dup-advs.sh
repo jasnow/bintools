@@ -2,6 +2,13 @@
 
 # Usage: Usually called by "syncbot.sh" script, but can be run separately."
 
+if [ "X$(basename $(pwd))X" == "Xruby-advisory-dbX" ] ; then
+    :
+else
+    echo "Change dir to ruby-advisory-db first."
+    exit
+fi
+
 rmdups() {
     # (Mixed case gem name) (GHSA#2312) (GHSA#2310)
     rm -f \

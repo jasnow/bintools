@@ -2,7 +2,12 @@
 
 # Usage: Usually called by "syncbot.sh" script, but can be run separately."
 
- cd "$HOME"/Projects/ruby-advisory-db || exit
+if [ "X$(basename $(pwd))X" == "Xruby-advisory-dbX" ] ; then
+    :
+else
+    echo "Change dir to ruby-advisory-db first."
+    exit
+fi
 
 function pp() {
     INPUTF="$1"
@@ -33,8 +38,7 @@ function pp() {
 if [ "X$(git status |grep -c "/" |awk '{ print $1 }')X" == "X0X" ] ; then
     echo "Nothing to post-process so exiting."
 else
-    for i in $(find $(git status 2>&1 |grep 'gems/' |sed \
-    -e "s,modified:,," -e "s,deleted:,,") -type f) ; do
-        pp "$i"
+    git ls-files -o | grep -E "gems/|rubies/" |while read -r LINE ; do
+        pp "${LINE}"
     done
 fi

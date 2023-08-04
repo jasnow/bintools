@@ -4,7 +4,12 @@
 #    "syncnot.sh"   (default: yes, create new branch)
 #    "syncbot.sh ." (skip creating new branch)
 
- cd "${HOME}"/Projects/ruby-advisory-db || exit
+if [ "X$(basename $(pwd))X" == "Xruby-advisory-dbX" ] ; then
+    echo "."
+else
+    echo "Change dir to ruby-advisory-db first."
+    exit
+fi
 
 function syncit() {
     echo "SYNCIT ########################################################"
@@ -40,9 +45,8 @@ bundle
 GH_API_TOKEN=${GH_TOK} bundle exec rake sync_github_advisories
 
 if [ "X$1X" == "XrawX" ] ; then
-    :
+    echo "No post-processing.sh and ignore-dup-advs.sh runs"
 else
     scripts/post-processing.sh
-
     scripts/ignore-dup-advs.sh
 fi
