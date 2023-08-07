@@ -31,6 +31,9 @@ rmdups() {
         ./gems/nokogiri/GHSA-gx8x-g87m-h5q6.yml \
         ./gems/nokogiri/GHSA-v6gp-9mmm-c6p5.yml \
         ./gems/nokogiri/GHSA-xxx9-3xcr-gjj3.yml
+
+    # Disputed (8/4/2023: by author) advisory
+    rm -f ./gems/alchemy_cms/CVE-2018-18307.yml
 }
 
 rmdups
