@@ -34,6 +34,10 @@ rmdups() {
 
     # Disputed (8/4/2023: by author) advisory
     rm -f ./gems/alchemy_cms/CVE-2018-18307.yml
+
+    # 8/13/2023: Waiting on repo author for "Never Patched" clarification.
+    rm -f gems/fluentd-ui/CVE-2020-21514.yml \
+          gems/fluentd/CVE-2020-21514.yml
 }
 
 rmdups
