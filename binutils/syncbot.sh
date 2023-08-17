@@ -4,13 +4,6 @@
 #    "syncnot.sh"   (default: yes, create new branch)
 #    "syncbot.sh ." (skip creating new branch)
 
-if [ "X$(basename $(pwd))X" == "Xruby-advisory-dbX" ] ; then
-    echo "."
-else
-    echo "Change dir to ruby-advisory-db first."
-    exit
-fi
-
 function syncit() {
     echo "SYNCIT ########################################################"
     git fetch parent
