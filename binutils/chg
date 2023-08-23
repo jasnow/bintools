@@ -1,3 +1,4 @@
+
 #sed -e "s/5.2.2.rc1/5.2.2/" Gemfile > /tmp/g
 #sed -e "s/preview2/preview3/" .rvmrc > /tmp/g
 #sed -e "s/preview3/rc1/" .rvmrc > /tmp/g
@@ -224,6 +225,14 @@
 #sed -e "s/3.2.1/3.2.2/g" Gemfile > /tmp/g && mv /tmp/g Gemfile
 #sed -e "s/3.2.1/3.2.2/" .ruby-version > /tmp/g 2> /dev/null && mv /tmp/g .ruby-version
 
-sed -e "s/7.0.6/7.0.7/g" Gemfile > /tmp/g && mv /tmp/g Gemfile
+#sed -e "s/7.0.6/7.0.7/g" Gemfile > /tmp/g && mv /tmp/g Gemfile
+
+sed -e "s/3.3.0-preview1/3.3.0.preview1/" .ruby-version > /tmp/g \
+    2> /dev/null && mv /tmp/g .ruby-version
+sed -e 's/ruby "3.3.0.preview1"/ruby File.read(".ruby-version")/g' \
+    Gemfile > /tmp/g && mv /tmp/g Gemfile
+sed -e "s/ruby '3.3.0.preview1'/ruby File.read(\".ruby-version\")/g" \
+    Gemfile > /tmp/g && mv /tmp/g Gemfile
+sed -e "s/7.0.7/7.0.7.1/g" Gemfile > /tmp/g && mv /tmp/g Gemfile
 
 git diff
