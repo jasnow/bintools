@@ -234,6 +234,7 @@ sed -e 's/ruby "3.3.0.preview1"/ruby File.read(".ruby-version")/g' \
 sed -e "s/ruby '3.3.0.preview1'/ruby File.read(\".ruby-version\")/g" \
     Gemfile > /tmp/g && mv /tmp/g Gemfile
 #sed -e "s/7.0.7/7.0.7.1/g" Gemfile > /tmp/g && mv /tmp/g Gemfile
-sed -e "s/7.0.7.1/7.0.7.2/g" Gemfile > /tmp/g && mv /tmp/g Gemfile
+
+sed -e "s/7.0.7.2/7.0.8/g" Gemfile > /tmp/g && mv /tmp/g Gemfile
 
 git diff
