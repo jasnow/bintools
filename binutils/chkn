@@ -136,7 +136,7 @@ linenum ${LINENO} 1k "Gemfile's"
 egrep "6.1.0.rc2|4.0.0.beta3|gem 'rails', '6.0.2.1'" Gemfile
 
 linenum ${LINENO} 1l "Gemfile's"
-egrep "7.0.[0-9]|6.1.7" Gemfile |egrep -v "6.1.7.6|rubies/|gems/"
+egrep "7.0.[0-9]|6.1.7" Gemfile |egrep -v "6.1.7.6|7.0.8|rubies/|gems/"
 
 # GH-A do not like "debug" gem.
 egrep 'gem "debug"' Gemfile 
