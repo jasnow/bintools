@@ -86,7 +86,7 @@ sed -e "s,#.*,," Gemfile Gemfile.r* *gemspec 2> /dev/null | grep "[0-9]" \
 | egrep -v "'omniauth-google-oauth2'|'jquery-ui-rails'|'i18n-spec'|oauth2" \
 | egrep -v ".add_development_dependency|'sdoc', '1.0.0.rc3'|ruby '2.[567].[0123]'" \
 | egrep -v "2.3.8|2.4.10|2.5.8|2.6.6|2.7.7|3.2.2|3.0.3|sqlite3" \
-| egrep -v "platforms:|3.3.0.preview1|6.1.7.6|7.0.8"
+| egrep -v "platforms:|3.3.0.preview2|6.1.7.6|7.0.8"
 
 linenum ${LINENO} 1b "Gemfile's"
 # FYI: Changed 'git:' to 'github:' lines.
@@ -162,7 +162,7 @@ rvm list | grep "^=" | egrep -v "2.2.10|2.3.8|2.4.10|2.5.8 |2.6.6|2.7.7|3.0.3|3.
 linenum ${LINENO} 2b ".rvmrc's, .ruby-version's"
 egrep "5.2|2.4.0-preview3|2.3.3|2.6.0-rc|preview" .rvmrc .ruby-version 2>&1 \
 | egrep -v "railscasts_logo|No such file or directory|2.7-rails5.2" \
-| egrep -v "2.7.0-preview3|2.4.10|2.5.8|2.6.6|3.2.2|3.3.0.preview1"
+| egrep -v "2.7.0-preview3|2.4.10|2.5.8|2.6.6|3.2.2|3.3.0.preview2"
 
 ######################################################################
 # .travis.yml checks
