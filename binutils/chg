@@ -1,4 +1,3 @@
-
 #sed -e "s/5.2.2.rc1/5.2.2/" Gemfile > /tmp/g
 #sed -e "s/preview2/preview3/" .rvmrc > /tmp/g
 #sed -e "s/preview3/rc1/" .rvmrc > /tmp/g
@@ -237,11 +236,14 @@
 
 #sed -e "s/7.0.7.2/7.0.8/g" Gemfile > /tmp/g && mv /tmp/g Gemfile
 
-sed -e "s/3.3.0.preview1/3.3.0.preview2/" .ruby-version > /tmp/g \
-    2> /dev/null && mv /tmp/g .ruby-version
-sed -e "s/3.3.0-preview1/3.3.0-preview2/g" .rvmrc > /tmp/g && mv /tmp/g .rvmrc
-sed -e "s/3.3.0-preview1/3.3.0-preview2/g" .github/workflows/rubyonrails.yml > /tmp/g \
-    2> /dev/null && mv /tmp/g .github/workflows/rubyonrails.yml
+#sed -e "s/3.3.0.preview1/3.3.0.preview2/" .ruby-version > /tmp/g \
+#    2> /dev/null && mv /tmp/g .ruby-version
+#sed -e "s/3.3.0-preview1/3.3.0-preview2/g" .rvmrc > /tmp/g && mv /tmp/g .rvmrc
+#sed -e "s/3.3.0-preview1/3.3.0-preview2/g" .github/workflows/rubyonrails.yml > /tmp/g \
+#    2> /dev/null && mv /tmp/g .github/workflows/rubyonrails.yml
+
+sed -e "s/7.0.8/7.1.0.beta1/g" Gemfile > /tmp/g && mv /tmp/g Gemfile
+sed -e "s/rails7.0/rails7.1/" .rvmrc > /tmp/g && mv /tmp/g .rvmrc
+sed -e "s/config.active_record.legacy_connection_handling = false/config.active_support.cache_format_version = 7.0/" config/application.rb > /tmp/g && mv /tmp/g config/application.rb
 
 git diff
-
