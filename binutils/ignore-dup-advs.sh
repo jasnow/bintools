@@ -38,6 +38,9 @@ rmdups() {
     # 8/13/2023: Waiting on repo author for "Never Patched" clarification.
     rm -f gems/fluentd-ui/CVE-2020-21514.yml \
           gems/fluentd/CVE-2020-21514.yml
+
+    # 9/27/2023: https://github.com/theforeman/foreman/pull/9836 (Mentioned "withdrawn") 
+    rm -f gems/foreman/CVE-2022-3874.yml
 }
 
 rmdups
