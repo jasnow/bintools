@@ -274,7 +274,7 @@ git grep -lE "2\.2.5|2\.3.[21]" \
 | egrep -v "lib/components/jquery/|public/_components/jquery/|data/words.txt" \
 | egrep -v "6.1.0.alpha|5.2.2.1|5.1.6.2|5.0.7.2|4.2.11.1|sorbet/rbi/gems|rails.svg" \
 | egrep -v "package-lock.json|data/snmp/|documentation/|modules/|data/|spec/|spektr" \
-| egrep -v "pnpm-lock.yaml|public/|content/images/|source/_posts/|content/docs/"
+| egrep -v "pnpm-lock.yaml|public/|content/images/|source/_posts/|content/docs/|wal"
 
 ######################################################################
 
@@ -378,6 +378,7 @@ linenum ${LINENO} 11 "legacy config Check"
 
 git grep config.active_record.legacy_connection_handling
 
+grep " webdrivers" Gemfile.lock
 exit
 
 #STOPHERE ############################################################
