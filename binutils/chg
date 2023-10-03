@@ -246,6 +246,8 @@
 #sed -e "s/rails7.0/rails7.1/" .rvmrc > /tmp/g && mv /tmp/g .rvmrc
 #sed -e "s/config.active_record.legacy_connection_handling = false/config.active_support.cache_format_version = 7.0/" config/application.rb > /tmp/g && mv /tmp/g config/application.rb
 
-sed -e "s/7.1.0.beta1/7.1.0.rc1/g" Gemfile > /tmp/g && mv /tmp/g Gemfile
+#sed -e "s/7.1.0.beta1/7.1.0.rc1/g" Gemfile > /tmp/g && mv /tmp/g Gemfile
+
+sed -e "s/7.1.0.rc1/7.1.0.rc2/g" Gemfile > /tmp/g && mv /tmp/g Gemfile
 
 git diff

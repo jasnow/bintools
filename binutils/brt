@@ -26,4 +26,4 @@ else
         echo "*********************************************************************************"
     fi
 fi
-rm -f /tmp/$$_*
+rm -f /tmp/$$_* db/test.sqlite3-shm  db/test.sqlite3-wal
