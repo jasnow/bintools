@@ -41,6 +41,10 @@ rmdups() {
 
     # 9/27/2023: https://github.com/theforeman/foreman/pull/9836 (Mentioned "withdrawn") 
     rm -f gems/foreman/CVE-2022-3874.yml
+
+    # 10/4/2023: https://github.com/jquery-ui-rails/jquery-ui-rails/
+    #    issues/140 (Probably "abandoned")
+    rm -f gems/jquery-ui-rails/CVE-2022-31160.yml
 }
 
 rmdups

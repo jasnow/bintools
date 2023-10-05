@@ -248,6 +248,8 @@
 
 #sed -e "s/7.1.0.beta1/7.1.0.rc1/g" Gemfile > /tmp/g && mv /tmp/g Gemfile
 
-sed -e "s/7.1.0.rc1/7.1.0.rc2/g" Gemfile > /tmp/g && mv /tmp/g Gemfile
+#sed -e "s/7.1.0.rc1/7.1.0.rc2/g" Gemfile > /tmp/g && mv /tmp/g Gemfile
+
+sed -e "s/7.1.0.rc2/7.1.0/g" Gemfile > /tmp/g && mv /tmp/g Gemfile
 
 git diff
