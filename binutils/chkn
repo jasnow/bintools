@@ -370,15 +370,18 @@ egrep "@d3" .github/workflows/rubyonrails.yml
 
 ######################################################################
 
-linenum ${LINENO} 11 "bitbucket-pipelines.yml Check"
+linenum ${LINENO} 12 "bitbucket-pipelines.yml Check"
 
 egrep "image: ruby:" bitbucket-pipelines.yml 2> /dev/null | egrep -v "3.3.0"
 
-linenum ${LINENO} 11 "legacy config Check"
+linenum ${LINENO} 13 "legacy config Check"
 
 git grep config.active_record.legacy_connection_handling
 
 grep " webdrivers" Gemfile.lock
+
+# Ruby 3.4 gems
+egrep "csv|base64|bigdecimal|drb|mutex_m|observer" Gemfile
 exit
 
 #STOPHERE ############################################################
