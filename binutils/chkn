@@ -229,6 +229,8 @@ git grep "file.name.split"
 #REFERENCE: https://github.com/bertrand-caron/rails-cv-app/
 #blob/master/app/controllers/uploaded_files_controller.rb
 
+git grep "fixture_path "
+
 ######################################################################
 
 linenum ${LINENO} 4 "Hard-coded numbers"
