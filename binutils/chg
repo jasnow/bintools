@@ -261,12 +261,18 @@
 #    2> /dev/null && mv /tmp/g .github/workflows/rubyonrails.yml
 
 # GO BACK TO preview2.
-sed -e "s/3.3.0.preview3/3.3.0.preview2/" .ruby-version > /tmp/g \
-    2> /dev/null && mv /tmp/g .ruby-version
-sed -e "s/3.3.0-preview3/3.3.0-preview2/g" .rvmrc > /tmp/g && mv /tmp/g .rvmrc
-sed -e "s/3.3.0-preview3/3.3.0-preview2/g" .github/workflows/rubyonrails.yml > /tmp/g \
-    2> /dev/null && mv /tmp/g .github/workflows/rubyonrails.yml
+#sed -e "s/3.3.0.preview3/3.3.0.preview2/" .ruby-version > /tmp/g \
+#    2> /dev/null && mv /tmp/g .ruby-version
+#sed -e "s/3.3.0-preview3/3.3.0-preview2/g" .rvmrc > /tmp/g && mv /tmp/g .rvmrc
+#sed -e "s/3.3.0-preview3/3.3.0-preview2/g" .github/workflows/rubyonrails.yml > /tmp/g \
+#    2> /dev/null && mv /tmp/g .github/workflows/rubyonrails.yml
 
-sed -e "s/7.1.1/7.1.2/g" Gemfile > /tmp/g && mv /tmp/g Gemfile
+#sed -e "s/7.1.1/7.1.2/g" Gemfile > /tmp/g && mv /tmp/g Gemfile
+
+sed -e "s/3.3.0.preview2/3.3.0.rc1/" .ruby-version > /tmp/g \
+    2> /dev/null && mv /tmp/g .ruby-version
+sed -e "s/3.3.0-preview2/3.3.0-rc1/g" .rvmrc > /tmp/g && mv /tmp/g .rvmrc
+sed -e "s/3.3.0-preview2/3.3.0-rc1/g" .github/workflows/rubyonrails.yml > /tmp/g \
+    2> /dev/null && mv /tmp/g .github/workflows/rubyonrails.yml
 
 git diff
