@@ -42,4 +42,5 @@ if [ "X$1X" == "XrawX" ] ; then
 else
     scripts/post-processing.sh
     scripts/ignore-dup-advs.sh
+    git restore gems/jquery-ui-rails/CVE-2022-31160.yml
 fi
