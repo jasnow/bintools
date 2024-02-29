@@ -45,6 +45,12 @@ rmdups() {
     # 10/4/2023: https://github.com/jquery-ui-rails/jquery-ui-rails/
     #    issues/140 (Probably "abandoned")
     rm -f gems/jquery-ui-rails/CVE-2022-31160.yml
+
+    # 2/28/2024: Duplicates
+    rm -f \
+	gems/rails/CVE-2024-26142.yml \
+	gems/rails/CVE-2024-26143.yml \
+	gems/rails/CVE-2024-26144.yml
 }
 
 rmdups
