@@ -51,6 +51,9 @@ rmdups() {
 	gems/rails/CVE-2024-26142.yml \
 	gems/rails/CVE-2024-26143.yml \
 	gems/rails/CVE-2024-26144.yml
+
+    # 3/20/2024: Duplicate
+    rm -f gems/nokogiri/GHSA-vcc3-rw6f-jv97.yml
 }
 
 rmdups
