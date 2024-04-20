@@ -384,6 +384,12 @@ grep " webdrivers" Gemfile.lock
 
 # Ruby 3.4 gems
 #HID: egrep "csv|base64|bigdecimal|drb|mutex_m|observer" Gemfile
+
+######################################################################
+linenum ${LINENO} 13 "sqlite3 Check"
+
+grep "sqlite3" Gemfile |grep gem |egrep -v "1.4"
+
 exit
 
 #STOPHERE ############################################################
