@@ -285,6 +285,14 @@
 
 #sed -e "s/7.1.3/7.1.3.2/g" Gemfile > /tmp/g && mv /tmp/g Gemfile
 
-sed -e 's/"sqlite3"/"sqlite3", "~> 1.4"/g' Gemfile > /tmp/g && mv /tmp/g Gemfile
-sed -e "s/'sqlite3'/'sqlite3', '~> 1.4'/g" Gemfile > /tmp/g && mv /tmp/g Gemfile
+#sed -e 's/"sqlite3"/"sqlite3", "~> 1.4"/g' Gemfile > /tmp/g && mv /tmp/g Gemfile
+#sed -e "s/'sqlite3'/'sqlite3', '~> 1.4'/g" Gemfile > /tmp/g && mv /tmp/g Gemfile
+
+sed -e "s/3.2.3/3.2.4/" .ruby-version > /tmp/g \
+    2> /dev/null && mv /tmp/g .ruby-version
+sed -e "s/3.2.3/3.2.4/g" .rvmrc > /tmp/g && mv /tmp/g .rvmrc
+sed -e "s/3.2.3/3.2.4/g" .github/workflows/rubyonrails.yml > /tmp/g \
+    2> /dev/null && mv /tmp/g .github/workflows/rubyonrails.yml
+sed -e "s/3.2.3/3.2.4/g" Gemfile > /tmp/g && mv /tmp/g Gemfile
+
 git diff
