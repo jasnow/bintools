@@ -65,6 +65,7 @@ description: |
   ??
 cvss_v2: #.#
 cvss_v3: #.#
+cvss_v4: #.#
 unaffected_versions:
   - ??
 patched_versions:

@@ -54,6 +54,9 @@ rmdups() {
 
     # 3/20/2024: Duplicate
     rm -f gems/nokogiri/GHSA-vcc3-rw6f-jv97.yml
+
+    # 5/15/2024: Duplicate
+    rm -f gems/nokogiri/GHSA-r3w4-36x6-7r99.yml
 }
 
 rmdups
