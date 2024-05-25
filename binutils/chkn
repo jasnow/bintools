@@ -157,12 +157,13 @@ rvm list gemsets |grep "=>" | egrep -v "\[ i686 \]|\[ x86_64 \]"
 ######################################################################
 
 linenum ${LINENO} 2a "rvm list"
-rvm list | grep "^=" | egrep -v "2.2.10|2.3.8|2.4.10|2.5.8 |2.6.6|2.7.7|3.0.3|3.2.4|3.3.1"
+rvm list | grep "^=" | egrep -v "2.2.10|2.3.8|2.4.10|2.5.8 |2.6.6|2.7.7|3.0.3|3.2.4|3.4.0|3.3.1"
 
 linenum ${LINENO} 2b ".rvmrc's, .ruby-version's"
 egrep "5.2|2.4.0-preview3|2.3.3|2.6.0-rc|preview" .rvmrc .ruby-version 2>&1 \
 | egrep -v "railscasts_logo|No such file or directory|2.7-rails5.2" \
-| egrep -v "2.7.0-preview3|2.4.10|2.5.8|2.6.6|3.2.4|3.3.0.preview2|3.3.0.rc1"
+| egrep -v "2.7.0-preview3|2.4.10|2.5.8|2.6.6|3.2.4|3.3.0.preview2|3.3.0.rc1" \
+| egrep -v "3.4.0"
 
 ######################################################################
 # .travis.yml checks
@@ -281,7 +282,7 @@ git grep -lE "2\.2.5|2\.3.[21]" \
 ######################################################################
 
 linenum ${LINENO} 7a "preview's"
-git grep preview[0-9] |egrep -v "gems/|rubies/|preview3|yml:|2.7.0-preview1|3.3.1" # TEMP
+git grep preview[0-9] |egrep -v "gems/|rubies/|preview3|yml:|2.7.0-preview1|3.4.0" # TEMP
 
 linenum ${LINENO} 7b ".ruby-version's, Dockerfile, Gemfile's" 
 egrep "2.2.[0-6]|2.2.10|2.3.3" .ruby-version Dockerfile R* Gemfile 2> /dev/null \
@@ -374,7 +375,7 @@ egrep "@d3" .github/workflows/rubyonrails.yml
 
 linenum ${LINENO} 12 "bitbucket-pipelines.yml Check"
 
-egrep "image: ruby:" bitbucket-pipelines.yml 2> /dev/null | egrep -v "3.3.1"
+egrep "image: ruby:" bitbucket-pipelines.yml 2> /dev/null | egrep -v "3.4.0"
 
 linenum ${LINENO} 13 "legacy config Check"
 
