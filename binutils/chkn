@@ -157,7 +157,7 @@ rvm list gemsets |grep "=>" | egrep -v "\[ i686 \]|\[ x86_64 \]"
 ######################################################################
 
 linenum ${LINENO} 2a "rvm list"
-rvm list | grep "^=" | egrep -v "2.2.10|2.3.8|2.4.10|2.5.8 |2.6.6|2.7.7|3.0.3|3.2.4|3.4.0|3.3.1"
+rvm list | grep "^=" | egrep -v "2.2.10|2.3.8|2.4.10|2.5.8 |2.6.6|2.7.7|3.0.3|3.2.4|3.4.0|3.3.[12]"
 
 linenum ${LINENO} 2b ".rvmrc's, .ruby-version's"
 egrep "5.2|2.4.0-preview3|2.3.3|2.6.0-rc|preview" .rvmrc .ruby-version 2>&1 \
