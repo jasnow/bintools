@@ -86,7 +86,7 @@ sed -e "s,#.*,," Gemfile Gemfile.r* *gemspec 2> /dev/null | grep "[0-9]" \
 | egrep -v "'omniauth-google-oauth2'|'jquery-ui-rails'|'i18n-spec'|oauth2" \
 | egrep -v ".add_development_dependency|'sdoc', '1.0.0.rc3'|ruby '2.[567].[0123]'" \
 | egrep -v "2.3.8|2.4.10|2.5.8|2.6.6|2.7.7|3.2.4|3.0.3|sqlite3" \
-| egrep -v "platforms:|3.3.0.preview2|3.3.0.rc1|6.1.7.7|7.1.3.3|base64"
+| egrep -v "platforms:|3.3.0.preview2|3.3.0.rc1|6.1.7.7|7.1.3.4|base64"
 
 linenum ${LINENO} 1b "Gemfile's"
 # FYI: Changed 'git:' to 'github:' lines.
@@ -107,7 +107,7 @@ linenum ${LINENO} 1d "Gemfile's"
 cat Gemfile Gemfile.r* *gemspec 2> /dev/null | sed -e "s,#.*,," \
 | egrep "4.[12]" | egrep -v "^#|4.2.11|'>=2.3', '<= 4.1'|'4.1.16'" \
 | egrep -v "'slop', '4.1.0'|ruby '2.4.2'|gem.version|add_dependency" \
-| egrep -v "add_development_dependency|5.2.4.2|7.1.3.2"
+| egrep -v "add_development_dependency|5.2.4.2|7.1.3.4"
 
 linenum ${LINENO} 1e "Gemfile's"
 #Need 5.0.0.beta1.1, 4.2.5.1, 4.1.14.1, 3.2.22.1#
@@ -136,7 +136,7 @@ linenum ${LINENO} 1k "Gemfile's"
 egrep "6.1.0.rc2|4.0.0.beta3|gem 'rails', '6.0.2.1'" Gemfile
 
 linenum ${LINENO} 1l "Gemfile's"
-egrep "7.0.[0-9]|6.1.7" Gemfile |egrep -v "6.1.7.7|7.1.3.2|rubies/|gems/"
+egrep "7.0.[0-9]|6.1.7" Gemfile |egrep -v "6.1.7.7|7.1.3.4|rubies/|gems/"
 
 # GH-A do not like "debug" gem.
 egrep 'gem "debug"' Gemfile 
@@ -157,10 +157,10 @@ rvm list gemsets |grep "=>" | egrep -v "\[ i686 \]|\[ x86_64 \]"
 ######################################################################
 
 linenum ${LINENO} 2a "rvm list"
-rvm list | grep "^=" | egrep -v "2.2.10|2.3.8|2.4.10|2.5.8 |2.6.6|2.7.7|3.0.3|3.2.4|3.4.0|3.3.[12]"
+rvm list | grep "^=" | egrep -v "2.2.10|2.3.8|2.4.10|2.5.8 |2.6.6|2.7.7|3.0.3|3.2.4|3.4.0|3.3.2"
 
 linenum ${LINENO} 2b ".rvmrc's, .ruby-version's"
-egrep "5.2|2.4.0-preview3|2.3.3|2.6.0-rc|preview" .rvmrc .ruby-version 2>&1 \
+egrep "3.3.1|5.2|2.4.0-preview3|2.3.3|2.6.0-rc|preview" .rvmrc .ruby-version 2>&1 \
 | egrep -v "railscasts_logo|No such file or directory|2.7-rails5.2" \
 | egrep -v "2.7.0-preview3|2.4.10|2.5.8|2.6.6|3.2.4|3.3.0.preview2|3.3.0.rc1" \
 | egrep -v "3.4.0"
