@@ -91,7 +91,7 @@ sed -e "s,#.*,," Gemfile Gemfile.r* *gemspec 2> /dev/null | grep "[0-9]" \
 linenum ${LINENO} 1b "Gemfile's"
 # FYI: Changed 'git:' to 'github:' lines.
 sed -e "s,#.*,," Gemfile Gemfile.r* *gemspec 2> /dev/null | egrep "git" \
-| egrep -v "^  gem\.|', [ ]*github: '|omniauth-github|github_api" \
+| egrep -v "^  gem\.|', [ ]*github: '|omniauth-github|github_api|net-pop" \
 | egrep -v "'https://github.com/rails/rails'|^  s.|bradphelan/jasminerice" \
 | egrep -v '"https://github.com/rails/rails"|__FILE__' \
 | egrep -v "'github-markup'|3-0-lts|And:|git ls-files|'arel'" \
@@ -118,7 +118,7 @@ linenum ${LINENO} 1f "Gemfile's"
 egrep "5.2.1.1|5.2.0|5.2.0.rc1|'5.0.0'|'4.2.7'|'3.2.22.[1234]'|5.1.0.rc[12]|5.1.3.rc[12]|5.1.3|5.2.2" Gemfile |egrep -v "5.2.2.1" 
 
 linenum ${LINENO} 1g "Gemfile's"
-grep "github:" Gemfile |egrep -v "'acts-as-taggable-on'|instead"
+grep "github:" Gemfile |egrep -v "'acts-as-taggable-on'|instead|net-pop"
 
 linenum ${LINENO} 1h "Gemfile's"
 grep "5.0.1.rc1|5.1.3.rc[12]|5.1.5.rc1" Gemfile 2> /dev/null
@@ -157,7 +157,7 @@ rvm list gemsets |grep "=>" | egrep -v "\[ i686 \]|\[ x86_64 \]"
 ######################################################################
 
 linenum ${LINENO} 2a "rvm list"
-rvm list | grep "^=" | egrep -v "2.2.10|2.3.8|2.4.10|2.5.8 |2.6.6|2.7.7|3.0.3|3.2.4|3.4.0|3.3.2"
+rvm list | grep "^=" | egrep -v "2.2.10|2.3.8|2.4.10|2.5.8 |2.6.6|2.7.7|3.0.3|3.2.4|3.4.0|3.3.[23]"
 
 linenum ${LINENO} 2b ".rvmrc's, .ruby-version's"
 egrep "3.3.1|5.2|2.4.0-preview3|2.3.3|2.6.0-rc|preview" .rvmrc .ruby-version 2>&1 \
@@ -375,7 +375,7 @@ egrep "@d3" .github/workflows/rubyonrails.yml
 
 linenum ${LINENO} 12 "bitbucket-pipelines.yml Check"
 
-egrep "image: ruby:" bitbucket-pipelines.yml 2> /dev/null | egrep -v "3.4.0|3.3.2"
+egrep "image: ruby:" bitbucket-pipelines.yml 2> /dev/null | egrep -v "3.4.0|3.3.[23]"
 
 linenum ${LINENO} 13 "legacy config Check"
 
