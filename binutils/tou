@@ -8,6 +8,10 @@ done
 mv *~ .*~ \#*\# libpeerconnection.log /Users/macbookpro/X 2> /dev/null
 rm ../do-pull-request-first.txt~ o_list_of_repos.txt~ 2> /dev/null
 
+for i in railsgoat7 hott* BusRSVP ra*00 rt_first_app trail v*App ; do
+    touch $HOME/Projects/$i
+done
+
 exit
 
 echo 
