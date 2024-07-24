@@ -1,3 +1,8 @@
+# 7/22/2024: Commented these lines out. Should delete them Labor Day 2024.
+#for i in railsgoat7 hott* BusRSVP ra*00 rt_first_app trail v*App ; do
+#    touch -d "last Thursday" $HOME/Projects/$i
+#done
+
 for i in do-pull-request-first.txt BROKEN NEW VERY-OLD NOT-HELPFUL \
   GENERAL RONIN gocode enola bug-bounty-programs bearer vulnerablecode \
   gsd-tools gsd-database osv-schema advisory-database gemnasium-db \
@@ -7,10 +12,6 @@ for i in do-pull-request-first.txt BROKEN NEW VERY-OLD NOT-HELPFUL \
 done
 mv *~ .*~ \#*\# libpeerconnection.log /Users/macbookpro/X 2> /dev/null
 rm ../do-pull-request-first.txt~ o_list_of_repos.txt~ 2> /dev/null
-
-for i in railsgoat7 hott* BusRSVP ra*00 rt_first_app trail v*App ; do
-    touch $HOME/Projects/$i
-done
 
 exit
 

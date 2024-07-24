@@ -329,12 +329,12 @@
 #    2> /dev/null && mv /tmp/g .github/workflows/rubyonrails.yml
 #sed -e "s/3.3.2/3.3.3/g" Gemfile > /tmp/g && mv /tmp/g Gemfile
 
-sed -e "s/3.3.3/3.3.4/" .ruby-version > /tmp/g \
+sed -e "s/3.3.[23]/3.3.4/" .ruby-version > /tmp/g \
     2> /dev/null && mv /tmp/g .ruby-version
-sed -e "s/3.3.3/3.3.4/g" .rvmrc > /tmp/g && mv /tmp/g .rvmrc
-sed -e "s/3.3.3/3.3.4/g" .github/workflows/rubyonrails.yml > /tmp/g \
+sed -e "s/3.3.[23]/3.3.4/g" .rvmrc > /tmp/g && mv /tmp/g .rvmrc
+sed -e "s/3.3.[23]/3.3.4/g" .github/workflows/rubyonrails.yml > /tmp/g \
     2> /dev/null && mv /tmp/g .github/workflows/rubyonrails.yml
-sed -e "s/3.3.3/3.3.4/g" -e "s,RUBY 3.3.4,RUBY 3.3.3+," Gemfile > /tmp/g && mv /tmp/g Gemfile
+sed -e "s/3.3.[23]/3.3.4/g" -e "s,RUBY 3.3.4,RUBY 3.3.3+," Gemfile > /tmp/g && mv /tmp/g Gemfile
 
 sed -e "s/7.2.0.beta2/7.2.0.beta3/g" Gemfile > /tmp/g && mv /tmp/g Gemfile
 
