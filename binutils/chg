@@ -345,6 +345,8 @@ sed -e "s/3.2.4/3.2.5/g" .github/workflows/rubyonrails.yml > /tmp/g \
     2> /dev/null && mv /tmp/g .github/workflows/rubyonrails.yml
 sed -e "s/3.2.4/3.2.5/g" Gemfile > /tmp/g && mv /tmp/g Gemfile
 
-sed -e "s/7.2.0.beta3/7.2.0.rc1/g" Gemfile > /tmp/g && mv /tmp/g Gemfile
+#sed -e "s/7.2.0.beta3/7.2.0.rc1/g" Gemfile > /tmp/g && mv /tmp/g Gemfile
+
+sed -e "s/7.2.0.rc1/7.2.0/g" Gemfile > /tmp/g && mv /tmp/g Gemfile
 
 git diff
