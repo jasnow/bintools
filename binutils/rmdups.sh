@@ -17,3 +17,6 @@ rm -f \
     ./gems/nokogiri/GHSA-gx8x-g87m-h5q6.yml \
     ./gems/nokogiri/GHSA-v6gp-9mmm-c6p5.yml \
     ./gems/nokogiri/GHSA-xxx9-3xcr-gjj3.yml
+
+# 9/23/2024: Use CVE instead of GHSA.
+rm -f ./gems/omniauth-saml/GHSA-cvp8-5r8g-fhvq.yml
