@@ -57,6 +57,9 @@ rmdups() {
 
     # 5/15/2024: Duplicate
     rm -f gems/nokogiri/GHSA-r3w4-36x6-7r99.yml
+
+    # 9/23/2024: Duplicate of CVE-2024-45409.yml.
+    rm -f gems/omniauth-saml/GHSA-cvp8-5r8g-fhvq.yml
 }
 
 rmdups

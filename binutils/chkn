@@ -153,12 +153,12 @@ grep "[0-9]\.[0-9]" *gemspec 2> /dev/null \
 
 linenum ${LINENO} 99b "gemset's"
 # Use only gemsets that are equal to ruby versions (a few exceptions).
-rvm list gemsets |grep "=>" | egrep -v "\[ i686 \]|\[ x86_64 \]"
+# rvm list gemsets |grep "=>" | egrep -v "\[ i686 \]|\[ x86_64 \]"
 
 ######################################################################
 
-linenum ${LINENO} 2a "rvm list"
-rvm list | grep "^=" | egrep -v "2.2.10|2.3.8|2.4.10|2.5.8 |2.6.6|2.7.7|3.0.3|3.2.5|3.4.0|3.3.[5423]"
+linenum ${LINENO} 2a "addf list"
+asdf list | grep "^=" | egrep -v "2.2.10|2.3.8|2.4.10|2.5.8 |2.6.6|2.7.7|3.0.3|3.2.5|3.4.0|3.3.[5423]"
 
 linenum ${LINENO} 2b ".rvmrc's, .ruby-version's"
 egrep "3.3.1|5.2|2.4.0-preview3|2.3.3|2.6.0-rc|preview" .rvmrc .ruby-version 2>&1 \
@@ -382,7 +382,7 @@ linenum ${LINENO} 13 "legacy config Check"
 
 git grep config.active_record.legacy_connection_handling
 
-grep " webdrivers" Gemfile.lock
+grep " webdrivers" Gemfile.lock 2> /dev/null
 
 # Ruby 3.4 gems
 #HID: egrep "csv|base64|bigdecimal|drb|mutex_m|observer" Gemfile

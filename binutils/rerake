@@ -166,7 +166,7 @@ if [ $? == 0 ] ; then
 #    fi
 
     if [ $? == 0 ] ; then # "rake/arils-cmd run was green (0)
-        overcommit --sign
+        #overcommit --sign
         echo "rake/rails-cmd EXIT STATUS is ZERO - GREAT"
         if [ "X`git diff |grep "^[-+] " |wc -l`X" == "XX" ] ; then
             echo "'GIT DIFF PLUS/MINUS' is EMPTY"
