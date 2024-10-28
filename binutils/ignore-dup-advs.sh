@@ -64,6 +64,9 @@ rmdups() {
     # 10/3/2024; Duplicate of gems/camaleon_cms/
     # GHSA-7x4w-cj9r-h4v9.yml and CVE-2024-45409.yml.    
     rm -f gems/camaleon_cms/GHSA-3hp8-6j24-m5gm.yml
+
+    # 10/26/2024: Not a gem, it's an app.
+    rm -f gems/Autolab/CVE-2024-49376.yml
 }
 
 rmdups
