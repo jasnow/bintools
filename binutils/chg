@@ -381,14 +381,24 @@
 
 #sed -e "s/8.0.0.1/8.0.1/g" Gemfile > /tmp/g && mv /tmp/g Gemfile
 
-sed -e "s/3.4.0-preview2/3.4.0-rc1/" .ruby-version > /tmp/g 2> /dev/null \
+#sed -e "s/3.4.0-preview2/3.4.0-rc1/" .ruby-version > /tmp/g 2> /dev/null \
+#  && mv /tmp/g .ruby-version
+#sed -e "s/3.4.0-preview2/3.4.0-rc1/" .tool-versions > /tmp/g 2> /dev/null \
+#  && mv /tmp/g .tool-versions
+#sed -e "s/3.4.0-preview2@/3.4.0-rc1@/" \
+#    -e "s/3.4.0-preview2/3.4.0-rc1/g"  .rvmrc > /tmp/g \
+#  && mv /tmp/g .rvmrc
+#sed -e "s/3.4.0-preview2/3.4.0-rc1/g" .github/workflows/rubyonrails.yml \
+#  > /tmp/g 2> /dev/null && mv /tmp/g .github/workflows/rubyonrails.yml
+
+sed -e "s/3.4.0-rc1/3.4.0/" .ruby-version > /tmp/g 2> /dev/null \
   && mv /tmp/g .ruby-version
-sed -e "s/3.4.0-preview2/3.4.0-rc1/" .tool-versions > /tmp/g 2> /dev/null \
+sed -e "s/3.4.0-rc1/3.4.0/" .tool-versions > /tmp/g 2> /dev/null \
   && mv /tmp/g .tool-versions
-sed -e "s/3.4.0-preview2@/3.4.0-rc1@/" \
-    -e "s/3.4.0-preview2/3.4.0-rc1/g"  .rvmrc > /tmp/g \
+sed -e "s/3.4.0-rc1@/3.4.0@/" \
+    -e "s/3.4.0-rc1/3.4.0/g"  .rvmrc > /tmp/g \
   && mv /tmp/g .rvmrc
-sed -e "s/3.4.0-preview2/3.4.0-rc1/g" .github/workflows/rubyonrails.yml \
+sed -e "s/3.4.0-rc1/3.4.0/g" .github/workflows/rubyonrails.yml \
   > /tmp/g 2> /dev/null && mv /tmp/g .github/workflows/rubyonrails.yml
 
 git diff
