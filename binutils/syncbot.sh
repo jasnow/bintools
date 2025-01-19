@@ -4,8 +4,10 @@
 #    "syncnot.sh"   (default: yes, create new branch)
 #    "syncbot.sh ." (skip creating new branch)
 
+echo "In syncbot.sh"
+
 function syncit() {
-    echo "SYNCIT ########################################################"
+    echo "IN SYNCIT ########################################################"
     git fetch parent
     git checkout master
     git merge parent/master
@@ -14,7 +16,7 @@ function syncit() {
 
 function autogitb() {
     if [ "X$1X" == "XX" ] ; then
-        echo "AUTOGITB ##################################################"
+        echo "IN AUTOGITB ##################################################"
         git checkout -b "ghsa-syncbot-$(date '+20%y-%m-%d')-$(date '+%T' |sed -e 's,:,_,g')"
     else
         echo "NO *** AUTOGITB.SH ########################################"
@@ -33,6 +35,7 @@ autogitb "$1"
 git diff
 
 rm -f Gemfile.lock
+
 bundle
 
 GH_API_TOKEN=${GH_TOK} bundle exec rake sync_github_advisories

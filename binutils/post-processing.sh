@@ -2,6 +2,8 @@
 
 # Usage: Usually called by "syncbot.sh" script, but can be run separately."
 
+echo "In post-processing.sh"
+
 if [ "X$(basename $(pwd))X" == "Xruby-advisory-dbX" ] ; then
     :
 else
