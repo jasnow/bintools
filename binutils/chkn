@@ -157,17 +157,19 @@ linenum ${LINENO} 99b "gemset's"
 
 ######################################################################
 
-linenum ${LINENO} 2a "addf list"
-asdf list | grep "^=" | egrep -v "2.2.10|2.3.8|2.4.10|2.5.8 |2.6.6|2.7.7|3.0.3|3.2.5|3.4.0"
+#linenum ${LINENO} 2a "addf list"
+#asdf list | grep "^=" | egrep -v "2.2.10|2.3.8|2.4.10|2.5.8 |2.6.6|2.7.7|3.0.3|3.#2.5|3.4.0"
 
 linenum ${LINENO} 2b ".rvmrc's, .ruby-version's"
 egrep "3.3.1|5.2|2.4.0-preview3|2.3.3|2.6.0-rc|preview" .rvmrc .ruby-version 2>&1 \
 | egrep -v "railscasts_logo|No such file or directory|2.7-rails5.2" \
 | egrep -v "2.7.0-preview3|2.4.10|2.5.8|2.6.6|3.2.5|3.3.0.preview2|3.3.0.rc1" \
-| egrep -v "3.4.0"
+| egrep -v "3.4.0|.gem/"
 
 ######################################################################
 # .travis.yml checks
+
+linenum ${LINENO} 2c "line 172"
 
 #cat << EOFCAT > /tmp/$$_EOFCAT
 #railscanaryapps
@@ -219,6 +221,8 @@ else
     fi
 fi
 
+linenum ${LINENO} 2c "line 224"
+
 if [ -f .ruby-version ] ; then
     : 
 else
@@ -226,12 +230,16 @@ else
     exit
 fi
 
+linenum ${LINENO} 2c "line 233"
+
 # Check for "Path Traversal Attacks" CVE-2014-125033.
 git grep "file.name.split" 
 #REFERENCE: https://github.com/bertrand-caron/rails-cv-app/
 #blob/master/app/controllers/uploaded_files_controller.rb
 
-git grep "fixture_path "
+linenum ${LINENO} 2c "line 240"
+
+git grep "fixture_path " |egrep -v "\.gem/"
 
 ######################################################################
 
@@ -274,7 +282,7 @@ git grep -lE "2\.2.5|2\.3.[21]" \
 | egrep -v "app/assets/javascripts|app/assets/stylesheets|.ruby-version" \
 | egrep -v ".rvmrc|db/seeds.rb|test/fixtures/city_hall.json|.ruby-gemset" \
 | egrep -v "test/helper.rb|test/unit/gem_info_retriever_test.rb|app-visual" \
-| egrep -v "lib/ruby_dep/|spec/lib/ruby_dep/|CONTRIBUTING.md|yarn.lock" \
+| egrep -v "lib/ruby_dep/|spec/lib/ruby_dep/|CONTRIBUTING.md|yarn.lock|\.gem/ruby" \
 | egrep -v "lib/components/jquery/|public/_components/jquery/|data/words.txt" \
 | egrep -v "6.1.0.alpha|5.2.2.1|5.1.6.2|5.0.7.2|4.2.11.1|sorbet/rbi/gems|rails.svg" \
 | egrep -v "package-lock.json|data/snmp/|documentation/|modules/|data/|spec/|spektr" \
@@ -294,14 +302,14 @@ egrep "2.2.[0-6]|2.2.10|2.3.3" .ruby-version Dockerfile R* Gemfile 2> /dev/null 
 linenum ${LINENO} 8a "Upgrading"
 if [ "X`basename $PWD |grep "_6" |wc -l |awk '{ print $1 }'`X" == "X0X" ]; then
     # 12/4/2020: To upgrade repos to 6.1.x
-    PATNS="data/|rubies/|gems/|plugins/|lib/|spec/|config/|sorbet|lock|db/|log/|fonts/|public/|app/|demo.gif|example/|modules/|scripts|tools/|external/source|documentation/|docs/|content/images/|content/images/|source/_posts/"
+    PATNS="data/|rubies/|gems/|plugins/|lib/|spec/|config/|sorbet|lock|db/|log/|fonts/|public/|app/|demo.gif|example/|modules/|scripts|tools/|external/source|documentation/|docs/|content/images/|content/images/|source/_posts/|.gem/"
 
     if [ "X`git grep -l 6\.0\.3 |egrep -v ${PATNS} |wc -l |awk '{ print $1 }'`X" == "X0X" ]
     then
         :
     else
         echo "Need to upgrade to Rails 6.1:"
-        git grep -l 6.0.[0-9] |egrep -v ${PATNS}
+        git grep -l 6.0.[0-9] |egrep -v ${PATNS} 
     fi
 fi
 
@@ -376,18 +384,35 @@ egrep "@d3" .github/workflows/rubyonrails.yml
 
 linenum ${LINENO} 12 "bitbucket-pipelines.yml Check"
 
-egrep "image: ruby:" bitbucket-pipelines.yml 2> /dev/null | egrep -v "3.4.0"
+egrep "image: ruby:" bitbucket-pipelines.yml 2> /dev/null | egrep -v "3.4.1"
 
-linenum ${LINENO} 13 "legacy config Check"
+######################################################################
 
-git grep config.active_record.legacy_connection_handling
+linenum ${LINENO} 13a "legacy config Check"
 
-grep " webdrivers" Gemfile.lock 2> /dev/null
+git grep config.active_record.legacy_connection_handling 
+
+linenum ${LINENO} 13b "webdrivers"
+
+grep " webdrivers" Gemfile.lock 2> /dev/null |egrep -v ".gem/"
+
+linenum ${LINENO} 13c "3.4 gems"
 
 # Ruby 3.4 gems
 #HID: egrep "csv|base64|bigdecimal|drb|mutex_m|observer" Gemfile
 
-git grep preview[1-9]
+linenum ${LINENO} 13d "preview's"
+
+git grep preview[1-9] |egrep -v ".gem/"
+
+######################################################################
+
+linenum ${LINENO} 14 "Check for asdf files"
+
+git grep 3.4.0-rc1
+
+ls .tool-versions 2> /dev/null
+
 exit
 
 #STOPHERE ############################################################
