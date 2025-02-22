@@ -87,7 +87,7 @@ sed -e "s,#.*,," Gemfile Gemfile.r* *gemspec 2> /dev/null | grep "[0-9]" \
 | egrep -v ".add_development_dependency|'sdoc', '1.0.0.rc3'|ruby '2.[567].[0123]'" \
 | egrep -v "2.3.8|2.4.10|2.5.8|2.6.6|2.7.7|3.2.5|3.0.3|sqlite3" \
 | egrep -v "platforms:|3.3.0.preview2|3.3.0.rc1|6.1.7.8|7.1.4|base64" \
-| egrep -v "8.0.1'|3.4.0" |egrep -v "8.0.1"
+| egrep -v "8.0.1'|3.4.[01]" |egrep -v "8.0.1"
 
 linenum ${LINENO} 1b "Gemfile's"
 # FYI: Changed 'git:' to 'github:' lines.
@@ -158,13 +158,15 @@ linenum ${LINENO} 99b "gemset's"
 ######################################################################
 
 #linenum ${LINENO} 2a "addf list"
-#asdf list | grep "^=" | egrep -v "2.2.10|2.3.8|2.4.10|2.5.8 |2.6.6|2.7.7|3.0.3|3.#2.5|3.4.0"
+#asdf list | grep "^=" | egrep -v "2.2.10|2.3.8|2.4.10|2.5.8 |2.6.6|2.7.7|3.0.3|3.#2.5|3.4.[01]"
 
 linenum ${LINENO} 2b ".rvmrc's, .ruby-version's"
 egrep "3.3.1|5.2|2.4.0-preview3|2.3.3|2.6.0-rc|preview" .rvmrc .ruby-version 2>&1 \
 | egrep -v "railscasts_logo|No such file or directory|2.7-rails5.2" \
 | egrep -v "2.7.0-preview3|2.4.10|2.5.8|2.6.6|3.2.5|3.3.0.preview2|3.3.0.rc1" \
-| egrep -v "3.4.0|.gem/"
+| egrep -v "3.4.0/.gem/"
+
+egrep "3.4.1" .rvmrc
 
 ######################################################################
 # .travis.yml checks
@@ -291,7 +293,7 @@ git grep -lE "2\.2.5|2\.3.[21]" \
 ######################################################################
 
 linenum ${LINENO} 7a "preview's"
-git grep preview[0-9] |egrep -v "gems/|rubies/|preview3|yml:|2.7.0-preview1|3.4.0" # TEMP
+git grep preview[0-9] |egrep -v "gems/|rubies/|preview3|yml:|2.7.0-preview1|3.4.[01]" # TEMP
 
 linenum ${LINENO} 7b ".ruby-version's, Dockerfile, Gemfile's" 
 egrep "2.2.[0-6]|2.2.10|2.3.3" .ruby-version Dockerfile R* Gemfile 2> /dev/null \
@@ -384,7 +386,7 @@ egrep "@d3" .github/workflows/rubyonrails.yml
 
 linenum ${LINENO} 12 "bitbucket-pipelines.yml Check"
 
-egrep "image: ruby:" bitbucket-pipelines.yml 2> /dev/null | egrep -v "3.4.1"
+egrep "image: ruby:" bitbucket-pipelines.yml 2> /dev/null | egrep -v "3.4.2"
 
 ######################################################################
 

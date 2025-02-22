@@ -69,6 +69,9 @@ rmdups() {
 
     # 10/26/2024: Not a gem, it's an app.
     rm -f gems/Autolab/CVE-2024-49376.yml
+
+    # 2/21/2025: Duplicate of GHSA-vvfq-8hwr-qm4m
+    rm -f gems/nokogiri/GHSA-5mwf-688x-mr7x.yml
 }
 
 rmdups
