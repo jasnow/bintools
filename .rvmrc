@@ -1,1 +1,1 @@
-rvm use 3.4.1@ruby3.4-rails8.0 --create
+rvm use 3.4.2@@ruby3.4-rails8.0 --create
