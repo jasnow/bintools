@@ -14,7 +14,11 @@ else
         cat /tmp/$$_LINEX | sed -e 's,$,] and GH-A file",' -e 's,^,gacp "Upgraded gem(s): [,'
     else
         if [ "X$1X" == "XuX" ] ; then
-           cat /tmp/$$_LINEX
+           if [ "X$2X" == "XX" ] ; then
+              cat /tmp/$$_LINEX
+           else
+              egrep -v "$2" /tmp/$$_LINEX
+           fi
         else
            cat /tmp/$$_LINEX | sed -e 's,$,]",' -e 's,^,gacp "Upgraded gem(s): [,'
         fi
