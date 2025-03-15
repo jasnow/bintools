@@ -72,6 +72,10 @@ rmdups() {
 
     # 2/21/2025: Duplicate of GHSA-vvfq-8hwr-qm4m
     rm -f gems/nokogiri/GHSA-5mwf-688x-mr7x.yml
+
+    # 3/14/2025: Duplicate of [CVE-2025-25292,
+    # CVE-2025-25291, CVE-2025-25293]
+    rm -f gems/omniauth-saml/GHSA-hw46-3hmr-x9xv.yml
 }
 
 rmdups
