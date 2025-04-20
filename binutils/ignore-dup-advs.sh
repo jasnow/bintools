@@ -76,6 +76,16 @@ rmdups() {
     # 3/14/2025: Duplicate of [CVE-2025-25292,
     # CVE-2025-25291, CVE-2025-25293]
     rm -f gems/omniauth-saml/GHSA-hw46-3hmr-x9xv.yml
+
+    # 4/16/2025: P/M's comment: "I [postmodern] have temporarily removed
+    #   gems/logstash-event/CVE-2014-4326.yml. This does indeed look
+    #   like incorrect GHSA data. The original blog post mentions the
+    #   elasticsearch/logstash-contrib GitHub repository, which contains
+    #   a logstash-contrib.gemspec but doesn't appear to have ever been
+    #   released to rubygems.org. Also, the logstash-event gem does not
+    #   contain the mentioned vulnerable files (lib/logstash/outputs/
+    #   zabbix.rb and lib/logstash/outputs/nagios_nsca.rb).
+    rm -f gems/logstash-event/CVE-2014-4326.yml
 }
 
 rmdups
