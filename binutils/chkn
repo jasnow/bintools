@@ -87,7 +87,7 @@ sed -e "s,#.*,," Gemfile Gemfile.r* *gemspec 2> /dev/null | grep "[0-9]" \
 | egrep -v ".add_development_dependency|'sdoc', '1.0.0.rc3'|ruby '2.[567].[0123]'" \
 | egrep -v "2.3.8|2.4.10|2.5.8|2.6.6|2.7.7|3.2.5|3.0.3|sqlite3" \
 | egrep -v "platforms:|3.3.0.preview2|3.3.0.rc1|6.1.7.8|7.1.4|base64" \
-| egrep -v "8.0.2'|3.4.3" |egrep -v "8.0.2"
+| egrep -v "8.0.2'|3.5.0" |egrep -v "8.0.2"
 
 linenum ${LINENO} 1b "Gemfile's"
 # FYI: Changed 'git:' to 'github:' lines.
@@ -164,7 +164,7 @@ linenum ${LINENO} 2b ".rvmrc's, .ruby-version's"
 egrep "3.3.1|5.2|2.4.0-preview3|2.3.3|2.6.0-rc|preview" .rvmrc .ruby-version 2>&1 \
 | egrep -v "railscasts_logo|No such file or directory|2.7-rails5.2" \
 | egrep -v "2.7.0-preview3|2.4.10|2.5.8|2.6.6|3.2.5|3.3.0.preview2|3.3.0.rc1" \
-| egrep -v "3.4.0/.gem/|3.4.3"
+| egrep -v "3.4.0/.gem/|3.5.0"
 
 egrep "3.4.[0-2]" .rvmrc
 
@@ -293,7 +293,7 @@ git grep -lE "2\.2.5|2\.3.[21]" \
 ######################################################################
 
 linenum ${LINENO} 7a "preview's"
-git grep preview[0-9] |egrep -v "gems/|rubies/|preview3|yml:|2.7.0-preview1|3.4.3" # TEMP
+git grep preview[0-9] |egrep -v "gems/|rubies/|preview3|yml:|2.7.0-preview1|3.5.0" # TEMP
 
 linenum ${LINENO} 7b ".ruby-version's, Dockerfile, Gemfile's" 
 egrep "2.2.[0-6]|2.2.10|2.3.3" .ruby-version Dockerfile R* Gemfile 2> /dev/null \
@@ -386,7 +386,7 @@ egrep "@d3" .github/workflows/rubyonrails.yml
 
 linenum ${LINENO} 12 "bitbucket-pipelines.yml Check"
 
-egrep "image: ruby:" bitbucket-pipelines.yml 2> /dev/null | egrep -v "3.4.3"
+egrep "image: ruby:" bitbucket-pipelines.yml 2> /dev/null | egrep -v "3.5.0"
 
 ######################################################################
 
@@ -398,22 +398,23 @@ linenum ${LINENO} 13b "webdrivers"
 
 grep " webdrivers" Gemfile.lock 2> /dev/null |egrep -v ".gem/"
 
-linenum ${LINENO} 13c "3.4 gems"
+linenum ${LINENO} 13c "3.5 gems"
 
-# Ruby 3.4 gems
+# Ruby 3.5 gems
 #HID: egrep "csv|base64|bigdecimal|drb|mutex_m|observer" Gemfile
 
 linenum ${LINENO} 13d "preview's"
 
-git grep preview[1-9] |egrep -v ".gem/"
+git grep preview[1-9] |egrep -v ".gem/|3.5.0"
 
 ######################################################################
 
-linenum ${LINENO} 14 "Check for asdf files"
+#linenum ${LINENO} 14 "Check for asdf files"
+#git grep 3.5.0-preview1
+#ls .tool-versions 2> /dev/null
 
-git grep 3.4.0-rc1
-
-ls .tool-versions 2> /dev/null
+#HID: linenum ${LINENO} 15 "Check for Gemfile flags"
+#HID: git grep "mingw|mswin"
 
 exit
 
