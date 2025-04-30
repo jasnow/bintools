@@ -1,4 +1,4 @@
 bundle lock --add-platform x86_64-linux
 #HID: bundle lock --add-platform x86_64-darwin-16
 bundle lock --add-platform universal-darwin
-#HID: bundle lock --add-platform ruby
+bundle lock --add-platform ruby
