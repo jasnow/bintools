@@ -21,7 +21,8 @@ rmdups() {
     rmdir gems/arabic-prawn gems/redcloth gems/testdir 2> /dev/null
 
     # Under rubies/ruby instead of "gems" (OK AS-IS) (GHSA#2437)
-    rm -f ./gems/webrick/CVE-2009-4492.yml
+    # 5/24/2025: COMMENT OUT PER P/M request.
+    # rm -f ./gems/webrick/CVE-2009-4492.yml
 
     # (Used CVE instead of GHSA id) (GHSA#2316) (GHSA#2315) (GHSA#2314) among others
     rm -f \
@@ -35,11 +36,13 @@ rmdups() {
         ./gems/nokogiri/GHSA-xxx9-3xcr-gjj3.yml
 
     # Disputed (8/4/2023: by author) advisory
-    rm -f ./gems/alchemy_cms/CVE-2018-18307.yml
+    # 5/24/2025: COMMENT OUT PER P/M request. 
+    # rm -f ./gems/alchemy_cms/CVE-2018-18307.yml
 
     # 8/13/2023: Waiting on repo author for "Never Patched" clarification.
-    rm -f gems/fluentd-ui/CVE-2020-21514.yml \
-          gems/fluentd/CVE-2020-21514.yml
+    # 5/24/2025: COMMENT OUT PER P/M request.
+    # rm -f gems/fluentd-ui/CVE-2020-21514.yml \
+    #      gems/fluentd/CVE-2020-21514.yml
 
     # 9/27/2023: https://github.com/theforeman/foreman/pull/9836 (Mentioned "withdrawn") 
     rm -f gems/foreman/CVE-2022-3874.yml
@@ -55,7 +58,8 @@ rmdups() {
 	gems/rails/CVE-2024-26144.yml
 
     # 3/20/2024: Duplicate
-    rm -f gems/nokogiri/GHSA-vcc3-rw6f-jv97.yml
+    # 5/25/2025: COMMENT OUT PER P/M request.
+    # rm -f gems/nokogiri/GHSA-vcc3-rw6f-jv97.yml
 
     # 5/15/2024: Duplicate
     rm -f gems/nokogiri/GHSA-r3w4-36x6-7r99.yml
@@ -64,8 +68,9 @@ rmdups() {
     rm -f gems/omniauth-saml/GHSA-cvp8-5r8g-fhvq.yml
 
     # 10/3/2024; Duplicate of gems/camaleon_cms/
-    # GHSA-7x4w-cj9r-h4v9.yml and CVE-2024-45409.yml.    
-    rm -f gems/camaleon_cms/GHSA-3hp8-6j24-m5gm.yml
+    # GHSA-7x4w-cj9r-h4v9.yml and CVE-2024-45409.yml.
+    # 5/25/2025: COMMENT OUT PER P/M request.
+    # rm -f gems/camaleon_cms/GHSA-3hp8-6j24-m5gm.yml
 
     # 10/26/2024: Not a gem, it's an app.
     rm -f gems/Autolab/CVE-2024-49376.yml
@@ -75,7 +80,8 @@ rmdups() {
 
     # 3/14/2025: Duplicate of [CVE-2025-25292,
     # CVE-2025-25291, CVE-2025-25293]
-    rm -f gems/omniauth-saml/GHSA-hw46-3hmr-x9xv.yml
+    # 5/25/2025: COMMENT OUT PER P/M request.
+    # rm -f gems/omniauth-saml/GHSA-hw46-3hmr-x9xv.yml
 
     # 4/16/2025: P/M's comment: "I [postmodern] have temporarily removed
     #   gems/logstash-event/CVE-2014-4326.yml. This does indeed look
