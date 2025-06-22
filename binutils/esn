@@ -1,5 +1,6 @@
 if [ "X$1X" == "XX" ] ; then
     es ${HOME}/Dropbox/Private/event-people-rails-project-notes.txt 
 else
+    cp ${HOME}/event-people-rails-project-notes.txt $HOME/OLD-ESNs/event-people-rails-project-notes.txt_backup_`date '+20%y-%m-%d-%T'`
     cp ${HOME}/Dropbox/Private/event-people-rails-project-notes.txt $HOME
 fi
