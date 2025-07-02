@@ -3,7 +3,7 @@ if [ "X$1X" == "XX" ] ; then
 fi
 
 bl 2> /dev/null
-#overcommit --sign
+overcommit --sign
 bundle exec bundle lock --add-platform ruby
 
 git add --all .
