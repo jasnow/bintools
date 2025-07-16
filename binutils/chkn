@@ -413,8 +413,8 @@ git grep preview[1-9] |egrep -v ".gem/|3.5.0"
 #git grep 3.5.0-preview1
 #ls .tool-versions 2> /dev/null
 
-#HID: linenum ${LINENO} 15 "Check for Gemfile flags"
-#HID: git grep "mingw|mswin"
+linenum ${LINENO} 15 "Check for Gemfile flags"
+git grep "mingw|mswin"
 
 exit
 
