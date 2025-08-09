@@ -27,6 +27,7 @@ function pp() {
           -e "/^vulnerabilities:/,/END OF FILE MARKER/s/^/#  /" \
           -e "s/package:/package: --------------------------------------------------/" \
           -e "/GitHub advisory data below/,/END OF FILE MARKER/d" \
+          -e 's/\\n/\n  /g' \
     | grep -Ev "END OF FILE MARKER|apache.org$|^3[CE]$"
     ) > /tmp/$$_pp
     # To keep debug vuly field: -e "/GitHub advisory data below/,/withdrawnAt/d"
