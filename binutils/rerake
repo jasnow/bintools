@@ -16,7 +16,7 @@ EOFHELP
 fi
 
 if [ "X`grep "use 2.[345]" .rvmrc|wc -l |awk '{ print $1 }'`X" == "X1X" ] ; then
-    bundle ; touch . ; echo "******************** Doing bundle, touch, and exit" ; exit
+    bundle install ; touch . ; echo "************ Doing bundle, touch, and exit" ; exit
     #echo "Can't use this script with this repo." 
 fi
 APPN=`basename $PWD |awk '{ print $1 }'`

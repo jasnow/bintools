@@ -36,7 +36,7 @@ git diff
 
 rm -f Gemfile.lock
 
-bundle
+bundle install
 
 GH_API_TOKEN=${GH_TOK} bundle exec rake sync_github_advisories
 
