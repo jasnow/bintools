@@ -92,6 +92,11 @@ rmdups() {
     #   contain the mentioned vulnerable files (lib/logstash/outputs/
     #   zabbix.rb and lib/logstash/outputs/nagios_nsca.rb).
     rm -f gems/logstash-event/CVE-2014-4326.yml
+
+    # 9/1/2025: P/M: "Removed both gems/bootstrap-sass/CVE-2024-6484.yml
+    #  and gems/bootstrap/CVE-2024-6484.yml in 1be9b4a."
+    rm -f gems/bootstrap-sass/CVE-2024-6484.yml \
+          gems/bootstrap/CVE-2024-6484.yml
 }
 
 rmdups
