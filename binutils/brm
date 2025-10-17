@@ -5,6 +5,7 @@ else
 fi
 
 if [ -d app ] ; then
+    #gem install brakeman
     brakeman -A ${NBR} -qz > /dev/null 2>&1
 
     if [ "X`echo $?`X" == "X0X" ] ; then

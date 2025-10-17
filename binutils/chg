@@ -447,7 +447,6 @@
 #sed -e "s/8.0.2/8.0.2.1/g" Gemfile > /tmp/g && mv /tmp/g Gemfile
 
 #sed -e "s/8.0.2/8.1.0/g" Gemfile > /tmp/g && mv /tmp/g Gemfile
-
 #sed -e "s/rails8.0/rails8.1/g" .rvmrc > /tmp/g && mv /tmp/g .rvmrc
 
 #sed -e "s/8.0.2.1/8.1.0.beta1/g" Gemfile > /tmp/g && mv /tmp/g Gemfile
@@ -464,14 +463,18 @@
 
 #sed -e "s/8.0.2.1/8.0.3/g" Gemfile > /tmp/g && mv /tmp/g Gemfile
 
-sed -e "s/3.4.6/3.4.7/" .ruby-version > /tmp/g \
-  2> /dev/null && mv /tmp/g .ruby-version
-sed -e "s/3.4.6@/3.4.7@/" -e "s/3.4.6/3.4.7/g" \
-  -e "s,3.4-,3.4-," .rvmrc > /tmp/g && mv /tmp/g .rvmrc
-sed -e "s/3.4.6/3.4.7/g" .github/workflows/rubyonrails.yml > /tmp/g \
-    2> /dev/null && mv /tmp/g .github/workflows/rubyonrails.yml
-echo "3.4.7" > .ruby-version
-sed -e "s/:mingw, :mswin, :x64_mingw/:windows/" Gemfile > /tmp/g \
-  2> /dev/null && mv /tmp/g Gemfile
+#sed -e "s/3.4.6/3.4.7/" .ruby-version > /tmp/g \
+#  2> /dev/null && mv /tmp/g .ruby-version
+#sed -e "s/3.4.6@/3.4.7@/" -e "s/3.4.6/3.4.7/g" \
+#  -e "s,3.4-,3.4-," .rvmrc > /tmp/g && mv /tmp/g .rvmrc
+#sed -e "s/3.4.6/3.4.7/g" .github/workflows/rubyonrails.yml > /tmp/g \
+#    2> /dev/null && mv /tmp/g .github/workflows/rubyonrails.yml
+#echo "3.4.7" > .ruby-version
+#sed -e "s/:mingw, :mswin, :x64_mingw/:windows/" Gemfile > /tmp/g \
+#  2> /dev/null && mv /tmp/g Gemfile
+
+sed -e "s/rails8.0/rails8.1/g" .rvmrc > /tmp/g && mv /tmp/g .rvmrc
+sed -e "s/8.0.3/8.1.0.rc1/g" Gemfile > /tmp/g && mv /tmp/g Gemfile
 
 git diff
+#8.1.0.rc1
