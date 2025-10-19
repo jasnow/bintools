@@ -417,7 +417,7 @@ linenum ${LINENO} 15 "Check for Gemfile flags"
 git grep "mingw|mswin"
 
 linenum ${LINENO} 16 "Check for timezone"
-git grep timezone
+grep timezone config/application.rb
 
 exit
 
