@@ -482,13 +482,13 @@
 
 #sed -e "s/8.1.0/8.1.1/g" Gemfile > /tmp/g && mv /tmp/g Gemfile
 
-sed -e "s/3.4.7/4.0.0-preview2" .ruby-version > /tmp/g \
+sed -e "s/3.4.7/4.0" .ruby-version > /tmp/g \
   2> /dev/null && mv /tmp/g .#ruby-version
-sed -e "s/3.4.7@/4..0.0-preview2@/" -e "s/3.4.7/4.0.0-preview2/g" \
+sed -e "s/3.4.7@/4.0@/" -e "s/3.4.7/4.0/g" \
   -e "s,3.4-,4.0-,"# .rvmrc > /tmp/g && mv /tmp/g .rvmrc
-sed -e "s/3.4.7/4.0.0-preview2/g" .github/workflows/rubyonrails.yml > /tmp/g \
+sed -e "s/3.4.7/4.0/g" .github/workflows/rubyonrails.yml > /tmp/g \
     2> /dev/null && mv /tmp/g .github/workflows/rubyonrails.yml
-echo "4.0.0-preview2" > .ruby-version
+echo "4.0" > .ruby-version
 
 git diff
 #8.1.0.rc1
