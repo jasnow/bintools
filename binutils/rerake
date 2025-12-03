@@ -71,7 +71,7 @@ fi
 if [ "X`bundle -v |grep -c Bundler`X" == "X0X" ] ; then
     echo "Installing bundler..."
     echo "BUNDLER RESULTS/1 CODE=[$?]"
-    bundle update --bundler --no-document
+    bundle update --bundler
     echo "BUNDLER UPDATE RESULTS/2 CODE=[$?]"
 else
     : # do nothing
