@@ -3,4 +3,4 @@
 #WAS: /usr/local/rvm/gems/ruby-3.2.0@ruby3.2-railsedge/gems
 
 grep -l "$1" \
-  `find /usr/local/rvm/gems/ruby-3.2.0@ruby3.2-railsedge/gems -type f -exec grep -ln "$1" {} \;`
+  `find /home/t530-dev/.rvm/gems/ruby-3.4.7@ruby3.4-rails8.1/gems -type f -exec grep -ln "$1" {} \;`
