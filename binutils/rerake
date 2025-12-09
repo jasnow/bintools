@@ -70,9 +70,9 @@ fi
 
 if [ "X`bundle -v |grep -c Bundler`X" == "X0X" ] ; then
     echo "Installing bundler..."
-    echo "BUNDLER RESULTS/1 CODE=[$?]"
+    #HID: echo "BUNDLER RESULTS/1 CODE=[$?]"
     bundle update --bundler
-    echo "BUNDLER UPDATE RESULTS/2 CODE=[$?]"
+    #HID: echo "BUNDLER UPDATE RESULTS/2 CODE=[$?]"
 else
     : # do nothing
 fi

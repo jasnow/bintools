@@ -1,8 +1,8 @@
 rm -f db/test.sqlite3-shm bb/test.sqlite3-wal
 git diff |grep "^[-+] " |awk '{ print $2 }' |egrep -v "gem|branch" \
 | egrep -v "integrity|resolved|version|uses:" \
-| sed -e "s/[12].[1-9].[0-9][0-9]*/bundler/" -e "s/bundler.pre.[12]//" \
-      -e "s/bundler.dev//" -e "s/[12].[1-9].[0-9]*/bundler/" \
+| sed -e "s/[124].[1-9].[0-9][0-9]*/bundler/" -e "s/bundler.pre.[12]//" \
+      -e "s/bundler.dev//" -e "s/[124].[0-9].[0-9]*/bundler/" \
   -e "s/2.0.0.pre.1//" -e 's/[":]//g' | sort -u | tr "\012" ", " \
 | sed -e "s/,$//" -e "s/^,//" -e "s,revision:,latest rails," \
   -e "s,revision,latest rails," > /tmp/$$_LINEX
@@ -25,4 +25,4 @@ else
     fi
 fi
 echo
-rm -f /tmp/$$_LINEX /tmp/$$_CREMEE
+rm -f /tmp/$$_LINEX
