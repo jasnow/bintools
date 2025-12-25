@@ -490,13 +490,20 @@
 #    2> /dev/null && mv /tmp/g .github/workflows/rubyonrails.yml
 #echo "4.0" > .ruby-version
 
-sed -e "s/3.4.7/3.4.8/" .ruby-version > /tmp/g \
-  2> /dev/null && mv /tmp/g .#ruby-version
-sed -e "s/3.4.7@/3.4.8@/" -e "s/3.4.7/3.4.8/g" \
-  -e "s,3.4-,3.4-,"# .rvmrc > /tmp/g && mv /tmp/g .rvmrc
-sed -e "s/3.4.7/3.4.8/g" .github/workflows/rubyonrails.yml > /tmp/g \
+#sed -e "s/3.4.7/3.4.8/" .ruby-version > /tmp/g \
+#  2> /dev/null && mv /tmp/g .#ruby-version
+#sed -e "s/3.4.7@/3.4.8@/" -e "s/3.4.7/3.4.8/g" \
+#  -e "s,3.4-,3.4-,"# .rvmrc > /tmp/g && mv /tmp/g .rvmrc
+#sed -e "s/3.4.7/3.4.8/g" .github/workflows/rubyonrails.yml > /tmp/g \
+#    2> /dev/null && mv /tmp/g .github/workflows/rubyonrails.yml
+#echo "3.4.8" > .ruby-version
+
+sed -e "s/3.4.8/4.0.0/" .ruby-version > /tmp/g 2> /dev/null \
+&& mv /tmp/g .ruby-version
+sed -e "s/3.4.8@/4.0.0@/" -e "s/3.4.8/4.0.0/g" \
+  -e "s,3.4-,4.0-," .rvmrc > /tmp/g && mv /tmp/g .rvmrc
+sed -e "s/3.4.8/4.0.0/g" .github/workflows/rubyonrails.yml > /tmp/g \
     2> /dev/null && mv /tmp/g .github/workflows/rubyonrails.yml
-echo "3.4.8" > .ruby-version
+echo "4.0.0" > .ruby-version
 
 git diff
-#8.1.0.rc1
