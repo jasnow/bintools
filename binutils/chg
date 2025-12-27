@@ -500,7 +500,7 @@
 
 sed -e "s/3.4.8/4.0.0/" .ruby-version > /tmp/g 2> /dev/null \
 && mv /tmp/g .ruby-version
-sed -e "s/3.4.8@/4.0.0@/" -e "s/3.4.8/4.0.0/g" \
+sed -e "s/3.4.8@/ruby-4.0.0@/" -e "s/3.4.8/4.0.0/g" \
   -e "s,3.4-,4.0-," .rvmrc > /tmp/g && mv /tmp/g .rvmrc
 sed -e "s/3.4.8/4.0.0/g" .github/workflows/rubyonrails.yml > /tmp/g \
     2> /dev/null && mv /tmp/g .github/workflows/rubyonrails.yml
