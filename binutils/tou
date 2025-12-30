@@ -4,12 +4,11 @@
 #done
 
 for i in do-pull-request-first.txt BROKEN NEW VERY-OLD NOT-HELPFUL \
-  GENERAL RONIN gocode enola bug-bounty-programs bearer vulnerablecode \
+  GENERAL RONIN gocode enola bug-bounty-programs bearer \
   gsd-tools gsd-database osv-schema advisory-database gemnasium-db \
-  purl-spec osv-detector rack CVE_Prioritizer vuln-list-update cve \
-  dawnscanner rubygems python-for-OSINT-21-days linux-for-OSINT-21-day \
-  draft-pre-cve-advs more-ruby-security-advisory-info \
-  ruby-advisory-db-Nov-09 ruby-advisory-db-nov.13 ruby-advisory-db-chk-674
+  purl-spec osv-detector rack CVE_Prioritizer cve \
+  rubygems python-for-OSINT-21-days linux-for-OSINT-21-day \
+  draft-pre-cve-advs more-ruby-security-advisory-info
   do
     touch $HOME/Projects/$i
 done
