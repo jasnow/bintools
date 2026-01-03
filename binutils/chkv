@@ -4,7 +4,7 @@ fi
 
 ONLYYES="|MAYBE|NO"
 
-INGORES="GEMWORK|SOR|FINAL-RET|NEED|NEW|VERY-OLD|BROKEN|sha256="
+INGORES="GEMWORK|SOR|FINAL-RET|NEED|NEW|VERY-OLD|BROKEN|sha256=|ATTIC-OLD-REPOS"
 
 if [ "X$2X" == "XX" ] ; then
     egrep "$1" $HOME/Projects/*/G*lock $HOME/Projects/*/*/G*lock 2> /dev/null \

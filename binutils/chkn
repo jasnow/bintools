@@ -420,6 +420,7 @@ git grep "mingw|mswin"
 linenum ${LINENO} 16 "Check for timezone"
 grep timezone config/application.rb
 
+linenum ${LINENO} 17 "Check for ruby_audit then delete it"
 exit
 
 #STOPHERE ############################################################
