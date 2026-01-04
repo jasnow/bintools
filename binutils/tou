@@ -3,8 +3,8 @@
 #    touch -d "last Thursday" $HOME/Projects/$i
 #done
 
-for i in do-pull-request-first.txt BROKEN NEW VERY-OLD NOT-HELPFUL \
-  GENERAL RONIN gocode enola bug-bounty-programs bearer \
+for i in do-pull-request-first.txt BROKEN VERY-OLD NOT-HELPFUL \
+  ATTIC-OLD-REPOS GENERAL RONIN gocode enola bug-bounty-programs bearer \
   gsd-tools gsd-database osv-schema advisory-database gemnasium-db \
   purl-spec osv-detector rack CVE_Prioritizer cve \
   rubygems python-for-OSINT-21-days linux-for-OSINT-21-day \
