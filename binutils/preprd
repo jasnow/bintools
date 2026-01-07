@@ -1,0 +1,2 @@
+git status |grep gems
+find $(git status |grep gems |sed -e "s,modified:,,") -type f
