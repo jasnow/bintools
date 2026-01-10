@@ -8,7 +8,7 @@ for i in do-pull-request-first.txt BROKEN VERY-OLD NOT-HELPFUL \
   gsd-tools gsd-database osv-schema advisory-database gemnasium-db \
   purl-spec osv-detector rack CVE_Prioritizer cve \
   rubygems python-for-OSINT-21-days linux-for-OSINT-21-day \
-  draft-pre-cve-advs more-ruby-security-advisory-info
+  draft-pre-cve-advs more-ruby-security-advisory-info railsgoat.wiki
   do
     touch $HOME/Projects/$i
 done
