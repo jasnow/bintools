@@ -97,9 +97,74 @@ rmdups() {
     #  and gems/bootstrap/CVE-2024-6484.yml in 1be9b4a."
     rm -f gems/bootstrap-sass/CVE-2024-6484.yml \
           gems/bootstrap/CVE-2024-6484.yml
+
+    # Duplicates:
+    # ghsa-g47j-3m2m-74qv (Duplicate)
+    # ghsa-vfpf-xmwh-8m65 (Duplicate)
 }
 
 rmdups
 
 # If I have a custom copy, get rid of it.
 git checkout -- lib/github_advisory_sync.rb
+
+######################################################################
+# 1/16/2026: o_44_plus below
+#(YES)    gem/nokogiri/CVE-2016-1683.yml
+#         -- https://rubygems.org/gems/nokogiri
+#(YES)    gem/json/CVE-2020-7712.yml
+#         -- https://rubygems.org/gems/json
+#(YES)    gem/net-ssh/CVE-2023-48795.yml
+#         -- https://rubygems.org/gems/net-ssh
+#(MAYBE)  gem/bson/CVE-2020-7610.yml
+#         -- https://rubygems.org/gems/bson
+#(MAYBE)  gem/metasploit-framework/CVE-2023-0669.yml
+#         -- https://rubygems.org/gems/metasploit-framewo
+#(UNSURE) gem/rollout-ui/CVE-2023-25309.yml
+#         -- https://rubygems.org/gems/rollout-ui
+#(RUBY TOOL) gem/rvm/CVE-2017-1000037.yml
+#         -- https://rubygems.org/gems/rvm (last release in 2014)
+######################################################################
+#DISPUTED:    gem/actionpack/CVE-2022-3704.yml
+#DISPUTED:    gem/rails/CVE-2022-3704.yml
+#DISPUTED:    gem/nokogiri/CVE-2025-6490.yml
+#DISPUTED:    gem/nokogiri/CVE-2025-6494.yml
+#DISPUTED:    gem/nokogiri/CVE-2023-45322.yml
+#DISPUTED:    gem/agoo/CVE-2022-30288.yml
+#......................................................................
+#REJECTED:    gem/devise-two-factor/CVE-2024-0227.yml
+#REJECTED:    gem/doorkeeper/CVE-2012-5664.yml
+#REJECTED:    gem/bootstrap/CVE-2024-6484.yml
+#REJECTED:    gem/bootstrap-sass/CVE-2024-6484.yml
+#......................................................................
+#PYTHON       gem/mechanize/CVE-2021-32837.yml
+#PTTHON       gem/user_agent_parser/CVE-2018-20164.yml
+#PYTHON       gem/jubatus/CVE-2018-0524.yml
+#PYTHON       gem/jubatus/CVE-2018-0525.yml
+#......................................................................
+#NOT RUBY     gem/head_start/CVE-2023-40617.yml
+#NOT RUBY     gem/head_start/CVE-2023-40618.yml
+#NOT RUBY     gem/oneview/CVE-2022-28625.yml
+#NOT RUBY     gem/oneview/CVE-2023-28091.yml
+#NOT RUBY     gem/oneview/CVE-2023-30909.yml
+#NOT RUBY     gem/opensearch/CVE-2022-41917.yml
+#NOT RUBY     gem/opensearch/CVE-2022-41918.yml
+#NOT RUBY     gem/opensearch/CVE-2023-23933.yml
+#NOT RUBY     gem/opensearch/CVE-2023-25806.yml
+#NOT RUBY     gem/opensearch/CVE-2023-31141.yml
+#NOT RUBY     gem/opensearch/CVE-2023-45807.yml
+#NOT RUBY     gem/rugged/CVE-2018-10887.yml (libgit2)
+#NOT RUBY     gem/rugged/CVE-2018-10888.yml (libgit2)
+#NOT RUBY     gem/rugged/CVE-2018-15501.yml (libgit2)
+#NOT RUBY     gem/rugged/CVE-2020-12278.yml (libgit2)
+#NOT RUBY     gem/rugged/CVE-2020-12279.yml (libgit2)
+#NOT RUBY     gem/rugged/CVE-2023-22742.yml (libgit2)
+#NOT RUBY     gem/rugged/CVE-2014-9390.yml (libgit2)
+######################################################################
+#RAILSAPP     gem/arvados/CVE-2022-36006.yml
+#RAILSAPP     gem/arvados/CVE-2022-39238.yml
+#......................................................................
+#APP-NOT-RUBY gem/Autolab/CVE-2024-49376.yml
+#WRONG THING  gem/gem_publisher/CVE-2019-10426.yml
+#WRONG THING  gem/kontena-cli/CVE-2018-8728.yml
+#EOF
