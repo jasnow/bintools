@@ -110,21 +110,12 @@ git checkout -- lib/github_advisory_sync.rb
 
 ######################################################################
 # 1/16/2026: o_44_plus below
-#(YES)    gem/nokogiri/CVE-2016-1683.yml
-#         -- https://rubygems.org/gems/nokogiri
-#(YES)    gem/json/CVE-2020-7712.yml
-#         -- https://rubygems.org/gems/json
-#(YES)    gem/net-ssh/CVE-2023-48795.yml
-#         -- https://rubygems.org/gems/net-ssh
-#(MAYBE)  gem/bson/CVE-2020-7610.yml
-#         -- https://rubygems.org/gems/bson
-#(MAYBE)  gem/metasploit-framework/CVE-2023-0669.yml
-#         -- https://rubygems.org/gems/metasploit-framewo
-#(UNSURE) gem/rollout-ui/CVE-2023-25309.yml
-#         -- https://rubygems.org/gems/rollout-ui
-#(RUBY TOOL) gem/rvm/CVE-2017-1000037.yml
+#(WAIT/RUBY TOOL) gem/rvm/CVE-2017-1000037.yml
 #         -- https://rubygems.org/gems/rvm (last release in 2014)
 ######################################################################
+#(ADDED) gem/rollout-ui/CVE-2023-25309.yml
+#         -- https://rubygems.org/gems/rollout-ui
+#......................................................................
 #DISPUTED:    gem/actionpack/CVE-2022-3704.yml
 #DISPUTED:    gem/rails/CVE-2022-3704.yml
 #DISPUTED:    gem/nokogiri/CVE-2025-6490.yml
@@ -141,6 +132,8 @@ git checkout -- lib/github_advisory_sync.rb
 #PTTHON       gem/user_agent_parser/CVE-2018-20164.yml
 #PYTHON       gem/jubatus/CVE-2018-0524.yml
 #PYTHON       gem/jubatus/CVE-2018-0525.yml
+#......................................................................
+#WITHDRAWN    gem/metasploit-framework/CVE-2023-0669.yml (not ruby)
 #......................................................................
 #NOT RUBY     gem/head_start/CVE-2023-40617.yml
 #NOT RUBY     gem/head_start/CVE-2023-40618.yml
@@ -160,6 +153,9 @@ git checkout -- lib/github_advisory_sync.rb
 #NOT RUBY     gem/rugged/CVE-2020-12279.yml (libgit2)
 #NOT RUBY     gem/rugged/CVE-2023-22742.yml (libgit2)
 #NOT RUBY     gem/rugged/CVE-2014-9390.yml (libgit2)
+#NOT RUBY     gem/json/CVE-2020-7712.yml (node.js)
+#NOT RUBY     gem/bson/CVE-2020-7610.yml (node.js)
+#NOT RUBY     gem/net-ssh/CVE-2023-48795.yml (javascript, python)
 ######################################################################
 #RAILSAPP     gem/arvados/CVE-2022-36006.yml
 #RAILSAPP     gem/arvados/CVE-2022-39238.yml
@@ -167,4 +163,5 @@ git checkout -- lib/github_advisory_sync.rb
 #APP-NOT-RUBY gem/Autolab/CVE-2024-49376.yml
 #WRONG THING  gem/gem_publisher/CVE-2019-10426.yml
 #WRONG THING  gem/kontena-cli/CVE-2018-8728.yml
+#NOT NOKOGIRI gem/nokogiri/CVE-2016-1683.yml
 #EOF
