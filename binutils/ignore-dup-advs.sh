@@ -14,28 +14,30 @@ fi
 rmdups() {
 
 # ADD THESE:
-    # (Mixed case gem name) (GHSA#2312) (GHSA#2310)
-#    rm -f \
-#        ./gems/arabic-prawn/CVE-2014-2322.yml \
-#        ./gems/redcloth/CVE-2012-6684.yml \
-#	./gems/rails/CVE-2024-26143.yml
+    # APP-NOT-RUBY: 10/26/2024, 1/19/2026: Not a gem, it's an app.
+    rm -f ./gems/Autolab/CVE-2024-49376.yml
 
-    # APP-NOT-RUBY: 10/26/2024: Not a gem, it's an app.
-    rm -f .gems/Autolab/CVE-2024-49376.yml
+    # DUPLICATE: 9/23/2024,1/19/2026: Duplicate of gems/ruby-saml/CVE-2024-45409.yml
+    rm -f ./gems/omniauth-saml/GHSA-cvp8-5r8g-fhvq.yml
 
-    # DUPLICATE: 9/23/2024: Duplicate of gems/ruby-saml/CVE-2024-45409.yml.
-    rm -f gems/omniauth-saml/GHSA-cvp8-5r8g-fhvq.yml
+    # DUPLICATE: 1/19/2026 Duplicate of gems/actionpack/CVE-2024-26143.
+    rm -f ./gems/rails/CVE-2024-26143.yml
 
-    # (Used CVE instead of GHSA id)
+    # DUPLICATE: 1/19/2026 Duplicate of gems/Arabic-Prawn/CVE-2014-2322.yml
+    rm -f ./gems/arabic-prawn/CVE-2014-2322.yml \
+
+    # DUPLICATE: 1/19/2026 Duplicate of gems/RedCloth/CVE-2012-6684.yml#
+    rm -f ./gems/redcloth/CVE-2012-6684.yml \
+
+    # 1/19/2026: Used CVE instead of GHSA id.
     rm -f \
-        ./gems/user_agent_parser/GHSA-pcqq-5962-hvcw.yml
+        ./gems/user_agent_parser/GHSA-pcqq-5962-hvcw.yml \
         ./gems/nokogiri/GHSA-fq42-c5rg-92c2.yml \
         ./gems/nokogiri/GHSA-gx8x-g87m-h5q6.yml \
         ./gems/nokogiri/GHSA-v6gp-9mmm-c6p5.yml \
         ./gems/nokogiri/GHSA-xxx9-3xcr-gjj3.yml
 
-#AFTER
-    # empty dirs (rake doesn't like them)
+    # 1/19/2026: Empty dirs (rake doesn't like them)
     rmdir gems/arabic-prawn gems/redcloth gems/testdir 2> /dev/null
 
 #STOPHERE#############################################################
