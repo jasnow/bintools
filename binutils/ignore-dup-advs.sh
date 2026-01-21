@@ -17,17 +17,19 @@ rmdups() {
     # APP-NOT-RUBY: 10/26/2024, 1/19/2026: Not a gem, it's an app.
     rm -f ./gems/Autolab/CVE-2024-49376.yml
 
+    # BUG: https://github.com/github/advisory-database/issues/52
+    # DUPLICATE: 1/19/2026 Duplicate of gems/Arabic-Prawn/CVE-2014-2322.yml
+    rm -f ./gems/arabic-prawn/CVE-2014-2322.yml
+    # DUPLICATE: 1/19/2026 Duplicate of gems/RedCloth/CVE-2012-6684.yml#
+    rm -f ./gems/redcloth/CVE-2012-6684.yml
+    # 1/19/2026: Empty dirs (rake doesn't like them)
+    rmdir gems/arabic-prawn gems/redcloth  2> /dev/null
+
     # DUPLICATE: 9/23/2024,1/19/2026: Duplicate of gems/ruby-saml/CVE-2024-45409.yml
     rm -f ./gems/omniauth-saml/GHSA-cvp8-5r8g-fhvq.yml
 
     # DUPLICATE: 1/19/2026 Duplicate of gems/actionpack/CVE-2024-26143.
     rm -f ./gems/rails/CVE-2024-26143.yml
-
-    # DUPLICATE: 1/19/2026 Duplicate of gems/Arabic-Prawn/CVE-2014-2322.yml
-    rm -f ./gems/arabic-prawn/CVE-2014-2322.yml \
-
-    # DUPLICATE: 1/19/2026 Duplicate of gems/RedCloth/CVE-2012-6684.yml#
-    rm -f ./gems/redcloth/CVE-2012-6684.yml \
 
     # 1/19/2026: Used CVE instead of GHSA id.
     rm -f \
@@ -38,7 +40,7 @@ rmdups() {
         ./gems/nokogiri/GHSA-xxx9-3xcr-gjj3.yml
 
     # 1/19/2026: Empty dirs (rake doesn't like them)
-    rmdir gems/arabic-prawn gems/redcloth gems/testdir 2> /dev/null
+    rmdir gems/testdir 2> /dev/null
 
 #STOPHERE#############################################################
 
