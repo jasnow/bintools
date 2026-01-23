@@ -1,0 +1,18 @@
+if [ "X$1X" == "XX" ] ; then
+    echo "no arg" ; exit
+fi
+
+OKSTRINGS=" rails |mruby| ruby |ruby-lang|on-rails|/ruby/|ruby-jwt|rvm|rbenv|rubyonrails|rubyinside.com|ruby-forum|rubygem|_ruby_|rubyzip|rubyssl|ruby-vul|ruby1|rubysec|rubyforge|ruby-1|comp.lang.ruby|-ruby|puppet.com|ruby-talk|ruby-weak"
+
+NOTSTRINGS="K7AntiVirus_POC|Vir.IT-explorer_POC|rubyfly|rubyroobs|helpspot|Piano|Chrome |GHSA-hm6m-2xg8-mc5q|GHSA-g644-679q-jjcf"
+
+#| egrep -iv "${OKSTRINGS}"
+sed -e "s,^,/home/t530-dev/Projects/advisory-database/advisories/unreviewed/," \
+$* > /tmp/$$_o_FILES
+
+egrep -i "ruby|rails" $(cat /tmp/$$_o_FILES) \
+| egrep -v "${NOTSTRINGS}" | egrep "ruby" \
+| awk -F':' '{ print $1 }' |sort -u > /tmp/$$_MAYB
+
+fgrep -v -f $HOME/UNREVIEWED/GETADVFILES/got /tmp/$$_MAYB
+rm /tmp/$$_o_FILES /tmp/$$_MAYB

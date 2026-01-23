@@ -38,7 +38,7 @@ rm -f Gemfile.lock
 
 bundle install
 
-GH_API_TOKEN=${GH_TOK} bundle exec rake sync_other_github_advisories
+GH_API_TOKEN=${GH_TOK} bundle exec rake sync_unreviewed_github_advisories
 
 if [ "X$1X" == "XrawX" ] ; then
     echo "No post-processing.sh and ignore-dup-advs.sh runs"
