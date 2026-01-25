@@ -2,6 +2,25 @@ if [ "X$1X" == "XX" ] ; then
     echo "no arg" ; exit
 fi
 
+grep -v "^#" << EOF-DONE-or-DUP  |awk '{ print $1 }' >> /tmp/$$_IGNORE-THEM
+GHSA-jmhx-fqfh-838h NOT-RUBY
+CVE-2022-45301      NOT-RUBY
+GHSA-4w6g-25w8-c8vc DISPUTED - SQL injection vul
+GHSA-c2xw-j3rw-89x2 DISPUTED - SQL injection vul
+GHSA-rjh4-8mqr-rvr8 DISPUTED - SQL injection vul
+GHSA-vqpc-h5g8-fhrw DISPUTED - SQL injection vul
+GHSA-6qq6-x75v-fgg7 DISPUTED - openssl extension
+GHSA-jwh5-q83f-2jjc DISPUTED - WEBrick gem 1.4.2
+GHSA-f639-3h6h-vr46 ADDED
+GHSA-xh66-6mj6-94rg ADDED
+GHSA-rc82-v3mm-rhj2 ADDED
+GHSA-48pr-6hvf-39v3 ADDED
+GHSA-63cq-cj6g-qfr2 ADDED
+GHSA-qgq2-pf5j-2fvq JAVASCRIPT/Prototype.js/Put draf in draft-pre-cve-advs
+GHSA-prwc-wj59-8vwr Ruby/BigDecimal/Updated PR #972
+GHSA-f57c-hx33-hvh8 UNCLEAR-RELEASE PR#972
+EOF-DONE-or-DUP
+
 OKSTRINGS=" rails |mruby| ruby |ruby-lang|on-rails|/ruby/|ruby-jwt|rvm|rbenv|rubyonrails|rubyinside.com|ruby-forum|rubygem|_ruby_|rubyzip|rubyssl|ruby-vul|ruby1|rubysec|rubyforge|ruby-1|comp.lang.ruby|-ruby|puppet.com|ruby-talk|ruby-weak"
 
 NOTSTRINGS="K7AntiVirus_POC|Vir.IT-explorer_POC|rubyfly|rubyroobs|helpspot|Piano|Chrome |GHSA-hm6m-2xg8-mc5q|GHSA-g644-679q-jjcf"
@@ -14,5 +33,9 @@ egrep -i "ruby|rails" $(cat /tmp/$$_o_FILES) \
 | egrep -v "${NOTSTRINGS}" | egrep "ruby" \
 | awk -F':' '{ print $1 }' |sort -u > /tmp/$$_MAYB
 
-fgrep -v -f $HOME/UNREVIEWED/GETADVFILES/got /tmp/$$_MAYB
-rm /tmp/$$_o_FILES /tmp/$$_MAYB
+fgrep -v -f $HOME/UNREVIEWED/GETADVFILES/got /tmp/$$_MAYB > /tmp/$$_AFTR
+fgrep -v -f /tmp/$$_IGNORE-THEM /tmp/$$_AFTR
+
+#fgrep -f unrev-ruby-advs-2026-01-23.txt o_202* > o_o_lines
+
+rm /tmp/$$_o_FILES /tmp/$$_MAYB /tmp/$$_IGNORE-THEM /tmp/$$_AFTR
