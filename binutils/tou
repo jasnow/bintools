@@ -9,7 +9,7 @@ for i in do-pull-request-first.txt BROKEN VERY-OLD NOT-HELPFUL \
   purl-spec osv-detector rack CVE_Prioritizer cve \
   rubygems python-for-OSINT-21-days linux-for-OSINT-21-day \
   draft-pre-cve-advs more-ruby-security-advisory-info railsgoat.wiki \
-  vuln-list-update vulnerablecode www.ruby-lang.org
+  vuln-list-update vulnerablecode www.ruby-lang.org CNW
   do
     touch $HOME/Projects/$i
 done
