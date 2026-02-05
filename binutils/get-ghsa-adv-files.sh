@@ -1,4 +1,5 @@
 # $HOME/get-ghsa-adv-files.sh
+
 ls -1 ${HOME}/Projects/ruby-advisory-db/*/*/*.yml |egrep "GHSA|CVE" \
 | sed -e "s,.*CVE-,CVE-," -e "s,.*GHSA-,GHSA-," -e "s,.yml,," > /tmp/$$_got
 

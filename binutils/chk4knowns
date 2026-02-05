@@ -1,0 +1,13 @@
+grep ^CVE known-ruby-issues  \
+| sed -e "s,:.*,," -e "s#,##" -e "s, .*,," -e "s,CVE-,," |sort -n > /tmp/$$_k-a
+
+for i in $(cat /tmp/$$_k-a) ; do
+    #echo "== $i =============================="
+    $HOME/find-done-advs $i > /tmp/$$_count
+    CNT=$(wc -l /tmp/$$_count |awk '{ print $1 }')
+    if [ "X${CNT}X" == "X0X" ] ; then  
+        echo "NONE: ${CNT}: $i"
+#    else
+#        echo "SOME: ${CNT}"
+    fi
+done
