@@ -508,12 +508,9 @@
 
 #sed -e "s/8.1.1/8.1.2/g" Gemfile > /tmp/g && mv /tmp/g Gemfile
 
-sed -e "s/4.0.0/4.0.1/" .ruby-version > /tmp/g 2> /dev/null \
-&& mv /tmp/g .ruby-version
-sed -e "s/ruby-4.0.0@/ruby-4.0.1@/" -e "s/3.4.8/4.0.0/g" \
-  -e "s,4.0-,4.0-," .rvmrc > /tmp/g && mv /tmp/g .rvmrc
-sed -e "s/4.0.0/4.0.1/g" .github/workflows/rubyonrails.yml > /tmp/g \
-    2> /dev/null && mv /tmp/g .github/workflows/rubyonrails.yml
-echo "4.0.1" > .ruby-version
-
-git diff
+#sed -e "s/4.0.0/4.0.1/" .ruby-version > /tmp/g 2> /dev/null \
+#&& mv /tmp/g .ruby-version
+#sed -e "s/ruby-4.0.0@/ruby-4.0.1@/" -e "s/3.4.8/4.0.0/g" \
+#  -e "s,4.0-,4.0-," .rvmrc > /tmp/g && mv /tmp/g .rvmrc
+#sed -e "s/4.0.0/4.0.1/g" .github/workflows/rubyonrails.yml > /tmp/g \
+#    2> /dev/null && mv /tmp/g .github/workflows/rubyonrails.yml
