@@ -26,6 +26,14 @@ toy_app			       "PII but OK"
 trail			       "PII but OK"
 webrtc-hotwire-rails	       "PII but OK"
 sprt_edge		       "ASSUME OK"
+cfn-model                      "ASSUME OK"
+jasnow.github.io               "ASSUME OK"
+mruby			       "ASSUME OK"
+oct10			       "ASSUME OK"
+rack			       "ASSUME OK"
+rkwalify		       "ASSUME OK"
+wordmove		       "ASSUME OK"
+www.ruby-lang.org	       "ASSUME OK"
 EOFMAYBE
 
 # sorted by ABC's

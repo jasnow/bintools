@@ -1,4 +1,4 @@
-VERBOSE=$1
+11;rgb:3030/0a0a/24246.1VERBOSE=$1
 function linenum {
     if [ "X${VERBOSE}X" == "X-vX" ] ; then
        echo "LINE" $2 $1 $3
@@ -134,7 +134,8 @@ egrep "coffee-rails" Gemfile |grep github
 
 linenum ${LINENO} 1k "Gemfile's"
 # 1/25/2023: Removed "net-smtp". 
-egrep "6.1.0.rc2|4.0.0.beta3|gem 'rails', '6.0.2.1'" Gemfile
+egrep "6.1.0.rc2|4.0.0.beta3|gem 'rails', '6.0.2.1'" Gemfile \
+| egrep -v "Manifest.txt"
 
 linenum ${LINENO} 1l "Gemfile's"
 egrep "7.0.[0-9]|6.1.7" Gemfile |egrep -v "6.1.7.8|7.1.4|rubies/|gems/"
@@ -167,7 +168,7 @@ egrep "3.3.1|5.2|2.4.0-preview3|2.3.3|2.6.0-rc|preview" .rvmrc .ruby-version 2>&
 | egrep -v "2.7.0-preview3|2.4.10|2.5.8|2.6.6|3.2.5|3.3.0.preview2|3.3.0.rc1" \
 | egrep -v "3.4.0/.gem/|3.5.0"
 
-egrep "3.4.[0-7]" .rvmrc |egrep -v "rkwalify"
+egrep "3.4.[0-7]" .rvmrc
 
 ######################################################################
 # .travis.yml checks
@@ -294,8 +295,7 @@ git grep -lE "2\.2.5|2\.3.[21]" \
 ######################################################################
 
 linenum ${LINENO} 7a "preview's"
-git grep preview[0-9] |egrep -v \
-"gems/|rubies/|preview3|yml:|2.7.0-preview1|3.5.0|1.4.0.*preview1" # TEMP
+git grep preview[0-9] |egrep -v "gems/|rubies/|preview3|yml:|2.7.0-preview1|3.5.0" # TEMP
 
 linenum ${LINENO} 7b ".ruby-version's, Dockerfile, Gemfile's" 
 egrep "2.2.[0-6]|2.2.10|2.3.3" .ruby-version Dockerfile R* Gemfile 2> /dev/null \
@@ -306,7 +306,7 @@ egrep "2.2.[0-6]|2.2.10|2.3.3" .ruby-version Dockerfile R* Gemfile 2> /dev/null 
 linenum ${LINENO} 8a "Upgrading"
 if [ "X`basename $PWD |grep "_6" |wc -l |awk '{ print $1 }'`X" == "X0X" ]; then
     # 12/4/2020: To upgrade repos to 6.1.x
-    PATNS="data/|rubies/|gems/|plugins/|lib/|spec/|config/|sorbet|lock|db/|log/|fonts/|public/|app/|demo.gif|example/|modules/|scripts|tools/|external/source|documentation/|docs/|content/images/|content/images/|source/_posts/|.gem|Manifest.txt"
+    PATNS="data/|rubies/|gems/|plugins/|lib/|spec/|config/|sorbet|lock|db/|log/|fonts/|public/|app/|demo.gif|example/|modules/|scripts|tools/|external/source|documentation/|docs/|content/images/|content/images/|source/_posts/|.gem/"
 
     if [ "X`git grep -l 6\.0\.3 |egrep -v ${PATNS} |wc -l |awk '{ print $1 }'`X" == "X0X" ]
     then

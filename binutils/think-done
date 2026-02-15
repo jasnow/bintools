@@ -1,0 +1,62 @@
+2/14/2026: This is the list of "UNR" unreviewed rubies advisories.
+
+----------------------------------------------------------------------
+# ADDED or MODIFIED
+
+GHSA-q23r-c9rf-97q3 - CVE-2017-17405 (ADDED)
+GHSA-f639-3h6h-vr46 ADDED
+GHSA-xh66-6mj6-94rg ADDED
+GHSA-rc82-v3mm-rhj2 ADDED
+GHSA-48pr-6hvf-39v3 ADDED
+GHSA-63cq-cj6g-qfr2 ADDED
+GHSA-26pc-wx8w-v5vj MODIFIED/ADDED - CVE-2007-5162.yml
+GHSA-2h3c-5vqm-gqfh MODIFIED/ADDED - CVE-2015-9096.yml
+GHSA-vf66-crpm-448h -- ADDED - CVE-2005-1992.yml
+GHSA-99jr-qh2r-jwfm - ADDED - mrubyc - CVE-2025-13397 
+GHSA-j383-q79v-268x - ADDED - mruby - CVE-2025-13120 
+GHSA-q269-xqww-45mm - ADDED - mruby - CVE-2025-12875 
+GHSA-2h3c-5vqm-gqfh - ADDED - ruby CVE-2015-9096
+#
+2GHSA-qq64-7fh7-7hmw - CVE-2020-36401 (mruby) - ADDED
+GHSA-wvmx-3rv2-5jgf - CVE-2017-0898 (ruby, mruby(done) ) - ADDED
+#
+GHSA-gx49-h5r3-q3xj - CVE-2021-32066 (yes, ruby) - ADDED
+GHSA-j98g-25wq-62h9 - CVE-2006-1931  (yes, ruby) - ADDED
+GHSA-m9xr-x5mq-4fp5 - CVE-2015-7551  (yes, ruby) - ADDED
+GHSA-mmq8-m72q-qgm4 - CVE-2009-5147  (yes, ruby) - ADDED
+GHSA-6938-wq9x-9rgg - CVE-2012-1241 (mentions ruby but not ruby lang)
+#
+GHSA-cgqx-jwj4-2jc4 - CVE-2006-5467 - ruby - ADDED
+GHSA-cgqc-fqxr-q6r6 - CVE-2011-4838 - jruby - ADDED_
+#
+GHSA-p524-ppf2-w36w - CVE-2008-3655 - yes,ruby
+GHSA-823x-6r7f-v9x6 - CVE-2008-3656 - yes,ruby
+GHSA-5f6v-fgcw-j5px - CVE-2008-3657 - yes,ruby
+GHSA-vwcj-mf69-7rfw - CVE-2008-3905 - yes,ruby
+GHSA-r5r9-27m2-2jg7 - CVE-2008-1447 - has ruby reference, not ruby
+#
+GHSA-9j6f-82h4-9mw2 - CVE-2018-8777
+GHSA-mwq4-948j-88c5 - CVE-2018-8779
+GHSA-wpg3-wgm5-rv8w - CVE-2018-6914
+GHSA-xh4x-ph6p-vmxh - CVE-2018-16396
+GHSA-w9fp-2996-hhwx - CVE-2019-16254
+GHSA-7p4c-jf2w-hc3w - CVE-2017-17742
+GHSA-wr95-679j-87v9 - CVE-2021-31810
+GHSA-wvhq-ch4h-8pwr - CVE-2018-8778
+#
+GHSA-2j3h-55rq-rj48 - CVE-2014-6438
+GHSA-4gvm-4mw2-9fpv - CVE-2009-0642
+GHSA-gjcp-rx5c-g849 - CVE-2012-4464
+GHSA-mf83-c25g-48r6 - CVE-2007-5770
+GHSA-mvgc-rxvg-hqc6 - CVE-2022-28739
+#
+GHSA-6vch-6cgr-x9c3 - CVE-2011-0188
+GHSA-f7wf-fwmg-r7g3 - CVE-2008-2376
+GHSA-g8g6-3p4h-6388 - CVE-2011-2686
+GHSA-gm9g-777x-3fp6 - CVE-2012-4466
+GHSA-wj5x-c2v9-7wwr - CVE-2011-2705
+#
+GHSA-mg6g-jwh6-pwjf - CVE-2011-3009
+GHSA-4x8v-74xf-h4g3 - CVE-2015-1855
+GHSA-g5hm-28jr-53fh - CVE-2020-10933
+GHSA-rhf2-x48g-5wr7 - CVE-2008-1891

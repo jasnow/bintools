@@ -1,5 +1,7 @@
 # $HOME/get-ghsa-adv-files.sh
-
+#
+# Algorithm: Return the GHSA files that are not in RAD.
+#
 ls -1 ${HOME}/Projects/ruby-advisory-db/*/*/*.yml |egrep "GHSA|CVE" \
 | sed -e "s,.*CVE-,CVE-," -e "s,.*GHSA-,GHSA-," -e "s,.yml,," > /tmp/$$_got
 

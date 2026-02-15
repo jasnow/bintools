@@ -3,84 +3,44 @@ if [ "X$1X" == "XX" ] ; then
 fi
 
 grep -v "^#" << EOF-DONE-or-DUP  |awk '{ print $1 }' >> /tmp/$$_IGNORE-THEM
-GHSA-jmhx-fqfh-838h NOT-RUBY
-CVE-2022-45301      NOT-RUBY
-GHSA-4w6g-25w8-c8vc DISPUTED - SQL injection vul
+#......................................................................
+# DISPUTED
 GHSA-c2xw-j3rw-89x2 DISPUTED - SQL injection vul
 GHSA-rjh4-8mqr-rvr8 DISPUTED - SQL injection vul
 GHSA-vqpc-h5g8-fhrw DISPUTED - SQL injection vul
+GHSA-4w6g-25w8-c8vc DISPUTED - SQL injection vul
 GHSA-6qq6-x75v-fgg7 DISPUTED - openssl extension - CVE-2014-2734
 GHSA-jwh5-q83f-2jjc DISPUTED - WEBrick gem 1.4.2
-GHSA-f639-3h6h-vr46 ADDED
-GHSA-xh66-6mj6-94rg ADDED
-GHSA-rc82-v3mm-rhj2 ADDED
-GHSA-48pr-6hvf-39v3 ADDED
-GHSA-63cq-cj6g-qfr2 ADDED
-GHSA-qgq2-pf5j-2fvq JAVASCRIPT/Prototype.js/Put draf in draft-pre-cve-advs
-GHSA-prwc-wj59-8vwr Ruby/BigDecimal/Updated PR #972
-GHSA-f57c-hx33-hvh8 UNCLEAR-RELEASE PR#972
-#
-GHSA-26pc-wx8w-v5vj MODIFIED/ADDED - CVE-2007-5162.yml
-GHSA-2h3c-5vqm-gqfh MODIFIED/ADDED - CVE-2015-9096.yml
-GHSA-vf66-crpm-448h -- ADDED - CVE-2005-1992.yml
-GHSA-99jr-qh2r-jwfm - ADDED - mrubyc - CVE-2025-13397 
-GHSA-j383-q79v-268x - ADDED - mruby - CVE-2025-13120 
-GHSA-q269-xqww-45mm - ADDED - mruby - CVE-2025-12875 
-GHSA-2h3c-5vqm-gqfh - ADDED - ruby CVE-2015-9096
-GHSA-wc43-284g-pqr5n - CVE-2010-4188/found
-GHSA-xvhr-qprg-rjpwn - CVE-2010-4110/found
-#
-GHSA-qq64-7fh7-7hmw - CVE-2020-36401 (mruby) - ADDED
-GHSA-wvmx-3rv2-5jgf - CVE-2017-0898 (ruby, mruby(done) ) - ADDED
-#
-GHSA-h4xp-827w-ffh7 - CVE-2016-4864 (ho2, not mruby lang)
-GHSA-5458-w8p3-f624 - CVE-2017-7642 (mentions ruby but not ruby lang)
-GHSA-f29j-vf7h-f9g9 - CVE-2013-1945 (in pre* repo, not ruby lang)
-GHSA-hwm5-7hrp-v744 - CVE-2006-6979 (mentions ruby, not ruby lang)
-GHSA-2jww-8ppq-f5qp - CVE-2019-12575 (mentions ruby but not ruby lang)
-#
-GHSA-h459-7mrx-8pvc - CVE-2014-0241 (red hat plugin, not ruby lang)
+#......................................................................
+#NOT RUBY (Ruby Tools)
+GHSA-6r9x-mqf6-jvrp - CVE-2017-1000047 - rbenv (ruby tool)
+GHSA-9j7m-jqrm-mcj3 - CVE-2019-5624 - Rapid7 Metasploit Framework (tool)
 GHSA-rm8f-p7g6-p8p4 - CVE-2009-4079 - (redmine, not ruby lang)
 GHSA-68hg-cfx6-pvhh - CVE-2009-4078 - (redmine, not ruby lang)
+#......................................................................
+# Ruby mentioned
+GHSA-5458-w8p3-f624 - CVE-2017-7642 (mentions ruby but not ruby lang)
+GHSA-hwm5-7hrp-v744 - CVE-2006-6979 (mentions ruby, not ruby lang)
+GHSA-2jww-8ppq-f5qp - CVE-2019-12575 (mentions ruby but not ruby lang)
+#......................................................................
+# redhat
 GHSA-3fcg-qm7h-hhpw (red hat #3)
 GHSA-gphm-f2cq-m9pv (red hat #2)
 GHSA-w5v4-7h7x-xfvq (red hat #1)
-#
-GHSA-gx49-h5r3-q3xj - CVE-2021-32066 (yes, ruby) - ADDED
-GHSA-j98g-25wq-62h9 - CVE-2006-1931  (yes, ruby) - ADDED
-GHSA-m9xr-x5mq-4fp5 - CVE-2015-7551  (yes, ruby) - ADDED
-GHSA-mmq8-m72q-qgm4 - CVE-2009-5147  (yes, ruby) - ADDED
-GHSA-6938-wq9x-9rgg - CVE-2012-1241 (mentions ruby but not ruby lang)
-#
-GHSA-cgqx-jwj4-2jc4 - CVE-2006-5467 - ruby - ADDED
-GHSA-cgqc-fqxr-q6r6 - CVE-2011-4838 - jruby - ADDED_
-GHSA-6r9x-mqf6-jvrp - CVE-2017-1000047 - rbenv (ruby tool)
-GHSA-9j7m-jqrm-mcj3 - CVE-2019-5624 - Rapid7 Metasploit Framework (tool)
-#
-GHSA-p524-ppf2-w36w - CVE-2008-3655 - yes,ruby
-GHSA-823x-6r7f-v9x6 - CVE-2008-3656 - yes,ruby
-GHSA-5f6v-fgcw-j5px - CVE-2008-3657 - yes,ruby
-GHSA-vwcj-mf69-7rfw - CVE-2008-3905 - yes,ruby
-GHSA-r5r9-27m2-2jg7 - CVE-2008-1447 - has ruby reference, not ruby
-#
+GHSA-h459-7mrx-8pvc - CVE-2014-0241 (red hat plugin, not ruby lang)
+#......................................................................
+# NOT RUBY
+GHSA-qgq2-pf5j-2fvq JAVASCRIPT/Prototype.js/Put draft in draft-pre-cve-advs
 GHSA-w8r8-w5w4-4w4v - CVE-2014-0160  - openssl - not directly ruby ttps://www.ruby-lang.org/en/news/2014/04/10/severe-openssl-vulnerability
-#
-GHSA-38r7-794h-5758 - CVE-2025-68157 -Javascript/NPM
-GHSA-9j6f-82h4-9mw2 - CVE-2018-8777
-GHSA-mwq4-948j-88c5 - CVE-2018-8779
-GHSA-wpg3-wgm5-rv8w - CVE-2018-6914
-GHSA-xh4x-ph6p-vmxh - CVE-2018-16396
-GHSA-w9fp-2996-hhwx - CVE-2019-16254
-GHSA-7p4c-jf2w-hc3w - CVE-2017-17742
-GHSA-wr95-679j-87v9 - CVE-2021-31810
-GHSA-wvhq-ch4h-8pwr - CVE-2018-8778
+GHSA-h4xp-827w-ffh7 - CVE-2016-4864 (ho2, not mruby lang)
+GHSA-jmhx-fqfh-838h NOT-RUBY
+CVE-2022-45301      NOT-RUBY
 EOF-DONE-or-DUP
 
 OKSTRINGS=" rails |mruby| ruby |ruby-lang|on-rails|/ruby/|ruby-jwt|rvm|rbenv|rubyonrails|rubyinside.com|ruby-forum|rubygem|_ruby_|rubyzip|rubyssl|ruby-vul|ruby1|rubysec|rubyforge|ruby-1|comp.lang.ruby|-ruby|puppet.com|ruby-talk|ruby-weak"
 
 NOTSTRINGS="K7AntiVirus_POC|Vir.IT-explorer_POC|rubyfly|rubyroobs|helpspot|Piano|Chrome |GHSA-hm6m-2xg8-mc5q|GHSA-g644-679q-jjcf"
 
-#| egrep -iv "${OKSTRINGS}"
 sed -e "s,^,/home/t530-dev/Projects/advisory-database/advisories/unreviewed/," \
 $* > /tmp/$$_o_FILES
 
@@ -88,9 +48,6 @@ egrep -i "ruby|rails" $(cat /tmp/$$_o_FILES) \
 | egrep -v "${NOTSTRINGS}" | egrep "ruby" \
 | awk -F':' '{ print $1 }' |sort -u > /tmp/$$_MAYB
 
-fgrep -v -f $HOME/RJAM/UNREVIEWED/GETADVFILES/got /tmp/$$_MAYB > /tmp/$$_AFTR
-fgrep -v -f /tmp/$$_IGNORE-THEM /tmp/$$_AFTR
+fgrep -v -f /tmp/$$_IGNORE-THEM /tmp/$$_MAYB
 
-#fgrep -f unrev-ruby-advs-2026-01-23.txt o_202* > o_o_lines
-
-rm /tmp/$$_o_FILES /tmp/$$_MAYB /tmp/$$_IGNORE-THEM /tmp/$$_AFTR
+rm -fr /tmp/$$_o_FILES /tmp/$$_MAYB /tmp/$$_IGNORE-THEM
