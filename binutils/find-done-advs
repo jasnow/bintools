@@ -1,9 +1,0 @@
-cd /home/t530-dev/Projects/ruby-advisory-db
-git grep "$*"
-
-cd /home/t530-dev/Projects/draft-pre-cve-advs
-git grep "$*"
-
-grep "$*" /home/t530-dev/bin/binutils/ignore-dup-advs.sh
-
-grep "$*" /home/t530-dev/bin/binutils/chkr
