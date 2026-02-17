@@ -1,0 +1,80 @@
+#!/usr/bin/env bash
+
+# Usage: ./repo-eol-check owner repo
+# Example: ./repo-eol-check rails rails
+
+OWNER="$1"
+REPO="$2"
+
+if [ -z "$OWNER" ] || [ -z "$REPO" ]; then
+  echo "Usage: $0 <owner> <repo>"
+  exit 1
+fi
+
+API="https://api.github.com/repos/$OWNER/$REPO"
+
+echo "Checking EOL indicators for $OWNER/$REPO"
+echo "----------------------------------------"
+
+# Fetch repo metadata
+DATA=$(curl -s "$API")
+
+# 1. Archived?
+ARCHIVED=$(echo "$DATA" | jq -r '.archived')
+echo "Archived: $ARCHIVED"
+
+# 2. Last commit date
+LAST_COMMIT=$(curl -s "$API/commits?per_page=1" | jq -r '.[0].commit.author.date')
+echo "Last commit: $LAST_COMMIT"
+
+# 3. Last release date
+LAST_RELEASE=$(curl -s "$API/releases/latest" | jq -r '.published_at // "none"')
+echo "Last release: $LAST_RELEASE"
+
+# 4. Open issues count
+OPEN_ISSUES=$(echo "$DATA" | jq -r '.open_issues_count')
+echo "Open issues: $OPEN_ISSUES"
+
+# 5. Check Ruby version compatibility (Gemfile)
+TMPDIR=$(mktemp -d)
+git clone --depth 1 "https://github.com/$OWNER/$REPO.git" "$TMPDIR" >/dev/null 2>&1
+
+if [ -f "$TMPDIR/Gemfile" ]; then
+  RUBY_REQ=$(grep -E "ruby ['\"]" "$TMPDIR/Gemfile" | sed -E "s/.*ruby ['\"]([^'\"]+)['\"].*/\1/")
+  RUBY_REQ2=$(cat ${TMPDIR}/.ruby_version 2> /dev/null)
+  echo "Ruby version requirement: ${RUBY_REQ:-unknown} or ${RUBY_REQ2:-unknown}"
+else
+  echo "Ruby version requirement: Gemfile not found"
+fi
+
+rm -rf "$TMPDIR"
+
+# 6. Scorecard
+echo
+echo "EOL Scorecard:"
+echo "--------------"
+
+score=0
+
+if [ "$ARCHIVED" = "true" ]; then
+  echo "✓ Repo is archived (definitive EOL)"
+  score=$((score+3))
+fi
+
+if [ "$LAST_COMMIT" != "null" ]; then
+  YEARS=$(( ( $(date +%s) - $(date -d "$LAST_COMMIT" +%s) ) / 31536000 ))
+  echo "Last commit age: $YEARS years"
+  [ "$YEARS" -ge 2 ] && score=$((score+2))
+fi
+
+if [ "$LAST_RELEASE" != "none" ]; then
+  YEARS_REL=$(( ( $(date +%s) - $(date -d "$LAST_RELEASE" +%s) ) / 31536000 ))
+  echo "Last release age: $YEARS_REL years"
+  [ "$YEARS_REL" -ge 2 ] && score=$((score+2))
+else
+  echo "No releases found"
+  score=$((score+1))
+fi
+
+echo
+echo "Final EOL score: $score (higher = more likely EOL)"
