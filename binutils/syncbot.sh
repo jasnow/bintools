@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # USAGE: Either 
-#    "syncnot.sh"   (default: yes, create new branch)
+#    "syncbot.sh"   (default: yes, create new branch)
 #    "syncbot.sh ." (skip creating new branch)
 
 echo "In syncbot.sh"
